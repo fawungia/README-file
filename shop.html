@@ -1,4 +1,194 @@
-<main class="container">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | SkinHonestly</title>
+    <meta name="description" content="Shop our curated skincare products.">
+
+    <style>
+        :root {
+          --bg: #FAF7F2;
+          --primary: #7A9B76;
+          --secondary: #D4886B;
+          --text: #2B2B2B;
+          --highlight: #C9A876;
+          --white: #FFFFFF;
+        }
+
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        body {
+          background-color: var(--bg);
+          color: var(--text);
+          line-height: 1.6;
+        }
+
+        img {
+          max-width: 100%;
+          height: auto;
+          display: block;
+        }
+
+        a {
+          text-decoration: none;
+          color: var(--text);
+        }
+
+        h1, h2, h3 {
+          font-weight: 600;
+          margin-bottom: 1rem;
+        }
+
+        .btn {
+          display: inline-block;
+          padding: 0.8rem 1.5rem;
+          border-radius: 4px;
+          font-weight: bold;
+          text-align: center;
+          cursor: pointer;
+          border: none;
+          transition: opacity 0.3s ease;
+        }
+
+        .btn:hover { opacity: 0.9; }
+        .btn-primary { background-color: var(--primary); color: var(--white); }
+        .btn-secondary { background-color: var(--secondary); color: var(--white); }
+
+        .container {
+          width: 90%;
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 4rem 0;
+        }
+
+        header {
+          background-color: var(--bg);
+          position: sticky;
+          top: 0;
+          z-index: 1000;
+          box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 1.5rem 5%;
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+
+        .logo {
+          font-size: 1.5rem;
+          font-weight: bold;
+          color: var(--primary);
+        }
+
+        .nav-links {
+          display: flex;
+          gap: 2rem;
+        }
+
+        .nav-links a:hover { color: var(--primary); }
+
+        .menu-toggle {
+          display: none;
+          font-size: 1.5rem;
+          cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+          .nav-links {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: var(--bg);
+            padding: 1rem 5%;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+          }
+          .nav-links.active { display: flex; }
+          .menu-toggle { display: block; }
+        }
+
+        .grid-3 {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+          .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        .card {
+          background: var(--white);
+          border-radius: 8px;
+          overflow: hidden;
+          box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+          padding-bottom: 1.5rem;
+          text-align: center;
+        }
+
+        .card img {
+          width: 100%;
+          height: 250px;
+          object-fit: cover;
+          background-color: #eee;
+        }
+
+        .card-content { padding: 1.5rem; }
+        
+        .badge {
+          background-color: var(--highlight);
+          color: var(--white);
+          padding: 0.3rem 0.8rem;
+          font-size: 0.8rem;
+          border-radius: 20px;
+          display: inline-block;
+          margin-bottom: 1rem;
+          font-weight: bold;
+        }
+
+        footer {
+          background-color: var(--white);
+          text-align: center;
+          padding: 3rem 5%;
+          margin-top: 4rem;
+          border-top: 1px solid #eee;
+        }
+
+        .ftc-disclosure {
+          font-size: 0.8rem;
+          color: #666;
+          margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="nav-container">
+            <a href="index.html" class="logo">SkinHonestly</a>
+            <div class="menu-toggle">☰</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shop</a>
+                <a href="blog.html">Blog</a>
+                <a href="about.html">About</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
         <h1 style="text-align: center; margin-bottom: 3rem;">Shop Curated Skincare</h1>
 
         <div class="card" style="margin-bottom: 4rem; border: 2px solid var(--highlight);">
@@ -13,28 +203,51 @@
         <h2>Trusted Recommendations</h2>
         <div class="grid-3">
             <div class="card">
-                <img src="placeholder-affiliate1.jpg" alt="Gentle foaming cleanser bottle">
+                <img src="https://via.placeholder.com/400x250?text=Foaming+Cleanser" alt="Gentle foaming cleanser bottle">
                 <div class="card-content">
                     <h3>Gentle Foaming Cleanser</h3>
                     <p style="margin-bottom: 1rem;">Perfect pH balance for sensitive skin types.</p>
-                    <a href="[AFFILIATE LINK]" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Shop Now</a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Shop Now</a>
                 </div>
             </div>
+            
             <div class="card">
-                <img src="placeholder-affiliate2.jpg" alt="Vitamin C serum dropper">
+                <img src="https://via.placeholder.com/400x250?text=Vitamin+C+Serum" alt="Vitamin C serum dropper">
                 <div class="card-content">
                     <h3>Vitamin C Brightening Drops</h3>
                     <p style="margin-bottom: 1rem;">Antioxidant protection to use alongside our Reset Serum.</p>
-                    <a href="[AFFILIATE LINK]" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Shop Now</a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Shop Now</a>
                 </div>
             </div>
+            
             <div class="card">
-                <img src="placeholder-affiliate3.jpg" alt="Mineral SPF 50 sunscreen">
+                <img src="https://via.placeholder.com/400x250?text=Mineral+SPF+50" alt="Mineral SPF 50 sunscreen">
                 <div class="card-content">
                     <h3>Sheer Mineral SPF 50</h3>
                     <p style="margin-bottom: 1rem;">The essential final step. No white cast, reef safe.</p>
-                    <a href="[AFFILIATE LINK]" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Shop Now</a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Shop Now</a>
                 </div>
             </div>
         </div>
     </main>
+
+    <footer>
+        <h2>Join the SkinHonestly Community</h2>
+        <p>Follow us for daily tips: [IG] [FB] [PIN]</p>
+        <p class="ftc-disclosure">This page contains affiliate links. We may earn a commission at no extra cost to you.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            if(menuToggle && navLinks) {
+                menuToggle.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
