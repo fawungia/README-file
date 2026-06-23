@@ -7,7 +7,6 @@
     <meta name="description" content="Daily skincare blog and shop. Discover our signature products and our favorite affiliate recommendations for glowing skin.">
     
     <style>
-        /* CSS Variables */
         :root {
           --bg: #FAF7F2;
           --primary: #7A9B76;
@@ -17,126 +16,41 @@
           --white: #FFFFFF;
         }
 
-        /* Reset & Basics */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Helvetica Neue', Arial, sans-serif; }
         body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
         a { text-decoration: none; color: var(--text); }
         h1, h2, h3 { font-weight: 600; margin-bottom: 1rem; }
         img { max-width: 100%; height: auto; display: block; border-radius: 8px; }
 
-        /* Buttons */
-        .btn {
-          display: inline-block; padding: 0.8rem 1.5rem; border-radius: 4px; font-weight: bold;
-          text-align: center; cursor: pointer; border: none; transition: opacity 0.3s ease;
-        }
+        .btn { display: inline-block; padding: 0.8rem 1.5rem; border-radius: 4px; font-weight: bold; text-align: center; cursor: pointer; border: none; transition: opacity 0.3s ease; }
         .btn:hover { opacity: 0.9; }
         .btn-primary { background-color: var(--primary); color: var(--white); }
         .btn-secondary { background-color: var(--secondary); color: var(--white); }
 
-        /* Navigation */
         header { background-color: var(--bg); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
         .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 5%; max-width: 1200px; margin: 0 auto; }
         .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary); letter-spacing: 1px; }
         .nav-links { display: flex; gap: 2rem; }
-        .nav-links a:hover { color: var(--primary); }
-        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
-
-        /* Layout Utility */
+        
         .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 4rem 0; }
 
-        /* UPGRADE 1: Split Hero Section */
-        .hero-split {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 3rem;
-          padding: 4rem 5%;
-          max-width: 1200px;
-          margin: 0 auto;
-        }
-        .hero-text { flex: 1; }
-        .hero-text h1 { font-size: 3rem; color: var(--primary); line-height: 1.2; margin-bottom: 1.5rem; }
-        .hero-text p { font-size: 1.2rem; margin-bottom: 2rem; color: #555; }
-        .hero-image { flex: 1; width: 100%; }
-        .hero-image img { width: 100%; height: 500px; object-fit: cover; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
-
-        /* UPGRADE 2: Trust Banner */
-        .trust-banner {
-          background-color: var(--white);
-          padding: 1.5rem 5%;
-          display: flex;
-          flex-direction: column;
-          gap: 1rem;
-          justify-content: space-around;
-          align-items: center;
-          text-align: center;
-          border-top: 1px solid #eee;
-          border-bottom: 1px solid #eee;
-          font-weight: bold;
-          color: var(--primary);
-        }
-
-        /* UPGRADE 3: Premium Product Showcase */
-        .product-showcase {
-          display: flex;
-          flex-direction: column;
-          gap: 3rem;
-          align-items: center;
-          background-color: var(--white);
-          padding: 3rem;
-          border-radius: 12px;
-          box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-          margin-bottom: 4rem;
-        }
-        .product-showcase img { flex: 1; max-width: 400px; width: 100%; object-fit: cover; }
-        .product-details { flex: 1; }
-        .product-details ul { margin-left: 1.5rem; margin-bottom: 2rem; color: #555; }
-        .product-details li { margin-bottom: 0.5rem; }
-
-        .badge {
-          background-color: var(--highlight); color: var(--white); padding: 0.4rem 1rem;
-          font-size: 0.8rem; border-radius: 20px; display: inline-block; margin-bottom: 1rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;
-        }
-
-        /* Grids & Cards */
-        .grid-3 { display: grid; grid-template-columns: 1fr; gap: 2rem; }
-        .card { background: var(--white); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.03); padding-bottom: 1.5rem; text-align: center; transition: transform 0.3s ease; }
-        .card:hover { transform: translateY(-5px); }
-        .card img { width: 100%; height: 250px; object-fit: cover; border-radius: 8px 8px 0 0; }
-        .card-content { padding: 1.5rem; }
-
-        /* Email Capture Form */
-        .email-capture {
-          background-color: var(--primary); color: var(--white); text-align: center;
-          padding: 4rem 5%; border-radius: 12px; margin: 4rem auto; max-width: 900px;
-          box-shadow: 0 10px 30px rgba(122, 155, 118, 0.3);
-        }
+        /* Story Board Layout */
+        .story-board { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .story-card { background: var(--white); padding: 1rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .story-card img { height: 200px; object-fit: cover; margin-bottom: 1rem; }
+        
+        /* Email Capture */
+        .email-capture { background-color: var(--primary); color: var(--white); text-align: center; padding: 4rem 5%; border-radius: 12px; margin: 4rem auto; max-width: 900px; }
         .email-capture form { display: flex; flex-direction: column; gap: 1rem; max-width: 500px; margin: 2rem auto 0; }
-        .email-capture input { padding: 1rem; border: none; border-radius: 4px; flex-grow: 1; font-size: 1rem; }
+        .email-capture input { padding: 1rem; border: none; border-radius: 4px; flex-grow: 1; }
 
-        /* Footer */
-        footer { background-color: var(--white); text-align: center; padding: 4rem 5%; margin-top: 4rem; border-top: 1px solid #eee; }
-        .ftc-disclosure { font-size: 0.8rem; color: #999; margin-top: 2rem; }
+        /* Footer Email */
+        .footer-email { padding: 2rem 5%; border-top: 1px solid #eee; background: var(--bg); }
+        .footer-email form { display: flex; gap: 0.5rem; max-width: 400px; margin: 1rem auto; }
+        .footer-email input { padding: 0.5rem; border: 1px solid #ccc; flex-grow: 1; border-radius: 4px; }
 
-        /* Responsive Desktop Rules */
-        @media (min-width: 768px) {
-          .nav-links { display: flex; }
-          .menu-toggle { display: none; }
-          .hero-split { flex-direction: row; }
-          .trust-banner { flex-direction: row; }
-          .product-showcase { flex-direction: row; }
-          .grid-3 { grid-template-columns: repeat(3, 1fr); }
-          .email-capture form { flex-direction: row; }
-        }
-
-        @media (max-width: 767px) {
-          .nav-links {
-            display: none; flex-direction: column; position: absolute; top: 100%; left: 0;
-            width: 100%; background-color: var(--bg); padding: 1rem 5%; box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-          }
-          .nav-links.active { display: flex; }
-          .menu-toggle { display: block; }
-        }
+        footer { background-color: var(--white); text-align: center; padding: 2rem 5%; border-top: 1px solid #eee; }
+        .ftc-disclosure { font-size: 0.8rem; color: #999; margin-top: 1rem; }
     </style>
 </head>
 <body>
@@ -144,137 +58,40 @@
     <header>
         <nav class="nav-container">
             <a href="index.html" class="logo">SkinHonestly</a>
-            <div class="menu-toggle">☰</div>
             <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="shop.html">Shop</a>
-                <a href="blog.html">Blog</a>
-                <a href="about.html">About</a>
+                <a href="index.html">Home</a><a href="shop.html">Shop</a><a href="blog.html">Blog</a><a href="about.html">About</a>
             </div>
         </nav>
     </header>
 
-    <!-- PREMIUM HERO SECTION -->
-    <section class="hero-split">
-        <div class="hero-text">
-            <h1>Honest Skincare,<br>Real Results.</h1>
-            <p>Your daily source for transparent ingredients, proven routines, and a curated shop designed to bring out your natural glow. No fluff, just what works.</p>
-            <a href="shop.html" class="btn btn-secondary" style="font-size: 1.1rem; padding: 1rem 2rem;">Shop Our Collection</a>
-        </div>
-        <div class="hero-image">
-            <img src="https://images.unsplash.com/photo-1615397323286-9cbdf0dcbf13?q=80&w=800&auto=format&fit=crop" alt="Aesthetic setup of clean skincare products on a neutral background">
-        </div>
-    </section>
-
-    <!-- TRUST BANNER -->
-    <div class="trust-banner">
-        <span>🌿 100% Vegan Ingredients</span>
-        <span>🐰 Certified Cruelty-Free</span>
-        <span>✨ Dermatologist Tested</span>
-    </div>
     <main class="container">
         
-        <!-- PREMIUM PRODUCT SHOWCASE -->
-        <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2rem;">Meet Your New Holy Grail</h2>
-        
-        <div class="product-showcase">
-            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=800&auto=format&fit=crop" alt="A beautiful glass bottle of face serum">
-            <div class="product-details">
-                <div class="badge">SkinHonestly Exclusive</div>
-                <h3 style="font-size: 2rem; margin-bottom: 1rem;">The Daily Reset Serum</h3>
-                <p style="margin-bottom: 1.5rem; font-size: 1.1rem;">Formulated by us, for you. We stripped away the artificial fragrances and heavy fillers to deliver pure, uncompromised hydration directly to your skin barrier.</p>
-                <ul>
-                    <li>Plumps and smooths fine lines instantly</li>
-                    <li>Soothes redness and compromised barriers</li>
-                    <li>Plays perfectly underneath makeup and SPF</li>
-                </ul>
-                <a href="shop.html" class="btn btn-primary" style="font-size: 1.1rem;">Shop The Serum - $38</a>
-            </div>
+        <!-- DAILY STORY BOARD -->
+        <h2 style="text-align: center; font-size: 2rem;">Meet Your New Holy Grail</h2>
+        <div class="story-board">
+            <div class="story-card"><img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=600" alt="Serum"><h3>Morning Glow</h3><p>The serum that changed everything for me.</p></div>
+            <div class="story-card"><img src="https://images.unsplash.com/photo-1598440947619-2c35fc95c088?auto=format&fit=crop&w=600" alt="Cream"><h3>Nightly Ritual</h3><p>Why this night cream is my holy grail.</p></div>
+            <div class="story-card"><img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=600" alt="Shelf"><h3>The Daily Reset</h3><p>Minimalist steps for maximum impact.</p></div>
         </div>
 
-        <!-- HIGH-CONVERTING EMAIL CAPTURE -->
         <section class="email-capture">
-            <h2 style="font-size: 2rem; margin-bottom: 1rem;">Unlock Your Best Skin</h2>
-            <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto;">Join our inner circle and get our free <strong>7-Day Glow Routine PDF</strong> delivered straight to your inbox.</p>
-            
-            <!-- Replace this form later with your MailerLite code! -->
-            <form>
-                <input type="email" placeholder="Enter your best email address" required aria-label="Email Address">
-                <button type="submit" class="btn btn-secondary">Get Free PDF</button>
-            </form>
+            <h2>Unlock Your Best Skin</h2>
+            <p>Join our inner circle and get our free <strong>7-Day Glow Routine PDF</strong>.</p>
+            <form><input type="email" placeholder="Enter your email" required><button type="submit" class="btn btn-secondary">Get Free PDF</button></form>
         </section>
-
-        <!-- BLOG PREVIEW -->
-        <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2rem;">Latest From The Journal</h2>
-        <div class="grid-3">
-            <article class="card">
-                <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=600&auto=format&fit=crop" alt="Bathroom shelf with skincare">
-                <div class="card-content">
-                    <p style="font-size: 0.8rem; color: #999; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px;">Routines</p>
-                    <h3 style="font-size: 1.2rem;">My Honest Morning Routine</h3>
-                    <a href="post1.html" class="btn btn-primary" style="margin-top: 1rem;">Read Article</a>
-                </div>
-            </article>
-
-            <article class="card">
-                <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=600&auto=format&fit=crop" alt="Affordable skincare products">
-                <div class="card-content">
-                    <p style="font-size: 0.8rem; color: #999; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px;">Product Reviews</p>
-                    <h3 style="font-size: 1.2rem;">5 Budget Skincare Finds</h3>
-                    <a href="post2.html" class="btn btn-primary" style="margin-top: 1rem;">Read Article</a>
-                </div>
-            </article>
-
-            <article class="card">
-                <img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?q=80&w=600&auto=format&fit=crop" alt="Dropper bottle">
-                <div class="card-content">
-                    <p style="font-size: 0.8rem; color: #999; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px;">Ingredient Deep Dive</p>
-                    <h3 style="font-size: 1.2rem;">Peptides Explained</h3>
-                    <a href="post3.html" class="btn btn-primary" style="margin-top: 1rem;">Read Article</a>
-                </div>
-            </article>
-        </div>
     </main>
 
-   <footer>
-        <h2 style="color: var(--primary);">Join the SkinHonestly Community</h2>
-        <p style="margin-bottom: 1rem;">Daily tips, honest reviews, and skincare secrets.</p>
-        <p>
-            <a href="#" style="margin: 0 10px; font-weight: bold;">Instagram</a> | 
-            <a href="#" style="margin: 0 10px; font-weight: bold;">Pinterest</a> | 
-            <a href="#" style="margin: 0 10px; font-weight: bold;">TikTok</a>
-        </p>
-        <!-- HERE IS THE NEW LINK -->
-        <p style="margin-top: 1rem;">
-            <a href="privacy.html" style="font-size: 0.8rem; color: #666; text-decoration: underline;">Privacy Policy & Disclosures</a>
-        </p>
-        <!-- END OF NEW LINK -->
+    <!-- FOOTER EMAIL CAPTURE -->
+    <div class="footer-email">
+        <p><strong>Never miss an update:</strong></p>
+        <form><input type="email" placeholder="Your email address"><button type="submit" class="btn btn-primary">Join</button></form>
+    </div>
+
+    <footer>
+        <p><a href="#">Instagram</a> | <a href="#">Pinterest</a> | <a href="#">TikTok</a></p>
         <p class="ftc-disclosure">This page contains affiliate links. We may earn a commission at no extra cost to you.</p>
     </footer>
 
-    <!-- Mobile Menu Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navLinks = document.querySelector('.nav-links');
-
-            if(menuToggle && navLinks) {
-                menuToggle.addEventListener('click', () => {
-                    navLinks.classList.toggle('active');
-                });
-            }
-            
-            // Dummy form alert (will be replaced by MailerLite later)
-            const forms = document.querySelectorAll('form');
-            forms.forEach(form => {
-                form.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    alert('Thanks for subscribing! Check your inbox for the PDF.');
-                    form.reset();
-                });
-            });
-        });
-    </script>
     <script async data-uid="475df1cf4b" src="https://skinhonestly.kit.com/475df1cf4b/index.js"></script>
 </body>
 </html>
