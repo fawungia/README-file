@@ -207,32 +207,31 @@
             </article>
         </div>
     </main>
-<!-- FOOTER -->
 <footer style="background-color: var(--white); text-align: center; padding: 3rem 5%; margin-top: 4rem; border-top: 1px solid #eee;">
     
-    <!-- PASTE THE KIT CODE HERE -->
-    <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
-    <form action="https://app.kit.com/forms/9604417/subscriptions" ... [rest of your long Kit code]>
-    </form>
+    <!-- This is the container where your newsletter form will appear -->
+    <div id="newsletter-container">
+        <!-- The form from newsletter.html will load here automatically -->
+    </div>
 
-    <!-- SOCIAL LINKS -->
     <p style="margin-bottom: 1rem; font-weight: bold; margin-top: 2rem;">
         <a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">Pinterest</a>
     </p>
 
-    <!-- DISCLOSURE -->
-    <p class="ftc-disclosure" style="font-size: 0.8rem; color: #666; margin-top: 1rem;">
-        This page contains affiliate links. We may earn a commission at no extra cost to you.
+    <p style="margin-bottom: 1rem;">
+        <a href="privacy.html" style="font-size: 0.85rem; color: #666; text-decoration: underline;">Privacy Policy & Disclosures</a>
     </p>
+
+    <p class="ftc-disclosure" style="font-size: 0.8rem; color: #666;">This page contains affiliate links. We may earn a commission at no extra cost to you.</p>
 </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navLinks = document.querySelector('.nav-links');
-            if(menuToggle && navLinks) { menuToggle.addEventListener('click', () => { navLinks.classList.toggle('active'); }); }
+<!-- This script tells the page to grab the newsletter form and put it inside the container -->
+<script>
+    fetch('newsletter.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('newsletter-container').innerHTML = data;
         });
-    </script>
-    <script async data-uid="475df1cf4b" src="https://skinhonestly.kit.com/475df1cf4b/index.js"></script>
+</script>
 </body>
 </html>
