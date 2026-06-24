@@ -270,15 +270,15 @@
             </article>
         </div>
     </main>
-
-    <section class="newsletter-section">
-        <h2>Join the SkinHonestly Community</h2>
-        <p>Daily tips, honest reviews, and skincare secrets.</p>
-        <form>
-            <input type="email" placeholder="Your email address" required>
-            <button type="submit" class="btn btn-primary">Subscribe</button>
-        </form>
-    </section>
+```html
+    <div id="newsletter-container"></div>
+    <script>
+        fetch('newsletter.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('newsletter-container').innerHTML = data;
+            });
+    </script>
 
     <footer>
         <p>Follow us for daily tips: [IG] [FB] [PIN]</p>
