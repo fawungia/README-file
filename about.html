@@ -65,37 +65,35 @@
         </nav>
     </header>
 
-    <main class="container">
-        <div style="max-width: 800px; margin: 0 auto;">
-            <h1 style="text-align: center; margin-bottom: 2rem;">Why I Started SkinHonestly</h1>
-            
-            <div style="background-color: var(--white); padding: 3rem; border-radius: 8px; margin-bottom: 3rem; box-shadow: 0 4px 6px rgba(0,0,0,0.03);">
-                <p style="margin-bottom: 1.5rem;">I got tired of 12-step routines and ingredient lists I couldn't pronounce. SkinHonestly was born from a desire for transparency.</p>
-                
-                <h3 style="color: var(--primary);">Our Promise:</h3>
-                <ul style="list-style-position: inside; margin-bottom: 1.5rem;">
-                    <li>100% Ingredient Transparency</li>
-                    <li>No unnecessary fillers or artificial fragrances</li>
-                    <li>Cruelty-free and ethically sourced</li>
-                </ul>
-            </div>
-<!-- UPDATE THIS SECTION ONLY -->
-<h2 style="text-align: center; margin-bottom: 1.5rem;">Get in Touch</h2>
-<form id="contact-form" action="https://formspree.io/f/YOUR_ID_HERE" method="POST" style="display: flex; flex-direction: column; gap: 1rem; background-color: var(--white); padding: 2rem; border-radius: 8px;">
-    <label for="name">Name</label>
-    <input type="text" name="name" id="name" required style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px;">
-    
-    <label for="email">Email</label>
-    <input type="email" name="email" id="email" required style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px;">
-    
-    <label for="message">Message</label>
-    <textarea name="message" id="message" rows="5" required style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px;"></textarea>
-    
-    <button type="submit" class="btn btn-secondary">Send Message</button>
-</form>
-          
+   <!-- 1. YOUR STORY (Stays the same) -->
+<main class="container">
+    <div style="max-width: 800px; margin: 0 auto;">
+        <h1 style="text-align: center; margin-bottom: 2rem;">Why I Started SkinHonestly</h1>
+        <div style="background-color: var(--white); padding: 3rem; border-radius: 8px; margin-bottom: 3rem;">
+            <p>I got tired of 12-step routines...</p>
         </div>
-    </main>
+
+        <!-- 2. CONTACT FORM (For messages to you) -->
+        <h2 style="text-align: center; margin-bottom: 1.5rem;">Get in Touch</h2>
+        <form id="contact-form" action="https://formspree.io/f/YOUR_ID_HERE" method="POST" style="display: flex; flex-direction: column; gap: 1rem; padding: 2rem;">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="message" placeholder="Message" rows="5" required></textarea>
+            <button type="submit" class="btn btn-secondary">Send Message</button>
+        </form>
+
+        <hr style="margin: 3rem 0;">
+
+        <!-- 3. NEWSLETTER FORM (The new code for the PDF) -->
+        <h2 style="text-align: center; margin-bottom: 1rem;">Unlock Your Best Skin</h2>
+        <p style="text-align: center; margin-bottom: 1.5rem;">Join our inner circle and get our free <strong>7-Day Glow Routine PDF</strong>.</p>
+        
+        <form action="https://app.kit.com/forms/9604417/subscriptions" method="post" target="_blank" style="text-align: center;">
+            <input type="email" name="email_address" placeholder="Enter your email" required style="padding: 0.8rem; border: 1px solid #ccc; border-radius: 4px; width: 300px;">
+            <button type="submit" class="btn btn-primary" style="padding: 0.8rem 1.5rem;">Get Free PDF</button>
+        </form>
+    </div>
+</main>
 
 <footer style="background-color: var(--white); text-align: center; padding: 3rem 5%; margin-top: 4rem; border-top: 1px solid #eee;">
     
