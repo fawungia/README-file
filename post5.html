@@ -100,19 +100,30 @@
             <p style="margin-bottom: 1.5rem;">Remember, healthy skin isn't always perfect skin, but it <em>is</em> comfortable, resilient skin. Take care of your barrier, and it will take care of you.</p>
         </div>
     </main>
-<div id="newsletter-container"></div>
-<script>
-    fetch('newsletter.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('newsletter-container').innerHTML = data;
-        });
-</script>
-    <footer>
-        <h2>Join the SkinHonestly Community</h2>
-        <p>Follow us for daily tips: [IG] [FB] [PIN]</p>
+<!-- SINGLE CONSOLIDATED FOOTER SECTION -->
+    <section style="text-align: center; padding: 4rem 5%; background: var(--white); border-top: 1px solid #eee;">
+        <h2 style="font-size: 2rem; margin-bottom: 1rem;">Join the SkinHonestly Community</h2>
+        <p style="margin-bottom: 1.5rem;">Daily tips, honest reviews, and skincare secrets.</p>
+        
+        <!-- EMAIL FORM -->
+        <form style="display: flex; justify-content: center; gap: 10px; margin-bottom: 2rem;">
+            <input type="email" placeholder="Your email address" required style="padding: 0.8rem; border: 1px solid #ccc; border-radius: 4px; width: 300px;">
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+
+        <!-- SOCIAL LINKS -->
+        <p style="margin-bottom: 1rem; font-weight: bold;">
+            <a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">Pinterest</a>
+        </p>
+
+        <!-- NEW PRIVACY LINK -->
+        <p style="margin-bottom: 1rem;">
+            <a href="privacy.html" style="font-size: 0.85rem; color: #666; text-decoration: underline;">Privacy Policy & Disclosures</a>
+        </p>
+
+        <!-- DISCLOSURE -->
         <p class="ftc-disclosure">This page contains affiliate links. We may earn a commission at no extra cost to you.</p>
-    </footer>
+    </section>
 
     <!-- JS IS SAFELY INCLUDED HERE -->
     <script>
