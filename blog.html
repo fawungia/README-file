@@ -270,25 +270,25 @@
             </article>
         </div>
     </main>
-<!-- JOIN NEWSLETTER SECTION -->
-    <section class="newsletter-section" style="text-align: center; padding: 4rem 5%; background: var(--white); border-top: 1px solid #eee;">
+<!-- SINGLE CONSOLIDATED FOOTER SECTION -->
+    <section style="text-align: center; padding: 4rem 5%; background: var(--white); border-top: 1px solid #eee;">
         <h2 style="font-size: 2rem; margin-bottom: 1rem;">Join the SkinHonestly Community</h2>
-        <p style="margin-bottom: 1rem;">Daily tips, honest reviews, and skincare secrets.</p>
-        <form>
+        <p style="margin-bottom: 1.5rem;">Daily tips, honest reviews, and skincare secrets.</p>
+        
+        <!-- EMAIL FORM -->
+        <form style="display: flex; justify-content: center; gap: 10px; margin-bottom: 2rem;">
             <input type="email" placeholder="Your email address" required style="padding: 0.8rem; border: 1px solid #ccc; border-radius: 4px; width: 300px;">
             <button type="submit" class="btn btn-primary">Subscribe</button>
         </form>
-    </section>
 
-    <footer>
-        <p style="margin-bottom: 1rem;">
-            <a href="#" style="margin: 0 10px; font-weight: bold;">Instagram</a> | 
-            <a href="#" style="margin: 0 10px; font-weight: bold;">Pinterest</a> | 
-            <a href="#" style="margin: 0 10px; font-weight: bold;">TikTok</a>
+        <!-- SOCIAL LINKS -->
+        <p style="margin-bottom: 1rem; font-weight: bold;">
+            <a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">Pinterest</a>
         </p>
-        <p><a href="privacy.html" style="font-size: 0.8rem; color: #666; text-decoration: underline;">Privacy Policy & Disclosures</a></p>
+
+        <!-- DISCLOSURE -->
         <p class="ftc-disclosure">This page contains affiliate links. We may earn a commission at no extra cost to you.</p>
-    </footer>
+    </section>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const menuToggle = document.querySelector('.menu-toggle');
