@@ -99,7 +99,14 @@
             <p style="margin-bottom: 1.5rem;">Building a routine is about mixing high-impact treatments (like a great serum) with solid, affordable basics. Don't let the luxury marketing fool you—great skin is absolutely achievable on a budget!</p>
         </div>
     </main>
-
+<div id="newsletter-container"></div>
+<script>
+    fetch('newsletter.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('newsletter-container').innerHTML = data;
+        });
+</script>
     <footer>
         <h2>Join the SkinHonestly Community</h2>
         <p>Follow us for daily tips: [IG] [FB] [PIN]</p>
