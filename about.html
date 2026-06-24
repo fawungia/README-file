@@ -79,20 +79,21 @@
                     <li>Cruelty-free and ethically sourced</li>
                 </ul>
             </div>
-
-            <h2 style="text-align: center; margin-bottom: 1.5rem;">Get in Touch</h2>
-            <form style="display: flex; flex-direction: column; gap: 1rem; background-color: var(--white); padding: 2rem; border-radius: 8px;">
-                <label for="name">Name</label>
-                <input type="text" id="name" required style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px;">
-                
-                <label for="email">Email</label>
-                <input type="email" id="email" required style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px;">
-                
-                <label for="message">Message</label>
-                <textarea id="message" rows="5" required style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px;"></textarea>
-                
-                <button type="submit" class="btn btn-secondary">Send Message</button>
-            </form>
+<!-- UPDATE THIS SECTION ONLY -->
+<h2 style="text-align: center; margin-bottom: 1.5rem;">Get in Touch</h2>
+<form id="contact-form" action="https://formspree.io/f/YOUR_ID_HERE" method="POST" style="display: flex; flex-direction: column; gap: 1rem; background-color: var(--white); padding: 2rem; border-radius: 8px;">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" required style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px;">
+    
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" required style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px;">
+    
+    <label for="message">Message</label>
+    <textarea name="message" id="message" rows="5" required style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px;"></textarea>
+    
+    <button type="submit" class="btn btn-secondary">Send Message</button>
+</form>
+          
         </div>
     </main>
 <!-- SINGLE CONSOLIDATED FOOTER SECTION -->
@@ -100,12 +101,11 @@
         <h2 style="font-size: 2rem; margin-bottom: 1rem;">Join the SkinHonestly Community</h2>
         <p style="margin-bottom: 1.5rem;">Daily tips, honest reviews, and skincare secrets.</p>
         
-        <!-- EMAIL FORM -->
-        <form style="display: flex; justify-content: center; gap: 10px; margin-bottom: 2rem;">
-            <input type="email" placeholder="Your email address" required style="padding: 0.8rem; border: 1px solid #ccc; border-radius: 4px; width: 300px;">
-            <button type="submit" class="btn btn-primary">Subscribe</button>
-        </form>
-
+        <!-- UPDATE THIS FORM IN YOUR FOOTER -->
+<form action="PASTE_YOUR_KIT_ACTION_URL_HERE" method="post" target="_blank" style="display: flex; justify-content: center; gap: 10px; margin-bottom: 2rem;">
+    <input type="email" name="email_address" placeholder="Your email address" required style="padding: 0.8rem; border: 1px solid #ccc; border-radius: 4px; width: 300px;">
+    <button type="submit" class="btn btn-primary">Subscribe</button>
+</form>
         <!-- SOCIAL LINKS -->
         <p style="margin-bottom: 1rem; font-weight: bold;">
             <a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">Pinterest</a>
@@ -120,25 +120,25 @@
         <p class="ftc-disclosure">This page contains affiliate links. We may earn a commission at no extra cost to you.</p>
     </section>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navLinks = document.querySelector('.nav-links');
-
-            if(menuToggle && navLinks) {
-                menuToggle.addEventListener('click', () => {
-                    navLinks.classList.toggle('active');
-                });
-            }
-            
-            const forms = document.querySelectorAll('form');
-            forms.forEach(form => {
-                form.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    alert('Message sent! I will get back to you soon.');
-                    form.reset();
-                });
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. Menu Toggle Script (DO NOT DELETE)
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if(menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
             });
-        });
-    </script>
+        }
+        
+        // 2. Contact Form Script (Only triggers for your Contact Form)
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                alert('Message sent! I will get back to you soon.');
+                // Note: Formspree handles the submission automatically
+            });
+        }
+    });
+</script>
 </body>
 </html>
