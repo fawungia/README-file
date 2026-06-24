@@ -100,7 +100,14 @@
             <p style="margin-bottom: 1.5rem;">Remember, healthy skin isn't always perfect skin, but it <em>is</em> comfortable, resilient skin. Take care of your barrier, and it will take care of you.</p>
         </div>
     </main>
-
+<div id="newsletter-container"></div>
+<script>
+    fetch('newsletter.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('newsletter-container').innerHTML = data;
+        });
+</script>
     <footer>
         <h2>Join the SkinHonestly Community</h2>
         <p>Follow us for daily tips: [IG] [FB] [PIN]</p>
