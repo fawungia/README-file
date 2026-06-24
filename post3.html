@@ -98,7 +98,14 @@
             <p style="margin-bottom: 1.5rem;">Have you tried peptides yet? Let me know if you’ve noticed the "bounce" returning to your skin!</p>
         </div>
     </main>
-
+<div id="newsletter-container"></div>
+<script>
+    fetch('newsletter.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('newsletter-container').innerHTML = data;
+        });
+</script>
     <footer>
         <h2>Join the SkinHonestly Community</h2>
         <p>Follow us for daily tips: [IG] [FB] [PIN]</p>
