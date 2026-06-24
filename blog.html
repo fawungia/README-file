@@ -32,6 +32,7 @@
           max-width: 100%;
           height: auto;
           display: block;
+          border-radius: 8px;
         }
 
         a {
@@ -146,6 +147,14 @@
 
         .card-content { padding: 1.5rem; }
         
+        /* Newsletter Section Style */
+        .newsletter-section {
+          text-align: center;
+          padding: 4rem 5%;
+          background: var(--white);
+          border-top: 1px solid #eee;
+        }
+        
         footer {
           background-color: var(--white);
           text-align: center;
@@ -181,14 +190,14 @@
         
         <div class="grid-3">
             <article class="card">
-    <img src="https://images.unsplash.com/photo-1617897903246-719242758050?q=80&w=400&auto=format&fit=crop" alt="Woman applying face serum">
-    <div class="card-content">
-        <p style="font-size: 0.8rem; color: #666;">July 01, 2026</p>
-        <h3>My Evening Wind-Down Routine</h3>
-        <p style="margin: 1rem 0;">How I take the day off and prep my skin for overnight recovery.</p>
-        <a href="post8.html" class="btn btn-primary">Read More</a>
-    </div>
-</article>
+                <img src="https://images.unsplash.com/photo-1617897903246-719242758050?q=80&w=400&auto=format&fit=crop" alt="Woman applying face serum">
+                <div class="card-content">
+                    <p style="font-size: 0.8rem; color: #666;">July 01, 2026</p>
+                    <h3>My Evening Wind-Down Routine</h3>
+                    <p style="margin: 1rem 0;">How I take the day off and prep my skin for overnight recovery.</p>
+                    <a href="post8.html" class="btn btn-primary">Read More</a>
+                </div>
+            </article>
             <article class="card">
                 <img src="https://via.placeholder.com/400x250?text=Morning+Routine" alt="A clean, organized bathroom shelf">
                 <div class="card-content">
@@ -251,9 +260,13 @@
         </div>
     </main>
 
-    <footer>
+    <!-- JOIN NEWSLETTER SECTION -->
+    <section class="newsletter-section">
         <h2>Join the SkinHonestly Community</h2>
         <p>Follow us for daily tips: [IG] [FB] [PIN]</p>
+    </section>
+
+    <footer>
         <p class="ftc-disclosure">This page contains affiliate links. We may earn a commission at no extra cost to you.</p>
     </footer>
 
