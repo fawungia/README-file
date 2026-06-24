@@ -18,6 +18,7 @@
         img { max-width: 100%; height: auto; display: block; border-radius: 8px; }
         
         .btn { display: inline-block; padding: 0.8rem 1.5rem; border-radius: 4px; font-weight: bold; text-align: center; cursor: pointer; border: none; transition: opacity 0.3s ease; }
+        .btn:hover { opacity: 0.9; }
         .btn-primary { background-color: var(--primary); color: var(--white); }
         .btn-outline { background-color: transparent; color: var(--primary); border: 2px solid var(--primary); }
         
@@ -27,21 +28,22 @@
         .nav-links { display: flex; gap: 2rem; }
         .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 4rem 0; }
 
-        /* Journal Grid - This fixes the stacking issue */
         .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
         .ecommerce-card { background: var(--white); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.03); padding-bottom: 1.5rem; text-align: center; }
         .ecommerce-card img { width: 100%; height: 200px; object-fit: cover; }
         .card-content { padding: 1.5rem; }
         .brand-name { font-size: 0.8rem; color: #999; text-transform: uppercase; margin-bottom: 0.5rem; }
 
-        /* Newsletter Section */
+        .discoveries-section { background-color: var(--white); padding: 4rem 5%; border-radius: 12px; margin-bottom: 4rem; }
+        .discoveries-split { display: flex; flex-direction: row; gap: 4rem; align-items: center; flex-wrap: wrap; }
+
         .newsletter-footer { text-align: center; padding: 4rem 5%; background: var(--white); border-top: 1px solid #eee; }
         .newsletter-footer form { display: flex; justify-content: center; gap: 10px; margin-top: 1rem; }
         .newsletter-footer input { padding: 0.8rem; border: 1px solid #ccc; border-radius: 4px; width: 300px; }
 
         footer { background-color: var(--white); text-align: center; padding: 2rem 5%; border-top: 1px solid #eee; }
         
-        @media (max-width: 768px) { .grid-3 { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { .grid-3 { grid-template-columns: 1fr; } .discoveries-split { flex-direction: column; } }
     </style>
 </head>
 <body>
@@ -64,7 +66,6 @@
                 <div class="card-content">
                     <p class="brand-name">Industry News</p>
                     <h3>Why This Brand Is Changing</h3>
-                    <p style="margin-bottom: 1rem;">An honest breakdown of the new formulation changes.</p>
                     <a href="#" class="btn btn-outline" style="width: 80%;">Read The Story</a>
                 </div>
             </div>
@@ -73,7 +74,6 @@
                 <div class="card-content">
                     <p class="brand-name">Brand Spotlight</p>
                     <h3>The Truth About Ingredients</h3>
-                    <p style="margin-bottom: 1rem;">Deep dive into sourcing practices we trust.</p>
                     <a href="#" class="btn btn-outline" style="width: 80%;">Read The Story</a>
                 </div>
             </div>
@@ -82,11 +82,23 @@
                 <div class="card-content">
                     <p class="brand-name">Editor's Note</p>
                     <h3>My Daily Honest Routine</h3>
-                    <p style="margin-bottom: 1rem;">The exact sequence for a healthy barrier.</p>
                     <a href="#" class="btn btn-outline" style="width: 80%;">Read The Story</a>
                 </div>
             </div>
         </div>
+
+        <section class="discoveries-section">
+            <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2rem;">Curated Discoveries</h2>
+            <div class="discoveries-split">
+                <div style="flex: 1;"><img src="https://images.unsplash.com/photo-1598440947619-2c35fc95c088?q=80&w=800" alt="Discovery" style="border-radius: 12px;"></div>
+                <div style="flex: 1;">
+                    <h3>Quick Honest Takes</h3>
+                    <p>✦ The Minimalist Trend: Less is truly more.</p>
+                    <p>✦ Ingredient Spotlight: Why Peptides work.</p>
+                    <a href="#" class="btn btn-primary" style="margin-top: 1rem;">Explore Discoveries</a>
+                </div>
+            </div>
+        </section>
     </main>
 
     <section class="newsletter-footer">
