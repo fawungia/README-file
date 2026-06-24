@@ -147,11 +147,30 @@
 
         .card-content { padding: 1.5rem; }
         
+        /* Newsletter Section */
+        .newsletter-section {
+          background: var(--white);
+          text-align: center;
+          padding: 4rem 5%;
+          border-top: 1px solid #eee;
+        }
+        .newsletter-section form {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 1.5rem;
+        }
+        .newsletter-section input {
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 300px;
+        }
+        
         footer {
           background-color: var(--white);
           text-align: center;
           padding: 3rem 5%;
-          margin-top: 4rem;
           border-top: 1px solid #eee;
         }
 
@@ -252,8 +271,13 @@
         </div>
     </main>
 
-    <section style="text-align: center; padding-bottom: 2rem;">
+    <section class="newsletter-section">
         <h2>Join the SkinHonestly Community</h2>
+        <p>Daily tips, honest reviews, and skincare secrets.</p>
+        <form>
+            <input type="email" placeholder="Your email address" required>
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
     </section>
 
     <footer>
