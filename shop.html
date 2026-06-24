@@ -5,63 +5,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop | SkinHonestly</title>
     <style>
-        :root { --dark-green: #3D4A3D; --cream: #FAF7F2; --white: #FFFFFF; }
-        body { background-color: var(--cream); font-family: sans-serif; line-height: 1.6; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        :root {
+            --dark-green: #3D4A3D;
+            --light-tan: #DCCFB7;
+            --cream: #FAF7F2;
+            --text-dark: #2B2B2B;
+            --white: #FFFFFF;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Helvetica Neue', Arial, sans-serif; }
+        body { background-color: var(--cream); color: var(--text-dark); line-height: 1.6; }
         
         /* 1. ADS BANNER */
-        .ads-banner { background: var(--dark-green); color: white; padding: 60px; display: flex; align-items: center; }
-        
-        /* 2. STORE LONG DESCRIPTION (8 lines) */
-        .store-description { padding: 40px 20px; text-align: center; max-width: 800px; margin: 0 auto; }
-        
+        .hero-banner { 
+            background-color: var(--dark-green); 
+            color: var(--white); 
+            padding: 80px 5%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between;
+        }
+
+        /* 2. STORE LONG DESCRIPTION */
+        .store-description { 
+            padding: 60px 20px; 
+            text-align: center; 
+            max-width: 900px; 
+            margin: 0 auto; 
+            font-size: 1.1rem;
+        }
+
         /* 3. SECOND ADS BANNER */
-        .ads-banner-secondary { background: #C9A876; color: white; padding: 40px; text-align: center; }
+        .secondary-banner { 
+            background-color: var(--dark-green); 
+            color: var(--white); 
+            padding: 60px 5%; 
+            text-align: center; 
+        }
+
+        /* 4. STORE BLOG GRID */
+        .blog-section { padding: 60px 5%; max-width: 1200px; margin: 0 auto; }
+        .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .blog-card { background: var(--white); padding: 20px; border-radius: 8px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+
+        /* NEWSLETTER & FOOTER */
+        .newsletter-footer { padding: 60px 5%; text-align: center; background: var(--white); border-top: 1px solid #eee; }
+        .newsletter-footer form { display: flex; justify-content: center; gap: 10px; margin-top: 20px; }
+        .newsletter-footer input { padding: 10px; border: 1px solid #ccc; border-radius: 4px; width: 300px; }
         
-        /* 4. STORE BLOG GRID (3 Cards) */
-        .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 40px 20px; }
-        .blog-card { background: white; padding: 20px; border-radius: 8px; text-align: center; }
-        
-        /* FOOTER NEWSLETTER */
-        .newsletter { background: white; padding: 40px; text-align: center; border-top: 1px solid #eee; }
-        footer { text-align: center; padding: 20px; }
+        .btn { padding: 12px 25px; border-radius: 4px; font-weight: bold; border: none; cursor: pointer; background: var(--dark-green); color: white; }
     </style>
 </head>
 <body>
 
     <!-- 1. ADS BANNER -->
-    <section class="ads-banner">
+    <section class="hero-banner">
         <div>
             <h1>Organic Cosmetic Natural Brand</h1>
-            <p>Your premium, honest skincare journey starts here.</p>
+            <p>Experience the purity of nature with every drop.</p>
         </div>
+        <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400" alt="Banner Product" style="border-radius: 8px;">
     </section>
 
-    <!-- 2. STORE LONG DESCRIPTION -->
+    <!-- 2. STORE LONG DESCRIPTION (Approx 8 lines) -->
     <section class="store-description">
-        <p>At SkinHonestly, we believe in radical transparency. Our journey began with a simple need for products that actually work without unnecessary fillers. We source the finest organic ingredients, ensuring every bottle that reaches your vanity is packed with potency and purpose. Our team rigorously tests every formulation to meet high clinical standards while remaining kind to the planet. We pride ourselves on a community-first approach, listening to your feedback to refine our daily rituals. Sustainability isn't just a buzzword for us; it’s the foundation of our packaging and ingredient sourcing. You deserve to know exactly what you are putting on your skin every single morning and night. Welcome to a new standard of beauty, where honesty is the most important ingredient in our shop.</p>
+        <p>At SkinHonestly, we believe in radical transparency. Our journey began with a simple need for products that actually work without unnecessary fillers or harmful synthetic additives. We source the finest organic ingredients from around the world, ensuring every bottle that reaches your vanity is packed with potency and purpose. Our team rigorously tests every single formulation to meet high clinical standards while remaining kind to our planet. We pride ourselves on a community-first approach, listening to your feedback to refine our daily rituals. Sustainability isn't just a buzzword for us; it’s the foundation of our packaging and ingredient sourcing. You deserve to know exactly what you are putting on your skin every single morning and night. Welcome to a new standard of beauty, where honesty is the most important ingredient in our entire shop.</p>
     </section>
 
     <!-- 3. SECOND ADS BANNER -->
-    <section class="ads-banner-secondary">
+    <section class="secondary-banner">
         <h2>Eco-Friendly Landing Brand</h2>
         <p>Pure, sustainable, and crafted for your natural glow.</p>
     </section>
 
     <!-- 4. STORE BLOG (3 CARDS) -->
-    <section class="blog-grid">
-        <div class="blog-card"><h3>Brand Story 1</h3><p>Insight into our latest organic sourcing.</p></div>
-        <div class="blog-card"><h3>Brand Story 2</h3><p>The science behind our new serum.</p></div>
-        <div class="blog-card"><h3>Brand Story 3</h3><p>Customer favorites for this season.</p></div>
+    <section class="blog-section">
+        <div class="blog-grid">
+            <div class="blog-card"><h3>Brand Story 1</h3><p>Insight into our latest organic sourcing.</p></div>
+            <div class="blog-card"><h3>Brand Story 2</h3><p>The science behind our new serum.</p></div>
+            <div class="blog-card"><h3>Brand Story 3</h3><p>Customer favorites for this season.</p></div>
+        </div>
     </section>
 
     <!-- NEWSLETTER -->
-    <section class="newsletter">
+    <section class="newsletter-footer">
         <h3>Join our Newsletter</h3>
-        <form><input type="email" placeholder="Email Address"><button>Subscribe</button></form>
+        <p>Get honest skincare tips and product drops delivered to your inbox.</p>
+        <form>
+            <input type="email" placeholder="Your email address" required>
+            <button type="submit" class="btn">Subscribe</button>
+        </form>
     </section>
 
-    <footer><p>&copy; 2026 SkinHonestly</p></footer>
+    <footer>
+        <p style="text-align: center; padding: 20px;">&copy; 2026 SkinHonestly</p>
+    </footer>
 
 </body>
 </html>
