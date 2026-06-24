@@ -3,45 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About SkinHonestly</title>
-    <!-- Add your existing CSS links here -->
+    <title>About | SkinHonestly</title>
+    <!-- Ensure this href path matches your actual file location (e.g., "style.css" or "css/style.css") -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <!-- TOP SECTION: YOUR STORY -->
-    <section style="padding: 4rem 5%;">
+    <section class="container" style="padding: 4rem 5%;">
         <h1>Our Story</h1>
         <p>This is where you write your SkinHonestly story...</p>
     </section>
 
     <!-- MIDDLE SECTION: CONTACT FORM -->
-    <section style="padding: 4rem 5%; border-top: 1px solid #eee;">
+    <section class="container" style="padding: 4rem 5%; border-top: 1px solid #eee;">
         <h2>Contact Us</h2>
         <p>Have questions? Send us a message!</p>
         
-        <form id="contact-form" action="https://formspree.io/f/YOUR_ID_HERE" method="POST">
-            <input type="text" name="name" placeholder="Your Name" required style="display:block; margin-bottom:10px; width: 300px; padding: 0.5rem;">
-            <input type="email" name="email" placeholder="Your Email" required style="display:block; margin-bottom:10px; width: 300px; padding: 0.5rem;">
-            <textarea name="message" placeholder="Your Message" required style="display:block; margin-bottom:10px; width: 300px; padding: 0.5rem;"></textarea>
-            <button type="submit" class="btn btn-secondary">Send Message</button>
+        <form id="contact-form" action="https://formspree.io/f/YOUR_ID_HERE" method="POST" style="margin-top: 1.5rem;">
+            <input type="text" name="name" placeholder="Your Name" required style="display:block; margin-bottom:10px; width: 100%; max-width: 400px; padding: 0.8rem;">
+            <input type="email" name="email" placeholder="Your Email" required style="display:block; margin-bottom:10px; width: 100%; max-width: 400px; padding: 0.8rem;">
+            <textarea name="message" placeholder="Your Message" required style="display:block; margin-bottom:10px; width: 100%; max-width: 400px; padding: 0.8rem; height: 150px;"></textarea>
+            <button type="submit" class="btn btn-secondary" style="padding: 0.8rem 1.5rem;">Send Message</button>
         </form>
     </section>
 
     <!-- BOTTOM SECTION: NEWSLETTER SIGNUP -->
-    <section style="padding: 4rem 5%; border-top: 1px solid #eee; text-align: center;">
+    <section class="container" style="padding: 4rem 5%; border-top: 1px solid #eee; text-align: center;">
         <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">Join the SkinHonestly Community</h2>
         <p style="margin-bottom: 1.5rem;">Daily tips, honest reviews, and skincare secrets.</p>
         
         <form action="https://app.kit.com/forms/9604417/subscriptions" method="post" target="_blank">
-            <input type="email" name="email_address" placeholder="Enter your email" required style="padding: 0.8rem; border: 1px solid #ccc; border-radius: 4px; width: 300px;">
-            <button type="submit" class="btn btn-primary" style="padding: 0.8rem 1.5rem;">Subscribe</button>
+            <input type="email" name="email_address" placeholder="Enter your email" required style="padding: 0.8rem; border: 1px solid #ccc; border-radius: 4px; width: 300px; max-width: 100%;">
+            <button type="submit" class="btn btn-primary" style="padding: 0.8rem 1.5rem; border: none; cursor: pointer;">Subscribe</button>
         </form>
     </section>
-
-    <!-- FOOTER -->
-    <footer style="padding: 2rem 5%; text-align: center; border-top: 1px solid #eee;">
-        <p>&copy; 2026 SkinHonestly. All rights reserved.</p>
-    </footer>
 
 </body>
 </html>
