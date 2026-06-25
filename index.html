@@ -88,7 +88,7 @@
         <nav class="nav-container">
             <a href="index.html" class="logo">SkinHonestly</a>
             <!-- This class triggers the JS -->
-            <div class="menu-toggle">☰</div> 
+            <div class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</div>
             <!-- This class is targeted by the JS -->
             <div class="nav-links">
                 <a href="index.html">Home</a>
@@ -255,19 +255,6 @@
         .then(data => {
             document.getElementById('newsletter-container').innerHTML = data;
         });
-</script>
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-
-        if (menuToggle && navLinks) {
-            menuToggle.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-            });
-        }
-    });
 </script>
 
 </body>
