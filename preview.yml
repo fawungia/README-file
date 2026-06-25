@@ -1,0 +1,28 @@
+name: Build and Deploy Preview
+
+on:
+  push:
+    branches-ignore:
+      - main  # Don't run this on main, or it will overwrite your production site
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # If you are using a framework (React/Angular), build it here:
+      # - name: Install and Build
+      #   run: |
+      #     npm install
+      #     npm run build
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: . # The folder where your index.html lives
+          target-folder: previews/${{ github.head_ref || github.ref_name }} # Creates a unique folder per branch
