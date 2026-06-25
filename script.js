@@ -1,17 +1,15 @@
-// Wait for the page to fully load
+// Mobile menu toggle
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // --- 1. MOBILE MENU TOGGLE ---
-    const hamburger = document.getElementById("hamburger");
-    const navLinks = document.getElementById("nav-links");
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
 
-    if (hamburger && navLinks) {
-        hamburger.addEventListener("click", () => {
-            navLinks.classList.toggle("active");
+    if(menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
         });
     }
 
-    // --- 2. EMAIL CAPTURE FORM HANDLER ---
+    // Email Capture Form Handler (CRO tracking placeholder)
     const forms = document.querySelectorAll('form');
     forms.forEach(form => {
         form.addEventListener('submit', (e) => {
@@ -21,5 +19,4 @@ document.addEventListener('DOMContentLoaded', () => {
             form.reset();
         });
     });
-    
 });
