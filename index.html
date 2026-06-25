@@ -282,7 +282,11 @@
     
     /* The Popup Box */
     .popup-content {
-        background: var(--white);
+        /* NEW: Background image with a soft white overlay */
+        background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=600&auto=format&fit=crop');
+        background-size: cover;
+        background-position: center;
+        
         padding: 3rem 2rem;
         border-radius: 12px;
         width: 90%;
@@ -359,5 +363,3 @@
         }
     });
 </script>
-</body>
-</html>
