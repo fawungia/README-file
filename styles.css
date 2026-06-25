@@ -221,3 +221,35 @@ footer {
   color: #666;
   margin-top: 2rem;
 }
+
+/* Mobile Navigation Styles */
+@media (max-width: 768px) {
+    #nav-links {
+        display: none; /* Hide links by default on mobile */
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background-color: #fff;
+        position: absolute;
+        top: 60px; /* Adjust this based on your header height */
+        left: 0;
+        padding: 1rem 0;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    /* This class gets added by JavaScript when the menu is opened */
+    #nav-links.active {
+        display: flex; 
+    }
+}
+
+/* Hide the hamburger icon on desktop */
+@media (min-width: 769px) {
+    #hamburger {
+        display: none;
+    }
+    #nav-links {
+        display: flex;
+        gap: 2rem;
+    }
+}
