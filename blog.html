@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-33SX49MXHN"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-33SX49MXHN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-33SX49MXHN');
-</script>
+      gtag('config', 'G-33SX49MXHN');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog | SkinHonestly</title>
@@ -37,13 +37,6 @@
           line-height: 1.6;
         }
 
-        img {
-          max-width: 100%;
-          height: auto;
-          display: block;
-          border-radius: 8px;
-        }
-
         a {
           text-decoration: none;
           color: var(--text);
@@ -67,7 +60,6 @@
 
         .btn:hover { opacity: 0.9; }
         .btn-primary { background-color: var(--primary); color: var(--white); }
-        .btn-secondary { background-color: var(--secondary); color: var(--white); }
 
         .container {
           width: 90%;
@@ -151,35 +143,16 @@
           width: 100%;
           height: 250px;
           object-fit: cover;
-          background-color: #eee;
+          display: block;
         }
 
         .card-content { padding: 1.5rem; }
-        
-        /* Newsletter Section */
-        .newsletter-section {
-          background: var(--white);
-          text-align: center;
-          padding: 4rem 5%;
-          border-top: 1px solid #eee;
-        }
-        .newsletter-section form {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 1.5rem;
-        }
-        .newsletter-section input {
-            padding: 0.8rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            width: 300px;
-        }
         
         footer {
           background-color: var(--white);
           text-align: center;
           padding: 3rem 5%;
+          margin-top: 4rem;
           border-top: 1px solid #eee;
         }
 
@@ -194,21 +167,22 @@
 
     <header>
        <nav class="nav-container">
-            <a href="index.html" class="logo">SkinHonestly</a>
-            <div class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</div> 
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="shop.html">Shop</a>
-                <a href="blog.html">Blog</a>
-                <a href="about.html">About</a>
-            </div>
-        </nav>
+          <a href="index.html" class="logo">SkinHonestly</a>
+          <div class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</div> 
+          <div class="nav-links">
+              <a href="index.html">Home</a>
+              <a href="shop.html">Shop</a>
+              <a href="blog.html">Blog</a>
+              <a href="about.html">About</a>
+          </div>
+       </nav>
     </header>
 
     <main class="container">
         <h1 style="text-align: center; margin-bottom: 3rem;">Daily Skincare Insights</h1>
         
         <div class="grid-3">
+            <!-- Routine Post -->
             <article class="card">
                 <img src="https://images.unsplash.com/photo-1617897903246-719242758050?q=80&w=400&auto=format&fit=crop" alt="Woman applying face serum">
                 <div class="card-content">
@@ -218,17 +192,19 @@
                     <a href="post8.html" class="btn btn-primary">Read More</a>
                 </div>
             </article>
-            <article class="card" style="background: var(--white); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-    <img src="images/poko-skincare-oXI2_S1ILQI-unsplash.jpg" alt="A person applying moisturizer" style="width: 100%; height: 250px; object-fit: cover; display: block; border-radius: 8px 8px 0 0;">
-    
-    <div class="card-content" style="padding: 1rem;">
-        <p style="font-size: 0.8rem; color: #666; margin-bottom: 0.5rem;">June 23, 2026</p>
-        <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">My Honest Morning Routine: What I Use Every Single Day</h3>
-        <p style="margin: 1rem 0; color: #444; line-height: 1.5;">I’ve finally nailed down a morning routine that keeps my skin hydrated and glowing without feeling heavy.</p>
-        <a href="post1.html" class="btn btn-primary" style="display: inline-block; padding: 0.6rem 1.2rem; border-radius: 4px; font-weight: bold; text-decoration: none;">Read More</a>
-    </div>
-</article
 
+            <!-- Morning Routine Post -->
+            <article class="card">
+                <img src="images/poko-skincare-oXI2_S1ILQI-unsplash.jpg" alt="A person applying moisturizer">
+                <div class="card-content">
+                    <p style="font-size: 0.8rem; color: #666; margin-bottom: 0.5rem;">June 23, 2026</p>
+                    <h3>My Honest Morning Routine</h3>
+                    <p style="margin: 1rem 0;">I’ve finally nailed down a morning routine that keeps my skin hydrated and glowing.</p>
+                    <a href="post1.html" class="btn btn-primary">Read More</a>
+                </div>
+            </article>
+
+            <!-- Affordable Skincare Post -->
             <article class="card">
                 <img src="https://via.placeholder.com/400x250?text=Affordable+Skincare" alt="A curated flat lay of skincare">
                 <div class="card-content">
@@ -239,6 +215,7 @@
                 </div>
             </article>
 
+            <!-- Peptides Post -->
             <article class="card">
                 <img src="https://via.placeholder.com/400x250?text=Peptides" alt="A close-up of a dropper">
                 <div class="card-content">
@@ -249,6 +226,7 @@
                 </div>
             </article>
             
+            <!-- Exfoliation Post -->
             <article class="card">
                 <img src="https://via.placeholder.com/400x250?text=Exfoliation" alt="Woman gently patting her face">
                 <div class="card-content">
@@ -259,6 +237,7 @@
                 </div>
             </article>
 
+            <!-- Barrier Post -->
             <article class="card">
                 <img src="https://via.placeholder.com/400x250?text=Skin+Barrier" alt="Skin barrier illustration">
                 <div class="card-content">
@@ -268,43 +247,26 @@
                     <a href="post5.html" class="btn btn-primary">Read More</a>
                 </div>
             </article>
-
-            <article class="card">
-                <img src="https://via.placeholder.com/400x250?text=Morning+vs+Night" alt="Sun and moon icons">
-                <div class="card-content">
-                    <p style="font-size: 0.8rem; color: #666;">June 18, 2026</p>
-                    <h3>What Order to Apply Skincare Products</h3>
-                    <p style="margin: 1rem 0;">Layering your products correctly makes a huge difference in how well they work. Let's simplify.</p>
-                    <a href="post6.html" class="btn btn-primary">Read More</a>
-                </div>
-            </article>
         </div>
     </main>
-<footer style="background-color: var(--white); text-align: center; padding: 3rem 5%; margin-top: 4rem; border-top: 1px solid #eee;">
-    
-    <!-- This is the container where your newsletter form will appear -->
-    <div id="newsletter-container">
-        <!-- The form from newsletter.html will load here automatically -->
-    </div>
 
-    <p style="margin-bottom: 1rem; font-weight: bold; margin-top: 2rem;">
-        <a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">Pinterest</a>
-    </p>
+    <footer style="background-color: var(--white); text-align: center; padding: 3rem 5%; margin-top: 4rem; border-top: 1px solid #eee;">
+        <div id="newsletter-container"></div>
+        <p style="margin-bottom: 1rem; font-weight: bold; margin-top: 2rem;">
+            <a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">Pinterest</a>
+        </p>
+        <p style="margin-bottom: 1rem;">
+            <a href="privacy.html" style="font-size: 0.85rem; color: #666; text-decoration: underline;">Privacy Policy & Disclosures</a>
+        </p>
+        <p class="ftc-disclosure" style="font-size: 0.8rem; color: #666;">This page contains affiliate links. We may earn a commission at no extra cost to you.</p>
+    </footer>
 
-    <p style="margin-bottom: 1rem;">
-        <a href="privacy.html" style="font-size: 0.85rem; color: #666; text-decoration: underline;">Privacy Policy & Disclosures</a>
-    </p>
-
-    <p class="ftc-disclosure" style="font-size: 0.8rem; color: #666;">This page contains affiliate links. We may earn a commission at no extra cost to you.</p>
-</footer>
-
-<!-- This script tells the page to grab the newsletter form and put it inside the container -->
-<script>
-    fetch('newsletter.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('newsletter-container').innerHTML = data;
-        });
-</script>
+    <script>
+        fetch('newsletter.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('newsletter-container').innerHTML = data;
+            });
+    </script>
 </body>
 </html>
