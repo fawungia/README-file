@@ -128,12 +128,11 @@
 
 <!-- This script tells the page to grab the newsletter form and put it inside the container -->
 <script>
-    // Adding ?v=2 forces the browser to grab the newest Klaviyo version, ignoring the old Kit cache
-    fetch('newsletter.html?v=2')
+    fetch('newsletter.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('newsletter-container').innerHTML = data;
         });
-</script>
+</script
 </body>
 </html>
