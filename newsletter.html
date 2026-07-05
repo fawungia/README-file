@@ -2,12 +2,11 @@
     <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Join the SkinHonestly Community</h2>
     <p style="margin-bottom: 1rem;">Daily tips, honest reviews, and skincare secrets.</p>
 
-    <form action="https://manage.klaviyo.com/subscriptions/subscribe" method="POST" target="_blank" style="display: flex; justify-content: center; gap: 10px;">
+    <!-- FIXED: manage.kmail-lists.com is the correct server -->
+    <form action="https://manage.kmail-lists.com/subscriptions/subscribe" method="POST" target="_blank" style="display: flex; justify-content: center; gap: 10px;">
         
-        <!-- Routes to your Y7jZq9 Klaviyo list -->
         <input type="hidden" name="g" value="Y7jZq9">
         
-        <!-- Changed name="email_address" to name="email" -->
         <input type="email" name="email" placeholder="Your email address" required style="padding: 0.8rem; border: 1px solid #ccc; border-radius: 4px; width: 300px;">
         
         <button type="submit" style="padding: 0.8rem 1.5rem; background: #7A9B76; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">Subscribe</button>
