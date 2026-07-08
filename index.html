@@ -1,155 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="p:domain_verify" content="614a5afefa741fa072c6f9319d2f14d0"/>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-33SX49MXHN"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-33SX49MXHN');
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SkinHonestly | Honest Skincare, Real Results</title>
-    <meta name="description" content="Daily skincare blog and shop. Discover our signature products and our favorite affiliate recommendations for glowing skin.">
-    
+    <!-- Preservation of original tracking & verification -->
+    <meta name="p:domain_verify" content="614a5afefa741fa072c6f9319d2f14d0"/>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-33SX49MXHN"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-33SX49MXHN');</script>
+
     <style>
         :root {
-            --bg: #FAF7F2;
-            --primary: #5E795B;
-            --secondary: #D4886B;
-            --text: #2B2B2B;
-            --highlight: #C9A876;
-            --white: #FFFFFF;
+            --bg: #FAF7F2; --primary: #5E795B; --secondary: #D4886B;
+            --text: #2B2B2B; --white: #FFFFFF;
         }
-
-        /* Base Reset & Typography */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            background-color: var(--bg); 
-            color: var(--text); 
-            line-height: 1.7; 
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            -webkit-font-smoothing: antialiased;
-        }
+        body { background-color: var(--bg); color: var(--text); font-family: 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; }
         
-        a { text-decoration: none; color: var(--text); transition: 0.3s; }
-        h1, h2, h3 { font-weight: 600; letter-spacing: -0.02em; }
+        /* Sticky Luxury Nav */
+        header { position: sticky; top: 0; z-index: 1000; background: rgba(250, 247, 242, 0.95); backdrop-filter: blur(10px); padding: 1.5rem 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .nav-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 5%; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); }
+        .nav-links { display: flex; gap: 2rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; }
+
+        /* Premium Editorial Hero */
+        .hero { padding: 8rem 5% 6rem; text-align: center; }
+        .hero h1 { font-size: clamp(3rem, 7vw, 5rem); margin-bottom: 2rem; line-height: 1; }
+        .hero p { font-size: 1.2rem; color: #666; max-width: 600px; margin: 0 auto 3rem; }
         
-        /* Premium Navigation - Clean & Sticky */
-        header { background: rgba(250, 247, 242, 0.9); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05); }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 5%; max-width: 1200px; margin: 0 auto; }
-        .logo { font-size: 1.6rem; font-weight: 800; color: var(--primary); letter-spacing: -0.5px; }
-        .nav-links { display: flex; gap: 2.5rem; font-weight: 500; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; }
-
-        /* Premium Hero */
-        .hero-split { display: flex; flex-direction: column; align-items: center; gap: 4rem; padding: 6rem 5%; max-width: 1100px; margin: 0 auto; }
-        .hero-text { flex: 1; text-align: center; }
-        .hero-text h1 { font-size: clamp(3rem, 6vw, 4.5rem); margin-bottom: 1.5rem; line-height: 1; }
-        .hero-image img { border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.08); width: 100%; height: auto; }
-
-        /* Modern Grid Cards */
-        .container { width: 90%; max-width: 1100px; margin: 0 auto; padding: 4rem 0; }
+        /* Editorial Grid */
+        .container { max-width: 1100px; margin: 0 auto; padding: 4rem 5%; }
         .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; }
-        .card { 
-            background: var(--white); 
-            padding: 2rem; 
-            border-radius: 20px; 
-            box-shadow: 0 8px 30px rgba(0,0,0,0.04);
-            text-align: center; 
-            transition: transform 0.4s ease;
-        }
-        .card:hover { transform: translateY(-10px); }
-        .card img { border-radius: 12px; margin-bottom: 1.5rem; }
-
-        /* Newsletter (Premium UI) */
-        .email-capture { background: var(--primary); color: white; padding: 5rem 5%; border-radius: 30px; text-align: center; margin: 4rem 0; }
-        .email-capture form { display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
-        .email-capture input { padding: 1rem 1.5rem; border-radius: 50px; border: none; width: 300px; }
-
-        /* Buttons */
-        .btn { padding: 1rem 2rem; border-radius: 50px; font-weight: 700; cursor: pointer; border: none; transition: 0.3s; display: inline-block; }
-        .btn-primary { background: var(--primary); color: white; }
-        .btn-secondary { background: var(--secondary); color: white; }
+        .card { background: white; padding: 2.5rem; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); text-align: center; }
         
-        @media (max-width: 768px) { .nav-links { display: none; } }
+        /* Newsletter (Conversion Focus) */
+        .newsletter { background: var(--primary); color: white; padding: 5rem; border-radius: 30px; text-align: center; }
+        .btn { padding: 1rem 2.5rem; border-radius: 50px; font-weight: 700; border: none; cursor: pointer; transition: 0.3s; }
+        .btn-primary { background: var(--primary); color: white; }
     </style>
 </head>
 <body>
 
-    <header>
-        <nav class="nav-container">
-            <a href="index.html" class="logo">SkinHonestly</a>
-            <div class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</div>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="shop.html">Shop</a>
-                <a href="blog.html">Blog</a>
-                <a href="about.html">About</a>
-            </div>
-        </nav>
-    </header>
-
-   <section class="hero-split">
-        <div class="hero-text">
-            <h1>Honest Skincare.<br>Real Results.</h1>
-            <p style="color: #666; font-size: 1.2rem; margin-bottom: 2rem;">Transparent ingredients, science-backed routines, and curated products that actually work.</p>
-            <a href="https://serana.shop/collections/all" class="btn btn-secondary">Shop Our Collection</a>
+<header>
+    <nav class="nav-container">
+        <a href="index.html" class="logo">SkinHonestly</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a><a href="shop.html">Shop</a><a href="blog.html">Blog</a><a href="about.html">About</a>
         </div>
-        <div class="hero-image">
-            <img src="images/hero-image.webp" alt="Model applying facial serum" width="600" height="400">
+    </nav>
+</header>
+
+<main>
+    <section class="hero">
+        <h1>Honest Skincare.<br>Real Results.</h1>
+        <p>Transparent ingredients, science-backed routines, and curated products that actually work.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center;">
+            <a href="shop.html" class="btn btn-primary">Shop Collection</a>
+            <a href="blog.html" class="btn" style="border: 1px solid #333;">Read the Blog</a>
         </div>
     </section>
 
-    <div class="trust-banner" style="display:flex; justify-content: center; gap: 2rem; padding: 2rem; font-weight: 600; color: var(--primary);">
-        <span>🌿 Vegan</span> <span>🐰 Cruelty-Free</span> <span>✨ Derm Tested</span>
-    </div>
-
-    <main class="container">
-        <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 3rem;">Meet Your New Holy Grail</h2>
+    <section class="container">
         <div class="grid-3">
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=600" alt="Daily Serum">
-                <h3>Daily Serum</h3>
-                <a href="https://amzn.to/3RmTQO9" class="btn btn-primary">View Product</a>
-            </div>
-            <div class="card">
-                <img src="https://images.pexels.com/photos/4465124/pexels-photo-4465124.jpeg?q=80&w=600" alt="Night Cream">
-                <h3>Night Cream</h3>
-                <a href="https://amzn.to/4vPHdKy" class="btn btn-primary">View Product</a>
-            </div>
-            <div class="card">
-                <img src="https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg?q=80&w=600" alt="Face Roller">
-                <h3>Face Roller</h3>
-                <a href="https://amzn.to/3QzFiKU" class="btn btn-primary">Discover</a>
-            </div>
+            <div class="card"><h3>Science-Backed</h3></div>
+            <div class="card"><h3>Cruelty-Free</h3></div>
+            <div class="card"><h3>Clean Beauty</h3></div>
         </div>
+    </section>
 
-        <section class="email-capture">
-            <h2 style="color: white; font-size: 2rem;">Unlock Your Best Skin</h2>
-            <p style="margin-bottom: 2rem;">Join our inner circle for our 7-Day Glow Routine PDF.</p>
+    <!-- Klaviyo Integration Preserved -->
+    <section class="container">
+        <div class="newsletter">
+            <h2>Unlock Your Best Skin</h2>
             <form action="https://manage.kmail-lists.com/subscriptions/subscribe" method="POST" target="_blank">
                 <input type="hidden" name="g" value="WpSSkZ">
-                <input type="email" name="email" placeholder="Your email address" required>
-                <button type="submit" class="btn" style="background: var(--secondary);">Subscribe</button>
+                <input type="email" name="email" placeholder="Email address" required style="padding: 1rem; border-radius: 50px; border:none; width: 300px;">
+                <button type="submit" class="btn" style="background:var(--secondary);">Subscribe</button>
             </form>
-        </section>
-    </main>
-
-    <!-- Popup & Scripts remain unchanged -->
-    <div id="email-popup-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:9999; align-items:center; justify-content:center;">
-        <div class="popup-content" style="background:white; padding: 3rem; border-radius: 20px; text-align: center;">
-            <button id="close-popup" style="background:none; border:none; cursor:pointer;">&times;</button>
-            <h2>Don't leave without your glow!</h2>
         </div>
-    </div>
+    </section>
+</main>
 
-    <script>
-        const popup = document.getElementById('email-popup-overlay');
-        document.addEventListener('mouseleave', () => { popup.style.display = 'flex'; });
-        document.getElementById('close-popup').addEventListener('click', () => { popup.style.display = 'none'; });
-    </script>
+<!-- Popup Logic Preserved -->
+<div id="email-popup-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:9999; align-items:center; justify-content:center;">
+    <div style="background:white; padding: 4rem; border-radius: 30px; text-align: center;">
+        <button id="close-popup" style="background:none; border:none; cursor:pointer;">&times;</button>
+        <h2>Wait! Don't leave without your glow!</h2>
+    </div>
+</div>
+
+<script>
+    const popup = document.getElementById('email-popup-overlay');
+    document.addEventListener('mouseleave', () => { popup.style.display = 'flex'; });
+    document.getElementById('close-popup').addEventListener('click', () => { popup.style.display = 'none'; });
+</script>
 </body>
 </html>
