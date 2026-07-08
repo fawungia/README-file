@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Journal | SkinHonestly Blog</title>
-    <meta name="description" content="Expert skincare advice, ingredient deep dives, and honest product reviews for your best skin.">
+    <title>The Journal | SkinHonestly - Clinical Skincare Advice</title>
+    <meta name="description" content="Expert skincare advice, dermatologist-backed routines, and honest product reviews.">
     
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-33SX49MXHN"></script>
@@ -16,6 +16,8 @@
     </script>
 
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&display=swap');
+
         :root {
             --bg: #FAF7F2;
             --primary: #5E795B;
@@ -24,7 +26,7 @@
             --text-light: #666;
             --highlight: #C9A876;
             --white: #FFFFFF;
-            --border: #EEEEEE;
+            --border: #EAE6DF;
         }
 
         /* Reset & Basics */
@@ -32,91 +34,116 @@
         body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
         a { text-decoration: none; color: inherit; transition: 0.3s; }
         img { max-width: 100%; height: auto; display: block; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 600; line-height: 1.2; }
 
         /* Navigation */
         header { background-color: var(--white); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; max-width: 1200px; margin: 0 auto; }
-        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary); letter-spacing: 1px; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; max-width: 1400px; margin: 0 auto; }
+        .logo { font-size: 1.6rem; font-weight: bold; color: var(--primary); letter-spacing: 1px; font-family: 'Playfair Display', serif; }
         .nav-links { display: flex; gap: 2rem; }
-        .nav-links a { font-size: 0.9rem; font-weight: 500; }
+        .nav-links a { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-light); }
         .nav-links a:hover { color: var(--primary); }
 
-        /* Blog Header & Categories */
-        .blog-header { text-align: center; padding: 4rem 1rem 2rem; }
-        .blog-header h1 { font-size: 3rem; color: var(--primary); margin-bottom: 1rem; }
-        
-        .category-nav { 
-            display: flex; 
-            justify-content: center; 
-            gap: 1.5rem; 
-            padding-bottom: 3rem; 
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
-        }
-        .category-link { 
-            font-size: 0.85rem; 
-            text-transform: uppercase; 
-            letter-spacing: 1.5px; 
-            font-weight: 600; 
-            color: var(--text-light); 
-        }
-        .category-link.active { color: var(--secondary); border-bottom: 2px solid var(--secondary); }
-        .category-link:hover { color: var(--primary); }
+        /* Utility Header (Breadcrumbs + Search) */
+        .utility-header { max-width: 1400px; margin: 0 auto; padding: 1.5rem 5% 0; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; }
+        .breadcrumbs { color: #999; }
+        .breadcrumbs a { color: var(--text-light); }
+        .search-bar { display: flex; border-bottom: 1px solid var(--border); padding-bottom: 5px; }
+        .search-bar input { border: none; background: transparent; padding: 5px; font-size: 0.8rem; outline: none; width: 200px; }
 
-        /* Featured Post Layout */
-        .featured-post { 
-            display: grid; 
-            grid-template-columns: 1.5fr 1fr; 
-            gap: 0; 
-            background: var(--white); 
-            margin-bottom: 4rem; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border-radius: 12px;
-            overflow: hidden;
-        }
-        .featured-image { height: 500px; object-fit: cover; width: 100%; }
-        .featured-content { padding: 4rem; display: flex; flex-direction: column; justify-content: center; }
-        .badge { background: var(--highlight); color: white; padding: 4px 12px; font-size: 0.7rem; border-radius: 20px; display: inline-block; width: fit-content; margin-bottom: 1.5rem; font-weight: bold; }
-        .featured-content h2 { font-size: 2.5rem; line-height: 1.2; margin-bottom: 1.5rem; color: var(--primary); }
-        .featured-content p { color: var(--text-light); margin-bottom: 2rem; font-size: 1.1rem; }
+        /* Blog Hero */
+        .blog-hero { padding: 4rem 5%; background: var(--white); text-align: center; }
+        .blog-hero h1 { font-size: 4rem; color: var(--primary); margin-bottom: 1rem; }
+        .blog-hero p { color: var(--text-light); font-size: 1.1rem; max-width: 700px; margin: 0 auto; }
 
-        /* Grid Layout */
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
-        .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; margin-bottom: 5rem; }
-        
-        .card { background: var(--white); border-radius: 8px; overflow: hidden; transition: transform 0.3s; }
-        .card:hover { transform: translateY(-5px); }
-        .card img { width: 100%; height: 250px; object-fit: cover; }
-        .card-body { padding: 1.5rem 0; }
-        .card-category { font-size: 0.75rem; text-transform: uppercase; color: var(--secondary); font-weight: 700; margin-bottom: 0.75rem; display: block; }
-        .card-title { font-size: 1.3rem; margin-bottom: 1rem; line-height: 1.4; color: var(--primary); }
-        .card-excerpt { color: var(--text-light); font-size: 0.95rem; margin-bottom: 1.5rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-        
-        .read-more { font-weight: bold; font-size: 0.9rem; color: var(--text); border-bottom: 2px solid var(--highlight); padding-bottom: 2px; }
+        /* Professional Category Filter */
+        .filter-nav-wrapper { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 60px; z-index: 998; }
+        .filter-nav { display: flex; justify-content: center; gap: 3rem; padding: 1.2rem; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .filter-link { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; color: var(--text-light); white-space: nowrap; }
+        .filter-link.active { color: var(--primary); border-bottom: 2px solid var(--primary); }
+        .filter-link:hover { color: var(--secondary); }
 
-        /* Newsletter Section */
-        .newsletter-bar { background: var(--primary); color: white; padding: 4rem 2rem; text-align: center; border-radius: 12px; margin-bottom: 5rem; }
-        .newsletter-bar h3 { font-size: 2rem; margin-bottom: 1rem; }
-        .newsletter-bar form { display: flex; justify-content: center; gap: 10px; margin-top: 2rem; }
-        .newsletter-bar input { padding: 0.8rem 1.5rem; border-radius: 4px; border: none; width: 300px; }
-        .newsletter-bar button { background: var(--secondary); color: white; border: none; padding: 0.8rem 2rem; border-radius: 4px; font-weight: bold; cursor: pointer; }
+        /* Layout Grid */
+        .layout-grid { max-width: 1400px; margin: 4rem auto; padding: 0 5%; display: grid; grid-template-columns: 1fr 350px; gap: 4rem; }
+
+        /* Featured Article (Top Wide) */
+        .featured-article { grid-column: 1 / -1; margin-bottom: 3rem; position: relative; border-radius: 12px; overflow: hidden; height: 600px; display: flex; align-items: center; }
+        .featured-article img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+        .featured-overlay { position: relative; z-index: 2; width: 45%; background: rgba(255,255,255,0.95); margin-left: 5%; padding: 4rem; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .badge { background: var(--secondary); color: white; padding: 4px 12px; font-size: 0.7rem; border-radius: 20px; display: inline-block; margin-bottom: 1.5rem; font-weight: bold; text-transform: uppercase; }
+        .featured-overlay h2 { font-size: 3rem; margin-bottom: 1.5rem; color: var(--primary); }
+        .featured-overlay p { font-size: 1.1rem; color: var(--text-light); margin-bottom: 2rem; }
+
+        /* Main Articles Feed */
+        .article-feed { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+        .post-card { display: flex; flex-direction: column; }
+        .post-card img { width: 100%; height: 320px; object-fit: cover; border-radius: 8px; margin-bottom: 1.5rem; transition: 0.4s; }
+        .post-card:hover img { opacity: 0.9; }
+        .post-meta { font-size: 0.7rem; text-transform: uppercase; font-weight: 700; color: var(--secondary); margin-bottom: 0.5rem; letter-spacing: 1px; }
+        .post-title { font-size: 1.6rem; color: var(--primary); margin-bottom: 1rem; }
+        .post-excerpt { font-size: 0.95rem; color: var(--text-light); margin-bottom: 1.5rem; }
+        .btn-read { font-weight: bold; text-transform: uppercase; font-size: 0.75rem; border-bottom: 2px solid var(--highlight); padding-bottom: 3px; }
+
+        /* Sidebar Widgets */
+        .sidebar { display: flex; flex-direction: column; gap: 4rem; }
+        .widget { }
+        .widget-title { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; border-bottom: 1px solid var(--border); padding-bottom: 1rem; margin-bottom: 2rem; }
+        
+        .staff-pick { text-align: center; padding: 2rem; border: 1px solid var(--border); border-radius: 8px; }
+        .staff-pick img { width: 150px; margin: 0 auto 1.5rem; }
+        .staff-pick h4 { font-family: 'Helvetica Neue', Arial; font-size: 1rem; margin-bottom: 0.5rem; }
+        .btn-shop { background: var(--primary); color: white; padding: 0.8rem; border-radius: 4px; display: block; margin-top: 1rem; font-weight: bold; }
+
+        .trending-row { display: grid; grid-template-columns: 80px 1fr; gap: 1rem; margin-bottom: 1.5rem; align-items: center; }
+        .trending-row img { width: 80px; height: 80px; object-fit: cover; border-radius: 4px; }
+        .trending-row h5 { font-size: 0.9rem; line-height: 1.4; color: var(--text); }
+
+        /* VIDEO JOURNAL SECTION */
+        .video-journal { grid-column: 1 / -1; margin: 4rem 0; padding: 4rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .video-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; }
+        .video-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; }
+        .main-video { height: 450px; background: #000; border-radius: 12px; overflow: hidden; position: relative; }
+        .video-list { display: flex; flex-direction: column; gap: 1rem; }
+        .video-item { display: grid; grid-template-columns: 120px 1fr; gap: 1rem; padding: 1rem; background: var(--white); border-radius: 8px; align-items: center; }
+
+        /* NEWSLETTER FULL WIDTH */
+        .newsletter-hero { grid-column: 1 / -1; background: var(--primary); color: white; padding: 6rem 5%; text-align: center; border-radius: 16px; margin: 4rem 0; }
+        .newsletter-hero h3 { font-size: 3rem; margin-bottom: 1rem; }
+        .newsletter-hero p { font-size: 1.2rem; margin-bottom: 3rem; opacity: 0.9; }
+        .newsletter-form { display: flex; justify-content: center; gap: 15px; max-width: 600px; margin: 0 auto; }
+        .newsletter-form input { flex: 1; padding: 1.2rem 2rem; border-radius: 4px; border: none; font-size: 1rem; }
+        .newsletter-form button { padding: 1.2rem 3rem; background: var(--secondary); color: white; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; }
+
+        /* Pagination */
+        .pagination { grid-column: 1 / 2; display: flex; justify-content: center; margin-top: 4rem; }
+        .btn-more { padding: 1rem 3rem; border: 2px solid var(--primary); color: var(--primary); font-weight: bold; border-radius: 4px; }
+        .btn-more:hover { background: var(--primary); color: white; }
 
         /* Footer */
-        footer { padding: 4rem 5%; text-align: center; background: var(--white); border-top: 1px solid var(--border); }
-        .footer-links { margin-bottom: 2rem; display: flex; justify-content: center; gap: 2rem; }
+        footer { background: var(--white); padding: 6rem 5% 4rem; text-align: center; border-top: 1px solid var(--border); }
+        .f-logo { font-size: 2.5rem; font-family: 'Playfair Display', serif; color: var(--primary); margin-bottom: 3rem; display: block; }
+        .f-grid { display: grid; grid-template-columns: repeat(4, 1fr); max-width: 1200px; margin: 0 auto 4rem; text-align: left; }
+        .f-col h4 { text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 2rem; font-family: 'Helvetica Neue', Arial; color: var(--text-light); }
+        .f-col a { display: block; margin-bottom: 1rem; font-size: 0.9rem; color: var(--text-light); }
+        .f-bottom { border-top: 1px solid var(--border); padding-top: 3rem; font-size: 0.8rem; color: #999; }
 
-        /* Responsive */
-        @media (max-width: 992px) {
-            .featured-post { grid-template-columns: 1fr; }
-            .blog-grid { grid-template-columns: repeat(2, 1fr); }
-            .featured-image { height: 350px; }
+        /* Responsive Breakpoints */
+        @media (max-width: 1200px) {
+            .featured-overlay { width: 60%; }
+            .layout-grid { grid-template-columns: 1fr; }
+            .sidebar { grid-row: 3; }
         }
-        @media (max-width: 600px) {
-            .blog-grid { grid-template-columns: 1fr; }
-            .newsletter-bar form { flex-direction: column; align-items: center; }
-            .newsletter-bar input { width: 100%; }
-            .blog-header h1 { font-size: 2rem; }
+        @media (max-width: 992px) {
+            .video-grid { grid-template-columns: 1fr; }
+            .featured-article { height: auto; }
+            .featured-overlay { width: 90%; margin: 2rem auto; }
+            .blog-hero h1 { font-size: 3rem; }
+        }
+        @media (max-width: 768px) {
+            .article-feed { grid-template-columns: 1fr; }
+            .newsletter-form { flex-direction: column; }
+            .f-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+            .filter-nav { gap: 1.5rem; }
         }
     </style>
 </head>
@@ -128,102 +155,212 @@
             <div class="nav-links">
                 <a href="index.html">Home</a>
                 <a href="shop.html">Shop</a>
-                <a href="blog.html" style="color: var(--primary);">Blog</a>
+                <a href="blog.html" style="color: var(--primary);">The Journal</a>
                 <a href="about.html">About</a>
             </div>
         </nav>
     </header>
 
-    <div class="blog-header">
-        <h1>The Journal</h1>
-        <div class="container">
-            <nav class="category-nav">
-                <a href="#" class="category-link active">All Stories</a>
-                <a href="#" class="category-link">Routines</a>
-                <a href="#" class="category-link">Ingredient Spotlights</a>
-                <a href="#" class="category-link">Reviews</a>
-                <a href="#" class="category-link">Lifestyle</a>
-            </nav>
+    <div class="utility-header">
+        <div class="breadcrumbs">
+            <a href="index.html">Home</a> / <span>The Journal</span>
+        </div>
+        <div class="search-bar">
+            <span>🔍</span>
+            <input type="text" placeholder="Search articles...">
         </div>
     </div>
 
-    <main class="container">
+    <section class="blog-hero">
+        <h1>The Journal</h1>
+        <p>Expert-led skincare research, clinically-backed routines, and honest product reviews designed to elevate your skin health journey.</p>
+    </section>
+
+    <div class="filter-nav-wrapper">
+        <nav class="filter-nav">
+            <a href="#" class="filter-link active">Latest Stories</a>
+            <a href="#" class="filter-link">Morning Rituals</a>
+            <a href="#" class="filter-link">Ingredient Science</a>
+            <a href="#" class="filter-link">Derm Reviews</a>
+            <a href="#" class="filter-link">Barrier Health</a>
+            <a href="#" class="filter-link">Anti-Aging</a>
+        </nav>
+    </div>
+
+    <main class="layout-grid">
         
-        <!-- FEATURED POST -->
-        <article class="featured-post">
-            <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=1200" alt="Morning Routine" class="featured-image">
-            <div class="featured-content">
-                <div class="badge">Featured Story</div>
-                <h2>The Honest Guide to a 5-Step Morning Routine</h2>
-                <p>We break down the essential steps every skin type needs to start the day glowing, without the 12-step hassle.</p>
-                <a href="post1.html" class="read-more" style="width: fit-content;">Read The Full Story</a>
+        <!-- FEATURED HERO STORY -->
+        <article class="featured-article">
+            <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=1600" alt="Featured">
+            <div class="featured-overlay">
+                <span class="badge">Editor's Highlight</span>
+                <h2>The 2024 Guide to Clinical Barrier Repair</h2>
+                <p>Learn why barrier health is the foundation of anti-aging and how to choose the right ceramides for your skin type.</p>
+                <a href="post1.html" class="btn-read">Read Full Research</a>
             </div>
         </article>
 
-        <!-- BLOG GRID -->
-        <div class="blog-grid">
+        <!-- LEFT COLUMN: FEED -->
+        <section class="article-feed">
             
-            <!-- Card 1 -->
-            <article class="card">
+            <article class="post-card">
                 <a href="post2.html">
-                    <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=600" alt="Budget Skincare">
-                    <div class="card-body">
-                        <span class="card-category">Reviews</span>
-                        <h3 class="card-title">5 Budget Skincare Finds That Actually Work</h3>
-                        <p class="card-excerpt">High-quality skincare doesn't have to break the bank. Here are our favorite drug-store gems...</p>
-                        <span class="read-more">Read More</span>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=600" alt="Post">
+                    <span class="post-meta">Dermatology • Mar 12</span>
+                    <h3 class="post-title">Vitamin C vs. Retinol: The Ultimate AM/PM Battle</h3>
+                    <p class="post-excerpt">We break down the science of why these two powerhouses work best when separated by 12 hours.</p>
+                    <span class="btn-read">Read Article</span>
                 </a>
             </article>
 
-            <!-- Card 2 -->
-            <article class="card">
+            <article class="post-card">
                 <a href="post3.html">
-                    <img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?q=80&w=600" alt="Peptides">
-                    <div class="card-body">
-                        <span class="card-category">Ingredient Spotlights</span>
-                        <h3 class="card-title">What are Peptides? The Building Blocks of Skin</h3>
-                        <p class="card-excerpt">Everything you need to know about why peptides are the secret to firm, youthful-looking skin.</p>
-                        <span class="read-more">Read More</span>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?q=80&w=600" alt="Post">
+                    <span class="post-meta">Ingredients • Mar 10</span>
+                    <h3 class="post-title">Peptides: The Building Blocks of Firm Skin</h3>
+                    <p class="post-excerpt">Understand the difference between Signal Peptides and Carrier Peptides in your routine.</p>
+                    <span class="btn-read">Read Article</span>
                 </a>
             </article>
 
-            <!-- Card 3 -->
-            <article class="card">
+            <article class="post-card">
                 <a href="post4.html">
-                    <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?q=80&w=600" alt="Sunscreen">
-                    <div class="card-body">
-                        <span class="card-category">Routines</span>
-                        <h3 class="card-title">Why Mineral SPF is a Game Changer for Sensitivity</h3>
-                        <p class="card-excerpt">If chemical sunscreens break you out, it's time to make the switch to mineral protection.</p>
-                        <span class="read-more">Read More</span>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?q=80&w=600" alt="Post">
+                    <span class="post-meta">Routines • Mar 08</span>
+                    <h3 class="post-title">5 Habits for a Morning Glow That Actually Stick</h3>
+                    <p class="post-excerpt">Beyond skincare: how hydration and temperature affect your skin's morning radiance.</p>
+                    <span class="btn-read">Read Article</span>
                 </a>
             </article>
 
-        </div>
+            <article class="post-card">
+                <a href="post5.html">
+                    <img src="https://images.pexels.com/photos/3762466/pexels-photo-3762466.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Post">
+                    <span class="post-meta">Clinical • Mar 05</span>
+                    <h3 class="post-title">Is Your Moisturizer Clogging Your Pores?</h3>
+                    <p class="post-excerpt">The complete guide to comedogenic ratings and finding the right weight for your climate.</p>
+                    <span class="btn-read">Read Article</span>
+                </a>
+            </article>
 
-        <!-- NEWSLETTER BOX -->
-        <section class="newsletter-bar">
-            <h3>Get Glowing Advice in Your Inbox</h3>
-            <p>Join 10,000+ others receiving our weekly skincare tips and exclusive offers.</p>
-            <form action="https://manage.kmail-lists.com/subscriptions/subscribe" method="POST" target="_blank">
+            <div class="pagination">
+                <a href="#" class="btn-more">View All Stories</a>
+            </div>
+
+        </section>
+
+        <!-- RIGHT COLUMN: SIDEBAR -->
+        <aside class="sidebar">
+            
+            <div class="widget">
+                <h3 class="widget-title">Shop Our Favorites</h3>
+                <div class="staff-pick">
+                    <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=300" alt="Product">
+                    <h4>The Daily Reset Serum</h4>
+                    <p style="font-size: 0.8rem; color: #999; margin-bottom: 1rem;">Award Winning Formulation</p>
+                    <a href="shop.html" class="btn-shop">Shop Now — $42</a>
+                </div>
+            </div>
+
+            <div class="widget">
+                <h3 class="widget-title">Most Popular Now</h3>
+                <a href="#" class="trending-row">
+                    <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=150" alt="Trend">
+                    <h5>The Minimalist Morning Routine Guide</h5>
+                </a>
+                <a href="#" class="trending-row">
+                    <img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?q=80&w=150" alt="Trend">
+                    <h5>Copper Peptides: Worth the Hype?</h5>
+                </a>
+                <a href="#" class="trending-row">
+                    <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=150" alt="Trend">
+                    <h5>5 Serums Under $30 We Love</h5>
+                </a>
+            </div>
+
+            <div class="widget" style="background: var(--primary); padding: 2rem; border-radius: 8px; color: white; text-align: center;">
+                <h3 style="font-family: 'Helvetica Neue'; font-size: 1.2rem; margin-bottom: 1rem;">Free 7-Day Routine</h3>
+                <p style="font-size: 0.9rem; margin-bottom: 2rem;">Get our clinical routine PDF delivered to your inbox instantly.</p>
+                <a href="#" style="background: white; color: var(--primary); padding: 0.8rem 2rem; display: block; font-weight: bold; border-radius: 4px;">Download PDF</a>
+            </div>
+
+        </aside>
+
+        <!-- VIDEO JOURNAL SECTION -->
+        <section class="video-journal">
+            <div class="video-header">
+                <div>
+                    <h3 style="font-size: 2rem;">Video Journal</h3>
+                    <p style="color: var(--text-light);">Step-by-step masterclasses and routines.</p>
+                </div>
+                <a href="#" class="btn-read">Watch All Videos</a>
+            </div>
+            <div class="video-grid">
+                <div class="main-video">
+                    <iframe src="https://www.youtube.com/embed/nabwuTwtlnM" style="width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
+                </div>
+                <div class="video-list">
+                    <div class="video-item">
+                        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=200" alt="V">
+                        <p style="font-size: 0.9rem; font-weight: bold;">Morning Facial Massage 101</p>
+                    </div>
+                    <div class="video-item">
+                        <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?q=80&w=200" alt="V">
+                        <p style="font-size: 0.9rem; font-weight: bold;">Nightly Double Cleanse Guide</p>
+                    </div>
+                    <div class="video-item">
+                        <img src="https://images.unsplash.com/photo-1552046122-03184de85e08?q=80&w=200" alt="V">
+                        <p style="font-size: 0.9rem; font-weight: bold;">Chemical vs Physical SPF</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEWSLETTER HERO -->
+        <section class="newsletter-hero">
+            <h3>The Glow List</h3>
+            <p>Join our 15,000+ member community for exclusive clinical advice and early access to drops.</p>
+            <form action="https://manage.kmail-lists.com/subscriptions/subscribe" method="POST" target="_blank" class="newsletter-form">
                 <input type="hidden" name="g" value="WpSSkZ">
-                <input type="email" name="email" placeholder="Email address" required>
-                <button type="submit">Subscribe</button>
+                <input type="email" name="email" placeholder="Your best email address" required>
+                <button type="submit">Subscribe Now</button>
             </form>
         </section>
 
     </main>
 
     <footer>
-        <div class="footer-links">
-            <a href="index.html">Home</a>
-            <a href="shop.html">Shop</a>
-            <a href="privacy.html">Privacy Policy</a>
+        <a href="index.html" class="f-logo">SkinHonestly</a>
+        <div class="f-grid">
+            <div class="f-col">
+                <h4>Explore</h4>
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shop All</a>
+                <a href="blog.html">The Journal</a>
+                <a href="about.html">About Us</a>
+            </div>
+            <div class="f-col">
+                <h4>Customer</h4>
+                <a href="#">Shipping</a>
+                <a href="#">Returns</a>
+                <a href="#">FAQ</a>
+                <a href="privacy.html">Privacy Policy</a>
+            </div>
+            <div class="f-col">
+                <h4>Social</h4>
+                <a href="#">Instagram</a>
+                <a href="#">TikTok</a>
+                <a href="#">Pinterest</a>
+                <a href="#">YouTube</a>
+            </div>
+            <div class="f-col">
+                <h4>Contact</h4>
+                <p style="font-size: 0.9rem; color: #999;">hello@skinhonestly.com</p>
+            </div>
         </div>
-        <p style="color: var(--text-light); font-size: 0.9rem;">&copy; 2024 SkinHonestly. Real Results, Honestly.</p>
+        <div class="f-bottom">
+            <p>&copy; 2024 SkinHonestly. Real Skincare. Honestly. <br> This page contains affiliate links. We may earn a commission at no extra cost to you.</p>
+        </div>
     </footer>
 
 </body>
