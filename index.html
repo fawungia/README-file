@@ -5,33 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="p:domain_verify" content="614a5afefa741fa072c6f9319d2f14d0"/>
     
-    <title>SkinHonestly | Honest Skincare, Real Results</title>
-    <meta name="description" content="Daily skincare blog and shop. Discover our signature products and our favorite affiliate recommendations for glowing skin.">
-    <link rel="canonical" href="https://skinhonestlyco.com/">
+    <!-- SEO & SOCIAL META TAGS -->
+    <title>SkinHonestly | Honest Skincare Advice & Proven Routines</title>
+    <meta name="description" content="Discover transparent skincare advice, real product reviews, and evidence-based routines to help you achieve your best natural glow.">
+    <link rel="canonical" href="https://skinhonestly.com/">
     <meta property="og:title" content="SkinHonestly | Honest Skincare, Real Results">
-    <meta property="og:description" content="Daily skincare blog and shop. Discover our signature products and our favorite affiliate recommendations for glowing skin.">
-    <meta property="og:image" content="https://skinhonestlyco.com/images/hero-image.webp">
-    <meta property="og:url" content="https://skinhonestlyco.com/">
-    <meta property="og:site_name" content="SkinHonestly">
+    <meta property="og:description" content="No fluff, just what works. Explore expert skincare routines and honest reviews.">
+    <meta property="og:image" content="https://skinhonestly.com/images/hero-image.webp">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SkinHonestly | Honest Skincare, Real Results">
-    <meta name="twitter:description" content="Daily skincare blog and shop. Discover our signature products and our favorite affiliate recommendations for glowing skin.">
-    <meta name="twitter:image" content="https://skinhonestlyco.com/images/hero-image.webp">
 
+    <!-- Schema.org -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Blog",
       "name": "SkinHonestly",
-      "publisher": { "@type": "Organization", "name": "SkinHonestly" },
-      "blogPost": [
-        { "@type": "BlogPosting", "headline": "My Honest Morning Routine", "url": "https://skinhonestlyco.com/post1.html" },
-        { "@type": "BlogPosting", "headline": "5 Budget Skincare Finds", "url": "https://skinhonestlyco.com/post2.html" },
-        { "@type": "BlogPosting", "headline": "Peptides Explained", "url": "https://skinhonestlyco.com/post3.html" }
-      ]
+      "url": "https://skinhonestly.com/"
     }
     </script>
 
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-33SX49MXHN"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -41,7 +34,6 @@
     </script>
 
     <style>
-        /* CSS Variables */
         :root {
           --bg: #FAF7F2;
           --primary: #5E795B;
@@ -58,39 +50,26 @@
         h1, h2, h3 { font-weight: 600; margin-bottom: 1rem; }
         img { max-width: 100%; height: auto; display: block; border-radius: 8px; }
 
-        /* Buttons */
         .btn { display: inline-block; padding: 0.8rem 1.5rem; border-radius: 4px; font-weight: bold; text-align: center; cursor: pointer; border: none; transition: opacity 0.3s ease; }
         .btn:hover { opacity: 0.9; }
         .btn-primary { background-color: var(--primary); color: var(--white); }
         .btn-secondary { background-color: var(--secondary); color: var(--white); }
 
-        /* Navigation */
         header { background-color: var(--bg); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
         .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 5%; max-width: 1200px; margin: 0 auto; }
         .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary); letter-spacing: 1px; }
         .nav-links { display: flex; gap: 2rem; }
-        .nav-links a:hover { color: var(--primary); }
         .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; background: none; border: none; }
 
-        /* Layout */
         .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 4rem 0; }
         .hero-split { display: flex; flex-direction: column; align-items: center; gap: 3rem; padding: 4rem 5%; max-width: 1200px; margin: 0 auto; }
-        .hero-text { flex: 1; }
         .hero-text h1 { font-size: 3rem; color: var(--primary); line-height: 1.2; margin-bottom: 1.5rem; }
-        .hero-image img { width: 100%; height: 500px; object-fit: cover; box-shadow: 0 10px 30px rgba(0,0,0,0.08); display: block; }
-        .trust-banner { background-color: var(--white); padding: 1.5rem 5%; display: flex; flex-direction: column; gap: 1rem; align-items: center; border-top: 1px solid #eee; border-bottom: 1px solid #eee; font-weight: bold; color: var(--primary); }
-        .grid-3 { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 2rem; }
-        .card { background: var(--white); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.03); padding-bottom: 1.5rem; text-align: center; }
-        .card img { width: 100%; height: 250px; object-fit: cover; border-radius: 8px 8px 0 0; }
+        .grid-3 { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+        .card { background: var(--white); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.03); padding: 1.5rem; text-align: center; }
         .email-capture { background-color: var(--primary); color: var(--white); text-align: center; padding: 4rem 5%; border-radius: 12px; margin: 4rem auto; max-width: 900px; }
-        .email-capture form { display: flex; flex-direction: column; gap: 1rem; max-width: 500px; margin: 2rem auto 0; }
-        footer { background-color: var(--white); text-align: center; padding: 4rem 5%; margin-top: 4rem; border-top: 1px solid #eee; }
-
-        @media (min-width: 768px) { .nav-links { display: flex; } .menu-toggle { display: none; } .hero-split { flex-direction: row; } .trust-banner { flex-direction: row; } .grid-3 { grid-template-columns: repeat(3, 1fr); } .email-capture form { flex-direction: row; } }
-        @media (max-width: 767px) { .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--bg); padding: 1rem 5%; } .nav-links.active { display: flex; } .menu-toggle { display: block; } }
         
-        #email-popup-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); z-index: 9999; align-items: center; justify-content: center; }
-        .popup-content { background: #fff; padding: 3rem 2rem; border-radius: 12px; width: 90%; max-width: 450px; text-align: center; position: relative; }
+        @media (min-width: 768px) { .nav-links { display: flex; } .menu-toggle { display: none; } .hero-split { flex-direction: row; } .grid-3 { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 767px) { .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--bg); padding: 1rem 5%; } .nav-links.active { display: flex; } .menu-toggle { display: block; } }
     </style>
 </head>
 <body>
@@ -98,7 +77,7 @@
 <header>
     <nav class="nav-container" aria-label="Main Navigation">
         <a href="index.html" class="logo">SkinHonestly</a>
-        <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false" onclick="toggleMenu(this)">☰</button>
+        <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false" onclick="this.nextElementSibling.classList.toggle('active')">☰</button>
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="shop.html">Shop</a>
@@ -109,122 +88,73 @@
 </header>
 
 <main>
+    <!-- HERO SECTION -->
     <section class="hero-split">
         <div class="hero-text">
-            <h1>Honest Skincare,<br>Real Results.</h1>
-            <p>Your daily source for transparent ingredients, proven routines, and a curated shop designed to bring out your natural glow.</p>
-            <a href="https://serana.shop/collections/all" class="btn btn-secondary">Shop Our Collection</a>
+            <h1>Unlock Your Natural Glow</h1>
+            <p>Transparent ingredients and science-backed routines for real results. No fluff, just what works.</p>
+            <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                <a href="blog.html" class="btn btn-primary">Read Latest Articles</a>
+                <a href="shop.html" class="btn btn-secondary">Start Your Journey</a>
+            </div>
         </div>
-        <div class="hero-image">
-            <img src="images/hero-image.webp" alt="Model applying facial serum for healthy skin" width="1200" height="500" loading="eager" fetchpriority="high">
-        </div>
+        <img src="images/hero-image.webp" alt="Model applying facial serum" width="600" height="400" fetchpriority="high">
     </section>
 
-    <div class="trust-banner">
-        <span>🌿 100% Vegan Ingredients</span>
-        <span>🐰 Certified Cruelty-Free</span>
-        <span>✨ Dermatologist Tested</span>
-    </div>
-
+    <!-- FEATURED CATEGORIES -->
     <section class="container">
         <h2 style="text-align: center;">Featured Categories</h2>
-        <div class="grid-3">
-            <article class="card"><h3>Acne Care</h3></article>
-            <article class="card"><h3>Dry Skin</h3></article>
-            <article class="card"><h3>Oily Skin</h3></article>
-            <article class="card"><h3>Anti-Aging</h3></article>
-            <article class="card"><h3>Product Reviews</h3></article>
-            <article class="card"><h3>Daily Routines</h3></article>
+        <div class="grid-3" style="margin-top: 2rem;">
+            <a href="#" class="card"><h3>Acne</h3></a>
+            <a href="#" class="card"><h3>Dry Skin</h3></a>
+            <a href="#" class="card"><h3>Oily Skin</h3></a>
+            <a href="#" class="card"><h3>Anti-Aging</h3></a>
+            <a href="#" class="card"><h3>Product Reviews</h3></a>
+            <a href="#" class="card"><h3>Skincare Routines</h3></a>
         </div>
     </section>
 
+    <!-- LATEST ARTICLES -->
     <section class="container">
-        <h2 style="text-align: center;">Latest From The Journal</h2>
-        <div class="grid-3">
-            <article class="card">
-                <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=600&auto=format&fit=crop" alt="Skincare routine overview" width="600" height="400" loading="lazy">
-                <div class="card-content">
-                    <h3>My Honest Morning Routine</h3>
-                    <a href="post1.html" class="btn btn-primary">Read Article</a>
-                </div>
-            </article>
-            <article class="card">
-                <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=600&auto=format&fit=crop" alt="Budget skincare products" width="600" height="400" loading="lazy">
-                <div class="card-content">
-                    <h3>5 Budget Skincare Finds</h3>
-                    <a href="post2.html" class="btn btn-primary">Read Article</a>
-                </div>
-            </article>
-            <article class="card">
-                <img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?q=80&w=600&auto=format&fit=crop" alt="Peptide serum texture" width="600" height="400" loading="lazy">
-                <div class="card-content">
-                    <h3>Peptides Explained</h3>
-                    <a href="post3.html" class="btn btn-primary">Read Article</a>
-                </div>
-            </article>
+        <h2 style="text-align: center;">Latest Articles</h2>
+        <div class="grid-3" style="margin-top: 2rem;">
+            <article class="card"><h3>Morning Routine Guide</h3><a href="post1.html" class="btn btn-primary" style="margin-top:1rem">Read More</a></article>
+            <article class="card"><h3>5 Budget Finds</h3><a href="post2.html" class="btn btn-primary" style="margin-top:1rem">Read More</a></article>
+            <article class="card"><h3>Peptides Explained</h3><a href="post3.html" class="btn btn-primary" style="margin-top:1rem">Read More</a></article>
         </div>
     </section>
 
+    <!-- POPULAR POSTS -->
     <section class="container">
         <h2 style="text-align: center;">Popular Posts</h2>
-        <div class="grid-3">
-            <article class="card"><h3>Best SPF for Sensitive Skin</h3><a href="#" class="btn btn-primary">Read More</a></article>
-            <article class="card"><h3>How to Layer Serums</h3><a href="#" class="btn btn-primary">Read More</a></article>
-            <article class="card"><h3>Skin Barrier Repair 101</h3><a href="#" class="btn btn-primary">Read More</a></article>
+        <div class="grid-3" style="margin-top: 2rem;">
+            <article class="card"><h3>Best SPF for Sensitive Skin</h3><a href="#" class="btn btn-primary" style="margin-top:1rem">Read More</a></article>
+            <article class="card"><h3>How to Layer Serums</h3><a href="#" class="btn btn-primary" style="margin-top:1rem">Read More</a></article>
+            <article class="card"><h3>Skin Barrier 101</h3><a href="#" class="btn btn-primary" style="margin-top:1rem">Read More</a></article>
         </div>
     </section>
 
+    <!-- NEWSLETTER -->
     <section class="email-capture">
-        <h2>Unlock Your Best Skin</h2>
-        <p>Get our free 7-Day Glow Routine PDF.</p>
-        <form action="YOUR_ENDPOINT_HERE" method="POST">
-            <input type="email" name="email" placeholder="Enter your email" required aria-label="Email address">
+        <h2>Join Our Inner Circle</h2>
+        <p>Get our free 7-Day Glow Routine PDF delivered to your inbox.</p>
+        <!-- PLACEHOLDER: Insert your email provider form action URL below -->
+        <form action="#" method="POST" style="margin-top: 1.5rem;">
+            <input type="email" placeholder="Enter your email" required aria-label="Email address" style="padding: 1rem; border-radius: 4px; border:none; width: 250px;">
             <button type="submit" class="btn btn-secondary">Subscribe</button>
         </form>
     </section>
 
+    <!-- ABOUT SECTION -->
     <section class="container" style="text-align: center; max-width: 800px;">
         <h2>About Skin Honestly Co</h2>
-        <p>At SkinHonestly, we bridge the gap between complex skincare science and your daily routine. We cut through marketing hype to bring you the truth about ingredients, helping you build a sustainable, effective routine that makes you feel confident in your own skin.</p>
+        <p>At SkinHonestly, we bridge the gap between complex skincare science and your daily routine. Founded on transparency, we curate advice and products that respect your skin barrier and your wallet. We cut through marketing hype to bring you the truth about ingredients, helping you build a sustainable, effective routine that makes you feel confident in your own skin.</p>
     </section>
-
-    <div style="position: relative; width: 100%; height: 400px; overflow: hidden; border-radius: 8px; margin: 2rem 0;">
-        <iframe src="https://www.youtube.com/embed/nabwuTwtlnM" title="SkinHonestly Routine Video" loading="lazy" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"></iframe>
-    </div>
 </main>
 
 <footer>
     <p>&copy; 2026 SkinHonestly. All rights reserved.</p>
-    <a href="privacy.html" style="font-size: 0.85rem; color: #666; text-decoration: underline;">Privacy Policy & Disclosures</a>
 </footer>
-
-<div id="email-popup-overlay" role="dialog" aria-modal="true" aria-label="Newsletter Signup">
-    <div class="popup-content">
-        <button class="close-popup" id="close-popup" aria-label="Close newsletter popup">&times;</button>
-        <h2>Don't leave without your glow!</h2>
-        <form action="YOUR_ENDPOINT_HERE" method="POST">
-            <input type="email" name="email" placeholder="Enter email" required>
-            <button type="submit" class="btn btn-secondary">Get Free PDF</button>
-        </form>
-    </div>
-</div>
-
-<script>
-    function toggleMenu(btn) {
-        const links = document.querySelector('.nav-links');
-        const expanded = btn.getAttribute('aria-expanded') === 'true';
-        links.classList.toggle('active');
-        btn.setAttribute('aria-expanded', !expanded);
-    }
-
-    const popup = document.getElementById('email-popup-overlay');
-    const closeBtn = document.getElementById('close-popup');
-    function showPopup() { popup.style.display = 'flex'; }
-    function hidePopup() { popup.style.display = 'none'; }
-    document.addEventListener('keydown', (e) => { if(e.key === 'Escape') hidePopup(); });
-    closeBtn.addEventListener('click', hidePopup);
-    setTimeout(showPopup, 60000);
-</script>
 
 </body>
 </html>
