@@ -7,7 +7,6 @@
     <meta name="description" content="Your daily source for transparent ingredients, proven routines, and expert-led skincare research.">
     <meta name="p:domain_verify" content="614a5afefa741fa072c6f9319d2f14d0"/>
     
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-33SX49MXHN"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -29,105 +28,75 @@
             --border: #EAE6DF;
         }
 
-        /* Global Reset */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; }
+        body { background-color: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; overflow-x: hidden; }
         a { text-decoration: none; color: inherit; transition: 0.3s; }
         img { max-width: 100%; height: auto; display: block; }
         h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 500; }
 
-        /* Navigation */
-        header { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 0 5%; max-width: 1400px; margin: 0 auto; height: 80px; }
-        .logo { font-size: 1.8rem; font-weight: 600; color: var(--primary); letter-spacing: -1px; }
-        .nav-links { display: flex; gap: 3rem; }
-        .nav-links a { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: var(--text-light); }
-        .nav-links a:hover { color: var(--primary); }
+        /* Unified Header */
+        header { background-color: var(--white); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 0 5%; max-width: 1400px; margin: 0 auto; height: 70px; }
+        .logo { font-size: 1.6rem; font-weight: bold; color: var(--primary); letter-spacing: 1px; font-family: 'Playfair Display', serif; }
+        .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+        .nav-links a { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-light); }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--primary); }
 
-        /* The Editorial Cover (Hero) */
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            .nav-links { 
+                display: none; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; 
+                background-color: var(--white); padding: 2rem; border-bottom: 1px solid var(--border); 
+                box-shadow: 0 10px 15px rgba(0,0,0,0.05); gap: 1.5rem; z-index: 1001;
+            }
+            .nav-links.active { display: flex; }
+        }
+
+        /* Hero Cover */
         .hero-cover { background: var(--white); border-bottom: 1px solid var(--border); }
         .hero-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; align-items: center; }
         .hero-image { height: 650px; object-fit: cover; width: 100%; }
         .hero-text { padding: 5rem; }
         .hero-text span { text-transform: uppercase; font-size: 0.7rem; letter-spacing: 3px; color: var(--secondary); font-weight: 700; display: block; margin-bottom: 1.5rem; }
         .hero-text h1 { font-size: 4rem; margin-bottom: 2rem; color: var(--primary); }
-        .hero-text p { font-size: 1.1rem; color: var(--text-light); margin-bottom: 3rem; max-width: 450px; }
         .btn-editorial { border: 1px solid var(--primary); padding: 1rem 2rem; display: inline-block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; color: var(--primary); }
-        .btn-editorial:hover { background: var(--primary); color: white; }
 
-        /* Main Journal Layout */
+        /* Journal Layout */
         .layout-grid { max-width: 1400px; margin: 5rem auto; padding: 0 5%; display: grid; grid-template-columns: 1fr 350px; gap: 5rem; }
-
-        /* Article Feed */
         .section-title { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; color: var(--text-light); margin-bottom: 3rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem; }
         .article-card { margin-bottom: 4rem; display: grid; grid-template-columns: 300px 1fr; gap: 2rem; align-items: start; }
         .article-card img { border-radius: 4px; height: 200px; width: 100%; object-fit: cover; }
         .article-content h3 { font-size: 2rem; margin-bottom: 1rem; color: var(--primary); }
-        .article-content p { color: var(--text-light); font-size: 0.95rem; margin-bottom: 1.5rem; }
-        .link-more { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; border-bottom: 1px solid var(--secondary); padding-bottom: 4px; }
 
         /* Sidebar */
         .sidebar { border-left: 1px solid var(--border); padding-left: 3rem; }
-        .sidebar-widget { margin-bottom: 4rem; }
-        .widget-h { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 2rem; color: var(--primary); }
         .trending-row { display: block; margin-bottom: 2rem; }
         .trending-row span { font-size: 0.65rem; color: var(--secondary); font-weight: 700; display: block; margin-bottom: 0.5rem; }
         .trending-row h4 { font-size: 1.1rem; line-height: 1.3; }
 
-        /* The Minimal Brand Row */
-        .brand-philosophy { background: var(--white); padding: 6rem 5%; text-align: center; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-        .philosophy-inner { max-width: 800px; margin: 0 auto; }
-        .philosophy-inner h2 { font-size: 2.5rem; margin-bottom: 2rem; color: var(--primary); }
-        .philosophy-inner p { font-size: 1.2rem; color: var(--text-light); font-style: italic; }
-
-        /* Shop Curation Row */
-        .shop-row { max-width: 1400px; margin: 6rem auto; padding: 0 5%; }
-        .shop-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
-        .shop-item { text-align: center; }
-        .shop-item img { height: 280px; object-fit: cover; margin-bottom: 1.5rem; border-radius: 2px; }
-        .shop-item h4 { font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem; }
-        .shop-item p { font-size: 0.8rem; color: var(--text-light); }
-
-        /* Newsletter Footer */
-        .newsletter-classic { background: var(--primary); color: white; padding: 6rem 5%; text-align: center; }
-        .newsletter-classic h3 { font-size: 2.5rem; margin-bottom: 1rem; color: white; }
-        .newsletter-classic p { opacity: 0.8; margin-bottom: 3rem; }
-        .n-form { display: flex; justify-content: center; gap: 10px; max-width: 500px; margin: 0 auto; }
-        .n-form input { background: transparent; border: 1px solid rgba(255,255,255,0.3); padding: 1rem; color: white; flex: 1; outline: none; }
-        .n-form input::placeholder { color: rgba(255,255,255,0.6); }
-        .n-form button { background: white; color: var(--primary); border: none; padding: 0 2rem; font-weight: 700; text-transform: uppercase; font-size: 0.7rem; cursor: pointer; }
-
-        /* Classic Footer */
+        /* Footer */
         footer { padding: 6rem 5% 4rem; background: var(--white); }
-        .f-container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 4rem; border-bottom: 1px solid var(--border); padding-bottom: 4rem; }
+        .f-container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 4rem; border-bottom: 1px solid var(--border); padding-bottom: 4rem; }
         .f-col h5 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 2rem; }
         .f-col a { display: block; margin-bottom: 1rem; font-size: 0.85rem; color: var(--text-light); }
-        .f-bottom { padding-top: 3rem; text-align: center; font-size: 0.75rem; color: #999; letter-spacing: 1px; }
 
-        /* Responsive */
         @media (max-width: 1024px) {
             .hero-inner { grid-template-columns: 1fr; }
             .hero-image { height: 400px; }
             .layout-grid { grid-template-columns: 1fr; }
-            .sidebar { border-left: none; padding-left: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-            .shop-grid { grid-template-columns: 1fr 1fr; }
+            .sidebar { border-left: none; padding-left: 0; }
         }
-        @media (max-width: 768px) {
-            .article-card { grid-template-columns: 1fr; }
-            .hero-text { padding: 3rem 1.5rem; }
-            .hero-text h1 { font-size: 2.8rem; }
-            .sidebar { grid-template-columns: 1fr; }
-            .f-container { grid-template-columns: 1fr 1fr; }
-        }
+        @media (max-width: 768px) { .article-card { grid-template-columns: 1fr; } .hero-text h1 { font-size: 2.8rem; } }
     </style>
 </head>
 <body>
-
     <header>
         <nav class="nav-container">
             <a href="index.html" class="logo">SkinHonestly</a>
-            <div class="nav-links">
-                <a href="index.html">Front Page</a>
+            <div class="menu-toggle" id="mobile-toggle">☰</div> 
+            <div class="nav-links" id="nav-menu">
+                <a href="index.html" class="active">Front Page</a>
                 <a href="shop.html">The Curation</a>
                 <a href="blog.html">The Journal</a>
                 <a href="about.html">About</a>
@@ -135,7 +104,6 @@
         </nav>
     </header>
 
-    <!-- THE COVER STORY -->
     <section class="hero-cover">
         <div class="hero-inner">
             <div class="hero-text">
@@ -148,114 +116,41 @@
         </div>
     </section>
 
-    <!-- MAIN EDITORIAL FEED -->
     <main class="layout-grid">
-        
         <section class="feed">
             <h2 class="section-title">Latest From The Lab</h2>
-            
             <article class="article-card">
                 <img src="images/poko-skincare-oXI2_S1ILQI-unsplash.webp" alt="Ritual">
                 <div class="article-content">
                     <h3>The Ritual: A Minimalist Approach to Morning Glow</h3>
                     <p>Why we stripped away the 12-step system in favor of three clinically potent actives that protect all day.</p>
-                    <a href="post2.html" class="link-more">Read Story</a>
+                    <a href="post2.html" style="font-weight: bold; border-bottom: 1px solid var(--secondary);">Read Story</a>
                 </div>
             </article>
-
             <article class="article-card">
                 <img src="images/ibnu-ihza-QbHwPe1HE84-unsplash.webp" alt="Budget">
                 <div class="article-content">
                     <h3>5 Clinical Results for Under $30</h3>
                     <p>Our editors spent 60 days testing affordable formulations. These 5 produced professional-grade results.</p>
-                    <a href="post3.html" class="link-more">Read Story</a>
-                </div>
-            </article>
-
-            <article class="article-card">
-                <img src="images/plantadea-zSD0OWrbtlw-unsplash.webp" alt="Peptides">
-                <div class="article-content">
-                    <h3>Decoding Peptides: The Molecular Secret</h3>
-                    <p>A deep dive into signal peptides and why they are the foundation of skin remodeling and firming.</p>
-                    <a href="post4.html" class="link-more">Read Story</a>
+                    <a href="post3.html" style="font-weight: bold; border-bottom: 1px solid var(--secondary);">Read Story</a>
                 </div>
             </article>
         </section>
 
-        <!-- EDITORIAL SIDEBAR -->
         <aside class="sidebar">
             <div class="sidebar-widget">
                 <h3 class="widget-h">Trending Stories</h3>
-                <a href="#" class="trending-row">
+                <a href="post1.html" class="trending-row">
                     <span>01 • Science</span>
                     <h4>Retinol vs Bakuchiol: The Barrier Comparison</h4>
                 </a>
-                <a href="#" class="trending-row">
+                <a href="post2.html" class="trending-row">
                     <span>02 • Routine</span>
                     <h4>The Truth About Double Cleansing</h4>
                 </a>
-                <a href="#" class="trending-row">
-                    <span>03 • Review</span>
-                    <h4>Copper Peptides: A 30-Day Analysis</h4>
-                </a>
-            </div>
-
-            <div class="sidebar-widget" style="padding: 2.5rem; background: var(--white); border: 1px solid var(--border); text-align: center;">
-                <h3 class="widget-h" style="margin-bottom: 1rem;">The Newsletter</h3>
-                <p style="font-size: 0.85rem; color: var(--text-light); margin-bottom: 1.5rem;">Join 15k+ readers for clinical research and exclusive drops.</p>
-                <a href="#" class="link-more">Join The List</a>
             </div>
         </aside>
-
     </main>
-
-    <!-- BRAND STORY ROW -->
-    <section class="brand-philosophy">
-        <div class="philosophy-inner">
-            <span>Our Foundation</span>
-            <h2>Evidence-Based Skincare.</h2>
-            <p>"We believe in transparency. By focusing on molecular health and stripping away artificial fillers, we help you achieve the glow you were born with, honestly."</p>
-        </div>
-    </section>
-
-    <!-- CURATED SHOP ROW -->
-    <section class="shop-row">
-        <h2 class="section-title">The Editor's Essentials</h2>
-        <div class="shop-grid">
-            <article class="shop-item">
-                <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=400" alt="Serum">
-                <h4>Daily Reset Serum</h4>
-                <p>$42.00 • The Signature Formula</p>
-            </article>
-            <article class="shop-item">
-                <img src="https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Tool">
-                <h4>Stainless Face Roller</h4>
-                <p>$28.00 • The Recovery Tool</p>
-            </article>
-            <article class="shop-item">
-                <img src="https://images.unsplash.com/photo-1599305090598-fe179d501227?q=80&w=400" alt="SPF">
-                <h4>Mineral SPF 50</h4>
-                <p>$34.00 • The Shield</p>
-            </article>
-            <article class="shop-item">
-                <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=400" alt="Cleanser">
-                <h4>Hydrating Cleanser</h4>
-                <p>$24.00 • The Base</p>
-            </article>
-        </div>
-    </section>
-
-    <!-- NEWSLETTER FOOTER -->
-    <section class="newsletter-classic">
-        <div class="philosophy-inner">
-            <h3>Subscribe to The Journal</h3>
-            <p>Clinical skincare advice and exclusive editorial drops delivered to your inbox.</p>
-            <form action="#" class="n-form">
-                <input type="email" placeholder="Your email address" required>
-                <button type="submit">Join</button>
-            </form>
-        </div>
-    </section>
 
     <footer>
         <div class="f-container">
@@ -263,29 +158,22 @@
                 <h5>Editorial</h5>
                 <a href="index.html">Front Page</a>
                 <a href="blog.html">The Journal</a>
-                <a href="about.html">About Us</a>
-            </div>
-            <div class="f-col">
-                <h5>Curation</h5>
-                <a href="shop.html">Shop All</a>
-                <a href="shop.html">SkinHonestly Exclusive</a>
             </div>
             <div class="f-col">
                 <h5>Connect</h5>
                 <a href="#">Instagram</a>
-                <a href="#">Pinterest</a>
                 <a href="#">YouTube</a>
             </div>
-            <div class="f-col">
-                <h5>Trust</h5>
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="privacy.html">Disclosures</a>
-            </div>
         </div>
-        <div class="f-bottom">
-            <p>&copy; 2024 SKINHONESTLY. CLINICAL RESEARCH. REAL RESULTS. HONESTLY.</p>
+        <div style="text-align: center; padding-top: 3rem; color: #999; font-size: 0.8rem;">
+            <p>&copy; 2024 SKINHONESTLY. REAL RESULTS. HONESTLY.</p>
         </div>
     </footer>
 
+    <script>
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        mobileToggle.addEventListener('click', () => { navMenu.classList.toggle('active'); });
+    </script>
 </body>
 </html>
