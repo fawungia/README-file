@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop Curated Skincare | SkinHonestly - Clinical & Clean</title>
+    <title>The Curation | SkinHonestly Shop - Clinical & Clean</title>
     <meta name="description" content="Shop our curated skincare products. Honest, dermatologist-backed recommendations for your best skin.">
     
     <!-- Google tag (gtag.js) -->
@@ -15,82 +15,33 @@
       gtag('config', 'G-33SX49MXHN');
     </script>
 
+    <!-- MASTER STYLE LINK -->
+    <link rel="stylesheet" href="style.css">
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&display=swap');
-
-        :root {
-            --bg: #FAF7F2;
-            --primary: #5E795B; 
-            --secondary: #D4886B;
-            --text: #2B2B2B;
-            --text-light: #666;
-            --highlight: #C9A876;
-            --white: #FFFFFF;
-            --border: #EAE6DF;
-        }
-
-        /* Reset & Basics */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Helvetica Neue', Arial, sans-serif; }
-        body { background-color: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
-        a { text-decoration: none; color: inherit; transition: 0.3s ease; }
-        img { max-width: 100%; height: auto; display: block; }
-        h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 600; line-height: 1.2; }
-
-        .btn { display: inline-block; padding: 0.9rem 2rem; border-radius: 4px; font-weight: bold; text-align: center; cursor: pointer; border: none; transition: 0.3s ease; font-size: 0.9rem; letter-spacing: 0.5px; }
-        .btn:hover { opacity: 0.9; transform: translateY(-1px); }
-        .btn-primary { background-color: var(--primary); color: var(--white); }
-        .btn-outline { background-color: transparent; color: var(--primary); border: 2px solid var(--primary); }
-        .btn-outline:hover { background-color: var(--primary); color: var(--white); }
-
-        /* Navigation */
-        header { background-color: var(--white); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; max-width: 1400px; margin: 0 auto; height: 70px; }
-        .logo { font-size: 1.6rem; font-weight: bold; color: var(--primary); letter-spacing: 1px; font-family: 'Playfair Display', serif; }
-        .nav-links { display: flex; gap: 2rem; align-items: center; }
-        .nav-links a { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-light); }
-        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
-        
-        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--primary); }
-
-        @media (max-width: 768px) {
-            .menu-toggle { display: block; }
-            .nav-links { 
-                display: none; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; 
-                background-color: var(--white); padding: 2rem; border-bottom: 1px solid var(--border); 
-                box-shadow: 0 10px 15px rgba(0,0,0,0.05); gap: 1.5rem; z-index: 1001;
-            }
-            .nav-links.active { display: flex; }
-        }
-
-        /* Utility Header */
+        /* PAGE-SPECIFIC SHOP STYLES */
         .utility-header { max-width: 1400px; margin: 0 auto; padding: 1.5rem 5% 0; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; }
         .breadcrumbs { color: #999; }
         .search-bar { display: flex; border-bottom: 1px solid var(--border); padding-bottom: 5px; }
         .search-bar input { border: none; background: transparent; padding: 5px; outline: none; width: 150px; }
 
-        /* Shop Hero */
         .shop-hero { padding: 4rem 5% 3rem; text-align: center; background: var(--white); }
-        .shop-hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); color: var(--primary); margin-bottom: 1rem; }
+        .shop-hero h1 { font-size: clamp(2.5rem, 6vw, 3.5rem); color: var(--primary); margin-bottom: 1rem; }
         .shop-hero p { color: var(--text-light); font-size: 1.1rem; max-width: 700px; margin: 0 auto; }
 
-        /* Filter Navigation */
-        .filter-nav-wrapper { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 70px; z-index: 998; }
+        .filter-nav-wrapper { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 80px; z-index: 998; }
         .filter-nav { display: flex; justify-content: center; gap: 2.5rem; padding: 1.2rem; overflow-x: auto; scrollbar-width: none; }
         .filter-nav::-webkit-scrollbar { display: none; }
         .filter-link { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; color: var(--text-light); white-space: nowrap; }
         .filter-link.active { color: var(--primary); border-bottom: 2px solid var(--primary); padding-bottom: 5px; }
 
-        /* Main Container */
-        .container { max-width: 1400px; margin: 0 auto; padding: 4rem 5%; }
-
-        /* Featured Exclusive Showcase */
+        /* Exclusive Showcase */
         .exclusive-showcase { 
             display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; 
-            background: var(--white); padding: 4rem; border-radius: 12px; 
-            box-shadow: 0 10px 40px rgba(0,0,0,0.04); margin-bottom: 6rem;
-            align-items: center; border: 1px solid var(--border);
+            background: var(--white); padding: 4rem; border-radius: 4px; 
+            margin-bottom: 6rem; align-items: center; border: 1px solid var(--border);
         }
-        .exclusive-img img { border-radius: 8px; box-shadow: 0 15px 30px rgba(0,0,0,0.08); width: 100%; height: 500px; object-fit: cover; }
+        .exclusive-img img { border-radius: 4px; width: 100%; height: 500px; object-fit: cover; }
         .exclusive-details .badge { background: var(--highlight); color: white; padding: 5px 15px; font-size: 0.75rem; border-radius: 20px; font-weight: bold; margin-bottom: 1.5rem; display: inline-block; }
         .exclusive-details h2 { font-size: 3rem; margin-bottom: 1.5rem; color: var(--primary); }
         .exclusive-details p { font-size: 1.1rem; color: var(--text-light); margin-bottom: 2rem; }
@@ -98,12 +49,7 @@
         .exclusive-details li { margin-bottom: 0.8rem; display: flex; align-items: center; gap: 10px; font-weight: 500; }
         .exclusive-details li::before { content: "✓"; color: var(--secondary); font-weight: bold; }
 
-        @media (max-width: 992px) {
-            .exclusive-showcase { grid-template-columns: 1fr; padding: 2.5rem; gap: 2.5rem; }
-            .exclusive-img img { height: 350px; }
-        }
-
-        /* Ecommerce Grid */
+        /* Product Grid */
         .section-title { text-align: center; font-size: 2.5rem; color: var(--primary); margin-bottom: 3rem; }
         .product-grid { 
             display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
@@ -115,8 +61,7 @@
             display: flex; flex-direction: column;
         }
         .product-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.06); border-color: var(--border); }
-        .product-card img { width: 100%; height: 350px; object-fit: cover; transition: 0.5s; }
-        .product-card:hover img { opacity: 0.9; }
+        .product-card img { width: 100%; height: 350px; object-fit: cover; }
         .product-info { padding: 2rem; text-align: center; flex-grow: 1; display: flex; flex-direction: column; }
         .product-brand { font-size: 0.75rem; color: var(--secondary); text-transform: uppercase; font-weight: 700; letter-spacing: 1.5px; margin-bottom: 0.5rem; }
         .product-name { font-size: 1.3rem; color: var(--primary); margin-bottom: 1rem; height: 3.2rem; overflow: hidden; }
@@ -129,33 +74,31 @@
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; text-align: center;
         }
         .trust-item h4 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: var(--primary); margin-top: 1rem; }
-        .trust-item p { font-size: 0.85rem; color: var(--text-light); margin-top: 0.5rem; }
 
         /* Newsletter */
-        .newsletter-section { background: var(--primary); color: white; padding: 6rem 5%; text-align: center; margin: 4rem 0; border-radius: 12px; }
-        .newsletter-section h3 { font-size: 2.8rem; margin-bottom: 1rem; }
+        .newsletter-section { background: var(--primary); color: white; padding: 6rem 5%; text-align: center; margin: 4rem 0; border-radius: 4px; }
+        .newsletter-section h3 { font-size: 2.8rem; margin-bottom: 1rem; color: white; }
         .newsletter-form { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; max-width: 600px; margin: 2rem auto 0; }
-        .newsletter-form input { flex: 1; min-width: 250px; padding: 1.2rem; border-radius: 4px; border: none; font-size: 1rem; }
-        .newsletter-form button { background: var(--secondary); color: white; padding: 1.2rem 2.5rem; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; }
+        .newsletter-form input { flex: 1; min-width: 250px; padding: 1.2rem; border-radius: 4px; border: none; font-size: 1rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); color: white; }
+        .newsletter-form input::placeholder { color: rgba(255,255,255,0.6); }
+        .newsletter-form button { background: white; color: var(--primary); padding: 1.2rem 2.5rem; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; }
 
-        /* Footer */
-        footer { background: var(--white); padding: 6rem 5% 4rem; text-align: center; border-top: 1px solid var(--border); }
-        .footer-logo { font-size: 2.5rem; font-family: 'Playfair Display', serif; color: var(--primary); margin-bottom: 3rem; display: block; }
-        .f-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 4rem; text-align: left; max-width: 1200px; margin: 0 auto 4rem; }
-        .f-col h4 { text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 2rem; color: var(--text-light); }
-        .f-col a { display: block; margin-bottom: 1rem; font-size: 0.9rem; color: var(--text-light); }
-        .f-bottom { border-top: 1px solid var(--border); padding-top: 3rem; font-size: 0.8rem; color: #999; }
+        @media (max-width: 992px) {
+            .exclusive-showcase { grid-template-columns: 1fr; padding: 2.5rem; }
+            .exclusive-img img { height: 350px; }
+        }
     </style>
 </head>
 <body>
 
+    <!-- MASTER HEADER -->
     <header>
         <nav class="nav-container">
             <a href="index.html" class="logo">SkinHonestly</a>
             <div class="menu-toggle" id="mobile-toggle">☰</div> 
             <div class="nav-links" id="nav-menu">
-                <a href="index.html">Home</a>
-                <a href="shop.html" class="active">Shop</a>
+                <a href="index.html">Front Page</a>
+                <a href="shop.html" class="active">The Curation</a>
                 <a href="blog.html">The Journal</a>
                 <a href="about.html">About</a>
             </div>
@@ -173,7 +116,7 @@
     </div>
 
     <section class="shop-hero">
-        <h1>SkinHonestly Shop</h1>
+        <h1>The Curation</h1>
         <p>Expertly curated skincare, merging our clinical signature line with tried-and-true favorites from the brands we trust most.</p>
     </section>
 
@@ -204,7 +147,7 @@
                     <li>Pure Active Hyaluronic Acid & Ceramides</li>
                     <li>Sustainably Sourced Glass Packaging</li>
                 </ul>
-                <a href="https://amzn.to/4p58tlL" class="btn btn-primary" style="width: 100%;">Shop Exclusive — $42</a>
+                <a href="https://amzn.to/4p58tlL" class="btn btn-primary">Shop Signature — $42</a>
             </div>
         </section>
 
@@ -228,7 +171,7 @@
                 <img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?q=80&w=600" alt="Vitamin C">
                 <div class="product-info">
                     <p class="product-brand">Mad Hippie / Paula's Choice</p>
-                    <h3 class="product-name">Vitamin C Brightening Drops</h3>
+                    <h3 class="product-name">Brightening Vitamin C Drops</h3>
                     <p class="product-desc">Potent antioxidant protection to brighten tone and defend against pollution.</p>
                     <a href="https://amzn.to/4p2Vhhh" target="_blank" class="btn btn-outline">Shop at Amazon</a>
                 </div>
@@ -312,48 +255,33 @@
 
     </main>
 
+    <!-- MASTER FOOTER -->
     <footer>
-        <a href="index.html" class="footer-logo">SkinHonestly</a>
-        <div class="f-grid">
+        <div class="f-container">
             <div class="f-col">
-                <h4>Explore</h4>
-                <a href="index.html">Home</a>
-                <a href="shop.html">Shop All</a>
+                <h5>Editorial</h5>
+                <a href="index.html">Front Page</a>
                 <a href="blog.html">The Journal</a>
                 <a href="about.html">About Us</a>
             </div>
             <div class="f-col">
-                <h4>Customer Care</h4>
-                <a href="#">Shipping Policy</a>
-                <a href="#">Returns & Exchanges</a>
-                <a href="#">FAQ</a>
-                <a href="privacy.html">Privacy Policy</a>
-            </div>
-            <div class="f-col">
-                <h4>Social</h4>
+                <h5>Connect</h5>
                 <a href="#">Instagram</a>
                 <a href="#">TikTok</a>
-                <a href="#">Pinterest</a>
                 <a href="#">YouTube</a>
             </div>
             <div class="f-col">
-                <h4>Contact</h4>
-                <p style="font-size: 0.9rem; color: #999;">hello@skinhonestly.com</p>
+                <h5>Legal</h5>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="privacy.html">Disclosures</a>
             </div>
         </div>
         <div class="f-bottom">
-            <p>&copy; 2024 SkinHonestly. Real Skincare. Honestly. <br> This page contains affiliate links. We may earn a commission at no extra cost to you.</p>
+            <p>&copy; 2024 SKINHONESTLY. REAL RESULTS. HONESTLY.</p>
         </div>
     </footer>
 
-    <script>
-        // Mobile Toggle Script
-        const mobileToggle = document.getElementById('mobile-toggle');
-        const navMenu = document.getElementById('nav-menu');
-        
-        mobileToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-    </script>
+    <!-- MASTER SCRIPT -->
+    <script src="script.js"></script>
 </body>
 </html>
