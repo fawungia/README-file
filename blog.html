@@ -158,42 +158,48 @@
             .f-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
             .filter-nav { gap: 1.5rem; }
         }
-         /* --- EDITORIAL JOURNAL UPGRADES --- */
+        
+    /* ... (Your existing root and reset styles remain the same) ... */
+    
+    /* --- EDITORIAL JOURNAL UPGRADES --- */
+    .article-feed .post-card {
+        opacity: 0;
+        animation: fadeUp 0.8s ease forwards;
+    }
+    
+    /* Ensure elements are visible */
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(40px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
 
-/* 1. Staggered reveal for articles */
-.article-feed .post-card {
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards;
-}
-.article-feed .post-card:nth-child(2) { animation-delay: 0.2s; }
-.article-feed .post-card:nth-child(3) { animation-delay: 0.4s; }
+    /* Fixed Delays - Added to ensure cards show up */
+    .article-feed .post-card:nth-child(1) { animation-delay: 0.1s; }
+    .article-feed .post-card:nth-child(2) { animation-delay: 0.2s; }
+    .article-feed .post-card:nth-child(3) { animation-delay: 0.3s; }
+    .article-feed .post-card:nth-child(4) { animation-delay: 0.4s; }
+    .article-feed .post-card:nth-child(5) { animation-delay: 0.5s; }
 
-/* 2. Premium Image Zoom (Targeting your blog cards) */
-.post-card a img {
-    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-.post-card a:hover img {
-    transform: scale(1.03);
-}
+    /* Zoom Effect */
+    .post-card a img {
+        transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    .post-card a:hover img {
+        transform: scale(1.03);
+    }
 
-/* 3. Sidebar "Lift" Effect */
-.sidebar .widget {
-    transition: transform 0.4s ease;
-}
-.sidebar .widget:hover {
-    transform: translateX(-5px);
-}
+    .sidebar .widget { transition: transform 0.4s ease; }
+    .sidebar .widget:hover { transform: translateX(-5px); }
 
-/* 4. Video Play Button Overlay (Add a subtle glow) */
-.main-video::after {
-    content: '▶';
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 3rem; color: white;
-    text-shadow: 0 0 20px rgba(0,0,0,0.5);
-    pointer-events: none;
-}
+    .main-video::after {
+        content: '▶';
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 3rem; color: white;
+        text-shadow: 0 0 20px rgba(0,0,0,0.5);
+        pointer-events: none;
+    }
     </style>
 </head>
 <body>
