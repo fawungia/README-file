@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>5 Affordable Skincare Products | SkinHonestly Journal</title>
-    <meta name="description" content="You don’t need to spend a fortune to get great skin. These five budget-friendly finds have completely earned their spot in my daily rotation.">
-    <meta name="p:domain_verify" content="614a5afefa741fa072c6f9319d2f14d0"/>
+    <meta name="description" content="Clinical results on a budget. These five affordable skincare finds have earned their spot in my daily rotation.">
     
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-33SX49MXHN"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -33,15 +31,15 @@
         /* Global Reset */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html, body { overflow-x: hidden; width: 100%; position: relative; }
-        body { background-color: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; }
+        body { background-color: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.8; }
         a { text-decoration: none; color: inherit; transition: 0.3s; }
-        img { max-width: 100%; height: auto; display: block; }
-        h1, h2, h3, h4, h5 { font-family: 'Playfair Display', serif; font-weight: 500; line-height: 1.2; }
+        img { max-width: 100%; height: auto; display: block; border-radius: 4px; }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--primary); }
 
         /* MASTER HEADER */
         header { background-color: var(--white); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
         .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 0 5%; max-width: 1400px; margin: 0 auto; height: 80px; }
-        .logo { font-size: 1.8rem; font-weight: 600; color: var(--primary); letter-spacing: -1px; }
+        .logo { font-size: 1.8rem; font-weight: 600; color: var(--primary); letter-spacing: -1px; font-family: 'Playfair Display', serif; }
         .nav-links { display: flex; gap: 3rem; align-items: center; }
         .nav-links a { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: var(--text-light); }
         .nav-links a:hover { color: var(--primary); }
@@ -57,26 +55,62 @@
             .nav-links.active { display: flex; }
         }
 
-        /* Post Content Layout */
-        .post-container { max-width: 850px; margin: 4rem auto; padding: 0 5%; }
-        .btn-back { color: var(--primary); font-weight: bold; margin-bottom: 2rem; display: inline-block; font-size: 0.9rem; }
-        .post-meta { color: #666; margin-bottom: 1rem; font-size: 0.9rem; }
-        .main-img { border-radius: 8px; margin-bottom: 3rem; width: 100%; height: 450px; object-fit: cover; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        /* Editorial Article Layout */
+        .article-layout { max-width: 1300px; margin: 4rem auto; padding: 0 5%; display: grid; grid-template-columns: 1fr 350px; gap: 6rem; }
         
-        .content-body { font-size: 1.15rem; line-height: 1.8; color: #444; }
-        .content-body p { margin-bottom: 1.5rem; }
-        .content-body h3 { color: var(--secondary); margin: 3rem 0 1rem; font-size: 1.8rem; }
-        .content-body a { color: var(--primary); text-decoration: underline; font-weight: 600; }
+        .article-header { margin-bottom: 3rem; text-align: left; }
+        .cat-tag { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: var(--secondary); font-weight: 700; margin-bottom: 1rem; display: block; }
+        .article-header h1 { font-size: clamp(2.5rem, 5vw, 3.8rem); margin-bottom: 1.5rem; line-height: 1.1; }
+        .article-meta { display: flex; gap: 20px; font-size: 0.85rem; color: #999; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; }
+
+        /* FIXED: Full-width Professional Image */
+        .main-img { width: 100%; height: 550px; object-fit: cover; margin-bottom: 4rem; box-shadow: 0 15px 40px rgba(0,0,0,0.04); border-radius: 8px; }
+
+        .article-content p { font-size: 1.15rem; color: #444; margin-bottom: 2rem; }
+        /* Professional Drop Cap */
+        .article-content p:first-of-type::first-letter { font-family: 'Playfair Display'; font-size: 4.5rem; float: left; margin-top: 0.5rem; margin-right: 0.8rem; line-height: 1; color: var(--primary); font-weight: 600; }
+        
+        .article-content h3 { font-size: 1.8rem; margin: 3.5rem 0 1rem; color: var(--secondary); }
+        .article-content a { color: var(--primary); text-decoration: underline; font-weight: 600; }
+
+        /* Sidebar Widgets */
+        .sidebar { display: flex; flex-direction: column; gap: 5rem; border-left: 1px solid var(--border); padding-left: 3rem; }
+        .widget-title { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--primary); border-bottom: 1px solid var(--border); padding-bottom: 1rem; margin-bottom: 2rem; }
+        
+        .author-card { text-align: center; }
+        .author-card img { width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 1.5rem; object-fit: cover; }
+        .author-card p { font-size: 0.9rem; font-style: italic; color: var(--text-light); }
+
+        .shop-widget-item { display: grid; grid-template-columns: 80px 1fr; gap: 1.5rem; align-items: center; margin-bottom: 2rem; }
+        .shop-widget-item img { height: 80px; width: 80px; object-fit: cover; border-radius: 4px; }
+        .shop-widget-item h5 { font-size: 0.95rem; font-family: 'Inter', sans-serif; font-weight: 600; }
+        .shop-btn { font-size: 0.7rem; color: var(--secondary); font-weight: 700; text-transform: uppercase; border-bottom: 1px solid var(--secondary); }
+
+        /* NEWSLETTER SECTION (Before Footer) */
+        .newsletter-cta { background: var(--primary); color: white; padding: 6rem 5%; text-align: center; margin-top: 6rem; }
+        .newsletter-cta h2 { color: white; font-size: 2.8rem; margin-bottom: 1rem; }
+        .newsletter-cta p { font-size: 1.2rem; opacity: 0.9; margin-bottom: 3rem; }
+        .newsletter-form { display: flex; justify-content: center; gap: 10px; max-width: 600px; margin: 0 auto; }
+        .newsletter-form input { flex: 1; padding: 1.2rem; border-radius: 4px; border: none; font-size: 1rem; outline: none; }
+        .newsletter-form button { background: var(--secondary); color: white; border: none; padding: 0 3rem; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; border-radius: 4px; cursor: pointer; }
 
         /* MASTER FOOTER */
-        footer { padding: 8rem 5% 4rem; background: var(--white); border-top: 1px solid var(--border); margin-top: 10rem; }
-        .f-logo { font-size: 2.5rem; font-family: 'Playfair Display', serif; color: var(--primary); margin-bottom: 3rem; display: block; text-align: center; }
-        .f-container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 4rem; border-bottom: 1px solid var(--border); padding-bottom: 6rem; text-align: left; }
+        footer { padding: 6rem 5% 4rem; background: var(--white); border-top: 1px solid var(--border); }
+        .f-container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 4rem; border-bottom: 1px solid var(--border); padding-bottom: 4rem; text-align: left; }
         .f-col h5 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 2.5rem; color: var(--text); font-weight: 700; }
         .f-col a { display: block; margin-bottom: 1.2rem; font-size: 0.9rem; color: var(--text-light); }
-        .f-bottom { padding-top: 4rem; text-align: center; font-size: 0.75rem; color: #999; letter-spacing: 2px; text-transform: uppercase; }
 
-        @media (max-width: 992px) { .f-container { grid-template-columns: 1fr 1fr; gap: 3rem; } }
+        @media (max-width: 1100px) {
+            .article-layout { grid-template-columns: 1fr; }
+            .sidebar { border-left: none; padding-left: 0; flex-direction: row; flex-wrap: wrap; margin-top: 4rem; }
+            .sidebar-widget { flex: 1; min-width: 300px; }
+            .main-img { height: 400px; }
+        }
+        @media (max-width: 768px) {
+            .newsletter-form { flex-direction: column; }
+            .newsletter-form button { padding: 1.2rem; }
+            .f-container { grid-template-columns: 1fr 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -89,43 +123,81 @@
             <div class="nav-links" id="nav-menu">
                 <a href="index.html">Front Page</a>
                 <a href="shop.html">The Curation</a>
-                <a href="blog.html">The Journal</a>
+                <a href="blog.html" class="active">The Journal</a>
                 <a href="about.html">About</a>
             </div>
         </nav>
     </header>
 
-    <main class="post-container">
-        <a href="blog.html" class="btn-back">&larr; Back to Journal</a>
+    <main class="article-layout">
         
-        <h1 style="color: var(--primary); margin-bottom: 0.5rem; font-size: clamp(2rem, 5vw, 3rem);">5 Affordable Skincare Products That Actually Deliver</h1>
-        <p class="post-meta">Published: June 22, 2026</p>
+        <!-- CONTENT COLUMN -->
+        <div class="article-body">
+            <header class="article-header">
+                <span class="cat-tag">Reviews • Budget Skincare</span>
+                <h1>5 Affordable Products That Deliver Results.</h1>
+                <div class="article-meta">
+                    <span>By Sarah • June 22, 2026</span>
+                    <span>6 Min Read</span>
+                </div>
+            </header>
 
-        <img src="images/featured-image.webp" alt="Skincare Products" class="main-img">
+            <img src="images/featured-image.webp" alt="Budget Skincare" class="main-img">
 
-        <div class="content-body">
-            <p>There is a massive misconception in the beauty world that you have to spend a car payment on a tiny jar of cream to get glowing skin. Let me be the first to tell you: that is simply not true.</p>
-            
-            <p>I test a <em>lot</em> of skincare for this journal, and I’m always thrilled when a budget-friendly option outperforms a luxury one. Here are five affordable products that have genuinely earned their clinical spot.</p>
+            <div class="article-content">
+                <p>There is a massive misconception in the beauty world that you have to spend a car payment on a tiny jar of cream to get glowing skin. Let me be the first to tell you: that is simply not true. Consistently using effective basics is the real secret to barrier health.</p>
+                
+                <p>I test a lot of formulations for this journal, and I’m always thrilled when a budget-friendly option clinical-performs better than a luxury one. Here are five affordable products that have genuinely earned their permanent spot.</p>
 
-            <h3>1. The Gentle Foaming Cleanser</h3>
-            <p>Cleansers literally go down the drain, so I refuse to spend more than $20 on one. My pick balances the skin’s pH perfectly. Check it out in <a href="shop.html">The Curation</a>.</p>
+                <h3>1. The Gentle Foaming Cleanser</h3>
+                <p>Cleansers literally go down the drain, so I refuse to spend more than $20. My holy grail balances pH perfectly and removes light makeup without stripping. Check it out in <a href="shop.html">The Curation</a>.</p>
 
-            <h3>2. Hydrocolloid Pimple Patches</h3>
-            <p>A few dollars a pack, these draw out impurities overnight without the mess of spot treatments. I keep a stash in my nightstand at all times.</p>
+                <h3>2. Hydrocolloid Pimple Patches</h3>
+                <p>Simple and effective. These draw out impurities overnight while preventing you from picking. I keep a stash in my nightstand at all times.</p>
 
-            <h3>3. Pure Rosewater Mist</h3>
-            <p>A simple rosewater or glycerin mist between your skincare steps helps lock in hydration. Look for single-ingredient mists for under $10.</p>
+                <h3>3. Pure Rosewater Mist</h3>
+                <p>A simple rosewater or glycerin mist between your skincare steps helps lock in hydration. You can find incredible, single-ingredient facial mists at your local health food store for under $10.</p>
 
-            <h3>4. Fragrance-Free Ceramides</h3>
-            <p>Your moisturizer's main job is to seal in the active ingredients. Plain, unscented lotions with ceramides are inexpensive and dermatologist-approved.</p>
+                <h3>4. Basic, Fragrance-Free Ceramides</h3>
+                <p>Your moisturizer's main job is to seal in the active ingredients. Plain, unscented lotions with ceramides are inexpensive and dermatologist-approved.</p>
 
-            <h3>5. Clinical Healing Ointment</h3>
-            <p>The ultimate multitasker! Fix chapped lips and act as a final barrier layer for dry patches overnight for less than the cost of a coffee.</p>
-
-            <p>Building a routine is about mixing high-impact treatments with solid, affordable basics. Don't let the luxury marketing fool you!</p>
+                <h3>5. Clinical Healing Ointment</h3>
+                <p>The ultimate multitasker! Fix chapped lips, tame eyebrows, and act as a final barrier layer for dry patches overnight for less than the cost of a coffee.</p>
+            </div>
         </div>
+
+        <!-- EDITORIAL SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar-widget author-card">
+                <h3 class="widget-title">The Editor</h3>
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=400" alt="Sarah">
+                <p>"Skincare shouldn't be a luxury. It should be a standard. I'm here to find what actually works."</p>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Shop The Budget Picks</h3>
+                <div class="shop-widget-item">
+                    <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=200" alt="Cleanser">
+                    <div>
+                        <h5>Gentle Hydrating Cleanser</h5>
+                        <a href="shop.html" class="shop-btn">View in Shop</a>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
     </main>
+
+    <!-- NEWSLETTER SECTION -->
+    <section class="newsletter-cta">
+        <h2>Join The Glow List</h2>
+        <p>Get exclusive clinical research and early access to routines.</p>
+        <form action="https://manage.kmail-lists.com/subscriptions/subscribe" method="POST" target="_blank" class="newsletter-form">
+            <input type="hidden" name="g" value="WpSSkZ">
+            <input type="email" name="email" placeholder="Enter your email address" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
 
     <!-- MASTER FOOTER -->
     <footer>
@@ -135,33 +207,30 @@
                 <h5>Editorial</h5>
                 <a href="index.html">Front Page</a>
                 <a href="blog.html">The Journal</a>
-                <a href="about.html">The Philosophy</a>
+                <a href="about.html">Philosophy</a>
             </div>
             <div class="f-col">
-                <h5>Shop Curation</h5>
-                <a href="shop.html">The Exclusive Line</a>
-                <a href="shop.html">Derm-Trusted Picks</a>
+                <h5>Shop</h5>
+                <a href="shop.html">The Curation</a>
+                <a href="shop.html">Exclusives</a>
             </div>
             <div class="f-col">
                 <h5>Connect</h5>
                 <a href="#">Instagram</a>
                 <a href="#">YouTube</a>
-                <a href="#">Pinterest</a>
             </div>
             <div class="f-col">
-                <h5>Trust & Support</h5>
+                <h5>Trust</h5>
                 <a href="privacy.html">Privacy Policy</a>
                 <a href="privacy.html">Disclosures</a>
-                <a href="about.html">Contact Us</a>
             </div>
         </div>
-        <div class="f-bottom">
+        <div style="text-align: center; padding-top: 4rem; color: #999; font-size: 0.75rem; letter-spacing: 2px;">
             <p>&copy; 2024 SKINHONESTLY. REAL SKINCARE. HONESTLY.</p>
         </div>
     </footer>
 
     <script>
-        // MASTER MOBILE TOGGLE SCRIPT
         const mobileToggle = document.getElementById('mobile-toggle');
         const navMenu = document.getElementById('nav-menu');
         mobileToggle.addEventListener('click', () => {
