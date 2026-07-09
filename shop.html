@@ -3,47 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop Curated Skincare | SkinHonestly - Clinical & Clean</title>
+    <title>The Curation | SkinHonestly Shop - Clinical & Clean</title>
+    <meta name="description" content="Shop our curated skincare products. Honest, dermatologist-backed recommendations for your best skin.">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-33SX49MXHN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-33SX49MXHN');
+    </script>
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Inter:wght@400;600&display=swap');
-        :root { --bg: #FAF7F2; --primary: #5E795B; --secondary: #D4886B; --text: #2B2B2B; --white: #FFFFFF; --border: #EAE6DF; --highlight: #C9A876; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;600&display=swap');
+
+        :root {
+            --bg: #FAF7F2;
+            --primary: #5E795B; 
+            --secondary: #D4886B;
+            --text: #2B2B2B;
+            --text-light: #666;
+            --highlight: #C9A876;
+            --white: #FFFFFF;
+            --border: #EAE6DF;
+        }
+
+        /* Global Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; overflow-x: hidden; }
         a { text-decoration: none; color: inherit; transition: 0.3s; }
         img { max-width: 100%; height: auto; display: block; }
-        h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 600; line-height: 1.2; }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 500; }
 
-        header { background-color: var(--white); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 0 5%; max-width: 1400px; margin: 0 auto; height: 70px; }
-        .logo { font-size: 1.6rem; font-weight: bold; color: var(--primary); font-family: 'Playfair Display', serif; }
-        .nav-links { display: flex; gap: 2.5rem; align-items: center; }
-        .nav-links a { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #666; }
+        .btn { display: inline-block; padding: 0.9rem 2rem; border-radius: 4px; font-weight: bold; text-align: center; cursor: pointer; border: none; transition: 0.3s ease; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; }
+        .btn-primary { background-color: var(--primary); color: var(--white); }
+        .btn-outline { background-color: transparent; color: var(--primary); border: 1px solid var(--primary); }
+
+        /* MASTER HEADER - Standardized from Home Page */
+        header { background-color: var(--white); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 0 5%; max-width: 1400px; margin: 0 auto; height: 80px; }
+        .logo { font-size: 1.8rem; font-weight: 600; color: var(--primary); letter-spacing: -1px; font-family: 'Playfair Display', serif; }
+        .nav-links { display: flex; gap: 3rem; align-items: center; }
+        .nav-links a { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: var(--text-light); }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+        
         .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--primary); }
 
         @media (max-width: 768px) {
             .menu-toggle { display: block; }
-            .nav-links { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; background: white; padding: 2rem; border-bottom: 1px solid var(--border); gap: 1.5rem; }
+            .nav-links { 
+                display: none; flex-direction: column; position: absolute; top: 80px; left: 0; width: 100%; 
+                background-color: var(--white); padding: 2rem; border-bottom: 1px solid var(--border); 
+                box-shadow: 0 10px 15px rgba(0,0,0,0.05); gap: 1.5rem; z-index: 1001;
+            }
             .nav-links.active { display: flex; }
         }
 
-        .shop-hero { padding: 4rem 5% 3rem; text-align: center; background: var(--white); }
-        .container { max-width: 1400px; margin: 0 auto; padding: 4rem 5%; }
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 3rem; }
-        .product-card { background: var(--white); border-radius: 8px; overflow: hidden; border: 1px solid transparent; transition: 0.4s; }
-        .product-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.06); }
-        .product-card img { width: 100%; height: 350px; object-fit: cover; }
-        .product-info { padding: 2rem; text-align: center; }
-        .btn-outline { display: block; padding: 1rem; border: 1px solid var(--primary); color: var(--primary); font-weight: bold; border-radius: 4px; margin-top: 1rem; }
+        /* Shop Unique Content Styles */
+        .shop-hero { padding: 6rem 5% 4rem; text-align: center; background: var(--white); border-bottom: 1px solid var(--border); }
+        .shop-hero h1 { font-size: 3.5rem; color: var(--primary); margin-bottom: 1rem; }
+        .shop-hero p { color: var(--text-light); font-size: 1.1rem; max-width: 700px; margin: 0 auto; }
+
+        .container { max-width: 1400px; margin: 0 auto; padding: 5rem 5%; }
+
+        /* Featured Exclusive */
+        .exclusive-showcase { 
+            display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; 
+            background: var(--white); padding: 4rem; border-radius: 4px; 
+            margin-bottom: 6rem; align-items: center; border: 1px solid var(--border);
+        }
+        .exclusive-img img { width: 100%; height: 500px; object-fit: cover; }
+        .exclusive-details h2 { font-size: 3rem; margin-bottom: 1.5rem; color: var(--primary); }
+        .exclusive-details p { font-size: 1.1rem; color: var(--text-light); margin-bottom: 2rem; }
+
+        /* Product Grid */
+        .product-grid { 
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
+            gap: 4rem; margin-bottom: 6rem; 
+        }
+        .product-card { text-align: center; transition: 0.3s; }
+        .product-card img { width: 100%; height: 380px; object-fit: cover; margin-bottom: 2rem; }
+        .product-name { font-size: 1.4rem; color: var(--primary); margin-bottom: 0.5rem; }
+        .product-price { font-size: 0.9rem; color: var(--text-light); margin-bottom: 1.5rem; }
+
+        @media (max-width: 992px) {
+            .exclusive-showcase { grid-template-columns: 1fr; padding: 2rem; }
+            .exclusive-img img { height: 350px; }
+            .shop-hero h1 { font-size: 2.5rem; }
+        }
     </style>
 </head>
 <body>
+
     <header>
         <nav class="nav-container">
             <a href="index.html" class="logo">SkinHonestly</a>
             <div class="menu-toggle" id="mobile-toggle">☰</div> 
             <div class="nav-links" id="nav-menu">
-                <a href="index.html">Home</a>
-                <a href="shop.html" class="active">Shop</a>
+                <a href="index.html">Front Page</a>
+                <a href="shop.html" class="active">The Curation</a>
                 <a href="blog.html">The Journal</a>
                 <a href="about.html">About</a>
             </div>
@@ -51,33 +110,59 @@
     </header>
 
     <section class="shop-hero">
-        <h1>SkinHonestly Shop</h1>
-        <p>Expertly curated skincare, merging our clinical line with trusted favorites.</p>
+        <h1>The Curation</h1>
+        <p>Expertly curated skincare, merging our clinical signature line with tried-and-true favorites from the brands we trust most.</p>
     </section>
 
     <main class="container">
+        
+        <!-- FEATURED EXCLUSIVE -->
+        <section class="exclusive-showcase">
+            <div class="exclusive-img">
+                <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=800" alt="Daily Reset Serum">
+            </div>
+            <div class="exclusive-details">
+                <span style="text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px; color: var(--secondary); font-weight: 700; display: block; margin-bottom: 1rem;">SkinHonestly Exclusive</span>
+                <h2>The Daily Reset Serum</h2>
+                <p>Our flagship clinical formulation designed to restore the skin barrier while delivering deep, multi-layer hydration.</p>
+                <a href="https://amzn.to/4p58tlL" class="btn btn-primary">Shop Signature — $42</a>
+            </div>
+        </section>
+
         <div class="product-grid">
+            
             <div class="product-card">
                 <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=600" alt="Cleanser">
-                <div class="product-info">
-                    <h3>Gentle Hydrating Cleanser</h3>
-                    <a href="https://amzn.to/3SNLKhW" target="_blank" class="btn-outline">Shop at Amazon</a>
-                </div>
+                <h3 class="product-name">Gentle Hydrating Cleanser</h3>
+                <p class="product-price">$24.00</p>
+                <a href="https://amzn.to/3SNLKhW" target="_blank" class="btn btn-outline">Shop at Amazon</a>
             </div>
+            
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=800" alt="Serum">
-                <div class="product-info">
-                    <h3>The Daily Reset Serum</h3>
-                    <a href="https://amzn.to/4p58tlL" target="_blank" class="btn-outline" style="background: var(--primary); color: white;">Shop Exclusive — $42</a>
-                </div>
+                <img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?q=80&w=600" alt="Vitamin C">
+                <h3 class="product-name">Brightening Vitamin C Drops</h3>
+                <p class="product-price">$32.00</p>
+                <a href="https://amzn.to/4p2Vhhh" target="_blank" class="btn btn-outline">Shop at Amazon</a>
             </div>
+            
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1599305090598-fe179d501227?q=80&w=600" alt="SPF">
+                <h3 class="product-name">Mineral UV Shield SPF 50</h3>
+                <p class="product-price">$34.00</p>
+                <a href="https://amzn.to/4pnDMIN" target="_blank" class="btn btn-outline">Shop at Amazon</a>
+            </div>
+
         </div>
+
     </main>
 
     <script>
+        // MASTER MOBILE TOGGLE SCRIPT
         const mobileToggle = document.getElementById('mobile-toggle');
         const navMenu = document.getElementById('nav-menu');
-        mobileToggle.addEventListener('click', () => { navMenu.classList.toggle('active'); });
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
     </script>
 </body>
 </html>
