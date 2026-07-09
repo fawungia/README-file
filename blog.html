@@ -352,35 +352,49 @@
 
     </main>
 
-    <!-- MASTER FOOTER -->
-    <footer>
-        <div class="f-container">
-            <div class="f-col">
-                <h5>Editorial</h5>
-                <a href="index.html">Front Page</a>
-                <a href="blog.html">The Journal</a>
-                <a href="about.html">About Us</a>
-            </div>
-            <div class="f-col">
-                <h5>Curation</h5>
-                <a href="shop.html">Shop All</a>
-                <a href="shop.html">Exclusive Line</a>
-            </div>
-            <div class="f-col">
-                <h5>Connect</h5>
-                <a href="#">Instagram</a>
-                <a href="#">YouTube</a>
-            </div>
-            <div class="f-col">
-                <h5>Trust</h5>
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="privacy.html">Disclosures</a>
-            </div>
+    <!-- PROFESSIONAL 4-COLUMN FOOTER -->
+<style>
+    footer { padding: 8rem 5% 4rem; background: #FFFFFF; border-top: 1px solid #EAE6DF; margin-top: 10rem; }
+    .f-logo { font-size: 2.5rem; font-family: 'Playfair Display', serif; color: #5E795B; margin-bottom: 3rem; display: block; text-align: center; text-decoration: none; }
+    .f-container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 4rem; border-bottom: 1px solid #EAE6DF; padding-bottom: 6rem; text-align: left; }
+    .f-col h5 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 2.5rem; color: #2B2B2B; font-weight: 700; }
+    .f-col a { display: block; margin-bottom: 1.2rem; font-size: 0.9rem; color: #666; text-decoration: none; transition: 0.3s; }
+    .f-col a:hover { color: #5E795B; }
+    .f-bottom { padding-top: 4rem; text-align: center; font-size: 0.75rem; color: #999; letter-spacing: 2px; text-transform: uppercase; }
+    @media (max-width: 768px) { .f-container { grid-template-columns: 1fr 1fr; gap: 3rem; } }
+</style>
+
+<footer>
+    <a href="index.html" class="f-logo">SkinHonestly</a>
+    <div class="f-container">
+        <div class="f-col">
+            <h5>Editorial</h5>
+            <a href="index.html">Front Page</a>
+            <a href="blog.html">The Journal</a>
+            <a href="about.html">The Philosophy</a>
         </div>
-        <div class="f-bottom">
-            <p>&copy; 2024 SKINHONESTLY. CLINICAL RESEARCH. REAL RESULTS. HONESTLY.</p>
+        <div class="f-col">
+            <h5>Shop Curation</h5>
+            <a href="shop.html">The Exclusive Line</a>
+            <a href="shop.html">Derm-Trusted Picks</a>
         </div>
-    </footer>
+        <div class="f-col">
+            <h5>Connect</h5>
+            <a href="#">Instagram</a>
+            <a href="#">YouTube</a>
+            <a href="#">Pinterest</a>
+        </div>
+        <div class="f-col">
+            <h5>Trust & Support</h5>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="privacy.html">Disclosures</a>
+            <a href="about.html">Contact Us</a>
+        </div>
+    </div>
+    <div class="f-bottom">
+        <p>&copy; 2024 SKINHONESTLY. REAL SKINCARE. HONESTLY.</p>
+    </div>
+</footer>
 
     <script>
         // MASTER MOBILE TOGGLE SCRIPT
