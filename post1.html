@@ -1,149 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="p:domain_verify" content="614a5afefa741fa072c6f9319d2f14d0"/>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-33SX49MXHN"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-33SX49MXHN');
-</script>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>My Honest Morning Routine | SkinHonestly</title>
     <meta name="description" content="I’ve finally nailed down a morning routine that keeps my skin hydrated and glowing without feeling heavy. Here’s a peek into my bathroom cabinet.">
+    <meta name="p:domain_verify" content="614a5afefa741fa072c6f9319d2f14d0"/>
     
-    <!-- ALL CSS IS NOW SAFELY INSIDE THIS STYLE TAG -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-33SX49MXHN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-33SX49MXHN');
+    </script>
+
     <style>
-       /* Update this in EVERY HTML file's <style> block */
-:root {
-  --bg: #FAF7F2;
-  --primary: #5E795B; /* CHANGED: Darker green for accessibility */
-  --secondary: #D4886B;
-  --text: #2B2B2B;
-  --highlight: #C9A876;
-  --white: #FFFFFF;
-}
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;600&display=swap');
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Helvetica Neue', Arial, sans-serif; }
-        body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
-        a { text-decoration: none; color: var(--text); }
-        h1, h2, h3 { font-weight: 600; margin-bottom: 1rem; }
-
-        .btn {
-          display: inline-block; padding: 0.8rem 1.5rem; border-radius: 4px; font-weight: bold;
-          text-align: center; cursor: pointer; border: none; transition: opacity 0.3s ease;
+        :root {
+            --bg: #FAF7F2;
+            --primary: #5E795B; 
+            --secondary: #D4886B;
+            --text: #2B2B2B;
+            --text-light: #666;
+            --white: #FFFFFF;
+            --border: #EAE6DF;
         }
-        .btn:hover { opacity: 0.9; }
-        .btn-primary { background-color: var(--primary); color: var(--white); }
-        .btn-secondary { background-color: var(--secondary); color: var(--white); }
 
-        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 4rem 0; }
-        header { background-color: var(--bg); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        
-        .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 5%; max-width: 1200px; margin: 0 auto; }
-        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary); }
-        .nav-links { display: flex; gap: 2rem; }
+        /* Global Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { overflow-x: hidden; width: 100%; position: relative; }
+        body { background-color: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        img { max-width: 100%; height: auto; display: block; }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 500; }
+
+        /* MASTER HEADER - Standardized from Home Page */
+        header { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; width: 100%; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 0 5%; max-width: 1400px; margin: 0 auto; height: 80px; }
+        .logo { font-size: 1.8rem; font-weight: 600; color: var(--primary); letter-spacing: -1px; font-family: 'Playfair Display', serif; }
+        .nav-links { display: flex; gap: 3rem; }
+        .nav-links a { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: var(--text-light); }
         .nav-links a:hover { color: var(--primary); }
-        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
+
+        .menu-toggle { display: none; font-size: 1.8rem; cursor: pointer; color: var(--primary); padding: 10px; }
 
         @media (max-width: 768px) {
-          .nav-links {
-            display: none; flex-direction: column; position: absolute; top: 100%; left: 0;
-            width: 100%; background-color: var(--bg); padding: 1rem 5%; box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-          }
-          .nav-links.active { display: flex; }
-          .menu-toggle { display: block; }
+            .menu-toggle { display: block; }
+            .nav-links { 
+                display: none; flex-direction: column; position: absolute; top: 80px; left: 0; width: 100%; 
+                background-color: var(--white); padding: 2rem; border-bottom: 1px solid var(--border); 
+                box-shadow: 0 10px 15px rgba(0,0,0,0.05); gap: 1.5rem; z-index: 1001;
+            }
+            .nav-links.active { display: flex; }
         }
 
-        footer { background-color: var(--white); text-align: center; padding: 3rem 5%; margin-top: 4rem; border-top: 1px solid #eee; }
+        /* Post Content Layout */
+        .container { width: 90%; max-width: 800px; margin: 0 auto; padding: 4rem 0; }
+        .post-meta { color: #666; margin-bottom: 2rem; }
+        .post-content-body { font-size: 1.1rem; line-height: 1.8; }
+        .post-content-body p { margin-bottom: 1.5rem; }
+        .post-content-body h2 { color: var(--secondary); margin: 3rem 0 1rem; }
+        
+        .btn-back { color: var(--primary); font-weight: bold; margin-bottom: 2rem; display: inline-block; }
+
+        footer { background-color: var(--white); text-align: center; padding: 4rem 5%; margin-top: 4rem; border-top: 1px solid var(--border); }
         .ftc-disclosure { font-size: 0.8rem; color: #666; margin-top: 2rem; }
     </style>
 </head>
 <body>
 
+    <!-- MASTER HEADER -->
     <header>
-       <nav class="nav-container">
+        <nav class="nav-container">
             <a href="index.html" class="logo">SkinHonestly</a>
-            <div class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</div> 
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="shop.html">Shop</a>
-                <a href="blog.html">Blog</a>
+            <div class="menu-toggle" id="mobile-toggle">☰</div> 
+            <div class="nav-links" id="nav-menu">
+                <a href="index.html">Front Page</a>
+                <a href="shop.html">The Curation</a>
+                <a href="blog.html">The Journal</a>
                 <a href="about.html">About</a>
             </div>
-        </nav> 
+        </nav>
     </header>
 
-    <main class="container" style="max-width: 800px; margin: 0 auto; padding-top: 2rem;">
-        <a href="blog.html" style="color: var(--primary); font-weight: bold; margin-bottom: 2rem; display: inline-block;">&larr; Back to Blog</a>
+    <main class="container">
+        <a href="blog.html" class="btn-back">&larr; Back to Journal</a>
         
-        <h1 style="color: var(--primary); margin-bottom: 0.5rem;">My Honest Morning Routine: What I Use Every Single Day</h1>
-        <p style="color: #666; margin-bottom: 2rem;">Published: June 23, 2026</p>
+        <h1 style="color: var(--primary); margin-bottom: 0.5rem; font-size: 2.5rem;">My Honest Morning Routine: What I Use Every Single Day</h1>
+        <p class="post-meta">Published: June 23, 2026</p>
 
-        <!-- Placeholder image loaded via URL -->
-        
-<!-- Updated Blog Post Image -->
-<img 
-    src="images/skin-improvement.webp" 
-    alt="Improve Skin With Every Application" 
-    width="1464" 
-    height="600" 
-    loading="lazy" 
-    style="border-radius: 8px; margin-bottom: 2rem; width: 100%; height: 400px; object-fit: contain; background-color: #f77f00;">
-        <div style="font-size: 1.1rem; line-height: 1.8;">
-            <p style="margin-bottom: 1.5rem;">I’ll be the first to admit it: my skincare routine used to be exhausting. I thought I needed a ten-step process to achieve that elusive "glass skin," but in reality, all I got was an empty wallet and skin that felt overwhelmed and congested. Over the last year, I’ve drastically simplified my mornings. I’ve realized that when it comes to the start of the day, protection and hydration are the only true goals.</p>
+        <!-- Blog Post Image -->
+        <img 
+            src="images/skin-improvement.webp" 
+            alt="Improve Skin With Every Application" 
+            style="border-radius: 8px; margin-bottom: 2rem; width: 100%; height: 400px; object-fit: cover;">
+
+        <div class="post-content-body">
+            <p>I’ll be the first to admit it: my skincare routine used to be exhausting. I thought I needed a ten-step process to achieve that elusive "glass skin," but in reality, all I got was an empty wallet and skin that felt overwhelmed and congested.</p>
             
-            <p style="margin-bottom: 2rem;">Here is my honest, paired-down morning routine that I actually stick to every single day:</p>
+            <p>Here is my honest, paired-down morning routine that I actually stick to every single day:</p>
 
-            <h2 style="color: var(--secondary); margin-bottom: 1rem;">Step 1: A Gentle Splash</h2>
-            <p style="margin-bottom: 2rem;">Unless I slugged with a heavy ointment the night before, I usually skip morning cleanser. A gentle splash of lukewarm water is all my skin needs. It leaves my natural moisture barrier intact and preps my face for the next steps.</p>
+            <h2>Step 1: A Gentle Splash</h2>
+            <p>Unless I slugged with a heavy ointment the night before, I usually skip morning cleanser. A gentle splash of lukewarm water is all my skin needs. It leaves my natural moisture barrier intact.</p>
 
-            <h2 style="color: var(--secondary); margin-bottom: 1rem;">Step 2: Vitamin C</h2>
-            <p style="margin-bottom: 2rem;">Once my face is patted dry, I apply a few drops of a Vitamin C serum. This is my non-negotiable antioxidant shield against daily pollution and sun damage. I’m currently linking my favorite, wallet-friendly Vitamin C serum over on the <a href="https://amzn.to/3RmTQO9" style="color: var(--primary); text-decoration: underline;">Shop page</a>—it’s lightweight and doesn’t smell like hot dog water (iykyk).</p>
+            <h2>Step 2: Vitamin C</h2>
+            <p>Once my face is patted dry, I apply a few drops of a Vitamin C serum. This is my non-negotiable antioxidant shield against daily pollution and sun damage.</p>
 
-            <h2 style="color: var(--secondary); margin-bottom: 1rem;">Step 3: The Daily Reset Serum</h2>
-            <p style="margin-bottom: 2rem;">While my skin is still slightly damp from the Vitamin C, I go in with two pumps of our very own <strong>SkinHonestly Daily Reset Serum</strong>. I formulated this specifically for this step in the routine. It’s packed with pure, uncomplicated hydration that locks in moisture without feeling tacky. It plays so beautifully under makeup, too.</p>
+            <h2>Step 3: The Daily Reset Serum</h2>
+            <p>While my skin is still slightly damp, I go in with two pumps of our very own <strong>SkinHonestly Daily Reset Serum</strong>. It’s packed with pure, uncomplicated hydration that locks in moisture.</p>
 
-            <h2 style="color: var(--secondary); margin-bottom: 1rem;">Step 4: Moisturize and Protect</h2>
-            <p style="margin-bottom: 2rem;">Finally, I lock it all in. If it’s the dead of winter, I’ll use a lightweight ceramide moisturizer followed by sunscreen. But in the warmer months? I just use a moisturizing SPF 50. My absolute favorite sheer mineral SPF 50 is on my recommended list—it leaves zero white cast and doubles as my morning moisturizer.</p>
+            <h2>Step 4: Moisturize and Protect</h2>
+            <p>Finally, I lock it all in. I just use a moisturizing SPF 50. My absolute favorite sheer mineral SPF 50 doubles as my morning moisturizer.</p>
 
-            <p style="margin-bottom: 1.5rem;">And that’s it! Four steps, zero stress. What does your morning routine look like these days? Let's keep it honest!</p>
-            <h2 style="color: var(--secondary); margin-top: 3rem; margin-bottom: 1rem;">Watch My Routine in Action</h2>
-<!-- Video Container with forced height -->
-<div style="position: relative; width: 100%; height: 400px; overflow: hidden; border-radius: 8px; margin: 2rem 0;">
-    <iframe src="https://www.youtube.com/embed/nabwuTwtlnM" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
-</div>
+            <p>And that’s it! Four steps, zero stress.</p>
+            
+            <h2 style="color: var(--secondary); margin-top: 3rem;">Watch My Routine in Action</h2>
+            <!-- Video Container -->
+            <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; margin: 2rem 0;">
+                <iframe src="https://www.youtube.com/embed/nabwuTwtlnM" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
+            </div>
         </div>
     </main>
-<footer style="background-color: var(--white); text-align: center; padding: 3rem 5%; margin-top: 4rem; border-top: 1px solid #eee;">
-    
-    <!-- This is the container where your newsletter form will appear -->
-    <div id="newsletter-container">
-        <!-- The form from newsletter.html will load here automatically -->
-    </div>
 
-    <p style="margin-bottom: 1rem; font-weight: bold; margin-top: 2rem;">
-        <a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">Pinterest</a>
-    </p>
+    <footer style="background-color: var(--white); text-align: center; padding: 4rem 5%; margin-top: 4rem; border-top: 1px solid var(--border);">
+        <div id="newsletter-container"></div>
+        <p style="margin-bottom: 1rem; font-weight: bold; margin-top: 2rem;">
+            <a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">Pinterest</a>
+        </p>
+        <p style="margin-bottom: 1rem;">
+            <a href="privacy.html" style="font-size: 0.85rem; color: #666; text-decoration: underline;">Privacy Policy & Disclosures</a>
+        </p>
+        <p class="ftc-disclosure">This page contains affiliate links. We may earn a commission at no extra cost to you.</p>
+    </footer>
 
-    <p style="margin-bottom: 1rem;">
-        <a href="privacy.html" style="font-size: 0.85rem; color: #666; text-decoration: underline;">Privacy Policy & Disclosures</a>
-    </p>
-
-    <p class="ftc-disclosure" style="font-size: 0.8rem; color: #666;">This page contains affiliate links. We may earn a commission at no extra cost to you.</p>
-</footer>
-
-<!-- This script tells the page to grab the newsletter form and put it inside the container -->
-<script>
-    fetch('newsletter.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('newsletter-container').innerHTML = data;
+    <script>
+        // MASTER MOBILE TOGGLE SCRIPT
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
         });
-</script>
+
+        // Load newsletter
+        fetch('newsletter.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('newsletter-container').innerHTML = data;
+            });
+    </script>
 </body>
 </html>
