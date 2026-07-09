@@ -1,146 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="p:domain_verify" content="614a5afefa741fa072c6f9319d2f14d0"/>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-33SX49MXHN"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-33SX49MXHN');
-</script>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What Order to Apply Skincare Products | SkinHonestly</title>
-    <meta name="description" content="Thinnest to thickest? Oil before water? Layering your products correctly makes a huge difference in how well they work. Let's simplify the routine.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>What Order to Apply Skincare | SkinHonestly Journal</title>
+    <meta name="description" content="Thinnest to thickest? Oil before water? Layering your products correctly makes a huge difference. Let's simplify the clinical routine.">
+    <meta name="p:domain_verify" content="614a5afefa741fa072c6f9319d2f14d0"/>
     
-    <!-- ALL CSS IS NOW SAFELY INSIDE THIS STYLE TAG -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-33SX49MXHN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-33SX49MXHN');
+    </script>
+
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;600;700&display=swap');
+
         :root {
-          --bg: #FAF7F2;
-          --primary: #7A9B76;
-          --secondary: #D4886B;
-          --text: #2B2B2B;
-          --highlight: #C9A876;
-          --white: #FFFFFF;
+            --bg: #FAF7F2;
+            --primary: #5E795B; 
+            --secondary: #D4886B;
+            --text: #2B2B2B;
+            --text-light: #666;
+            --white: #FFFFFF;
+            --border: #EAE6DF;
+            --highlight: #C9A876;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Helvetica Neue', Arial, sans-serif; }
-        body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
-        a { text-decoration: none; color: var(--text); }
-        h1, h2, h3 { font-weight: 600; margin-bottom: 1rem; }
+        /* Global Reset & Phone Stability */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { overflow-x: hidden; width: 100%; position: relative; }
+        body { background-color: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.8; }
+        a { text-decoration: none; color: inherit; transition: 0.3s ease; }
+        img { max-width: 100%; height: auto; display: block; }
+        h1, h2, h3, h4, h5 { font-family: 'Playfair Display', serif; }
 
-        .btn {
-          display: inline-block; padding: 0.8rem 1.5rem; border-radius: 4px; font-weight: bold;
-          text-align: center; cursor: pointer; border: none; transition: opacity 0.3s ease;
-        }
-        .btn:hover { opacity: 0.9; }
-        .btn-primary { background-color: var(--primary); color: var(--white); }
-        .btn-secondary { background-color: var(--secondary); color: var(--white); }
-
-        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 4rem 0; }
-        header { background-color: var(--bg); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        
-        .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 5%; max-width: 1200px; margin: 0 auto; }
-        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary); }
-        .nav-links { display: flex; gap: 2rem; }
+        /* MASTER HEADER */
+        header { background-color: var(--white); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 0 5%; max-width: 1400px; margin: 0 auto; height: 80px; }
+        .logo { font-size: 1.8rem; font-weight: 600; color: var(--primary); letter-spacing: -1px; }
+        .nav-links { display: flex; gap: 3rem; align-items: center; }
+        .nav-links a { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: var(--text-light); }
         .nav-links a:hover { color: var(--primary); }
-        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
+        .menu-toggle { display: none; font-size: 1.8rem; cursor: pointer; color: var(--primary); padding: 10px; }
 
         @media (max-width: 768px) {
-          .nav-links {
-            display: none; flex-direction: column; position: absolute; top: 100%; left: 0;
-            width: 100%; background-color: var(--bg); padding: 1rem 5%; box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-          }
-          .nav-links.active { display: flex; }
-          .menu-toggle { display: block; }
+            .menu-toggle { display: block; }
+            .nav-links { 
+                display: none; flex-direction: column; position: absolute; top: 80px; left: 0; width: 100%; 
+                background-color: var(--white); padding: 2rem; border-bottom: 1px solid var(--border); 
+                box-shadow: 0 10px 15px rgba(0,0,0,0.05); gap: 1.5rem; z-index: 1001;
+            }
+            .nav-links.active { display: flex; }
         }
 
-        footer { background-color: var(--white); text-align: center; padding: 3rem 5%; margin-top: 4rem; border-top: 1px solid #eee; }
-        .ftc-disclosure { font-size: 0.8rem; color: #666; margin-top: 2rem; }
+        /* Editorial Article Layout */
+        .article-layout { max-width: 1300px; margin: 4rem auto; padding: 0 5%; display: grid; grid-template-columns: 1fr 350px; gap: 6rem; }
+        .cat-tag { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: var(--secondary); font-weight: 700; margin-bottom: 1rem; display: block; }
+        .article-header h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); margin-bottom: 1.5rem; line-height: 1.1; color: var(--primary); }
+        .article-meta { display: flex; gap: 20px; font-size: 0.85rem; color: #999; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; margin-bottom: 3rem; }
+
+        .main-img { width: 100%; height: 550px; object-fit: cover; margin-bottom: 4rem; border-radius: 8px; box-shadow: 0 15px 40px rgba(0,0,0,0.04); }
+
+        /* Article Content Styling */
+        .article-content p { font-size: 1.15rem; color: #444; margin-bottom: 2rem; }
+        .article-content p:first-of-type::first-letter { font-family: 'Playfair Display'; font-size: 4.5rem; float: left; margin-top: 0.5rem; margin-right: 0.8rem; line-height: 1; color: var(--primary); font-weight: 600; }
+        .article-content h2 { font-size: 2.2rem; margin: 4rem 0 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; color: var(--primary); }
+        .article-content ol { padding-left: 1.5rem; margin-bottom: 3rem; }
+        .article-content li { margin-bottom: 1rem; font-size: 1.1rem; color: #444; }
+        .article-content strong { color: var(--primary); }
+
+        /* Sidebar Widgets */
+        .sidebar { display: flex; flex-direction: column; gap: 5rem; border-left: 1px solid var(--border); padding-left: 3rem; }
+        .widget-title { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--primary); border-bottom: 1px solid var(--border); padding-bottom: 1rem; margin-bottom: 2rem; }
+        .shop-widget-item { display: grid; grid-template-columns: 80px 1fr; gap: 1.5rem; align-items: center; margin-bottom: 2rem; }
+        .shop-widget-item img { height: 80px; width: 80px; object-fit: cover; border-radius: 4px; }
+        .shop-btn { font-size: 0.7rem; color: var(--secondary); font-weight: 700; text-transform: uppercase; border-bottom: 1px solid var(--secondary); }
+
+        /* Newsletter Section */
+        .newsletter-cta { background: var(--primary); color: white; padding: 6rem 5%; text-align: center; margin-top: 6rem; border-radius: 4px; }
+        .newsletter-cta h2 { color: white; font-size: 2.8rem; margin-bottom: 1rem; }
+        .newsletter-form { display: flex; justify-content: center; gap: 10px; max-width: 600px; margin: 2.5rem auto 0; }
+        .newsletter-form input { flex: 1; padding: 1.2rem; border-radius: 4px; border: none; font-size: 1rem; outline: none; }
+        .newsletter-form button { background: var(--secondary); color: white; border: none; padding: 0 3rem; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; border-radius: 4px; cursor: pointer; }
+
+        /* FIXED MASTER FOOTER */
+        footer { padding: 8rem 5% 4rem; background: var(--white); border-top: 1px solid var(--border); margin-top: 5rem; }
+        .f-logo { font-size: 2.5rem; font-family: 'Playfair Display', serif; color: var(--primary); margin-bottom: 3rem; display: block; text-align: center; text-decoration: none; }
+        .f-container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 4rem; border-bottom: 1px solid var(--border); padding-bottom: 6rem; text-align: left; }
+        
+        /* Green Column Titles Fix */
+        .f-col h5 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 2.5rem; color: var(--primary); font-weight: 700; }
+        
+        .f-col a { display: block; margin-bottom: 1.2rem; font-size: 0.9rem; color: var(--text-light); transition: 0.3s; }
+        .f-col a:hover { color: var(--primary); }
+        .f-bottom { padding-top: 4rem; text-align: center; font-size: 0.75rem; color: #999; letter-spacing: 2px; text-transform: uppercase; }
+
+        @media (max-width: 1100px) {
+            .article-layout { grid-template-columns: 1fr; }
+            .sidebar { border-left: none; padding-left: 0; flex-direction: row; flex-wrap: wrap; margin-top: 4rem; }
+            .sidebar-widget { flex: 1; min-width: 300px; }
+            .f-container { grid-template-columns: 1fr 1fr; gap: 3rem; }
+        }
+        @media (max-width: 768px) {
+            .newsletter-form { flex-direction: column; }
+            .newsletter-form button { padding: 1.2rem; }
+            .main-img { height: 350px; }
+        }
     </style>
 </head>
 <body>
 
+    <!-- MASTER HEADER -->
     <header>
         <nav class="nav-container">
             <a href="index.html" class="logo">SkinHonestly</a>
-            <div class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</div> 
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="shop.html">Shop</a>
-                <a href="blog.html">Blog</a>
+            <div class="menu-toggle" id="mobile-toggle">☰</div> 
+            <div class="nav-links" id="nav-menu">
+                <a href="index.html">Front Page</a>
+                <a href="shop.html">The Curation</a>
+                <a href="blog.html" class="active">The Journal</a>
                 <a href="about.html">About</a>
             </div>
         </nav>
     </header>
 
-    <main class="container" style="max-width: 800px; margin: 0 auto; padding-top: 2rem;">
-        <a href="blog.html" style="color: var(--primary); font-weight: bold; margin-bottom: 2rem; display: inline-block;">&larr; Back to Blog</a>
-        
-        <h1 style="color: var(--primary); margin-bottom: 0.5rem;">What Order to Apply Skincare Products (Morning vs Night)</h1>
-        <p style="color: #666; margin-bottom: 2rem;">Published: June 18, 2026</p>
+    <main class="article-layout">
+        <div class="article-body">
+            <header class="article-header">
+                <span class="cat-tag">Guide • Routine Basics</span>
+                <h1>What Order to Apply Skincare Products (Morning vs Night).</h1>
+                <div class="article-meta">
+                    <span>By Sarah • June 18, 2026</span>
+                    <span>6 Min Read</span>
+                </div>
+            </header>
 
-        <!-- Placeholder image loaded via URL -->
-        <img src="https://via.placeholder.com/800x400?text=Morning+vs+Night+Routine" alt="Sun and moon icons paired with skincare bottles, demonstrating morning versus evening routines" style="border-radius: 8px; margin-bottom: 2rem; width: 100%; height: 400px; object-fit: cover; background-color: #eee;">
+            <img src="https://images.unsplash.com/photo-1596462502278-27bfdc4033c8?q=80&w=1200" alt="Skincare Layering" class="main-img">
 
-        <div style="font-size: 1.1rem; line-height: 1.8;">
-            <p style="margin-bottom: 1.5rem;">One of the most common questions I get asked is: <em>"I bought all these great products, but how on earth do I layer them?"</em></p>
-            
-            <p style="margin-bottom: 2rem;">You could buy the most expensive, effective serum in the world, but if you apply it <em>over</em> a thick facial oil, it’s never going to penetrate your skin. The golden rule of skincare application is simple: <strong>Apply from thinnest to thickest consistency.</strong></p>
+            <article class="article-content">
+                <p>One of the most common questions I get asked is: <em>"I bought all these great products, but how on earth do I layer them?"</em> You could buy the most effective serum in the world, but if you apply it over a thick oil, it’s never going to penetrate.</p>
+                <p>The golden rule of skincare application is simple: <strong>Apply from thinnest to thickest consistency.</strong></p>
 
-            <h2 style="color: var(--secondary); margin-bottom: 1rem;">The Morning Routine: Protect and Defend</h2>
-            <p style="margin-bottom: 1.5rem;">Mornings are all about protecting your skin from the day ahead (sun, pollution, stress).</p>
-            <ol style="margin-bottom: 2rem; padding-left: 2rem;">
-                <li style="margin-bottom: 0.5rem;"><strong>Cleanse:</strong> A splash of water or a very gentle cleanser.</li>
-                <li style="margin-bottom: 0.5rem;"><strong>Toner/Essence (Optional):</strong> If you use a watery toner, pat it in now.</li>
-                <li style="margin-bottom: 0.5rem;"><strong>Antioxidant Serum:</strong> This is usually your Vitamin C. Apply it to dry or slightly damp skin.</li>
-                <li style="margin-bottom: 0.5rem;"><strong>Hydrating Serum:</strong> Enter the <strong>SkinHonestly Daily Reset Serum</strong>. Apply this while the skin is still receptive to lock in hydration for the day.</li>
-                <li style="margin-bottom: 0.5rem;"><strong>Moisturizer:</strong> A light lotion to seal everything in.</li>
-                <li style="margin-bottom: 0.5rem;"><strong>Sunscreen:</strong> The non-negotiable final step. (Always apply SPF last, and let it dry before makeup).</li>
-            </ol>
+                <h2>The Morning Routine: Protect and Defend</h2>
+                <p>Mornings are all about protecting your skin from the day ahead (sun, pollution, stress).</p>
+                <ol>
+                    <li><strong>Cleanse:</strong> A splash of water or a very gentle cleanser.</li>
+                    <li><strong>Toner/Essence:</strong> If you use a watery toner, pat it in now.</li>
+                    <li><strong>Antioxidant Serum:</strong> Usually your Vitamin C. Apply to dry or slightly damp skin.</li>
+                    <li><strong>Hydrating Serum:</strong> Use the <strong>Daily Reset Serum</strong> to lock in moisture.</li>
+                    <li><strong>Moisturizer:</strong> A light lotion to seal everything in.</li>
+                    <li><strong>Sunscreen:</strong> The non-negotiable final step.</li>
+                </ol>
 
-            <h2 style="color: var(--secondary); margin-bottom: 1rem;">The Evening Routine: Cleanse and Repair</h2>
-            <p style="margin-bottom: 1.5rem;">Nights are for undoing the day's damage and treating specific skin concerns.</p>
-            <ol style="margin-bottom: 2rem; padding-left: 2rem;">
-                <li style="margin-bottom: 0.5rem;"><strong>Double Cleanse:</strong> Start with a cleansing balm or oil to melt away SPF and makeup, followed by your water-based cleanser to actually wash the skin.</li>
-                <li style="margin-bottom: 0.5rem;"><strong>Treatment/Exfoliant:</strong> This is where you apply your AHAs, BHAs, or retinoids. (Remember, don't use them all on the same night!).</li>
-                <li style="margin-bottom: 0.5rem;"><strong>Hydrating Serum:</strong> Bring the water back into the skin with a hydrating serum.</li>
-                <li style="margin-bottom: 0.5rem;"><strong>Eye Cream (Optional):</strong> Tap gently around the orbital bone.</li>
-                <li style="margin-bottom: 0.5rem;"><strong>Moisturizer or Night Cream:</strong> A thicker cream with ceramides to rebuild your barrier while you sleep.</li>
-                <li style="margin-bottom: 0.5rem;"><strong>Facial Oil (Optional):</strong> Oils are occlusive, meaning they lock everything underneath them in. They should always be your absolute last step.</li>
-            </ol>
-
-            <p style="margin-bottom: 1.5rem;">Keep it simple, stick to the thinnest-to-thickest rule, and watch your products finally start working the way they were meant to!</p>
+                <h2>The Evening Routine: Cleanse and Repair</h2>
+                <p>Nights are for undoing the day's damage and repair.</p>
+                <ol>
+                    <li><strong>Double Cleanse:</strong> Start with an oil, followed by a water-based wash.</li>
+                    <li><strong>Treatment:</strong> Apply your AHAs, BHAs, or retinoids.</li>
+                    <li><strong>Hydrating Serum:</strong> Bring water back into the skin.</li>
+                    <li><strong>Moisturizer:</strong> A thicker cream with ceramides to rebuild your barrier.</li>
+                    <li><strong>Facial Oil:</strong> Oils are occlusive and should always be your absolute last step.</li>
+                </ol>
+            </article>
         </div>
+
+        <aside class="sidebar">
+            <div class="sidebar-widget">
+                <h3 class="widget-title">The Editor</h3>
+                <div style="text-align: center;">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=400" alt="Sarah" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 1.5rem; border: 1px solid var(--border);">
+                    <p style="font-size: 0.9rem; font-style: italic; color: var(--text-light);">"Real skincare starts with honesty. I'm here to translate the science into routines that work."</p>
+                </div>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Shop This Post</h3>
+                <div class="shop-widget-item">
+                    <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=200" alt="Serum">
+                    <div>
+                        <h5 style="font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600;">Daily Reset Serum</h5>
+                        <a href="shop.html" class="shop-btn">View in Shop</a>
+                    </div>
+                </div>
+            </div>
+        </aside>
     </main>
-<footer style="background-color: var(--white); text-align: center; padding: 3rem 5%; margin-top: 4rem; border-top: 1px solid #eee;">
-    
-    <!-- This is the container where your newsletter form will appear -->
-    <div id="newsletter-container">
-        <!-- The form from newsletter.html will load here automatically -->
-    </div>
 
-    <p style="margin-bottom: 1rem; font-weight: bold; margin-top: 2rem;">
-        <a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">Pinterest</a>
-    </p>
+    <!-- NEWSLETTER SECTION -->
+    <section class="newsletter-cta">
+        <h2>Join The Glow List</h2>
+        <p>Get exclusive clinical research and early access to drops.</p>
+        <form action="https://manage.kmail-lists.com/subscriptions/subscribe" method="POST" target="_blank" class="newsletter-form">
+            <input type="hidden" name="g" value="WpSSkZ">
+            <input type="email" name="email" placeholder="Your email address" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
 
-    <p style="margin-bottom: 1rem;">
-        <a href="privacy.html" style="font-size: 0.85rem; color: #666; text-decoration: underline;">Privacy Policy & Disclosures</a>
-    </p>
+    <!-- MASTER FOOTER -->
+    <footer>
+        <a href="index.html" class="f-logo">SkinHonestly</a>
+        <div class="f-container">
+            <div class="f-col">
+                <h5>Editorial</h5>
+                <a href="index.html">Front Page</a>
+                <a href="blog.html">The Journal</a>
+                <a href="about.html">Philosophy</a>
+            </div>
+            <div class="f-col">
+                <h5>Shop</h5>
+                <a href="shop.html">The Curation</a>
+                <a href="shop.html">Exclusives</a>
+            </div>
+            <div class="f-col">
+                <h5>Connect</h5>
+                <a href="#">Instagram</a>
+                <a href="#">YouTube</a>
+            </div>
+            <div class="f-col">
+                <h5>Trust</h5>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="privacy.html">Disclosures</a>
+            </div>
+        </div>
+        <div class="f-bottom">
+            <p>&copy; 2024 SKINHONESTLY. REAL SKINCARE. HONESTLY.</p>
+        </div>
+    </footer>
 
-    <p class="ftc-disclosure" style="font-size: 0.8rem; color: #666;">This page contains affiliate links. We may earn a commission at no extra cost to you.</p>
-</footer>
-
-<!-- This script tells the page to grab the newsletter form and put it inside the container -->
-<script>
-    fetch('newsletter.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('newsletter-container').innerHTML = data;
+    <script>
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
         });
-</script>
+    </script>
 </body>
 </html>
