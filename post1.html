@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>My Honest Morning Routine | SkinHonestly Journal</title>
-    <meta name="description" content="I’ve finally nailed down a morning routine that keeps my skin hydrated and glowing without feeling heavy. Here’s a peek into my bathroom cabinet.">
+    <meta name="description" content="A clinical approach to morning skincare. Why protection and hydration are the only true goals for a morning glow.">
     <meta name="p:domain_verify" content="614a5afefa741fa072c6f9319d2f14d0"/>
     
     <!-- Google tag (gtag.js) -->
@@ -27,24 +27,24 @@
             --text-light: #666;
             --white: #FFFFFF;
             --border: #EAE6DF;
+            --highlight: #C9A876;
         }
 
         /* Global Reset */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html, body { overflow-x: hidden; width: 100%; position: relative; }
-        body { background-color: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; }
+        body { background-color: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.8; }
         a { text-decoration: none; color: inherit; transition: 0.3s; }
-        img { max-width: 100%; height: auto; display: block; }
-        h1, h2, h3, h4, h5 { font-family: 'Playfair Display', serif; font-weight: 500; }
+        img { max-width: 100%; height: auto; display: block; border-radius: 4px; }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--primary); }
 
         /* MASTER HEADER */
-        header { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; width: 100%; }
+        header { background-color: var(--white); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
         .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 0 5%; max-width: 1400px; margin: 0 auto; height: 80px; }
-        .logo { font-size: 1.8rem; font-weight: 600; color: var(--primary); letter-spacing: -1px; }
+        .logo { font-size: 1.8rem; font-weight: 600; color: var(--primary); letter-spacing: -1px; font-family: 'Playfair Display', serif; }
         .nav-links { display: flex; gap: 3rem; align-items: center; }
         .nav-links a { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: var(--text-light); }
         .nav-links a:hover { color: var(--primary); }
-
         .menu-toggle { display: none; font-size: 1.8rem; cursor: pointer; color: var(--primary); padding: 10px; }
 
         @media (max-width: 768px) {
@@ -57,25 +57,60 @@
             .nav-links.active { display: flex; }
         }
 
-        /* Post Content Layout */
-        .container { width: 90%; max-width: 800px; margin: 4rem auto; padding: 0; }
-        .post-meta { color: #666; margin-bottom: 1rem; font-size: 0.9rem; }
-        .post-content-body { font-size: 1.15rem; line-height: 1.8; color: #444; }
-        .post-content-body p { margin-bottom: 1.5rem; }
-        .post-content-body h2 { color: var(--primary); margin: 3rem 0 1rem; font-size: 2rem; }
+        /* Editorial Article Layout */
+        .article-layout { max-width: 1300px; margin: 4rem auto; padding: 0 5%; display: grid; grid-template-columns: 1fr 350px; gap: 6rem; }
         
-        .btn-back { color: var(--primary); font-weight: bold; margin-bottom: 2rem; display: inline-block; border-bottom: 1px solid var(--primary); font-size: 0.9rem; padding-bottom: 2px; }
+        .article-header { margin-bottom: 3rem; text-align: left; }
+        .cat-tag { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: var(--secondary); font-weight: 700; margin-bottom: 1rem; display: block; }
+        .article-header h1 { font-size: clamp(2.5rem, 5vw, 3.8rem); margin-bottom: 1.5rem; line-height: 1.1; }
+        .article-meta { display: flex; gap: 20px; font-size: 0.85rem; color: #999; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; }
 
-        /* MASTER FOOTER - Professional 4-Column Grid */
-        footer { padding: 8rem 5% 4rem; background: var(--white); border-top: 1px solid var(--border); margin-top: 10rem; }
-        .f-logo { font-size: 2.5rem; font-family: 'Playfair Display', serif; color: var(--primary); margin-bottom: 3rem; display: block; text-align: center; text-decoration: none; }
-        .f-container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 4rem; border-bottom: 1px solid var(--border); padding-bottom: 6rem; text-align: left; }
+        /* FIXED: Professional Main Image */
+        .main-img { width: 100%; height: 550px; object-fit: cover; margin-bottom: 4rem; box-shadow: 0 15px 40px rgba(0,0,0,0.04); border-radius: 8px; }
+
+        .article-content p { font-size: 1.15rem; color: #444; margin-bottom: 2rem; }
+        /* Professional Drop Cap */
+        .article-content p:first-of-type::first-letter { font-family: 'Playfair Display'; font-size: 4.5rem; float: left; margin-top: 0.5rem; margin-right: 0.8rem; line-height: 1; color: var(--primary); font-weight: 600; }
+        
+        .article-content h2 { font-size: 2.2rem; margin: 4rem 0 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+        .article-content strong { color: var(--primary); }
+
+        /* Sidebar Widgets */
+        .sidebar { display: flex; flex-direction: column; gap: 5rem; border-left: 1px solid var(--border); padding-left: 3rem; }
+        .widget-title { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--primary); border-bottom: 1px solid var(--border); padding-bottom: 1rem; margin-bottom: 2rem; }
+        
+        .author-card { text-align: center; }
+        .author-card img { width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 1.5rem; object-fit: cover; border: 1px solid var(--border); }
+        .author-card p { font-size: 0.9rem; font-style: italic; color: var(--text-light); }
+
+        .shop-widget-item { display: grid; grid-template-columns: 80px 1fr; gap: 1.5rem; align-items: center; margin-bottom: 2rem; }
+        .shop-widget-item img { height: 80px; width: 80px; object-fit: cover; border-radius: 4px; }
+        .shop-widget-item h5 { font-size: 0.95rem; font-family: 'Inter', sans-serif; font-weight: 600; }
+        .shop-btn { font-size: 0.7rem; color: var(--secondary); font-weight: 700; text-transform: uppercase; border-bottom: 1px solid var(--secondary); }
+
+        /* Newsletter Banner */
+        .newsletter-cta { background: var(--primary); color: white; padding: 6rem 5%; text-align: center; margin-top: 6rem; border-radius: 4px; }
+        .newsletter-cta h2 { color: white; font-size: 2.8rem; margin-bottom: 1rem; }
+        .newsletter-cta p { font-size: 1.2rem; opacity: 0.9; margin-bottom: 3rem; }
+        .newsletter-form { display: flex; justify-content: center; gap: 10px; max-width: 600px; margin: 0 auto; }
+        .newsletter-form input { flex: 1; padding: 1.2rem; border-radius: 4px; border: none; font-size: 1rem; outline: none; }
+        .newsletter-form button { background: var(--secondary); color: white; border: none; padding: 0 3rem; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; border-radius: 4px; cursor: pointer; }
+
+        /* MASTER FOOTER */
+        footer { padding: 8rem 5% 4rem; background: var(--white); border-top: 1px solid var(--border); margin-top: 5rem; }
+        .f-container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 4rem; border-bottom: 1px solid var(--border); padding-bottom: 4rem; text-align: left; }
         .f-col h5 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 2.5rem; color: var(--text); font-weight: 700; }
-        .f-col a { display: block; margin-bottom: 1.2rem; font-size: 0.9rem; color: var(--text-light); text-decoration: none; transition: 0.3s; }
-        .f-col a:hover { color: var(--primary); }
-        .f-bottom { padding-top: 4rem; text-align: center; font-size: 0.75rem; color: #999; letter-spacing: 2px; text-transform: uppercase; }
+        .f-col a { display: block; margin-bottom: 1.2rem; font-size: 0.9rem; color: var(--text-light); }
 
-        @media (max-width: 992px) {
+        @media (max-width: 1100px) {
+            .article-layout { grid-template-columns: 1fr; }
+            .sidebar { border-left: none; padding-left: 0; flex-direction: row; flex-wrap: wrap; margin-top: 4rem; }
+            .sidebar-widget { flex: 1; min-width: 300px; }
+            .main-img { height: 400px; }
+        }
+        @media (max-width: 768px) {
+            .newsletter-form { flex-direction: column; }
+            .newsletter-form button { padding: 1.2rem; }
             .f-container { grid-template-columns: 1fr 1fr; gap: 3rem; }
         }
     </style>
@@ -90,85 +125,124 @@
             <div class="nav-links" id="nav-menu">
                 <a href="index.html">Front Page</a>
                 <a href="shop.html">The Curation</a>
-                <a href="blog.html">The Journal</a>
+                <a href="blog.html" class="active">The Journal</a>
                 <a href="about.html">About</a>
             </div>
         </nav>
     </header>
 
-    <main class="container">
-        <a href="blog.html" class="btn-back">&larr; Back to Journal</a>
+    <main class="article-layout">
         
-        <h1 style="color: var(--primary); margin-bottom: 0.5rem; font-size: clamp(2rem, 5vw, 3rem);">My Honest Morning Routine: What I Use Every Single Day</h1>
-        <p class="post-meta">Published: June 23, 2026</p>
+        <!-- CONTENT COLUMN -->
+        <div class="article-body">
+            <header class="article-header">
+                <span class="cat-tag">Rituals • Daily Guidance</span>
+                <h1>My Honest Morning Routine: What I Use Every Single Day.</h1>
+                <div class="article-meta">
+                    <span>By Sarah • June 23, 2026</span>
+                    <span>5 Min Read</span>
+                </div>
+            </header>
 
-        <!-- Blog Post Image -->
-        <img 
-            src="images/skin-improvement.webp" 
-            alt="Morning Skincare" 
-            style="border-radius: 8px; margin-bottom: 3rem; width: 100%; height: auto; object-fit: cover; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+            <img src="images/skin-improvement.webp" alt="Morning Skincare" class="main-img">
 
-        <div class="post-content-body">
-            <p>I’ll be the first to admit it: my skincare routine used to be exhausting. I thought I needed a ten-step process to achieve that elusive "glass skin," but in reality, all I got was an empty wallet and skin that felt overwhelmed and congested.</p>
-            
-            <p>Here is my honest, paired-down morning routine that I actually stick to every single day:</p>
+            <div class="article-content">
+                <p>I’ll be the first to admit it: my skincare routine used to be exhausting. I thought I needed a ten-step process to achieve that elusive "glass skin," but in reality, all I got was an empty wallet and skin that felt overwhelmed and congested. Over the last year, I’ve drastically simplified my mornings.</p>
+                
+                <p>I’ve realized that when it comes to the start of the day, protection and hydration are the only true goals. Here is the honest, paired-down routine I actually stick to:</p>
 
-            <h2>Step 1: A Gentle Splash</h2>
-            <p>Unless I slugged with a heavy ointment the night before, I usually skip morning cleanser. A gentle splash of lukewarm water is all my skin needs. It leaves my natural moisture barrier intact.</p>
+                <h2>Step 1: A Gentle Splash</h2>
+                <p>Unless I slugged with a heavy ointment the night before, I usually skip morning cleanser. A gentle splash of lukewarm water is all my skin needs. It leaves my natural moisture barrier intact and preps my face for the next steps.</p>
 
-            <h2>Step 2: Vitamin C</h2>
-            <p>Once my face is patted dry, I apply a few drops of a Vitamin C serum. This is my non-negotiable antioxidant shield against daily pollution and sun damage.</p>
+                <h2>Step 2: Vitamin C</h2>
+                <p>Once my face is patted dry, I apply a few drops of a Vitamin C serum. This is my non-negotiable antioxidant shield against daily pollution and sun damage. It’s lightweight and essential for that morning radiance.</p>
 
-            <h2>Step 3: The Daily Reset Serum</h2>
-            <p>While my skin is still slightly damp, I go in with two pumps of our very own <strong>SkinHonestly Daily Reset Serum</strong>. It’s packed with pure, uncomplicated hydration that locks in moisture.</p>
+                <h2>Step 3: The Daily Reset Serum</h2>
+                <p>While my skin is still slightly damp, I go in with two pumps of our very own <strong>SkinHonestly Daily Reset Serum</strong>. I formulated this specifically for this step. It’s packed with pure hydration that locks in moisture without feeling tacky.</p>
 
-            <h2>Step 4: Moisturize and Protect</h2>
-            <p>Finally, I lock it all in. I just use a moisturizing SPF 50. My absolute favorite sheer mineral SPF 50 doubles as my morning moisturizer.</p>
+                <h2>Step 4: Moisturize and Protect</h2>
+                <p>Finally, I lock it all in. If it’s winter, I’ll use a lightweight ceramide moisturizer. But in the warmer months? I just use a moisturizing SPF 50. My absolute favorite sheer mineral SPF doubles as my moisturizer.</p>
 
-            <p>And that’s it! Four steps, zero stress.</p>
-            
-            <h2 style="color: var(--secondary); margin-top: 4rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem;">Watch My Routine in Action</h2>
-            <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; margin: 3rem 0; box-shadow: 0 15px 40px rgba(0,0,0,0.1);">
-                <iframe src="https://www.youtube.com/embed/nabwuTwtlnM" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
+                <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; margin: 4rem 0; box-shadow: 0 15px 40px rgba(0,0,0,0.1);">
+                    <iframe src="https://www.youtube.com/embed/nabwuTwtlnM" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
+                </div>
+
+                <p>And that’s it! Four steps, zero stress. Let's keep it honest—what does your morning look like?</p>
             </div>
         </div>
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar-widget author-card">
+                <h3 class="widget-title">The Editor</h3>
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=400" alt="Sarah">
+                <p>"Skincare shouldn't be a mystery. I'm here to translate the science into routines that work."</p>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Shop This Routine</h3>
+                <div class="shop-widget-item">
+                    <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=200" alt="Serum">
+                    <div>
+                        <h5>Daily Reset Serum</h5>
+                        <a href="shop.html" class="shop-btn">Shop Now — $42</a>
+                    </div>
+                </div>
+                <div class="shop-widget-item">
+                    <img src="https://images.unsplash.com/photo-1599305090598-fe179d501227?q=80&w=200" alt="SPF">
+                    <div>
+                        <h5>Mineral SPF 50</h5>
+                        <a href="shop.html" class="shop-btn">Shop Now — $34</a>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
     </main>
+
+    <!-- NEWSLETTER SECTION -->
+    <section class="newsletter-cta">
+        <h2>Join The Glow List</h2>
+        <p>Get exclusive clinical research and early access to drops.</p>
+        <form action="https://manage.kmail-lists.com/subscriptions/subscribe" method="POST" target="_blank" class="newsletter-form">
+            <input type="hidden" name="g" value="WpSSkZ">
+            <input type="email" name="email" placeholder="Your email address" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
 
     <!-- MASTER FOOTER -->
     <footer>
-        <a href="index.html" class="f-logo">SkinHonestly</a>
+        <a href="index.html" class="f-logo" style="text-align: center; margin-bottom: 3rem; display: block; text-decoration: none;">SkinHonestly</a>
         <div class="f-container">
             <div class="f-col">
                 <h5>Editorial</h5>
                 <a href="index.html">Front Page</a>
                 <a href="blog.html">The Journal</a>
-                <a href="about.html">The Philosophy</a>
+                <a href="about.html">Philosophy</a>
             </div>
             <div class="f-col">
-                <h5>Shop Curation</h5>
-                <a href="shop.html">The Exclusive Line</a>
-                <a href="shop.html">Derm-Trusted Picks</a>
+                <h5>Shop</h5>
+                <a href="shop.html">The Curation</a>
+                <a href="shop.html">Exclusives</a>
             </div>
             <div class="f-col">
                 <h5>Connect</h5>
                 <a href="#">Instagram</a>
                 <a href="#">YouTube</a>
-                <a href="#">Pinterest</a>
             </div>
             <div class="f-col">
-                <h5>Trust & Support</h5>
+                <h5>Trust</h5>
                 <a href="privacy.html">Privacy Policy</a>
                 <a href="privacy.html">Disclosures</a>
-                <a href="about.html">Contact Us</a>
             </div>
         </div>
-        <div class="f-bottom">
+        <div style="text-align: center; padding-top: 4rem; color: #999; font-size: 0.75rem; letter-spacing: 2px;">
             <p>&copy; 2024 SKINHONESTLY. REAL SKINCARE. HONESTLY.</p>
         </div>
     </footer>
 
     <script>
-        // MASTER MOBILE TOGGLE SCRIPT
         const mobileToggle = document.getElementById('mobile-toggle');
         const navMenu = document.getElementById('nav-menu');
         mobileToggle.addEventListener('click', () => {
