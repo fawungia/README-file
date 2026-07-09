@@ -31,18 +31,30 @@
 
         /* Global Reset */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; }
+        body { background-color: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; overflow-x: hidden; }
         a { text-decoration: none; color: inherit; transition: 0.3s; }
         img { max-width: 100%; height: auto; display: block; }
         h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 500; }
 
-        /* Navigation */
-        header { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; }
+        /* MASTER HEADER - Standardized for all pages */
+        header { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
         .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 0 5%; max-width: 1400px; margin: 0 auto; height: 80px; }
-        .logo { font-size: 1.8rem; font-weight: 600; color: var(--primary); letter-spacing: -1px; }
-        .nav-links { display: flex; gap: 3rem; }
+        .logo { font-size: 1.8rem; font-weight: 600; color: var(--primary); letter-spacing: -1px; font-family: 'Playfair Display', serif; }
+        .nav-links { display: flex; gap: 3rem; align-items: center; }
         .nav-links a { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: var(--text-light); }
-        .nav-links a:hover { color: var(--primary); }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+        
+        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--primary); }
+
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            .nav-links { 
+                display: none; flex-direction: column; position: absolute; top: 80px; left: 0; width: 100%; 
+                background-color: var(--white); padding: 2rem; border-bottom: 1px solid var(--border); 
+                box-shadow: 0 10px 15px rgba(0,0,0,0.05); gap: 1.5rem; z-index: 1001;
+            }
+            .nav-links.active { display: flex; }
+        }
 
         /* The Editorial Cover (Hero) */
         .hero-cover { background: var(--white); border-bottom: 1px solid var(--border); }
@@ -104,7 +116,7 @@
         .f-col a { display: block; margin-bottom: 1rem; font-size: 0.85rem; color: var(--text-light); }
         .f-bottom { padding-top: 3rem; text-align: center; font-size: 0.75rem; color: #999; letter-spacing: 1px; }
 
-        /* Responsive */
+        /* Responsive Breakpoints */
         @media (max-width: 1024px) {
             .hero-inner { grid-template-columns: 1fr; }
             .hero-image { height: 400px; }
@@ -126,8 +138,9 @@
     <header>
         <nav class="nav-container">
             <a href="index.html" class="logo">SkinHonestly</a>
-            <div class="nav-links">
-                <a href="index.html">Front Page</a>
+            <div class="menu-toggle" id="mobile-toggle">☰</div> 
+            <div class="nav-links" id="nav-menu">
+                <a href="index.html" class="active">Front Page</a>
                 <a href="shop.html">The Curation</a>
                 <a href="blog.html">The Journal</a>
                 <a href="about.html">About</a>
@@ -287,5 +300,14 @@
         </div>
     </footer>
 
+    <script>
+        // MASTER MOBILE TOGGLE SCRIPT
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
