@@ -500,5 +500,23 @@
             navMenu.classList.toggle('active');
         });
     </script>
+
+ <script>
+function filterPosts(category, element) {
+    // 1. Manage active link styling
+    document.querySelectorAll('.filter-link').forEach(link => link.classList.remove('active'));
+    element.classList.add('active');
+
+    // 2. Filter posts
+    const posts = document.querySelectorAll('.post-card');
+    posts.forEach(post => {
+        if (category === 'all') {
+            post.style.display = 'flex';
+        } else {
+            post.style.display = post.getAttribute('data-category') === category ? 'flex' : 'none';
+        }
+    });
+}
+</script>
 </body>
 </html>
