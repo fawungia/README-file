@@ -134,6 +134,41 @@
  .n-form { flex-direction: column; }
  .n-form button { padding: 1rem; }
  }
+  /* ==========================================================================
+   PREMIUM EDITORIAL UPGRADE (Add this to the bottom of your style block)
+   ========================================================================== */
+
+/* 1. Add "Breathing Room" to your existing cards */
+.card, .store-item {
+    border-radius: 20px !important; /* Softens the look */
+    transition: transform 0.4s ease, box-shadow 0.4s ease !important;
+}
+
+.card:hover, .store-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08) !important;
+}
+
+/* 2. Elevate your Buttons */
+.btn {
+    border-radius: 50px !important; /* The 'Rhode' luxury pill shape */
+    padding: 1rem 2.5rem !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+}
+
+/* 3. Refine the Hero Text */
+.hero-text h1 {
+    font-size: 3.5rem !important;
+    letter-spacing: -1px;
+}
+
+/* 4. Glassmorphism for Header */
+header {
+    background: rgba(250, 247, 242, 0.9) !important;
+    backdrop-filter: blur(10px);
+}
  </style>
 </head>
 <body>
