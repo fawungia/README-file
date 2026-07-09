@@ -20,7 +20,7 @@
 
         :root {
             --bg: #FAF7F2;
-            --primary: #5E795B;
+            --primary: #5E795B; 
             --secondary: #D4886B;
             --text: #2B2B2B;
             --text-light: #666;
@@ -36,15 +36,26 @@
         img { max-width: 100%; height: auto; display: block; }
         h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 600; line-height: 1.2; }
 
-        /* Navigation */
-        header { background-color: var(--white); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; max-width: 1400px; margin: 0 auto; }
-        .logo { font-size: 1.6rem; font-weight: bold; color: var(--primary); letter-spacing: 1px; font-family: 'Playfair Display', serif; }
-        .nav-links { display: flex; gap: 2rem; }
-        .nav-links a { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-light); }
-        .nav-links a:hover { color: var(--primary); }
+        /* MASTER HEADER - Standardized from Home Page */
+        header { background-color: var(--white); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; max-width: 1400px; margin: 0 auto; height: 80px; }
+        .logo { font-size: 1.8rem; font-weight: 600; color: var(--primary); letter-spacing: -1px; font-family: 'Playfair Display', serif; }
+        .nav-links { display: flex; gap: 3rem; align-items: center; }
+        .nav-links a { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: var(--text-light); }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--primary); }
 
-        /* Utility Header (Breadcrumbs + Search) */
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            .nav-links { 
+                display: none; flex-direction: column; position: absolute; top: 80px; left: 0; width: 100%; 
+                background-color: var(--white); padding: 2rem; border-bottom: 1px solid var(--border); 
+                box-shadow: 0 10px 15px rgba(0,0,0,0.05); gap: 1.5rem; z-index: 1001;
+            }
+            .nav-links.active { display: flex; }
+        }
+
+        /* Utility Header */
         .utility-header { max-width: 1400px; margin: 0 auto; padding: 1.5rem 5% 0; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; }
         .breadcrumbs { color: #999; }
         .breadcrumbs a { color: var(--text-light); }
@@ -57,16 +68,15 @@
         .blog-hero p { color: var(--text-light); font-size: 1.1rem; max-width: 700px; margin: 0 auto; }
 
         /* Professional Category Filter */
-        .filter-nav-wrapper { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 60px; z-index: 998; }
+        .filter-nav-wrapper { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 80px; z-index: 998; }
         .filter-nav { display: flex; justify-content: center; gap: 3rem; padding: 1.2rem; overflow-x: auto; -webkit-overflow-scrolling: touch; }
         .filter-link { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; color: var(--text-light); white-space: nowrap; }
         .filter-link.active { color: var(--primary); border-bottom: 2px solid var(--primary); }
-        .filter-link:hover { color: var(--secondary); }
 
         /* Layout Grid */
         .layout-grid { max-width: 1400px; margin: 4rem auto; padding: 0 5%; display: grid; grid-template-columns: 1fr 350px; gap: 4rem; }
 
-        /* Featured Article (Top Wide) */
+        /* Featured Article */
         .featured-article { grid-column: 1 / -1; margin-bottom: 3rem; position: relative; border-radius: 12px; overflow: hidden; height: 600px; display: flex; align-items: center; background-color: #000; }
         .featured-article img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; opacity: 0.85; }
         .featured-overlay { position: relative; z-index: 2; width: 45%; background: rgba(255,255,255,0.95); margin-left: 5%; padding: 4rem; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
@@ -86,14 +96,9 @@
 
         /* Sidebar Widgets */
         .sidebar { display: flex; flex-direction: column; gap: 4rem; }
-        .widget { }
         .widget-title { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; border-bottom: 1px solid var(--border); padding-bottom: 1rem; margin-bottom: 2rem; }
-        
         .staff-pick { text-align: center; padding: 2rem; border: 1px solid var(--border); border-radius: 8px; }
-        .staff-pick img { width: 150px; margin: 0 auto 1.5rem; }
-        .staff-pick h4 { font-family: 'Helvetica Neue', Arial; font-size: 1rem; margin-bottom: 0.5rem; }
         .btn-shop { background: var(--primary); color: white; padding: 0.8rem; border-radius: 4px; display: block; margin-top: 1rem; font-weight: bold; }
-
         .trending-row { display: grid; grid-template-columns: 80px 1fr; gap: 1rem; margin-bottom: 1.5rem; align-items: center; }
         .trending-row img { width: 80px; height: 80px; object-fit: cover; border-radius: 4px; }
         .trending-row h5 { font-size: 0.9rem; line-height: 1.4; color: var(--text); }
@@ -106,44 +111,33 @@
         .video-list { display: flex; flex-direction: column; gap: 1rem; }
         .video-item { display: grid; grid-template-columns: 120px 1fr; gap: 1rem; padding: 1rem; background: var(--white); border-radius: 8px; align-items: center; }
 
-        /* NEWSLETTER FULL WIDTH */
+        /* NEWSLETTER HERO */
         .newsletter-hero { grid-column: 1 / -1; background: var(--primary); color: white; padding: 6rem 5%; text-align: center; border-radius: 16px; margin: 4rem 0; }
         .newsletter-hero h3 { font-size: 3rem; margin-bottom: 1rem; }
-        .newsletter-hero p { font-size: 1.2rem; margin-bottom: 3rem; opacity: 0.9; }
         .newsletter-form { display: flex; justify-content: center; gap: 15px; max-width: 600px; margin: 0 auto; }
         .newsletter-form input { flex: 1; padding: 1.2rem 2rem; border-radius: 4px; border: none; font-size: 1rem; }
         .newsletter-form button { padding: 1.2rem 3rem; background: var(--secondary); color: white; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; }
 
-        /* Pagination */
-        .pagination { grid-column: 1 / 2; display: flex; justify-content: center; margin-top: 4rem; }
-        .btn-more { padding: 1rem 3rem; border: 2px solid var(--primary); color: var(--primary); font-weight: bold; border-radius: 4px; }
-        .btn-more:hover { background: var(--primary); color: white; }
-
-        /* Footer */
+        /* MASTER FOOTER - Standard across all pages */
         footer { background: var(--white); padding: 6rem 5% 4rem; text-align: center; border-top: 1px solid var(--border); }
         .f-logo { font-size: 2.5rem; font-family: 'Playfair Display', serif; color: var(--primary); margin-bottom: 3rem; display: block; }
-        .f-grid { display: grid; grid-template-columns: repeat(4, 1fr); max-width: 1200px; margin: 0 auto 4rem; text-align: left; }
+        .f-grid { display: grid; grid-template-columns: repeat(4, 1fr); max-width: 1400px; margin: 0 auto 4rem; text-align: left; }
         .f-col h4 { text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 2rem; font-family: 'Helvetica Neue', Arial; color: var(--text-light); }
         .f-col a { display: block; margin-bottom: 1rem; font-size: 0.9rem; color: var(--text-light); }
         .f-bottom { border-top: 1px solid var(--border); padding-top: 3rem; font-size: 0.8rem; color: #999; }
 
-        /* Responsive Breakpoints */
         @media (max-width: 1200px) {
-            .featured-overlay { width: 60%; }
             .layout-grid { grid-template-columns: 1fr; }
             .sidebar { grid-row: 3; }
         }
         @media (max-width: 992px) {
             .video-grid { grid-template-columns: 1fr; }
-            .featured-article { height: auto; }
             .featured-overlay { width: 90%; margin: 2rem auto; }
-            .blog-hero h1 { font-size: 3rem; }
         }
         @media (max-width: 768px) {
             .article-feed { grid-template-columns: 1fr; }
             .newsletter-form { flex-direction: column; }
             .f-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
-            .filter-nav { gap: 1.5rem; }
         }
     </style>
 </head>
@@ -152,10 +146,11 @@
     <header>
         <nav class="nav-container">
             <a href="index.html" class="logo">SkinHonestly</a>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="shop.html">Shop</a>
-                <a href="blog.html" style="color: var(--primary);">The Journal</a>
+            <div class="menu-toggle" id="mobile-toggle">☰</div> 
+            <div class="nav-links" id="nav-menu">
+                <a href="index.html">Front Page</a>
+                <a href="shop.html">The Curation</a>
+                <a href="blog.html" class="active">The Journal</a>
                 <a href="about.html">About</a>
             </div>
         </nav>
@@ -183,7 +178,6 @@
             <a href="#" class="filter-link">Ingredient Science</a>
             <a href="#" class="filter-link">Derm Reviews</a>
             <a href="#" class="filter-link">Barrier Health</a>
-            <a href="#" class="filter-link">Anti-Aging</a>
         </nav>
     </div>
 
@@ -200,15 +194,15 @@
             </div>
         </article>
 
-        <!-- LEFT COLUMN: FEED -->
+        <!-- ARTICLES FEED -->
         <section class="article-feed">
             
             <article class="post-card">
                 <a href="post2.html">
                     <img src="images/poko-skincare-oXI2_S1ILQI-unsplash.webp" alt="Morning Routine">
                     <span class="post-meta">Routines • June 23</span>
-                    <h3 class="post-title">My Honest Morning Routine: What I Use Every Single Day</h3>
-                    <p class="post-excerpt">I’ve finally nailed down a morning routine that keeps my skin hydrated and glowing without feeling heavy.</p>
+                    <h3 class="post-title">My Honest Morning Routine</h3>
+                    <p class="post-excerpt">I’ve finally nailed down a routine that keeps my skin hydrated and glowing without feeling heavy.</p>
                     <span class="btn-read">Read Article</span>
                 </a>
             </article>
@@ -217,7 +211,7 @@
                 <a href="post3.html">
                     <img src="images/ibnu-ihza-QbHwPe1HE84-unsplash.webp" alt="Budget Products">
                     <span class="post-meta">Reviews • June 22</span>
-                    <h3 class="post-title">5 Affordable Skincare Products That Actually Deliver</h3>
+                    <h3 class="post-title">5 Affordable Skincare Products</h3>
                     <p class="post-excerpt">You don’t need to spend a fortune to get great skin. These budget-friendly finds have earned their spot.</p>
                     <span class="btn-read">Read Article</span>
                 </a>
@@ -227,8 +221,8 @@
                 <a href="post4.html">
                     <img src="images/plantadea-zSD0OWrbtlw-unsplash.webp" alt="Peptides">
                     <span class="post-meta">Ingredients • June 21</span>
-                    <h3 class="post-title">Peptides Explained: Do They Actually Work?</h3>
-                    <p class="post-excerpt">They’re the buzziest ingredient right now, but what do peptides actually do? Let's break down the science.</p>
+                    <h3 class="post-title">Peptides Explained</h3>
+                    <p class="post-excerpt">They’re the buzziest ingredient right now, but what do peptides actually do?</p>
                     <span class="btn-read">Read Article</span>
                 </a>
             </article>
@@ -237,8 +231,8 @@
                 <a href="post5.html">
                     <img src="images/young-lady-pointing-phone-sign-white-bathrobe-towel-looking-pleased-front-view.webp" alt="Exfoliation">
                     <span class="post-meta">Routines • June 20</span>
-                    <h3 class="post-title">Gentle Exfoliation: Why I Stopped Over-Exfoliating</h3>
-                    <p class="post-excerpt">Here’s what happened when I put down the strong peels and switched to a kinder, more effective approach.</p>
+                    <h3 class="post-title">Gentle Exfoliation Tips</h3>
+                    <p class="post-excerpt">Why I stopped over-exfoliating and switched to a kinder, more effective approach.</p>
                     <span class="btn-read">Read Article</span>
                 </a>
             </article>
@@ -247,8 +241,8 @@
                 <a href="post6.html">
                     <img src="images/christian-agbede-TqmyIxQpo5s-unsplash.webp" alt="Skin Barrier">
                     <span class="post-meta">Science • June 19</span>
-                    <h3 class="post-title">Skin Barrier 101: The One Thing Routines Get Wrong</h3>
-                    <p class="post-excerpt">Understand why the skin barrier is the most important factor in your routine and how to fix a compromised one.</p>
+                    <h3 class="post-title">Skin Barrier 101</h3>
+                    <p class="post-excerpt">Understand why the skin barrier is the most important factor in your entire routine.</p>
                     <span class="btn-read">Read Article</span>
                 </a>
             </article>
@@ -267,30 +261,24 @@
                 <div class="staff-pick">
                     <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=300" alt="Product">
                     <h4>The Daily Reset Serum</h4>
-                    <p style="font-size: 0.8rem; color: #999; margin-bottom: 1rem;">Award Winning Formulation</p>
                     <a href="shop.html" class="btn-shop">Shop Now — $42</a>
                 </div>
             </div>
 
             <div class="widget">
-                <h3 class="widget-title">Most Popular Now</h3>
+                <h3 class="widget-title">Most Popular</h3>
                 <a href="post2.html" class="trending-row">
                     <img src="images/poko-skincare-oXI2_S1ILQI-unsplash.webp" alt="Trend">
-                    <h5>The Minimalist Morning Routine Guide</h5>
+                    <h5>Minimalist Morning Routine</h5>
                 </a>
                 <a href="post4.html" class="trending-row">
                     <img src="images/plantadea-zSD0OWrbtlw-unsplash.webp" alt="Trend">
-                    <h5>Copper Peptides: Worth the Hype?</h5>
-                </a>
-                <a href="post3.html" class="trending-row">
-                    <img src="images/ibnu-ihza-QbHwPe1HE84-unsplash.webp" alt="Trend">
-                    <h5>5 Serums Under $30 We Love</h5>
+                    <h5>The Truth About Peptides</h5>
                 </a>
             </div>
 
             <div class="widget" style="background: var(--primary); padding: 2rem; border-radius: 8px; color: white; text-align: center;">
-                <h3 style="font-family: 'Helvetica Neue'; font-size: 1.2rem; margin-bottom: 1rem;">Free 7-Day Routine</h3>
-                <p style="font-size: 0.9rem; margin-bottom: 2rem;">Get our clinical routine PDF delivered to your inbox instantly.</p>
+                <h3 style="font-family: 'Helvetica Neue'; font-size: 1.2rem; margin-bottom: 1rem; color: white;">Free 7-Day Routine</h3>
                 <a href="#" style="background: white; color: var(--primary); padding: 0.8rem 2rem; display: block; font-weight: bold; border-radius: 4px;">Download PDF</a>
             </div>
 
@@ -312,15 +300,11 @@
                 <div class="video-list">
                     <div class="video-item">
                         <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=200" alt="V">
-                        <p style="font-size: 0.9rem; font-weight: bold;">Morning Facial Massage 101</p>
+                        <p style="font-size: 0.9rem; font-weight: bold;">Morning Massage 101</p>
                     </div>
                     <div class="video-item">
                         <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?q=80&w=200" alt="V">
-                        <p style="font-size: 0.9rem; font-weight: bold;">Nightly Double Cleanse Guide</p>
-                    </div>
-                    <div class="video-item">
-                        <img src="https://images.unsplash.com/photo-1552046122-03184de85e08?q=80&w=200" alt="V">
-                        <p style="font-size: 0.9rem; font-weight: bold;">Chemical vs Physical SPF</p>
+                        <p style="font-size: 0.9rem; font-weight: bold;">Nightly Double Cleanse</p>
                     </div>
                 </div>
             </div>
@@ -329,11 +313,10 @@
         <!-- NEWSLETTER HERO -->
         <section class="newsletter-hero">
             <h3>The Glow List</h3>
-            <p>Join our community for exclusive clinical advice and early access to drops.</p>
             <form action="https://manage.kmail-lists.com/subscriptions/subscribe" method="POST" target="_blank" class="newsletter-form">
                 <input type="hidden" name="g" value="WpSSkZ">
-                <input type="email" name="email" placeholder="Your best email address" required>
-                <button type="submit">Subscribe Now</button>
+                <input type="email" name="email" placeholder="Your email address" required>
+                <button type="submit">Subscribe</button>
             </form>
         </section>
 
@@ -369,9 +352,14 @@
             </div>
         </div>
         <div class="f-bottom">
-            <p>&copy; 2024 SkinHonestly. Real Skincare. Honestly. <br> This page contains affiliate links. We may earn a commission at no extra cost to you.</p>
+            <p>&copy; 2024 SkinHonestly. Real Results. Honestly. <br> This page contains affiliate links.</p>
         </div>
     </footer>
 
+    <script>
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        mobileToggle.addEventListener('click', () => { navMenu.classList.toggle('active'); });
+    </script>
 </body>
 </html>
