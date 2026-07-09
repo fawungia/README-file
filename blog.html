@@ -36,16 +36,13 @@
         img { max-width: 100%; height: auto; display: block; }
         h1, h2, h3, h4, h5 { font-family: 'Playfair Display', serif; font-weight: 600; line-height: 1.2; }
 
-        /* ==========================================================================
-           MASTER HEADER - (Matches Home Page)
-           ========================================================================== */
+        /* MASTER HEADER */
         header { background-color: var(--white); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 0 5%; max-width: 1400px; margin: 0 auto; height: 80px; }
-        .logo { font-size: 1.8rem; font-weight: 600; color: var(--primary); letter-spacing: -1px; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; max-width: 1400px; margin: 0 auto; height: 80px; }
+        .logo { font-size: 1.8rem; font-weight: 600; color: var(--primary); letter-spacing: -1px; font-family: 'Playfair Display', serif; }
         .nav-links { display: flex; gap: 3rem; align-items: center; }
         .nav-links a { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: var(--text-light); }
         .nav-links a:hover, .nav-links a.active { color: var(--primary); }
-        
         .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--primary); }
 
         @media (max-width: 768px) {
@@ -58,61 +55,64 @@
             .nav-links.active { display: flex; }
         }
 
-        /* ==========================================================================
-           BLOG CONTENT STYLES
-           ========================================================================== */
+        /* Utility Header */
         .utility-header { max-width: 1400px; margin: 0 auto; padding: 1.5rem 5% 0; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; }
         .breadcrumbs { color: #999; }
         .search-bar { display: flex; border-bottom: 1px solid var(--border); padding-bottom: 5px; }
-        .search-bar input { border: none; background: transparent; padding: 5px; font-size: 0.8rem; outline: none; width: 150px; }
+        .search-bar input { border: none; background: transparent; padding: 5px; outline: none; width: 150px; }
 
-        .blog-hero { padding: 4rem 5%; background: var(--white); text-align: center; }
+        /* Blog Content */
+        .blog-hero { padding: 4rem 5% 3rem; text-align: center; background: var(--white); }
         .blog-hero h1 { font-size: 4rem; color: var(--primary); margin-bottom: 1rem; }
         .blog-hero p { color: var(--text-light); font-size: 1.1rem; max-width: 700px; margin: 0 auto; }
 
         .filter-nav-wrapper { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 80px; z-index: 998; }
-        .filter-nav { display: flex; justify-content: center; gap: 2.5rem; padding: 1.2rem; overflow-x: auto; scrollbar-width: none; }
+        .filter-nav { display: flex; justify-content: center; gap: 3rem; padding: 1.2rem; overflow-x: auto; scrollbar-width: none; }
         .filter-link { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; color: var(--text-light); white-space: nowrap; }
         .filter-link.active { color: var(--primary); border-bottom: 2px solid var(--primary); padding-bottom: 5px; }
 
         .layout-grid { max-width: 1400px; margin: 4rem auto; padding: 0 5%; display: grid; grid-template-columns: 1fr 350px; gap: 4rem; }
 
+        /* Featured Article */
         .featured-article { grid-column: 1 / -1; margin-bottom: 3rem; position: relative; border-radius: 12px; overflow: hidden; height: 600px; display: flex; align-items: center; background-color: #000; }
         .featured-article img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; opacity: 0.85; }
         .featured-overlay { position: relative; z-index: 2; width: 45%; background: rgba(255,255,255,0.95); margin-left: 5%; padding: 4rem; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
         .badge { background: var(--secondary); color: white; padding: 4px 12px; font-size: 0.7rem; border-radius: 20px; display: inline-block; margin-bottom: 1.5rem; font-weight: bold; text-transform: uppercase; }
+        .featured-overlay h2 { font-size: 3rem; margin-bottom: 1.5rem; color: var(--primary); }
 
+        /* Feed */
         .article-feed { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
         .post-card { display: flex; flex-direction: column; }
         .post-card img { width: 100%; height: 320px; object-fit: cover; border-radius: 8px; margin-bottom: 1.5rem; transition: 0.4s; }
         .post-meta { font-size: 0.7rem; text-transform: uppercase; font-weight: 700; color: var(--secondary); margin-bottom: 0.5rem; letter-spacing: 1px; }
+        .post-title { font-size: 1.6rem; color: var(--primary); margin-bottom: 1rem; }
+        .post-excerpt { font-size: 0.95rem; color: var(--text-light); margin-bottom: 1.5rem; }
         .btn-read { font-weight: bold; text-transform: uppercase; font-size: 0.75rem; border-bottom: 2px solid var(--highlight); padding-bottom: 3px; width: fit-content; }
 
+        /* Sidebar */
         .sidebar { display: flex; flex-direction: column; gap: 4rem; }
         .widget-title { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; border-bottom: 1px solid var(--border); padding-bottom: 1rem; margin-bottom: 2rem; color: var(--primary); }
         .staff-pick { text-align: center; padding: 2rem; border: 1px solid var(--border); border-radius: 8px; background: white; }
         .trending-row { display: grid; grid-template-columns: 80px 1fr; gap: 1rem; margin-bottom: 1.5rem; align-items: center; }
         .trending-row img { width: 80px; height: 80px; object-fit: cover; border-radius: 4px; }
 
+        /* Video Section */
         .video-journal { grid-column: 1 / -1; margin: 4rem 0; padding: 4rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-        .video-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; }
         .video-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; }
         .main-video { height: 450px; background: #000; border-radius: 12px; overflow: hidden; position: relative; }
         .main-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-        .video-list { display: flex; flex-direction: column; gap: 1rem; }
-        .video-item { display: grid; grid-template-columns: 120px 1fr; gap: 1rem; padding: 1rem; background: var(--white); border-radius: 8px; align-items: center; }
 
+        /* Newsletter */
         .newsletter-hero { grid-column: 1 / -1; background: var(--primary); color: white; padding: 6rem 5%; text-align: center; border-radius: 12px; margin: 4rem 0; }
         .newsletter-form { display: flex; justify-content: center; gap: 15px; max-width: 600px; margin: 2rem auto 0; }
         .newsletter-form input { flex: 1; padding: 1.2rem; border-radius: 4px; border: none; font-size: 1rem; }
         .newsletter-form button { padding: 1.2rem 3rem; background: var(--secondary); color: white; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; }
 
+        /* Pagination */
         .pagination { grid-column: 1 / 2; display: flex; justify-content: center; margin-top: 4rem; }
         .btn-more { padding: 1rem 3rem; border: 2px solid var(--primary); color: var(--primary); font-weight: bold; border-radius: 4px; }
 
-        /* ==========================================================================
-           FIXED FOOTER - (4 Column Grid)
-           ========================================================================== */
+        /* MASTER FOOTER - 4 COLUMN GRID */
         footer { padding: 8rem 5% 4rem; background: var(--white); border-top: 1px solid var(--border); margin-top: 10rem; }
         .f-logo { font-size: 2.5rem; font-family: 'Playfair Display', serif; color: var(--primary); margin-bottom: 3rem; display: block; text-align: center; }
         .f-container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 4rem; border-bottom: 1px solid var(--border); padding-bottom: 6rem; text-align: left; }
@@ -121,18 +121,9 @@
         .f-col a:hover { color: var(--primary); }
         .f-bottom { padding-top: 4rem; text-align: center; font-size: 0.75rem; color: #999; letter-spacing: 2px; text-transform: uppercase; }
 
-        /* Responsive */
-        @media (max-width: 1200px) {
-            .layout-grid { grid-template-columns: 1fr; }
-            .sidebar { grid-row: 3; }
-            .f-container { grid-template-columns: 1fr 1fr; }
-        }
-        @media (max-width: 768px) {
-            .article-feed { grid-template-columns: 1fr; }
-            .newsletter-form { flex-direction: column; }
-            .video-grid { grid-template-columns: 1fr; }
-            .featured-overlay { width: 90%; margin: 2rem auto; }
-        }
+        @media (max-width: 1200px) { .layout-grid { grid-template-columns: 1fr; } .sidebar { grid-row: 3; } .f-container { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 992px) { .video-grid { grid-template-columns: 1fr; } .featured-overlay { width: 90%; margin: 2rem auto; } }
+        @media (max-width: 768px) { .article-feed { grid-template-columns: 1fr; } .newsletter-form { flex-direction: column; } }
     </style>
 </head>
 <body>
@@ -163,7 +154,7 @@
 
     <section class="blog-hero">
         <h1>The Journal</h1>
-        <p>Expert-led skincare research, clinically-backed routines, and honest product reviews.</p>
+        <p>Expert-led skincare research, clinically-backed routines, and honest product reviews designed to elevate your skin health journey.</p>
     </section>
 
     <div class="filter-nav-wrapper">
@@ -172,6 +163,7 @@
             <a href="#" class="filter-link">Morning Rituals</a>
             <a href="#" class="filter-link">Ingredient Science</a>
             <a href="#" class="filter-link">Derm Reviews</a>
+            <a href="#" class="filter-link">Barrier Health</a>
         </nav>
     </div>
 
@@ -189,58 +181,74 @@
         <section class="article-feed">
             <article class="post-card">
                 <a href="post2.html">
-                    <img src="images/poko-skincare-oXI2_S1ILQI-unsplash.webp" alt="Morning">
+                    <img src="images/poko-skincare-oXI2_S1ILQI-unsplash.webp" alt="Morning Routine">
                     <span class="post-meta">Routines • June 23</span>
                     <h3 class="post-title">My Honest Morning Routine</h3>
+                    <p class="post-excerpt">I’ve finally nailed down a routine that keeps my skin hydrated and glowing without feeling heavy.</p>
                     <span class="btn-read">Read Article</span>
                 </a>
             </article>
+
             <article class="post-card">
                 <a href="post3.html">
-                    <img src="images/ibnu-ihza-QbHwPe1HE84-unsplash.webp" alt="Budget">
+                    <img src="images/ibnu-ihza-QbHwPe1HE84-unsplash.webp" alt="Budget Products">
                     <span class="post-meta">Reviews • June 22</span>
-                    <h3 class="post-title">5 Affordable Products</h3>
+                    <h3 class="post-title">5 Affordable Skincare Products</h3>
+                    <p class="post-excerpt">You don’t need to spend a fortune to get great skin. These finds have earned their spot.</p>
                     <span class="btn-read">Read Article</span>
                 </a>
             </article>
+
             <article class="post-card">
                 <a href="post4.html">
                     <img src="images/plantadea-zSD0OWrbtlw-unsplash.webp" alt="Peptides">
                     <span class="post-meta">Ingredients • June 21</span>
-                    <h3 class="post-title">Peptides Explained</h3>
+                    <h3 class="post-title">Peptides Explained: Do They Actually Work?</h3>
+                    <p class="post-excerpt">They’re the buzziest ingredient right now, but what do peptides actually do?</p>
                     <span class="btn-read">Read Article</span>
                 </a>
             </article>
+
             <article class="post-card">
                 <a href="post5.html">
                     <img src="images/young-lady-pointing-phone-sign-white-bathrobe-towel-looking-pleased-front-view.webp" alt="Exfoliation">
                     <span class="post-meta">Routines • June 20</span>
                     <h3 class="post-title">Gentle Exfoliation Tips</h3>
+                    <p class="post-excerpt">Why I stopped over-exfoliating and switched to a barrier-first approach.</p>
                     <span class="btn-read">Read Article</span>
                 </a>
             </article>
-            <article class="post-card">
+
+             <article class="post-card">
                 <a href="post6.html">
                     <img src="images/christian-agbede-TqmyIxQpo5s-unsplash.webp" alt="Skin Barrier">
                     <span class="post-meta">Science • June 19</span>
                     <h3 class="post-title">Skin Barrier 101</h3>
+                    <p class="post-excerpt">Understand why the skin barrier is the most important factor in your routine.</p>
                     <span class="btn-read">Read Article</span>
                 </a>
             </article>
+
+            <div class="pagination">
+                <a href="#" class="btn-more">View All Stories</a>
+            </div>
         </section>
 
         <aside class="sidebar">
             <div class="widget">
-                <h3 class="widget-title">Shop Our Picks</h3>
+                <h3 class="widget-title">Shop Our Favorites</h3>
                 <div class="staff-pick">
                     <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=300" alt="Product">
-                    <a href="shop.html" class="btn-shop">Shop Serum — $42</a>
+                    <h4>The Daily Reset Serum</h4>
+                    <a href="shop.html" style="background: var(--primary); color: white; display: block; padding: 1rem; margin-top: 1rem; font-weight: bold; border-radius: 4px; text-transform: uppercase; font-size: 0.75rem;">Shop Now — $42</a>
                 </div>
             </div>
             <div class="widget">
-                <h3 class="widget-title">Trending</h3>
-                <a href="#" class="trending-row"><h5>Minimalist Morning Routine</h5></a>
-                <a href="#" class="trending-row"><h5>Copper Peptides Worth?</h5></a>
+                <h3 class="widget-title">Most Popular</h3>
+                <a href="post2.html" class="trending-row">
+                    <img src="images/poko-skincare-oXI2_S1ILQI-unsplash.webp" alt="Trend">
+                    <h5 style="font-size: 0.9rem; line-height: 1.4;">Morning Routine Guide</h5>
+                </a>
             </div>
         </aside>
 
@@ -252,7 +260,8 @@
         </section>
 
         <section class="newsletter-hero">
-            <h3 style="color: white;">Join The Glow List</h3>
+            <h3>The Glow List</h3>
+            <p style="margin-bottom: 2rem; opacity: 0.8;">Join our community for exclusive clinical advice.</p>
             <form action="https://manage.kmail-lists.com/subscriptions/subscribe" method="POST" target="_blank" class="newsletter-form">
                 <input type="hidden" name="g" value="WpSSkZ">
                 <input type="email" name="email" placeholder="Your email address" required>
@@ -285,6 +294,7 @@
             <div class="f-col">
                 <h5>Trust & Support</h5>
                 <a href="privacy.html">Privacy Policy</a>
+                <a href="privacy.html">Disclosures</a>
                 <a href="about.html">Contact Us</a>
             </div>
         </div>
@@ -296,7 +306,9 @@
     <script>
         const mobileToggle = document.getElementById('mobile-toggle');
         const navMenu = document.getElementById('nav-menu');
-        mobileToggle.addEventListener('click', () => { navMenu.classList.toggle('active'); });
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
     </script>
 </body>
 </html>
