@@ -303,14 +303,22 @@
     </div>
 </article>
             <article class="post-card">
-                <a href="post4.html">
-                    <img src="images/plantadea-zSD0OWrbtlw-unsplash.webp" alt="Peptides">
-                    <span class="post-meta">Ingredients • June 21</span>
-                    <h3 class="post-title">Peptides Explained: Do They Actually Work?</h3>
-                    <p class="post-excerpt">They’re the buzziest ingredient right now, but what do peptides actually do? Let's break down the science.</p>
-                    <span class="btn-read">Read Article</span>
-                </a>
-            </article>
+    <!-- 1. The Image Wrapper: This keeps the zoom contained -->
+    <a href="post4.html" style="display: block; overflow: hidden; border-radius: 8px; margin-bottom: 1.5rem;">
+        <img src="images/plantadea-zSD0OWrbtlw-unsplash.webp" alt="Peptides" style="display: block; width: 100%; transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);">
+    </a>
+
+    <!-- 2. The Content: Standardized spacing -->
+    <div class="post-content">
+        <span class="post-meta" style="display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--secondary); margin-bottom: 0.8rem; font-weight: 700;">Ingredients • June 21</span>
+        
+        <h3 class="post-title" style="font-size: 1.5rem; color: var(--primary); margin-bottom: 1rem; line-height: 1.3;">Peptides Explained: Do They Actually Work?</h3>
+        
+        <p class="post-excerpt" style="font-size: 0.95rem; color: var(--text-light); margin-bottom: 1.5rem; line-height: 1.6;">They’re the buzziest ingredient right now, but what do peptides actually do? Let's break down the science.</p>
+        
+        <span class="btn-read" style="display: inline-block; font-weight: 700; text-transform: uppercase; font-size: 0.75rem; border-bottom: 2px solid var(--highlight); padding-bottom: 3px;">Read Article</span>
+    </div>
+</article>
 
             <article class="post-card">
     <!-- Image wrapped in a container for the smooth zoom animation -->
