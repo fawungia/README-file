@@ -238,40 +238,63 @@
 
     <main class="layout-grid">
         
-        <!-- FEATURED HERO STORY -->
-        <article class="featured-article">
-            <img src="https://images.unsplash.com/photo-1617897903246-719242758050?q=80&w=1600&auto=format&fit=crop" alt="Featured Routine">
-            <div class="featured-overlay">
-                <span class="badge">Editor's Highlight</span>
-                <h2>My Evening Wind-Down Routine</h2>
-                <p>How I take the day off and prep my skin for overnight recovery to wake up with a balanced, healthy glow.</p>
-                <a href="post1.html" class="btn-read">Read Full Research</a>
-            </div>
-        </article>
+       <!-- FEATURED HERO STORY - Editorial Update -->
+<article class="featured-article" style="height: 600px; display: flex; align-items: center; justify-content: flex-start; position: relative; border-radius: 12px; overflow: hidden;">
+    
+    <!-- Image with subtle darkening so text pops -->
+    <img src="https://images.unsplash.com/photo-1617897903246-719242758050?q=80&w=1600&auto=format&fit=crop" 
+         alt="Featured Routine" 
+         style="position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+    
+    <!-- Floating Overlay Box -->
+    <div class="featured-overlay" style="position: relative; z-index: 2; width: 45%; background: rgba(255, 255, 255, 0.95); margin-left: 5%; padding: 4rem; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
+        <span class="badge" style="background: var(--secondary); color: white; padding: 6px 16px; font-size: 0.7rem; border-radius: 50px; display: inline-block; margin-bottom: 1.5rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Editor's Highlight</span>
+        
+        <h2 style="font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 1.5rem; color: var(--primary);">My Evening Wind-Down Routine</h2>
+        <p style="font-size: 1.1rem; color: var(--text-light); margin-bottom: 2rem; line-height: 1.6;">How I take the day off and prep my skin for overnight recovery to wake up with a balanced, healthy glow.</p>
+        
+        <a href="post1.html" class="btn-read" style="display: inline-block; font-weight: 700; text-transform: uppercase; font-size: 0.75rem; border-bottom: 2px solid var(--highlight); padding-bottom: 4px; transition: 0.3s;">Read Full Research</a>
+    </div>
+</article>
 
         <!-- LEFT COLUMN: FEED -->
         <section class="article-feed">
             
-            <article class="post-card">
-                <a href="post2.html">
-                    <img src="images/poko-skincare-oXI2_S1ILQI-unsplash.webp" alt="Morning Routine">
-                    <span class="post-meta">Routines • June 23</span>
-                    <h3 class="post-title">My Honest Morning Routine: What I Use Every Single Day</h3>
-                    <p class="post-excerpt">I’ve finally nailed down a routine that keeps my skin hydrated and glowing without feeling heavy.</p>
-                    <span class="btn-read">Read Article</span>
-                </a>
-            </article>
+           <article class="post-card">
+    <!-- Image wrapped for zoom animation -->
+    <a href="post2.html" style="display: block; overflow: hidden; border-radius: 8px; margin-bottom: 1.5rem;">
+        <img src="images/poko-skincare-oXI2_S1ILQI-unsplash.webp" alt="Morning Routine" style="transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);">
+    </a>
+    
+    <!-- Content section with improved spacing -->
+    <div class="post-content">
+        <span class="post-meta" style="display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--secondary); margin-bottom: 0.8rem; font-weight: 700;">Routines • June 23</span>
+        
+        <h3 class="post-title" style="font-size: 1.5rem; color: var(--primary); margin-bottom: 1rem; line-height: 1.3;">My Honest Morning Routine: What I Use Every Single Day</h3>
+        
+        <p class="post-excerpt" style="font-size: 0.95rem; color: var(--text-light); margin-bottom: 1.5rem; line-height: 1.6;">I’ve finally nailed down a routine that keeps my skin hydrated and glowing without feeling heavy.</p>
+        
+        <a href="post2.html" class="btn-read" style="display: inline-block; font-weight: 700; text-transform: uppercase; font-size: 0.75rem; border-bottom: 2px solid var(--highlight); padding-bottom: 3px;">Read Article</a>
+    </div>
+</article>
 
-            <article class="post-card">
-                <a href="post3.html">
-                    <img src="images/ibnu-ihza-QbHwPe1HE84-unsplash.webp" alt="Budget Products">
-                    <span class="post-meta">Reviews • June 22</span>
-                    <h3 class="post-title">5 Affordable Skincare Products That Actually Deliver</h3>
-                    <p class="post-excerpt">You don’t need to spend a fortune to get great skin. These budget-friendly finds have earned their spot.</p>
-                    <span class="btn-read">Read Article</span>
-                </a>
-            </article>
-
+          <article class="post-card">
+    <!-- Image wrapped in a container for the smooth zoom animation -->
+    <a href="post3.html" style="display: block; overflow: hidden; border-radius: 8px; margin-bottom: 1.5rem;">
+        <img src="images/ibnu-ihza-QbHwPe1HE84-unsplash.webp" alt="Budget Products" style="transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);">
+    </a>
+    
+    <!-- Content section with improved spacing -->
+    <div class="post-content">
+        <span class="post-meta" style="display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--secondary); margin-bottom: 0.8rem; font-weight: 700;">Reviews • June 22</span>
+        
+        <h3 class="post-title" style="font-size: 1.5rem; color: var(--primary); margin-bottom: 1rem; line-height: 1.3;">5 Affordable Skincare Products That Actually Deliver</h3>
+        
+        <p class="post-excerpt" style="font-size: 0.95rem; color: var(--text-light); margin-bottom: 1.5rem; line-height: 1.6;">You don’t need to spend a fortune to get great skin. These budget-friendly finds have earned their spot.</p>
+        
+        <span class="btn-read" style="display: inline-block; font-weight: 700; text-transform: uppercase; font-size: 0.75rem; border-bottom: 2px solid var(--highlight); padding-bottom: 3px;">Read Article</span>
+    </div>
+</article>
             <article class="post-card">
                 <a href="post4.html">
                     <img src="images/plantadea-zSD0OWrbtlw-unsplash.webp" alt="Peptides">
@@ -283,24 +306,40 @@
             </article>
 
             <article class="post-card">
-                <a href="post5.html">
-                    <img src="images/young-lady-pointing-phone-sign-white-bathrobe-towel-looking-pleased-front-view.webp" alt="Exfoliation">
-                    <span class="post-meta">Routines • June 20</span>
-                    <h3 class="post-title">Gentle Exfoliation: Why I Stopped Over-Exfoliating</h3>
-                    <p class="post-excerpt">Here’s what happened when I put down the strong peels and switched to a kinder, more effective approach.</p>
-                    <span class="btn-read">Read Article</span>
-                </a>
-            </article>
+    <!-- Image wrapped in a container for the smooth zoom animation -->
+    <a href="post4.html" style="display: block; overflow: hidden; border-radius: 8px; margin-bottom: 1.5rem;">
+        <img src="images/plantadea-zSD0OWrbtlw-unsplash.webp" alt="Peptides" style="transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);">
+    </a>
+    
+    <!-- Content section with improved spacing -->
+    <div class="post-content">
+        <span class="post-meta" style="display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--secondary); margin-bottom: 0.8rem; font-weight: 700;">Ingredients • June 21</span>
+        
+        <h3 class="post-title" style="font-size: 1.5rem; color: var(--primary); margin-bottom: 1rem; line-height: 1.3;">Peptides Explained: Do They Actually Work?</h3>
+        
+        <p class="post-excerpt" style="font-size: 0.95rem; color: var(--text-light); margin-bottom: 1.5rem; line-height: 1.6;">They’re the buzziest ingredient right now, but what do peptides actually do? Let's break down the science.</p>
+        
+        <span class="btn-read" style="display: inline-block; font-weight: 700; text-transform: uppercase; font-size: 0.75rem; border-bottom: 2px solid var(--highlight); padding-bottom: 3px;">Read Article</span>
+    </div>
+</article>
 
-             <article class="post-card">
-                <a href="post6.html">
-                    <img src="images/christian-agbede-TqmyIxQpo5s-unsplash.webp" alt="Skin Barrier">
-                    <span class="post-meta">Science • June 19</span>
-                    <h3 class="post-title">Skin Barrier 101: The One Thing Routines Get Wrong</h3>
-                    <p class="post-excerpt">Understand why the skin barrier is the most important factor in your routine and how to fix a compromised one.</p>
-                    <span class="btn-read">Read Article</span>
-                </a>
-            </article>
+            <article class="post-card">
+    <!-- Image wrapped in a container for the smooth zoom animation -->
+    <a href="post6.html" style="display: block; overflow: hidden; border-radius: 8px; margin-bottom: 1.5rem;">
+        <img src="images/christian-agbede-TqmyIxQpo5s-unsplash.webp" alt="Skin Barrier" style="transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);">
+    </a>
+    
+    <!-- Content section with improved spacing -->
+    <div class="post-content">
+        <span class="post-meta" style="display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--secondary); margin-bottom: 0.8rem; font-weight: 700;">Science • June 19</span>
+        
+        <h3 class="post-title" style="font-size: 1.5rem; color: var(--primary); margin-bottom: 1rem; line-height: 1.3;">Skin Barrier 101: The One Thing Routines Get Wrong</h3>
+        
+        <p class="post-excerpt" style="font-size: 0.95rem; color: var(--text-light); margin-bottom: 1.5rem; line-height: 1.6;">Understand why the skin barrier is the most important factor in your routine and how to fix a compromised one.</p>
+        
+        <span class="btn-read" style="display: inline-block; font-weight: 700; text-transform: uppercase; font-size: 0.75rem; border-bottom: 2px solid var(--highlight); padding-bottom: 3px;">Read Article</span>
+    </div>
+</article>
 
             <div class="pagination">
                 <a href="#" class="btn-more">View All Stories</a>
@@ -311,15 +350,21 @@
         <!-- RIGHT COLUMN: SIDEBAR -->
         <aside class="sidebar">
             
-            <div class="widget">
-                <h3 class="widget-title">Shop Our Favorites</h3>
-                <div class="staff-pick">
-                    <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=300" alt="Product">
-                    <h4>The Daily Reset Serum</h4>
-                    <p style="font-size: 0.8rem; color: #999; margin-bottom: 1rem;">Award Winning Formulation</p>
-                    <a href="shop.html" class="btn-shop">Shop Now — $42</a>
-                </div>
-            </div>
+            <div class="widget" style="padding: 2rem; border: 1px solid var(--border); border-radius: 12px; transition: 0.4s ease; background: white;">
+    <h3 class="widget-title" style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; border-bottom: 1px solid var(--border); padding-bottom: 1rem; margin-bottom: 2rem; color: var(--primary);">Shop Our Favorites</h3>
+    
+    <div class="staff-pick" style="text-align: center;">
+        <!-- Image wrapped for a clean editorial look -->
+        <div style="overflow: hidden; border-radius: 8px; margin-bottom: 1.5rem;">
+            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=300" alt="Product" style="width: 100%; transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);">
+        </div>
+        
+        <h4 style="font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--text);">The Daily Reset Serum</h4>
+        <p style="font-size: 0.8rem; color: var(--text-light); margin-bottom: 1.5rem; font-style: italic;">Award Winning Formulation</p>
+        
+        <a href="shop.html" class="btn-shop" style="background: var(--primary); color: white; padding: 0.9rem; border-radius: 6px; display: block; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s;">Shop Now — $42</a>
+    </div>
+</div>
 
             <div class="widget">
                 <h3 class="widget-title">Most Popular Now</h3>
