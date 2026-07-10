@@ -218,18 +218,36 @@
     .dropdown-content a { padding: 8px 0; border: none; font-size: 0.8rem; }
 
     /* 3. FIX THE SQUISHED FEATURED OVERLAY */
+    @media (max-width: 768px) {
+    /* ... (keep your existing mobile menu CSS here) ... */
+
+    /* 1. Force the container to wrap around the content instead of being 600px */
     .featured-article {
-        height: auto; /* Remove the strict 600px height */
-        padding: 3rem 0; /* Give it top and bottom breathing room */
-        display: block; /* Turn off flexbox to prevent squishing */
+        height: auto !important; 
+        min-height: 450px !important;
+        display: flex !important;
+        justify-content: center !important; /* Center the white box horizontally */
+        padding: 3rem 0 !important; /* Give top and bottom breathing room */
     }
+
+    /* 2. Force the white box to be wide on mobile */
     .featured-overlay {
-        width: 85%; /* Let it take up most of the screen width */
-        margin: 0 auto; /* Center it */
-        padding: 2rem; /* Reduce padding slightly for mobile */
+        width: 90% !important; /* Override the 45% desktop width */
+        margin: 0 auto !important; /* Remove the left margin */
+        padding: 1.5rem !important; /* Shrink the massive desktop padding */
     }
-    .featured-overlay h2 {
-        font-size: 2rem; /* Shrink the massive header so it fits cleanly */
+
+    /* 3. Shrink the titles so long words fit */
+    #hero-title {
+        font-size: 1.8rem !important; 
+        margin-bottom: 1rem !important;
+        line-height: 1.2 !important;
+    }
+
+    /* 4. Adjust the paragraph text */
+    #hero-text {
+        font-size: 0.95rem !important;
+        margin-bottom: 1.5rem !important;
     }
 }
     </style>
