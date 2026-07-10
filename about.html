@@ -109,84 +109,157 @@
         @media (max-width: 992px) {
             .f-container { grid-template-columns: 1fr 1fr; }
         }
-        /* Ensure the nav container behaves as a flexbox row */
-.nav-container {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    width: 100% !important;
-}
+       /* Responsive Breakpoints */
+        @media (max-width: 1200px) {
+            .featured-overlay { width: 60%; }
+            .layout-grid { grid-template-columns: 1fr; }
+            .sidebar { grid-row: 3; }
+        }
+        @media (max-width: 992px) {
+            .video-grid { grid-template-columns: 1fr; }
+            .featured-article { height: auto; }
+            .featured-overlay { width: 90%; margin: 2rem auto; }
+            .blog-hero h1 { font-size: 3rem; }
+        }
+        @media (max-width: 768px) {
+            .article-feed { grid-template-columns: 1fr; }
+            .newsletter-form { flex-direction: column; }
+            .f-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+            .filter-nav { gap: 1.5rem; }
+        }
+        
+    /* ... (Your existing root and reset styles remain the same) ... */
+    
+    /* --- EDITORIAL JOURNAL UPGRADES --- */
+    .article-feed .post-card {
+        opacity: 0;
+        animation: fadeUp 0.8s ease forwards;
+    }
+    
+    /* Ensure elements are visible */
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(40px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
 
-/* Force the nav links to sit horizontally */
-.nav-links {
-    display: flex !important;
-    gap: 3rem !important;
-    align-items: center !important;
-    list-style: none !important;
-}
+    /* Fixed Delays - Added to ensure cards show up */
+    .article-feed .post-card:nth-child(1) { animation-delay: 0.1s; }
+    .article-feed .post-card:nth-child(2) { animation-delay: 0.2s; }
+    .article-feed .post-card:nth-child(3) { animation-delay: 0.3s; }
+    .article-feed .post-card:nth-child(4) { animation-delay: 0.4s; }
+    .article-feed .post-card:nth-child(5) { animation-delay: 0.5s; }
 
-/* Ensure the dropdown wrapper is a block so it can hold the content */
-.nav-dropdown {
-    position: relative !important;
-    display: inline-block !important;
-}
+    /* Zoom Effect */
+    .post-card a img {
+        transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    .post-card a:hover img {
+        transform: scale(1.03);
+    }
 
-/* This is the key: Hide the dropdown by default so it doesn't break the layout */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: var(--white);
-    min-width: 200px;
-    z-index: 1002;
-    top: 100%;
-    left: 0;
-    border: 1px solid var(--border);
-}
+    .sidebar .widget { transition: transform 0.4s ease; }
+    .sidebar .widget:hover { transform: translateX(-5px); }
 
-/* Show the dropdown only on hover */
-.nav-dropdown:hover .dropdown-content {
-    display: block;
+    .main-video::after {
+        content: '▶';
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 3rem; color: white;
+        text-shadow: 0 0 20px rgba(0,0,0,0.5);
+        pointer-events: none;
+    }
+     /* --- Desktop Dropdown Styles --- */
+.nav-dropdown { position: relative; display: inline-block; }
+.dropdown-content { display: none; position: absolute; background-color: var(--white); min-width: 200px; box-shadow: 0 8px 16px rgba(0,0,0,0.05); z-index: 1002; top: 100%; left: 0; border: 1px solid var(--border); border-radius: 4px; }
+.dropdown-content a { color: var(--text); padding: 12px 16px; display: block; text-transform: none; font-size: 0.85rem; letter-spacing: 0; border-bottom: 1px solid var(--border); }
+.dropdown-content a:last-child { border-bottom: none; }
+.dropdown-content a:hover { background-color: var(--bg); color: var(--primary); }
+.nav-dropdown:hover .dropdown-content { display: block; }
+
+/* --- Mobile Fixes --- */
+@media (max-width: 768px) {
+    /* 1. Hide the standalone filter bar on mobile */
+    .filter-nav-wrapper { display: none; }
+
+    /* 2. Format the dropdown inside the mobile hamburger menu */
+    .nav-dropdown .dropdown-content { display: block; position: static; box-shadow: none; border: none; padding-left: 1rem; border-left: 2px solid var(--border); margin-top: 0.5rem; }
+    .dropdown-content a { padding: 8px 0; border: none; font-size: 0.8rem; }
+
+    /* 3. FIX THE SQUISHED FEATURED OVERLAY */
+    @media (max-width: 768px) {
+    /* ... (keep your existing mobile menu CSS here) ... */
+
+    /* 1. Force the container to wrap around the content instead of being 600px */
+    .featured-article {
+        height: auto !important; 
+        min-height: 450px !important;
+        display: flex !important;
+        justify-content: center !important; /* Center the white box horizontally */
+        padding: 3rem 0 !important; /* Give top and bottom breathing room */
+    }
+
+    /* 2. Force the white box to be wide on mobile */
+    .featured-overlay {
+        width: 90% !important; /* Override the 45% desktop width */
+        margin: 0 auto !important; /* Remove the left margin */
+        padding: 1.5rem !important; /* Shrink the massive desktop padding */
+    }
+
+    /* 3. Shrink the titles so long words fit */
+    #hero-title {
+        font-size: 1.8rem !important; 
+        margin-bottom: 1rem !important;
+        line-height: 1.2 !important;
+    }
+
+    /* 4. Adjust the paragraph text */
+    #hero-text {
+        font-size: 0.95rem !important;
+        margin-bottom: 1.5rem !important;
+    }
 }
     </style>
 </head>
 <body>
-
-  <header>
-        <nav class="nav-container">
-            <a href="index.html" class="logo">SkinHonestly</a>
-            <div class="menu-toggle" id="mobile-toggle">☰</div> 
-            <div class="nav-links" id="nav-menu">
-                <a href="index.html">Front Page</a>
-                
-                <div class="nav-dropdown">
-                    <a href="shop.html" class="active">The Curation ▾</a>
-                    <div class="dropdown-content">
-                        <a href="shop.html">All Products</a>
-                        <a href="shop.html?cat=cleansers">Cleansers</a>
-                        <a href="shop.html?cat=serums">Serums</a>
-                        <a href="shop.html?cat=moisturizers">Moisturizers</a>
-                        <a href="shop.html?cat=spf">SPF</a>
-                        <a href="shop.html?cat=treatments">Treatments</a>
-                    </div>
+<header>
+    <nav class="nav-container">
+        <a href="index.html" class="logo">SkinHonestly</a>
+        <div class="menu-toggle" id="mobile-toggle">☰</div> 
+        <div class="nav-links" id="nav-menu">
+            <a href="index.html">Front Page</a>
+            
+            <div class="nav-dropdown">
+                <a href="shop.html">The Curation ▾</a>
+                <div class="dropdown-content">
+                    <a href="shop.html">All Products</a>
+                    <a href="shop.html?cat=cleansers">Cleansers</a>
+                    <a href="shop.html?cat=serums">Serums</a>
+                    <a href="shop.html?cat=moisturizers">Moisturizers</a>
+                    <a href="shop.html?cat=spf">SPF</a>
+                    <a href="shop.html?cat=treatments">Treatments</a>
                 </div>
-
-                <div class="nav-dropdown">
-                    <a href="blog.html">The Journal ▾</a>
-                    <div class="dropdown-content">
-                        <a href="blog.html?cat=all">Latest Stories</a>
-                        <a href="blog.html?cat=rituals">Morning Rituals</a>
-                        <a href="blog.html?cat=science">Ingredient Science</a>
-                        <a href="blog.html?cat=reviews">Derm Reviews</a>
-                        <a href="blog.html?cat=barrier">Barrier Health</a>
-                    </div>
-                </div>
-                
-                <a href="about.html">About</a>
             </div>
-        </nav>
-    </header>
 
- <main>
+            <div class="nav-dropdown">
+                <a href="blog.html">The Journal ▾</a>
+                <div class="dropdown-content">
+                    <a href="blog.html?cat=all">Latest Stories</a>
+                    <a href="blog.html?cat=rituals">Morning Rituals</a>
+                    <a href="blog.html?cat=science">Ingredient Science</a>
+                    <a href="blog.html?cat=reviews">Derm Reviews</a>
+                    <a href="blog.html?cat=barrier">Barrier Health</a>
+                </div>
+            </div>
+            
+            <a href="about.html">About</a>
+        </div>
+    </nav>
+</header>
+    <!-- MASTER HEADER -->
+    
+
+    <main class="layout-grid">
         <!-- STORY SECTION -->
         <section class="story-section">
             <div class="story-img">
