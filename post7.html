@@ -64,18 +64,7 @@
 </head>
 <body>
 
-    <header>
-        <nav class="nav-container">
-            <a href="index.html" class="logo">SkinHonestly</a>
-            <div class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</div> 
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="shop.html">Shop</a>
-                <a href="blog.html">Blog</a>
-                <a href="about.html">About</a>
-            </div>
-        </nav>
-    </header>
+    <div id="header-placeholder"></div>
 
     <main class="container" style="max-width: 800px; margin: 0 auto; padding-top: 2rem;">
         <a href="blog.html" style="color: var(--primary); font-weight: bold; margin-bottom: 2rem; display: inline-block;">&larr; Back to Blog</a>
@@ -108,23 +97,7 @@
             <p style="margin-bottom: 1.5rem;">Skincare is personal, and there are no absolute rules—only what works best for your skin and your budget!</p>
         </div>
     </main>
-<footer style="background-color: var(--white); text-align: center; padding: 3rem 5%; margin-top: 4rem; border-top: 1px solid #eee;">
-    
-    <!-- This is the container where your newsletter form will appear -->
-    <div id="newsletter-container">
-        <!-- The form from newsletter.html will load here automatically -->
-    </div>
-
-    <p style="margin-bottom: 1rem; font-weight: bold; margin-top: 2rem;">
-        <a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">Pinterest</a>
-    </p>
-
-    <p style="margin-bottom: 1rem;">
-        <a href="privacy.html" style="font-size: 0.85rem; color: #666; text-decoration: underline;">Privacy Policy & Disclosures</a>
-    </p>
-
-    <p class="ftc-disclosure" style="font-size: 0.8rem; color: #666;">This page contains affiliate links. We may earn a commission at no extra cost to you.</p>
-</footer>
+<div id="header-placeholder"></div>
 
 <!-- This script tells the page to grab the newsletter form and put it inside the container -->
 <script>
@@ -134,5 +107,29 @@
             document.getElementById('newsletter-container').innerHTML = data;
         });
 </script>
+  <script>
+    function loadComponent(id, file) {
+        fetch(file)
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById(id).innerHTML = data;
+                
+                // Re-initialize mobile toggle only after header is loaded
+                if(id === 'header-placeholder') {
+                    const mobileToggle = document.getElementById('mobile-toggle');
+                    const navMenu = document.getElementById('nav-menu');
+                    if(mobileToggle) {
+                        mobileToggle.addEventListener('click', () => {
+                            navMenu.classList.toggle('active');
+                        });
+                    }
+                }
+            });
+    }
+
+    // This command runs the engine
+    loadComponent('header-placeholder', 'header.html');
+    loadComponent('footer-placeholder', 'footer.html');
+</script>  
 </body>
 </html>
