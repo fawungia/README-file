@@ -206,28 +206,29 @@
 
     <!-- MASTER HEADER -->
     <header>
-        <nav class="nav-container">
-            <a href="index.html" class="logo">SkinHonestly</a>
-            <div class="menu-toggle" id="mobile-toggle">☰</div> 
-            <div class="nav-links" id="nav-menu">
-                <a href="index.html">Front Page</a>
-                <a href="shop.html">The Curation</a>
-                <a href="blog.html" class="active">The Journal</a>
-                <a href="about.html">About</a>
+    <nav class="nav-container">
+        <a href="index.html" class="logo">SkinHonestly</a>
+        <div class="menu-toggle" id="mobile-toggle">☰</div> 
+        <div class="nav-links" id="nav-menu">
+            <a href="index.html">Front Page</a>
+            <a href="shop.html">The Curation</a>
+            
+            <!-- New Dropdown for The Journal -->
+            <div class="nav-dropdown">
+                <a href="blog.html" class="active">The Journal ▾</a>
+                <div class="dropdown-content">
+                    <a href="#" onclick="filterPosts('all', this); closeMobileMenu();">Latest Stories</a>
+                    <a href="#" onclick="filterPosts('rituals', this); closeMobileMenu();">Morning Rituals</a>
+                    <a href="#" onclick="filterPosts('science', this); closeMobileMenu();">Ingredient Science</a>
+                    <a href="#" onclick="filterPosts('reviews', this); closeMobileMenu();">Derm Reviews</a>
+                    <a href="#" onclick="filterPosts('barrier', this); closeMobileMenu();">Barrier Health</a>
+                </div>
             </div>
-        </nav>
-    </header>
-
-    <!-- Filter Bar now sits directly under the Header -->
-    <div class="filter-nav-wrapper" style="margin-bottom: 2rem;">
-        <nav class="filter-nav">
-            <a href="#" class="filter-link active" onclick="filterPosts('all', this)">Latest Stories</a>
-            <a href="#" class="filter-link" onclick="filterPosts('rituals', this)">Morning Rituals</a>
-            <a href="#" class="filter-link" onclick="filterPosts('science', this)">Ingredient Science</a>
-            <a href="#" class="filter-link" onclick="filterPosts('reviews', this)">Derm Reviews</a>
-            <a href="#" class="filter-link" onclick="filterPosts('barrier', this)">Barrier Health</a>
-        </nav>  
-    </div>
+            
+            <a href="about.html">About</a>
+        </div>
+    </nav>
+</header>
 
     <main class="layout-grid">
         <!-- FEATURED HERO STORY - Finalized -->
