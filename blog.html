@@ -545,22 +545,33 @@
     </div>
 </footer>
 
-   <script>
-    // 1. Mobile Toggle
-    const mobileToggle = document.getElementById('mobile-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    
-    mobileToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
+     <script>
+    // 1. Wait for the page to load
+    document.addEventListener('DOMContentLoaded', () => {
+        
+        // 2. Mobile Toggle Logic
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        
+        if (mobileToggle && navMenu) {
+            mobileToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                // Optional: Change icon to X when open
+                mobileToggle.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+            });
+        }
+
+        // 3. Close menu when a link is clicked (Optional but professional)
+        const navLinks = document.querySelectorAll('.nav-links a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileToggle.textContent = '☰';
+            });
+        });
     });
 
-    function closeMobileMenu() {
-        if (window.innerWidth <= 768) {
-            navMenu.classList.remove('active');
-        }
-    }
-
-    // 2. Dynamic Hero Content Database
+    // 4. Dynamic Hero Content Database (Your existing data)
     const heroData = {
         'all': {
             badge: "Editor's Highlight",
@@ -599,30 +610,25 @@
         }
     };
 
-    // 3. Animated Filter Logic
+    // 5. Animated Filter Logic
     function filterPosts(category, element) {
-        // Update active menu link
         document.querySelectorAll('.filter-link, .mobile-sub-menu a').forEach(link => link.classList.remove('active'));
         if(element) element.classList.add('active');
 
         const posts = document.querySelectorAll('.post-card');
         const hero = document.getElementById('hero-article');
 
-        // Step A: Fade Out
         posts.forEach(post => post.classList.add('fade-out'));
-        hero.classList.add('fade-out');
+        if(hero) hero.classList.add('fade-out');
 
-        // Step B: Wait for fade out, then swap content and filter
         setTimeout(() => {
-            // Swap Hero Data
             const data = heroData[category] || heroData['all'];
-            document.getElementById('hero-img').src = data.img;
-            document.getElementById('hero-badge').innerText = data.badge;
-            document.getElementById('hero-title').innerText = data.title;
-            document.getElementById('hero-text').innerText = data.text;
-            document.getElementById('hero-link').href = data.link;
+            if(document.getElementById('hero-img')) document.getElementById('hero-img').src = data.img;
+            if(document.getElementById('hero-badge')) document.getElementById('hero-badge').innerText = data.badge;
+            if(document.getElementById('hero-title')) document.getElementById('hero-title').innerText = data.title;
+            if(document.getElementById('hero-text')) document.getElementById('hero-text').innerText = data.text;
+            if(document.getElementById('hero-link')) document.getElementById('hero-link').href = data.link;
 
-            // Hide/Show Post Cards
             posts.forEach(post => {
                 if (category === 'all' || post.getAttribute('data-category') === category) {
                     post.style.display = 'flex';
@@ -631,28 +637,15 @@
                 }
             });
 
-            // Step C: Fade In
-            hero.classList.remove('fade-out');
+            if(hero) hero.classList.remove('fade-out');
             posts.forEach(post => {
                 if (post.style.display === 'flex') {
-                    // Force browser reflow to ensure animation triggers
                     void post.offsetWidth; 
                     post.classList.remove('fade-out');
                 }
             });
-
-        }, 400); // 400ms matches the CSS transition time
+        }, 400);
     }
-<script>
-    const mobileToggle = document.getElementById('mobile-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    
-    if (mobileToggle && navMenu) {
-        mobileToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-    }
-</script>
 </script>
 </body>
 </html>
