@@ -255,30 +255,7 @@
 <body>
 
     <!-- MASTER HEADER -->
-    <header>
-    <nav class="nav-container">
-        <a href="index.html" class="logo">SkinHonestly</a>
-        <div class="menu-toggle" id="mobile-toggle">☰</div> 
-        <div class="nav-links" id="nav-menu">
-            <a href="index.html">Front Page</a>
-            <a href="shop.html">The Curation</a>
-            
-            <!-- New Dropdown for The Journal -->
-            <div class="nav-dropdown">
-                <a href="blog.html" class="active">The Journal ▾</a>
-                <div class="dropdown-content">
-                    <a href="#" onclick="filterPosts('all', this); closeMobileMenu();">Latest Stories</a>
-                    <a href="#" onclick="filterPosts('rituals', this); closeMobileMenu();">Morning Rituals</a>
-                    <a href="#" onclick="filterPosts('science', this); closeMobileMenu();">Ingredient Science</a>
-                    <a href="#" onclick="filterPosts('reviews', this); closeMobileMenu();">Derm Reviews</a>
-                    <a href="#" onclick="filterPosts('barrier', this); closeMobileMenu();">Barrier Health</a>
-                </div>
-            </div>
-            
-            <a href="about.html">About</a>
-        </div>
-    </nav>
-</header>
+    <div id="header-placeholder"></div>
 
     <main class="layout-grid">
        <!-- FEATURED HERO STORY - Dynamic -->
@@ -503,37 +480,7 @@
 }
 </style>
 
-<footer>
-    <a href="index.html" class="f-logo">SkinHonestly</a>
-    <div class="f-container">
-        <div class="f-col">
-            <h5>Editorial</h5>
-            <a href="index.html">Front Page</a>
-            <a href="blog.html">The Journal</a>
-            <a href="about.html">The Philosophy</a>
-        </div>
-        <div class="f-col">
-            <h5>Shop Curation</h5>
-            <a href="shop.html">The Exclusive Line</a>
-            <a href="shop.html">Derm-Trusted Picks</a>
-        </div>
-        <div class="f-col">
-            <h5>Connect</h5>
-            <a href="#">Instagram</a>
-            <a href="#">YouTube</a>
-            <a href="#">Pinterest</a>
-        </div>
-        <div class="f-col">
-            <h5>Trust & Support</h5>
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="privacy.html">Disclosures</a>
-            <a href="about.html">Contact Us</a>
-        </div>
-    </div>
-    <div class="f-bottom">
-        <p>&copy; 2024 SKINHONESTLY. REAL SKINCARE. HONESTLY.</p>
-    </div>
-</footer>
+<div id="footer-placeholder"></div>
 
    <script>
     // 1. Mobile Toggle
@@ -634,6 +581,29 @@
         }, 400); // 400ms matches the CSS transition time
     }
 </script>
+<script>
+    function loadComponent(id, file) {
+        fetch(file)
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById(id).innerHTML = data;
+                
+                // If we just loaded the header, re-bind the mobile menu
+                if(id === 'header-placeholder') {
+                    const mobileToggle = document.getElementById('mobile-toggle');
+                    const navMenu = document.getElementById('nav-menu');
+                    if(mobileToggle) {
+                        mobileToggle.addEventListener('click', () => {
+                            navMenu.classList.toggle('active');
+                        });
+                    }
+                }
+            });
+    }
 
+    // Load both components
+    loadComponent('header-placeholder', 'header.html');
+    loadComponent('footer-placeholder', 'footer.html');
+</script>
 </body>
 </html>
