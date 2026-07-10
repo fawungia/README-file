@@ -263,24 +263,24 @@
 </header>
 
     <main class="layout-grid">
-        <!-- FEATURED HERO STORY - Finalized -->
-<article class="featured-article" style="height: 600px; display: flex; align-items: center; justify-content: flex-start; position: relative; border-radius: 12px; overflow: hidden;">
+       <!-- FEATURED HERO STORY - Dynamic -->
+<article id="hero-article" class="featured-article fade-transition" style="height: 600px; display: flex; align-items: center; justify-content: flex-start; position: relative; border-radius: 12px; overflow: hidden;">
     
     <!-- Image -->
-    <img src="https://images.unsplash.com/photo-1617897903246-719242758050?q=80&w=1600&auto=format&fit=crop" 
+    <img id="hero-img" src="https://images.unsplash.com/photo-1617897903246-719242758050?q=80&w=1600&auto=format&fit=crop" 
          alt="Featured Routine" 
          style="position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
     
     <!-- Floating Overlay Box -->
     <div class="featured-overlay" style="position: relative; z-index: 2; width: 45%; background: rgba(255, 255, 255, 0.95); margin-left: 5%; padding: 4rem; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
-        <span class="badge" style="background: var(--secondary); color: white; padding: 6px 16px; font-size: 0.7rem; border-radius: 50px; display: inline-block; margin-bottom: 1.5rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Editor's Highlight</span>
+        <span id="hero-badge" class="badge" style="background: var(--secondary); color: white; padding: 6px 16px; font-size: 0.7rem; border-radius: 50px; display: inline-block; margin-bottom: 1.5rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Editor's Highlight</span>
         
-        <h2 style="font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 1.5rem; color: var(--primary); line-height: 1.1;">My Evening Wind-Down Routine</h2>
+        <h2 id="hero-title" style="font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 1.5rem; color: var(--primary); line-height: 1.1;">My Evening Wind-Down Routine</h2>
         
-        <p style="font-size: 1.1rem; color: var(--text-light); margin-bottom: 2rem; line-height: 1.6;">How I take the day off and prep my skin for overnight recovery to wake up with a balanced, healthy glow.</p>
+        <p id="hero-text" style="font-size: 1.1rem; color: var(--text-light); margin-bottom: 2rem; line-height: 1.6;">How I take the day off and prep my skin for overnight recovery to wake up with a balanced, healthy glow.</p>
         
         <!-- Updated link with clear click target -->
-        <a href="post1.html" class="btn-read" style="display: inline-block; font-weight: 700; text-transform: uppercase; font-size: 0.75rem; border-bottom: 2px solid var(--highlight); padding-bottom: 4px; color: var(--text); transition: 0.3s; cursor: pointer;">Read Full Research</a>
+        <a id="hero-link" href="post1.html" class="btn-read" style="display: inline-block; font-weight: 700; text-transform: uppercase; font-size: 0.75rem; border-bottom: 2px solid var(--highlight); padding-bottom: 4px; color: var(--text); transition: 0.3s; cursor: pointer;">Read Full Research</a>
     </div>
 </article>
         <!-- LEFT COLUMN: FEED -->
@@ -475,6 +475,14 @@
     .f-col a:hover { color: #5E795B; }
     .f-bottom { padding-top: 4rem; text-align: center; font-size: 0.75rem; color: #999; letter-spacing: 2px; text-transform: uppercase; }
     @media (max-width: 768px) { .f-container { grid-template-columns: 1fr 1fr; gap: 3rem; } }
+ /* --- FILTER ANIMATIONS --- */
+.fade-transition {
+    transition: opacity 0.4s ease, transform 0.4s ease !important;
+}
+.fade-out {
+    opacity: 0 !important;
+    transform: translateY(15px) !important;
+}
 </style>
 
 <footer>
@@ -510,7 +518,7 @@
 </footer>
 
    <script>
-    // Master Mobile Toggle Script
+    // 1. Mobile Toggle
     const mobileToggle = document.getElementById('mobile-toggle');
     const navMenu = document.getElementById('nav-menu');
     
@@ -518,31 +526,96 @@
         navMenu.classList.toggle('active');
     });
 
-    // Helper to close menu after clicking a filter
     function closeMobileMenu() {
         if (window.innerWidth <= 768) {
             navMenu.classList.remove('active');
         }
     }
 
-    // Filter Logic
-    function filterPosts(category, element) {
-        // Manage active link styling for desktop nav
-        document.querySelectorAll('.filter-link').forEach(link => link.classList.remove('active'));
-        if (element && element.classList) {
-            element.classList.add('active');
+    // 2. Dynamic Hero Content Database
+    const heroData = {
+        'all': {
+            badge: "Editor's Highlight",
+            title: "My Evening Wind-Down Routine",
+            text: "How I take the day off and prep my skin for overnight recovery to wake up with a balanced, healthy glow.",
+            img: "https://images.unsplash.com/photo-1617897903246-719242758050?q=80&w=1600&auto=format&fit=crop",
+            link: "post1.html"
+        },
+        'rituals': {
+            badge: "Morning Rituals",
+            title: "The Ultimate AM Layering Guide",
+            text: "Start your day with these essential steps for all-day hydration, protection, and a perfect makeup base.",
+            img: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=1600&auto=format&fit=crop",
+            link: "post2.html"
+        },
+        'science': {
+            badge: "Ingredient Science",
+            title: "The Truth About Vitamin C",
+            text: "Breaking down the stability, efficacy, and percentages of the most popular brightening ingredient on the market.",
+            img: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=1600&auto=format&fit=crop",
+            link: "post4.html"
+        },
+        'reviews': {
+            badge: "Derm Reviews",
+            title: "Drugstore vs. Luxury Serums",
+            text: "We tested the most expensive serums against affordable alternatives to see if the price tag is really worth it.",
+            img: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=1600&auto=format&fit=crop",
+            link: "post3.html"
+        },
+        'barrier': {
+            badge: "Barrier Health",
+            title: "Repairing a Compromised Barrier",
+            text: "Redness, stinging, and breakouts? Stop your actives and follow this 3-step healing protocol immediately.",
+            img: "https://images.unsplash.com/photo-1552046122-03184de85e08?q=80&w=1600&auto=format&fit=crop",
+            link: "post6.html"
         }
+    };
 
-        // Filter posts
+    // 3. Animated Filter Logic
+    function filterPosts(category, element) {
+        // Update active menu link
+        document.querySelectorAll('.filter-link, .mobile-sub-menu a').forEach(link => link.classList.remove('active'));
+        if(element) element.classList.add('active');
+
         const posts = document.querySelectorAll('.post-card');
-        posts.forEach(post => {
-            if (category === 'all') {
-                post.style.display = 'flex';
-            } else {
-                post.style.display = post.getAttribute('data-category') === category ? 'flex' : 'none';
-            }
-        });
+        const hero = document.getElementById('hero-article');
+
+        // Step A: Fade Out
+        posts.forEach(post => post.classList.add('fade-out'));
+        hero.classList.add('fade-out');
+
+        // Step B: Wait for fade out, then swap content and filter
+        setTimeout(() => {
+            // Swap Hero Data
+            const data = heroData[category] || heroData['all'];
+            document.getElementById('hero-img').src = data.img;
+            document.getElementById('hero-badge').innerText = data.badge;
+            document.getElementById('hero-title').innerText = data.title;
+            document.getElementById('hero-text').innerText = data.text;
+            document.getElementById('hero-link').href = data.link;
+
+            // Hide/Show Post Cards
+            posts.forEach(post => {
+                if (category === 'all' || post.getAttribute('data-category') === category) {
+                    post.style.display = 'flex';
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+
+            // Step C: Fade In
+            hero.classList.remove('fade-out');
+            posts.forEach(post => {
+                if (post.style.display === 'flex') {
+                    // Force browser reflow to ensure animation triggers
+                    void post.offsetWidth; 
+                    post.classList.remove('fade-out');
+                }
+            });
+
+        }, 400); // 400ms matches the CSS transition time
     }
 </script>
+
 </body>
 </html>
