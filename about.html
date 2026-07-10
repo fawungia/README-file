@@ -109,7 +109,44 @@
         @media (max-width: 992px) {
             .f-container { grid-template-columns: 1fr 1fr; }
         }
-        
+        /* Ensure the nav container behaves as a flexbox row */
+.nav-container {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+}
+
+/* Force the nav links to sit horizontally */
+.nav-links {
+    display: flex !important;
+    gap: 3rem !important;
+    align-items: center !important;
+    list-style: none !important;
+}
+
+/* Ensure the dropdown wrapper is a block so it can hold the content */
+.nav-dropdown {
+    position: relative !important;
+    display: inline-block !important;
+}
+
+/* This is the key: Hide the dropdown by default so it doesn't break the layout */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--white);
+    min-width: 200px;
+    z-index: 1002;
+    top: 100%;
+    left: 0;
+    border: 1px solid var(--border);
+}
+
+/* Show the dropdown only on hover */
+.nav-dropdown:hover .dropdown-content {
+    display: block;
+}
     </style>
 </head>
 <body>
