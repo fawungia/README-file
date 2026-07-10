@@ -354,32 +354,31 @@ html { scroll-behavior: smooth; }
  
 
 <script>
-    function loadComponent(id, file) {
+    // 1. The Engine to fetch your external files
+    function loadComponent(id, file, callback) {
         fetch(file)
-            .then(response => {
-                if (!response.ok) throw new Error("Could not load " + file);
-                return response.text();
-            })
+            .then(response => response.text())
             .then(data => {
                 document.getElementById(id).innerHTML = data;
-                
-                // Only look for these AFTER the header is inside the DOM
-                if(id === 'header-placeholder') {
-                    const mobileToggle = document.getElementById('mobile-toggle');
-                    const navMenu = document.getElementById('nav-menu');
-                    if(mobileToggle && navMenu) {
-                        mobileToggle.addEventListener('click', () => {
-                            navMenu.classList.toggle('active');
-                        });
-                    }
-                }
-            })
-            .catch(error => console.error('Error loading component:', error));
+                if (callback) callback();
+            });
     }
 
-    // Load both
-    loadComponent('header-placeholder', 'header.html');
+    // 2. Load the files
+    loadComponent('header-placeholder', 'header.html', () => {
+        // This binds the mobile menu ONLY after the header is loaded
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        if(mobileToggle && navMenu) {
+            mobileToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        }
+    });
     loadComponent('footer-placeholder', 'footer.html');
+
+    // 3. Keep your filter/hero logic here below if needed
+    // ... (your existing filterPosts and heroData functions)
 </script>
 </body>
 </html>
