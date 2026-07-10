@@ -202,7 +202,6 @@ html { scroll-behavior: smooth; }
 </head>
 <body>
  
-<div id="header-placeholder"></div>
 
 <!-- THE COVER STORY -->
 <section class="hero-cover">
@@ -350,35 +349,7 @@ html { scroll-behavior: smooth; }
  </div>
  </section>
  
-<div id="footer-placeholder"></div>
- 
 
-<script>
-    // 1. The Engine to fetch your external files
-    function loadComponent(id, file, callback) {
-        fetch(file)
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById(id).innerHTML = data;
-                if (callback) callback();
-            });
-    }
-
-    // 2. Load the files
-    loadComponent('header-placeholder', 'header.html', () => {
-        // This binds the mobile menu ONLY after the header is loaded
-        const mobileToggle = document.getElementById('mobile-toggle');
-        const navMenu = document.getElementById('nav-menu');
-        if(mobileToggle && navMenu) {
-            mobileToggle.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-            });
-        }
-    });
-    loadComponent('footer-placeholder', 'footer.html');
-
-    // 3. Keep your filter/hero logic here below if needed
-    // ... (your existing filterPosts and heroData functions)
-</script>
+<script src="components.js"></script>
 </body>
 </html>
