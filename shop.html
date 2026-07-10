@@ -291,35 +291,32 @@
 </style>
 
 <div id="footer-placeholder"></div>
-    <script>
-        // MASTER MOBILE TOGGLE SCRIPT
-        const mobileToggle = document.getElementById('mobile-toggle');
-        const navMenu = document.getElementById('nav-menu');
-        mobileToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-    </script>
-    <script>
+     
+<script>
     function loadComponent(id, file) {
         fetch(file)
-            .then(response => response.text())
+            .then(response => {
+                if (!response.ok) throw new Error("Could not load " + file);
+                return response.text();
+            })
             .then(data => {
                 document.getElementById(id).innerHTML = data;
                 
-                // Re-initialize mobile toggle only after header is loaded
+                // Only look for these AFTER the header is inside the DOM
                 if(id === 'header-placeholder') {
                     const mobileToggle = document.getElementById('mobile-toggle');
                     const navMenu = document.getElementById('nav-menu');
-                    if(mobileToggle) {
+                    if(mobileToggle && navMenu) {
                         mobileToggle.addEventListener('click', () => {
                             navMenu.classList.toggle('active');
                         });
                     }
                 }
-            });
+            })
+            .catch(error => console.error('Error loading component:', error));
     }
 
-    // This command runs the engine
+    // Load both
     loadComponent('header-placeholder', 'header.html');
     loadComponent('footer-placeholder', 'footer.html');
 </script>
