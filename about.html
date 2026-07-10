@@ -113,8 +113,8 @@
 </head>
 <body>
 
-    <!-- MASTER HEADER -->
-    <div id="header-placeholder"></div>
+  
+   
 
     <main>
         <!-- STORY SECTION -->
@@ -180,7 +180,7 @@
     </main>
 
     <!-- MASTER FOOTER -->
-    <div id="footer-placeholder"></div>
+  
 
     <script>
         const mobileToggle = document.getElementById('mobile-toggle');
@@ -189,29 +189,7 @@
             navMenu.classList.toggle('active');
         });
     </script>
-    <script>
-    function loadComponent(id, file) {
-        fetch(file)
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById(id).innerHTML = data;
-                
-                // Re-initialize mobile toggle only after header is loaded
-                if(id === 'header-placeholder') {
-                    const mobileToggle = document.getElementById('mobile-toggle');
-                    const navMenu = document.getElementById('nav-menu');
-                    if(mobileToggle) {
-                        mobileToggle.addEventListener('click', () => {
-                            navMenu.classList.toggle('active');
-                        });
-                    }
-                }
-            });
-    }
-
-    // This command runs the engine
-    loadComponent('header-placeholder', 'header.html');
-    loadComponent('footer-placeholder', 'footer.html');
-</script>
+    
+    <script src="components.js"></script>
 </body>
 </html>
