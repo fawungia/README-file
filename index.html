@@ -216,21 +216,7 @@ html { scroll-behavior: smooth; }
  </header>
 
 <!-- THE COVER STORY -->
-<section class="hero-cover">
-    <div class="hero-inner">
-        <div class="hero-text">
-            <span>Volume 01 • Exclusive Feature</span>
-            <h1>The Future of Clinical Barrier Health.</h1>
-            <p>An in-depth analysis of ceramides, lipid recovery, and why dermatologist-backed routines are the new standard.</p>
-            <a href="post1.html" class="btn-editorial">Read Feature Story</a>
-        </div>
-        
-        <!-- Updated Image Container for clean editorial framing -->
-        <div style="overflow: hidden; width: 100%; height: 650px;">
-            <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=1200" alt="Cover Story" class="hero-image" style="width: 100%; height: 100%; object-fit: cover;">
-        </div>
-    </div>
-</section>
+<div id="header-placeholder"></div>
 
  <!-- MAIN EDITORIAL FEED -->
  <main class="layout-grid">
@@ -361,36 +347,9 @@ html { scroll-behavior: smooth; }
  </form>
  </div>
  </section>
-
- <footer>
- <div class="f-container">
- <div class="f-col">
- <h5>Editorial</h5>
- <a href="index.html">Front Page</a>
- <a href="blog.html">The Journal</a>
- <a href="about.html">About Us</a>
- </div>
- <div class="f-col">
- <h5>Curation</h5>
- <a href="shop.html">Shop All</a>
- <a href="shop.html">SkinHonestly Exclusive</a>
- </div>
- <div class="f-col">
- <h5>Connect</h5>
- <a href="#">Instagram</a>
- <a href="#">Pinterest</a>
- <a href="#">YouTube</a>
- </div>
- <div class="f-col">
- <h5>Trust</h5>
- <a href="privacy.html">Privacy Policy</a>
- <a href="privacy.html">Disclosures</a>
- </div>
- </div>
- <div class="f-bottom">
- <p>&copy; 2024 SKINHONESTLY. CLINICAL RESEARCH. REAL RESULTS. HONESTLY.</p>
- </div>
- </footer>
+ 
+<div id="footer-placeholder"></div>
+ 
 
  <script>
  // MASTER MOBILE TOGGLE SCRIPT
@@ -400,5 +359,29 @@ html { scroll-behavior: smooth; }
  navMenu.classList.toggle('active');
  });
  </script>
+ <script>
+    function loadComponent(id, file) {
+        fetch(file)
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById(id).innerHTML = data;
+                
+                // Re-initialize mobile toggle only after header is loaded
+                if(id === 'header-placeholder') {
+                    const mobileToggle = document.getElementById('mobile-toggle');
+                    const navMenu = document.getElementById('nav-menu');
+                    if(mobileToggle) {
+                        mobileToggle.addEventListener('click', () => {
+                            navMenu.classList.toggle('active');
+                        });
+                    }
+                }
+            });
+    }
+
+    // This command runs the engine
+    loadComponent('header-placeholder', 'header.html');
+    loadComponent('footer-placeholder', 'footer.html');
+</script>
 </body>
 </html>
