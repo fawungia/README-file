@@ -155,10 +155,7 @@
 </head>
 <body>
 
-   </head>
-<body>
-
-    <header>
+  <header>
         <nav class="nav-container">
             <a href="index.html" class="logo">SkinHonestly</a>
             <div class="menu-toggle" id="mobile-toggle">☰</div> 
@@ -289,14 +286,107 @@
     </div>
 </footer>
 
-    <script>
+      <script>
+    // 1. Wait for the page to load
+    document.addEventListener('DOMContentLoaded', () => {
+        
+        // 2. Mobile Toggle Logic
         const mobileToggle = document.getElementById('mobile-toggle');
         const navMenu = document.getElementById('nav-menu');
-        mobileToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-    </script>
-    
+        
+        if (mobileToggle && navMenu) {
+            mobileToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                // Optional: Change icon to X when open
+                mobileToggle.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+            });
+        }
 
+        // 3. Close menu when a link is clicked (Optional but professional)
+        const navLinks = document.querySelectorAll('.nav-links a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileToggle.textContent = '☰';
+            });
+        });
+    });
+
+    // 4. Dynamic Hero Content Database (Your existing data)
+    const heroData = {
+        'all': {
+            badge: "Editor's Highlight",
+            title: "My Evening Wind-Down Routine",
+            text: "How I take the day off and prep my skin for overnight recovery to wake up with a balanced, healthy glow.",
+            img: "https://images.unsplash.com/photo-1617897903246-719242758050?q=80&w=1600&auto=format&fit=crop",
+            link: "post1.html"
+        },
+        'rituals': {
+            badge: "Morning Rituals",
+            title: "The Ultimate AM Layering Guide",
+            text: "Start your day with these essential steps for all-day hydration, protection, and a perfect makeup base.",
+            img: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=1600&auto=format&fit=crop",
+            link: "post2.html"
+        },
+        'science': {
+            badge: "Ingredient Science",
+            title: "The Truth About Vitamin C",
+            text: "Breaking down the stability, efficacy, and percentages of the most popular brightening ingredient on the market.",
+            img: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=1600&auto=format&fit=crop",
+            link: "post4.html"
+        },
+        'reviews': {
+            badge: "Derm Reviews",
+            title: "Drugstore vs. Luxury Serums",
+            text: "We tested the most expensive serums against affordable alternatives to see if the price tag is really worth it.",
+            img: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=1600&auto=format&fit=crop",
+            link: "post3.html"
+        },
+        'barrier': {
+            badge: "Barrier Health",
+            title: "Repairing a Compromised Barrier",
+            text: "Redness, stinging, and breakouts? Stop your actives and follow this 3-step healing protocol immediately.",
+            img: "https://images.unsplash.com/photo-1552046122-03184de85e08?q=80&w=1600&auto=format&fit=crop",
+            link: "post6.html"
+        }
+    };
+
+    // 5. Animated Filter Logic
+    function filterPosts(category, element) {
+        document.querySelectorAll('.filter-link, .mobile-sub-menu a').forEach(link => link.classList.remove('active'));
+        if(element) element.classList.add('active');
+
+        const posts = document.querySelectorAll('.post-card');
+        const hero = document.getElementById('hero-article');
+
+        posts.forEach(post => post.classList.add('fade-out'));
+        if(hero) hero.classList.add('fade-out');
+
+        setTimeout(() => {
+            const data = heroData[category] || heroData['all'];
+            if(document.getElementById('hero-img')) document.getElementById('hero-img').src = data.img;
+            if(document.getElementById('hero-badge')) document.getElementById('hero-badge').innerText = data.badge;
+            if(document.getElementById('hero-title')) document.getElementById('hero-title').innerText = data.title;
+            if(document.getElementById('hero-text')) document.getElementById('hero-text').innerText = data.text;
+            if(document.getElementById('hero-link')) document.getElementById('hero-link').href = data.link;
+
+            posts.forEach(post => {
+                if (category === 'all' || post.getAttribute('data-category') === category) {
+                    post.style.display = 'flex';
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+
+            if(hero) hero.classList.remove('fade-out');
+            posts.forEach(post => {
+                if (post.style.display === 'flex') {
+                    void post.offsetWidth; 
+                    post.classList.remove('fade-out');
+                }
+            });
+        }, 400);
+    }
+</script>
 </body>
 </html>
