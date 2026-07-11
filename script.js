@@ -118,4 +118,59 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // 8. EXIT/TIMED NEWSLETTER POPUP (Task 3)
+    const initNewsletterPopup = () => {
+        if (sessionStorage.getItem('skinhonestly_popup_shown')) return;
+
+        // Create Modal HTML
+        const modalHtml = `
+            <div class="modal-overlay" id="newsletter-modal">
+                <div class="modal-content">
+                    <div class="modal-close" id="modal-close-btn">✕</div>
+                    <h2>Join The Glow List</h2>
+                    <p>Subscribe for clinical skincare research, exclusive editorial drops, and 15% off your first curation order.</p>
+                    <form action="https://manage.kmail-lists.com/subscriptions/subscribe" method="POST" target="_blank" class="newsletter-form">
+                        <input type="hidden" name="g" value="RiVwwC">
+                        <div style="display: flex; gap: 10px; flex-direction: column;">
+                            <input type="email" name="email" placeholder="Your email address" required style="padding: 1.2rem; border-radius: 4px; border: 1px solid var(--border); font-size: 1rem; width: 100%;">
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Subscribe & Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        `;
+
+        // Inject Modal into Body
+        document.body.insertAdjacentHTML('beforeend', modalHtml);
+
+        const modal = document.getElementById('newsletter-modal');
+        const closeBtn = document.getElementById('modal-close-btn');
+
+        const showModal = () => {
+            if (sessionStorage.getItem('skinhonestly_popup_shown')) return;
+            modal.style.display = 'flex';
+            setTimeout(() => modal.classList.add('active'), 10);
+            sessionStorage.setItem('skinhonestly_popup_shown', 'true');
+        };
+
+        // Close logic
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('active');
+            setTimeout(() => modal.style.display = 'none', 400);
+        });
+
+        // Trigger 1: Timed (15s desktop, 25s mobile)
+        const delay = window.innerWidth <= 768 ? 25000 : 15000;
+        setTimeout(showModal, delay);
+
+        // Trigger 2: Exit Intent (Desktop only)
+        if (window.innerWidth > 768) {
+            document.addEventListener('mouseleave', (e) => {
+                if (e.clientY < 0) showModal();
+            }, { once: true });
+        }
+    };
+
+    initNewsletterPopup();
+
 });
