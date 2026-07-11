@@ -1,19 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>The Truth About Eye Creams | SkinHonestly Journal</title>
-    <meta name="description" content="It’s the most debated step in any skincare routine. Let’s talk honestly about whether eye cream is a true must-have or just an expensive moisturizer.">
-    <meta name="p:domain_verify" content="614a5afefa741fa072c6f9319d2f14d0"/>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-33SX49MXHN"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag("js", new Date());
-      gtag("config", "G-33SX49MXHN");
-    </script>
-    <style>
+const fs = require('fs');
+
+const approvedStyles = `
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;600;700&display=swap');
 
         :root {
@@ -124,121 +111,71 @@
             .newsletter-form button { padding: 1.2rem; }
             .main-img { height: 350px; }
         }
-</style>
-</head>
-<body>
+`;
 
-<header>
-    <nav class="nav-container">
-        <a href="index.html" class="logo">SkinHonestly</a>
-        <div class="menu-toggle" id="mobile-toggle">☰</div>
-        <div class="nav-links" id="nav-menu">
-            <a href="index.html">Front Page</a>
+const postsData = JSON.parse(fs.readFileSync('posts_data.json', 'utf8'));
+const indexContent = fs.readFileSync('index.html', 'utf8');
 
-            <div class="nav-dropdown">
-                <a href="shop.html">The Curation ▾</a>
-                <div class="dropdown-content">
-                    <a href="shop.html">All Products</a>
-                    <a href="shop.html?cat=cleansers">Cleansers</a>
-                    <a href="shop.html?cat=serums">Serums</a>
-                    <a href="shop.html?cat=moisturizers">Moisturizers</a>
-                    <a href="shop.html?cat=spf">SPF</a>
-                    <a href="shop.html?cat=treatments">Treatments</a>
-                </div>
-            </div>
+const headerMatch = indexContent.match(/<header>([\s\S]*?)<\/header>/i);
+const header = headerMatch[0];
+const footerMatch = indexContent.match(/<footer>([\s\S]*?)<\/footer>/i);
+const footer = footerMatch[0];
 
-            <div class="nav-dropdown">
-                <a href="blog.html">The Journal ▾</a>
-                <div class="dropdown-content">
-                    <a href="blog.html?cat=all">Latest Stories</a>
-                    <a href="blog.html?cat=rituals">Morning Rituals</a>
-                    <a href="blog.html?cat=science">Ingredient Science</a>
-                    <a href="blog.html?cat=reviews">Derm Reviews</a>
-                    <a href="blog.html?cat=barrier">Barrier Health</a>
-                </div>
-            </div>
+Object.keys(postsData).forEach(file => {
+    const data = postsData[file];
+    let html = '<!DOCTYPE html>\n<html lang="en">\n<head>\n';
+    html += '    <meta charset="UTF-8">\n';
+    html += '    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">\n';
+    html += '    <title>' + data.title + '</title>\n';
+    html += '    <meta name="description" content="' + data.description + '">\n';
+    html += '    <meta name="p:domain_verify" content="614a5afefa741fa072c6f9319d2f14d0"/>\n';
+    html += '    <script async src="https://www.googletagmanager.com/gtag/js?id=G-33SX49MXHN"></script>\n';
+    html += '    <script>\n      window.dataLayer = window.dataLayer || [];\n      function gtag(){dataLayer.push(arguments);}\n      gtag("js", new Date());\n      gtag("config", "G-33SX49MXHN");\n    </script>\n';
+    html += '    <style>' + approvedStyles + '</style>\n';
+    html += '</head>\n<body>\n\n';
+    html += header + '\n\n';
+    html += '    <main class="article-layout">\n';
+    html += '        <div class="article-body">\n';
+    html += '            <header class="article-header">\n';
+    html += '                <span class="cat-tag">' + data.category + '</span>\n';
+    html += '                <h1>' + data.headline + '</h1>\n';
+    html += '                <div class="article-meta">\n';
+    html += '                    <span>By Sarah • ' + data.metaDate + '</span>\n';
+    html += '                    <span>' + data.metaRead + '</span>\n';
+    html += '                </div>\n';
+    html += '            </header>\n\n';
+    html += '            <img src="' + data.imgSrc + '" alt="' + data.imgAlt + '" class="main-img">\n\n';
+    html += '            <article class="article-content">\n';
+    html += '                ' + data.articleContent + '\n';
+    html += '            </article>\n';
+    html += '        </div>\n\n';
+    html += '        <aside class="sidebar">\n';
+    html += '            <div class="sidebar-widget">\n';
+    html += '                <h3 class="widget-title">The Editor</h3>\n';
+    html += '                <div style="text-align: center;">\n';
+    html += '                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=400" alt="Sarah" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 1.5rem; border: 1px solid var(--border); display: block; margin-left: auto; margin-right: auto;">\n';
+    html += '                    <p style="font-size: 0.9rem; font-style: italic; color: var(--text-light);">"Real skincare starts with honesty. I\'m here to find what actually works."</p>\n';
+    html += '                </div>\n';
+    html += '            </div>\n\n';
+    html += '            <div class="sidebar-widget">\n';
+    html += '                <h3 class="widget-title">Shop This Post</h3>\n';
+    html += '                ' + data.shopItems + '\n';
+    html += '            </div>\n';
+    html += '        </aside>\n';
+    html += '    </main>\n\n';
+    html += '    <section class="newsletter-cta">\n';
+    html += '        <h2>Join The Glow List</h2>\n';
+    html += '        <p>Get exclusive clinical research and early access to drops.</p>\n';
+    html += '        <form action="https://manage.kmail-lists.com/subscriptions/subscribe" method="POST" target="_blank" class="newsletter-form">\n';
+    html += '            <input type="hidden" name="g" value="WpSSkZ">\n';
+    html += '            <input type="email" name="email" placeholder="Your email address" required>\n';
+    html += '            <button type="submit">Subscribe</button>\n';
+    html += '        </form>\n';
+    html += '    </section>\n\n';
+    html += footer + '\n\n';
+    html += '    <script src="script.js"></script>\n';
+    html += '</body>\n</html>';
 
-            <a href="about.html">About</a>
-        </div>
-    </nav>
-</header>
-
-    <main class="article-layout">
-        <div class="article-body">
-            <header class="article-header">
-                <span class="cat-tag">Analysis • Product Truths</span>
-                <h1>The Truth About Eye Creams: Do You Really Need One?</h1>
-                <div class="article-meta">
-                    <span>By Sarah • June 17, 2026</span>
-                    <span>7 Min Read</span>
-                </div>
-            </header>
-
-            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=1200" alt="Eye Skincare" class="main-img">
-
-            <article class="article-content">
-                <p>If there is one question that pops up in my DMs more than any other, it’s this: <em>"Do I actually need to buy a separate eye cream?"</em> The beauty industry loves to convince us that if we don't have a highly specific product for every square inch of our faces, we are doing something wrong.</p><h2>The Short Answer</h2><p>For most people? No, you don't <em>need</em> an eye cream. The skin around your eyes is indeed thinner and more delicate, but a solid, fragrance-free facial moisturizer is perfectly capable of keeping your under-eyes protected.</p><p>I always bring our <strong>SkinHonestly Daily Reset Serum</strong> right up to my orbital bone. Because it's formulated without harsh actives, it provides that perfect, gentle plumping effect without causing milia.</p><h2>When Should You Buy One?</h2><p>You only need a dedicated eye cream if you are trying to treat a <em>specific</em> under-eye issue that your regular moisturizer can’t handle:</p><ul><li><strong>Dark Circles & Puffiness:</strong> You need an eye cream formulated with caffeine to constrict blood vessels.</li><li><strong>Deep Crow's Feet:</strong> You need a specialized retinol eye cream formulated at a lower concentration to prevent severe irritation.</li></ul><p>The Bottom Line: If your current routine is keeping your under-eyes soft, save your money. Skincare is personal, and there are no absolute rules—only what works best for your skin and your budget!</p>
-            </article>
-        </div>
-
-        <aside class="sidebar">
-            <div class="sidebar-widget">
-                <h3 class="widget-title">The Editor</h3>
-                <div style="text-align: center;">
-                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=400" alt="Sarah" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 1.5rem; border: 1px solid var(--border); display: block; margin-left: auto; margin-right: auto;">
-                    <p style="font-size: 0.9rem; font-style: italic; color: var(--text-light);">"Real skincare starts with honesty. I'm here to find what actually works."</p>
-                </div>
-            </div>
-
-            <div class="sidebar-widget">
-                <h3 class="widget-title">Shop This Post</h3>
-                <div class="shop-widget-item"><img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=200" alt="Serum"><div><h5>Daily Reset Serum</h5><a href="shop.html" class="shop-btn">View in Shop</a></div></div>
-            </div>
-        </aside>
-    </main>
-
-    <section class="newsletter-cta">
-        <h2>Join The Glow List</h2>
-        <p>Get exclusive clinical research and early access to drops.</p>
-        <form action="https://manage.kmail-lists.com/subscriptions/subscribe" method="POST" target="_blank" class="newsletter-form">
-            <input type="hidden" name="g" value="WpSSkZ">
-            <input type="email" name="email" placeholder="Your email address" required>
-            <button type="submit">Subscribe</button>
-        </form>
-    </section>
-
-<footer>
-    <a href="index.html" class="f-logo">SkinHonestly</a>
-    <div class="f-container">
-        <div class="f-col">
-            <h5>Editorial</h5>
-            <a href="index.html">Front Page</a>
-            <a href="blog.html">The Journal</a>
-            <a href="about.html">The Philosophy</a>
-        </div>
-        <div class="f-col">
-            <h5>Shop Curation</h5>
-            <a href="shop.html">The Exclusive Line</a>
-            <a href="shop.html">Derm-Trusted Picks</a>
-        </div>
-        <div class="f-col">
-            <h5>Connect</h5>
-            <a href="#">Instagram</a>
-            <a href="#">YouTube</a>
-            <a href="#">Pinterest</a>
-        </div>
-        <div class="f-col">
-            <h5>Trust & Support</h5>
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="privacy.html">Disclosures</a>
-            <a href="about.html">Contact Us</a>
-        </div>
-    </div>
-    <div class="f-bottom">
-        <p>&copy; 2024 SKINHONESTLY. REAL SKINCARE. HONESTLY.</p>
-    </div>
-</footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+    fs.writeFileSync(file, html);
+    console.log('GENERATED: ' + file);
+});

@@ -1,19 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>The Truth About Eye Creams | SkinHonestly Journal</title>
-    <meta name="description" content="It’s the most debated step in any skincare routine. Let’s talk honestly about whether eye cream is a true must-have or just an expensive moisturizer.">
-    <meta name="p:domain_verify" content="614a5afefa741fa072c6f9319d2f14d0"/>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-33SX49MXHN"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag("js", new Date());
-      gtag("config", "G-33SX49MXHN");
-    </script>
-    <style>
+const fs = require('fs');
+const path = require('path');
+
+// THE APPROVED STYLE BLOCK CONTENT (from Eye Creams post provided by user)
+const approvedStyles = `
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;600;700&display=swap');
 
         :root {
@@ -44,20 +33,6 @@
         .nav-links a:hover { color: var(--primary); }
         .menu-toggle { display: none; font-size: 1.8rem; cursor: pointer; color: var(--primary); padding: 10px; }
 
-        /* Dropdown Styles */
-        .nav-dropdown { position: relative; display: inline-block; }
-        .dropdown-content { 
-            display: block; position: absolute; background-color: var(--white); min-width: 220px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); z-index: 1002; border: 1px solid var(--border);
-            top: 100%; left: 50%; transform: translateX(-50%);
-            max-height: 0; opacity: 0; overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
-        }
-        .dropdown-content a { color: var(--text-light); padding: 1rem 1.5rem; text-decoration: none; display: block; font-size: 0.7rem; text-transform: uppercase; border-bottom: 1px solid var(--border); letter-spacing: 1px; font-weight: 700; text-align: center; }
-        .dropdown-content a:last-child { border-bottom: none; }
-        .dropdown-content a:hover { background-color: var(--bg); color: var(--primary); }
-        .nav-dropdown:hover .dropdown-content { max-height: 400px; opacity: 1; }
-
         @media (max-width: 768px) {
             .menu-toggle { display: block; }
             .nav-links { 
@@ -66,9 +41,6 @@
                 box-shadow: 0 10px 15px rgba(0,0,0,0.05); gap: 1.5rem; z-index: 1001;
             }
             .nav-links.active { display: flex; }
-            .nav-dropdown { width: 100%; }
-            .dropdown-content { position: static; box-shadow: none; border: none; padding-left: 1rem; display: block; width: 100%; max-height: 0; opacity: 0; overflow: hidden; transition: max-height 0.4s ease, opacity 0.4s ease; }
-            .nav-dropdown.active .dropdown-content { max-height: 400px; opacity: 1; }
         }
 
         /* Editorial Article Layout */
@@ -124,60 +96,124 @@
             .newsletter-form button { padding: 1.2rem; }
             .main-img { height: 350px; }
         }
-</style>
+
+        /* KEEP NAV DROPDOWN CSS */
+        .nav-dropdown { position: relative; display: inline-block; }
+        .dropdown-content { 
+            display: block; position: absolute; background-color: var(--white); min-width: 220px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); z-index: 1002; border: 1px solid var(--border);
+            top: 100%; left: 50%; transform: translateX(-50%);
+            max-height: 0; opacity: 0; overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+        }
+        .dropdown-content a { color: var(--text-light); padding: 1rem 1.5rem; text-decoration: none; display: block; font-size: 0.7rem; text-transform: uppercase; border-bottom: 1px solid var(--border); letter-spacing: 1px; font-weight: 700; text-align: center; }
+        .dropdown-content a:last-child { border-bottom: none; }
+        .dropdown-content a:hover { background-color: var(--bg); color: var(--primary); }
+        .nav-dropdown:hover .dropdown-content { max-height: 400px; opacity: 1; }
+`;
+
+function extract(content, regex) {
+    const match = content.match(regex);
+    return match ? match[1].trim() : '';
+}
+
+const postFiles = ['post1.html', 'post2.html', 'post3.html', 'post4.html', 'post5.html', 'post6.html', 'post7.html', 'post8.html'];
+
+postFiles.forEach(file => {
+    if (!fs.existsSync(file)) return;
+    const content = fs.readFileSync(file, 'utf8');
+
+    // Extract Header
+    const headerMatch = content.match(/<header>([\s\S]*?)<\/header>/i);
+    const header = headerMatch ? headerMatch[0] : '';
+
+    // Extract Footer
+    const footerMatch = content.match(/<footer>([\s\S]*?)<\/footer>/i);
+    const footer = footerMatch ? footerMatch[0] : '';
+
+    // Extract Script
+    const scriptMatch = content.match(/<script>([\s\S]*?)<\/script>/i) || content.match(/<script src="script.js"><\/script>/i);
+    const script = scriptMatch ? scriptMatch[0] : '';
+
+    // Extract Unique Data
+    const title = extract(content, /<title>([\s\S]*?)<\/title>/i);
+    const description = extract(content, /<meta name="description" content="([\s\S]*?)">/i);
+    
+    // Extract Category/Meta
+    const category = extract(content, /<span class="cat-tag">([\s\S]*?)<\/span>/i) || extract(content, /<span class="article-meta">([\s\S]*?)<\/span>/i);
+    const headline = extract(content, /<h1[^>]*>([\s\S]*?)<\/h1>/i);
+    
+    // Extract Date/ReadTime (very rough)
+    let metaAuthor = 'By Editor';
+    let metaDate = 'July 2026';
+    let metaRead = '5 Min Read';
+    const metaBox = content.match(/<div class="article-meta">([\s\S]*?)<\/div>/i);
+    if (metaBox) {
+        const spans = metaBox[1].match(/<span>([\s\S]*?)<\/span>/ig);
+        if (spans && spans.length >= 2) {
+            metaDate = spans[0].replace(/<\/?span>/ig, '');
+            metaRead = spans[1].replace(/<\/?span>/ig, '');
+        }
+    }
+
+    // Extract Main Image
+    const imgMatch = content.match(/<img[^>]+class="main-img[^>]+src="([^"]+)"[^>]*alt="([^"]*)"/i) || content.match(/<img[^>]+src="([^"]+)"[^>]*alt="([^"]*)"[^>]+class="main-img/i);
+    const imgSrc = imgMatch ? imgMatch[1] : '';
+    const imgAlt = imgMatch ? imgMatch[2] : '';
+
+    // Extract Article Content
+    let articleInner = '';
+    const bodyMatch = content.match(/<article class="article-content">([\s\S]*?)<\/article>/i) || content.match(/<div class="article-content[\s\S]*?">([\s\S]*?)<\/div>/i);
+    if (bodyMatch) {
+        articleInner = bodyMatch[1].trim();
+    }
+
+    // Extract Shop Widget Items
+    let shopItems = '';
+    const shopWidgetMatch = content.match(/<h3 class="widget-title">Shop This Post<\/h3>([\s\S]*?)<\/div>\s*<\/div>/i) || content.match(/<h3 class="widget-title">Shop The Recovery<\/h3>([\s\S]*?)<\/div>\s*<\/div>/i);
+    if (shopWidgetMatch) {
+        shopItems = shopWidgetMatch[1].trim();
+    }
+
+    // CONSTRUCT NEW CONTENT
+    const newContent = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>${title}</title>
+    <meta name="description" content="${description}">
+    <meta name="p:domain_verify" content="614a5afefa741fa072c6f9319d2f14d0"/>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-33SX49MXHN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-33SX49MXHN');
+    </script>
+
+    <style>${approvedStyles}</style>
 </head>
 <body>
 
-<header>
-    <nav class="nav-container">
-        <a href="index.html" class="logo">SkinHonestly</a>
-        <div class="menu-toggle" id="mobile-toggle">☰</div>
-        <div class="nav-links" id="nav-menu">
-            <a href="index.html">Front Page</a>
-
-            <div class="nav-dropdown">
-                <a href="shop.html">The Curation ▾</a>
-                <div class="dropdown-content">
-                    <a href="shop.html">All Products</a>
-                    <a href="shop.html?cat=cleansers">Cleansers</a>
-                    <a href="shop.html?cat=serums">Serums</a>
-                    <a href="shop.html?cat=moisturizers">Moisturizers</a>
-                    <a href="shop.html?cat=spf">SPF</a>
-                    <a href="shop.html?cat=treatments">Treatments</a>
-                </div>
-            </div>
-
-            <div class="nav-dropdown">
-                <a href="blog.html">The Journal ▾</a>
-                <div class="dropdown-content">
-                    <a href="blog.html?cat=all">Latest Stories</a>
-                    <a href="blog.html?cat=rituals">Morning Rituals</a>
-                    <a href="blog.html?cat=science">Ingredient Science</a>
-                    <a href="blog.html?cat=reviews">Derm Reviews</a>
-                    <a href="blog.html?cat=barrier">Barrier Health</a>
-                </div>
-            </div>
-
-            <a href="about.html">About</a>
-        </div>
-    </nav>
-</header>
+    ${header}
 
     <main class="article-layout">
         <div class="article-body">
             <header class="article-header">
-                <span class="cat-tag">Analysis • Product Truths</span>
-                <h1>The Truth About Eye Creams: Do You Really Need One?</h1>
+                <span class="cat-tag">${category}</span>
+                <h1>${headline}</h1>
                 <div class="article-meta">
-                    <span>By Sarah • June 17, 2026</span>
-                    <span>7 Min Read</span>
+                    <span>${metaDate}</span>
+                    <span>${metaRead}</span>
                 </div>
             </header>
 
-            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=1200" alt="Eye Skincare" class="main-img">
+            <img src="${imgSrc}" alt="${imgAlt}" class="main-img">
 
             <article class="article-content">
-                <p>If there is one question that pops up in my DMs more than any other, it’s this: <em>"Do I actually need to buy a separate eye cream?"</em> The beauty industry loves to convince us that if we don't have a highly specific product for every square inch of our faces, we are doing something wrong.</p><h2>The Short Answer</h2><p>For most people? No, you don't <em>need</em> an eye cream. The skin around your eyes is indeed thinner and more delicate, but a solid, fragrance-free facial moisturizer is perfectly capable of keeping your under-eyes protected.</p><p>I always bring our <strong>SkinHonestly Daily Reset Serum</strong> right up to my orbital bone. Because it's formulated without harsh actives, it provides that perfect, gentle plumping effect without causing milia.</p><h2>When Should You Buy One?</h2><p>You only need a dedicated eye cream if you are trying to treat a <em>specific</em> under-eye issue that your regular moisturizer can’t handle:</p><ul><li><strong>Dark Circles & Puffiness:</strong> You need an eye cream formulated with caffeine to constrict blood vessels.</li><li><strong>Deep Crow's Feet:</strong> You need a specialized retinol eye cream formulated at a lower concentration to prevent severe irritation.</li></ul><p>The Bottom Line: If your current routine is keeping your under-eyes soft, save your money. Skincare is personal, and there are no absolute rules—only what works best for your skin and your budget!</p>
+                ${articleInner}
             </article>
         </div>
 
@@ -185,18 +221,19 @@
             <div class="sidebar-widget">
                 <h3 class="widget-title">The Editor</h3>
                 <div style="text-align: center;">
-                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=400" alt="Sarah" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 1.5rem; border: 1px solid var(--border); display: block; margin-left: auto; margin-right: auto;">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=400" alt="Sarah" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 1.5rem; border: 1px solid var(--border);">
                     <p style="font-size: 0.9rem; font-style: italic; color: var(--text-light);">"Real skincare starts with honesty. I'm here to find what actually works."</p>
                 </div>
             </div>
 
             <div class="sidebar-widget">
                 <h3 class="widget-title">Shop This Post</h3>
-                <div class="shop-widget-item"><img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=200" alt="Serum"><div><h5>Daily Reset Serum</h5><a href="shop.html" class="shop-btn">View in Shop</a></div></div>
+                ${shopItems}
             </div>
         </aside>
     </main>
 
+    <!-- NEWSLETTER SECTION -->
     <section class="newsletter-cta">
         <h2>Join The Glow List</h2>
         <p>Get exclusive clinical research and early access to drops.</p>
@@ -207,38 +244,12 @@
         </form>
     </section>
 
-<footer>
-    <a href="index.html" class="f-logo">SkinHonestly</a>
-    <div class="f-container">
-        <div class="f-col">
-            <h5>Editorial</h5>
-            <a href="index.html">Front Page</a>
-            <a href="blog.html">The Journal</a>
-            <a href="about.html">The Philosophy</a>
-        </div>
-        <div class="f-col">
-            <h5>Shop Curation</h5>
-            <a href="shop.html">The Exclusive Line</a>
-            <a href="shop.html">Derm-Trusted Picks</a>
-        </div>
-        <div class="f-col">
-            <h5>Connect</h5>
-            <a href="#">Instagram</a>
-            <a href="#">YouTube</a>
-            <a href="#">Pinterest</a>
-        </div>
-        <div class="f-col">
-            <h5>Trust & Support</h5>
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="privacy.html">Disclosures</a>
-            <a href="about.html">Contact Us</a>
-        </div>
-    </div>
-    <div class="f-bottom">
-        <p>&copy; 2024 SKINHONESTLY. REAL SKINCARE. HONESTLY.</p>
-    </div>
-</footer>
+    ${footer}
 
-    <script src="script.js"></script>
+    ${script}
 </body>
-</html>
+</html>`;
+
+    fs.writeFileSync(file, newContent);
+    console.log(`Standardized Body Style for ${file}`);
+});
