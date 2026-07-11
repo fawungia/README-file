@@ -1,0 +1,240 @@
+const fs = require('fs');
+
+const masterStyles = \`
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;600;700&display=swap');
+        :root { --bg: #FAF7F2; --primary: #5E795B; --secondary: #D4886B; --text: #2B2B2B; --text-light: #666; --white: #FFFFFF; --border: #EAE6DF; --highlight: #C9A876; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { overflow-x: hidden; width: 100%; position: relative; }
+        body { background-color: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.8; }
+        a { text-decoration: none; color: inherit; transition: 0.3s ease; }
+        img { max-width: 100%; height: auto; display: block; }
+        h1, h2, h3, h4, h5 { font-family: 'Playfair Display', serif; }
+        header { background-color: var(--white); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 0 5%; max-width: 1400px; margin: 0 auto; height: 80px; }
+        .logo { font-size: 1.8rem; font-weight: 600; color: var(--primary); letter-spacing: -1px; }
+        .nav-links { display: flex; gap: 3rem; align-items: center; }
+        .nav-links a { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: var(--text-light); }
+        .nav-links a:hover { color: var(--primary); }
+        .menu-toggle { display: none; font-size: 1.8rem; cursor: pointer; color: var(--primary); padding: 10px; }
+        .nav-dropdown { position: relative; display: inline-block; }
+        .dropdown-content { display: block; position: absolute; background-color: var(--white); min-width: 220px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); z-index: 1002; border: 1px solid var(--border); top: 100%; left: 50%; transform: translateX(-50%); max-height: 0; opacity: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease; }
+        .dropdown-content a { color: var(--text-light); padding: 1rem 1.5rem; text-decoration: none; display: block; font-size: 0.7rem; text-transform: uppercase; border-bottom: 1px solid var(--border); letter-spacing: 1px; font-weight: 700; text-align: center; }
+        .dropdown-content a:last-child { border-bottom: none; }
+        .dropdown-content a:hover { background-color: var(--bg); color: var(--primary); }
+        .nav-dropdown:hover .dropdown-content { max-height: 400px; opacity: 1; }
+        @media (max-width: 768px) { .menu-toggle { display: block; } .nav-links { display: none; flex-direction: column; position: absolute; top: 80px; left: 0; width: 100%; background-color: var(--white); padding: 2rem; border-bottom: 1px solid var(--border); gap: 1.5rem; z-index: 1001; } .nav-links.active { display: flex; } .nav-dropdown { width: 100%; } .dropdown-content { position: static; box-shadow: none; border: none; padding-left: 1rem; display: block; width: 100%; max-height: 0; opacity: 0; overflow: hidden; } .nav-dropdown.active .dropdown-content { max-height: 400px; opacity: 1; } }
+        .article-layout { max-width: 1300px; margin: 4rem auto; padding: 0 5%; display: grid; grid-template-columns: 1fr 350px; gap: 6rem; }
+        .cat-tag { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: var(--secondary); font-weight: 700; margin-bottom: 1rem; display: block; }
+        .article-header h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); margin-bottom: 1.5rem; line-height: 1.1; color: var(--primary); }
+        .article-meta { display: flex; gap: 20px; font-size: 0.85rem; color: #999; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; margin-bottom: 3rem; }
+        .main-img { width: 100%; height: 550px; object-fit: cover; margin-bottom: 4rem; border-radius: 8px; box-shadow: 0 15px 40px rgba(0,0,0,0.04); }
+        .article-content p { font-size: 1.15rem; color: #444; margin-bottom: 2rem; }
+        .article-content p:first-of-type::first-letter { font-family: 'Playfair Display'; font-size: 4.5rem; float: left; margin-top: 0.5rem; margin-right: 0.8rem; line-height: 1; color: var(--primary); font-weight: 600; }
+        .article-content h2 { font-size: 2.2rem; margin: 4rem 0 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; color: var(--primary); }
+        .sidebar { display: flex; flex-direction: column; gap: 5rem; border-left: 1px solid var(--border); padding-left: 3rem; }
+        .widget-title { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--primary); border-bottom: 1px solid var(--border); padding-bottom: 1rem; margin-bottom: 2rem; }
+        .shop-widget-item { display: grid; grid-template-columns: 80px 1fr; gap: 1.5rem; align-items: center; margin-bottom: 2rem; }
+        .shop-widget-item img { height: 80px; width: 80px; object-fit: cover; border-radius: 4px; }
+        .shop-btn { font-size: 0.7rem; color: var(--secondary); font-weight: 700; text-transform: uppercase; border-bottom: 1px solid var(--secondary); }
+        .newsletter-cta { background: var(--primary); color: white; padding: 6rem 5%; text-align: center; margin-top: 6rem; border-radius: 4px; }
+        .newsletter-cta h2 { color: white; font-size: 2.8rem; margin-bottom: 1rem; }
+        .newsletter-form { display: flex; justify-content: center; gap: 10px; max-width: 600px; margin: 2.5rem auto 0; }
+        .newsletter-form input { flex: 1; padding: 1.2rem; border-radius: 4px; border: none; font-size: 1rem; outline: none; }
+        .newsletter-form button { background: var(--secondary); color: white; border: none; padding: 0 3rem; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; border-radius: 4px; cursor: pointer; }
+        footer { padding: 8rem 5% 4rem; background: var(--white); border-top: 1px solid var(--border); margin-top: 5rem; }
+        .f-logo { font-size: 2.5rem; font-family: 'Playfair Display', serif; color: var(--primary); margin-bottom: 3rem; display: block; text-align: center; text-decoration: none; }
+        .f-container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 4rem; border-bottom: 1px solid var(--border); padding-bottom: 6rem; text-align: left; }
+        .f-col h5 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 2.5rem; color: var(--primary); font-weight: 700; }
+        .f-col a { display: block; margin-bottom: 1.2rem; font-size: 0.9rem; color: var(--text-light); transition: 0.3s; }
+        .f-col a:hover { color: var(--primary); }
+        .f-bottom { padding-top: 4rem; text-align: center; font-size: 0.75rem; color: #999; letter-spacing: 2px; text-transform: uppercase; }
+
+        #reading-progress { position: fixed; top: 80px; left: 0; width: 0%; height: 4px; background: var(--primary); z-index: 2001; transition: width 0.1s ease; }
+        .related-posts { max-width: 1300px; margin: 6rem auto; padding: 4rem 5% 0; border-top: 1px solid var(--border); }
+        .related-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; }
+        .related-header h3 { font-size: 2.2rem; color: var(--primary); margin: 0; font-family: 'Playfair Display', serif; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; }
+        .post-card { display: flex; flex-direction: column; transition: transform 0.3s ease; text-decoration: none; color: inherit; }
+        .post-card:hover { transform: translateY(-5px); }
+        .post-card img { width: 100%; height: 250px; object-fit: cover; border-radius: 8px; margin-bottom: 1.5rem; }
+        .post-meta { font-size: 0.7rem; text-transform: uppercase; font-weight: 700; color: var(--secondary); margin-bottom: 0.5rem; letter-spacing: 1px; }
+        .post-title { font-size: 1.4rem; color: var(--primary); margin-bottom: 1rem; line-height: 1.3; font-family: 'Playfair Display', serif; }
+        .btn-read { font-weight: bold; text-transform: uppercase; font-size: 0.75rem; border-bottom: 2px solid var(--highlight); padding-bottom: 3px; color: var(--text); }
+        @media (max-width: 1100px) { .f-container { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 900px) { .related-grid { grid-template-columns: 1fr; } }
+\`;
+
+const header = \`<header>
+    <nav class="nav-container">
+        <a href="index.html" class="logo">SkinHonestly</a>
+        <div class="menu-toggle" id="mobile-toggle">☰</div>
+        <div class="nav-links" id="nav-menu">
+            <a href="index.html">Front Page</a>
+            <div class="nav-dropdown">
+                <a href="shop.html">The Curation ▾</a>
+                <div class="dropdown-content">
+                    <a href="shop.html">All Products</a>
+                    <a href="shop.html?cat=cleansers">Cleansers</a>
+                    <a href="shop.html?cat=serums">Serums</a>
+                    <a href="shop.html?cat=moisturizers">Moisturizers</a>
+                    <a href="shop.html?cat=spf">SPF</a>
+                    <a href="shop.html?cat=treatments">Treatments</a>
+                </div>
+            </div>
+            <div class="nav-dropdown">
+                <a href="blog.html">The Journal ▾</a>
+                <div class="dropdown-content">
+                    <a href="blog.html?cat=all">Latest Stories</a>
+                    <a href="blog.html?cat=rituals">Morning Rituals</a>
+                    <a href="blog.html?cat=science">Ingredient Science</a>
+                    <a href="blog.html?cat=reviews">Derm Reviews</a>
+                    <a href="blog.html?cat=barrier">Barrier Health</a>
+                </div>
+            </div>
+            <a href="about.html">About</a>
+        </div>
+    </nav>
+</header>\`;
+
+const footer = \`<footer>
+    <a href="index.html" class="f-logo">SkinHonestly</a>
+    <div class="f-container">
+        <div class="f-col">
+            <h5>Editorial</h5>
+            <a href="index.html">Front Page</a>
+            <a href="blog.html">The Journal</a>
+            <a href="about.html">The Philosophy</a>
+        </div>
+        <div class="f-col">
+            <h5>Shop Curation</h5>
+            <a href="shop.html">The Exclusive Line</a>
+            <a href="shop.html">Derm-Trusted Picks</a>
+        </div>
+        <div class="f-col">
+            <h5>Connect</h5>
+            <a href="#">Instagram</a>
+            <a href="#">YouTube</a>
+            <a href="#">Pinterest</a>
+        </div>
+        <div class="f-col">
+            <h5>Trust & Support</h5>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="privacy.html">Disclosures</a>
+            <a href="about.html">Contact Us</a>
+        </div>
+    </div>
+    <div class="f-bottom">
+        <p>&copy; 2024 SKINHONESTLY. REAL SKINCARE. HONESTLY.</p>
+    </div>
+</footer>\`;
+
+const postsData = JSON.parse(fs.readFileSync('posts_data.json', 'utf8'));
+
+postsData.forEach(p => {
+    let related = postsData.filter(rp => rp.category === p.category && rp.id !== p.id);
+    if (related.length < 3) {
+        const others = postsData.filter(rp => rp.category !== p.category && rp.id !== p.id);
+        related = [...related, ...others].slice(0, 3);
+    } else {
+        related = related.slice(0, 3);
+    }
+
+    let relatedHtml = \`
+    <section class="related-posts">
+        <div class="related-header">
+            <h3>You Might Also Like</h3>
+            <a href="blog.html" class="btn-read">View All Stories</a>
+        </div>
+        <div class="related-grid">
+    \`;
+    related.forEach(rp => {
+        relatedHtml += \`
+            <a href="\${rp.id}" class="post-card">
+                <img src="\${rp.img}" alt="\${rp.title}">
+                <div class="post-content">
+                    <span class="post-meta">\${rp.category} • \${rp.date}</span>
+                    <h4 class="post-title">\${rp.title}</h4>
+                    <span class="btn-read">Read Article</span>
+                </div>
+            </a>\`;
+    });
+    relatedHtml += \`
+        </div>
+    </section>\`;
+
+    const html = \`<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>\${p.title}</title>
+    <meta name="description" content="\${p.excerpt}">
+    <style>\${masterStyles}</style>
+</head>
+<body>
+    <div id="reading-progress"></div>
+    \${header}
+
+    <main class="article-layout">
+        <div class="article-body">
+            <header class="article-header">
+                <span class="cat-tag">\${p.category} • SKINHONESTLY</span>
+                <h1>\${p.title}</h1>
+                <div class="article-meta">
+                    <span>By Editor • \${p.date}</span>
+                    <span>5 Min Read</span>
+                </div>
+            </header>
+
+            <img src="\${p.img}" alt="\${p.title}" class="main-img">
+
+            <article class="article-content">
+                \${p.content}
+            </article>
+        </div>
+
+        <aside class="sidebar">
+            <div class="sidebar-widget">
+                <h3 class="widget-title">The Editor</h3>
+                <div style="text-align: center;">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=400" alt="Sarah" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 1.5rem; border: 1px solid var(--border); display: block; margin-left: auto; margin-right: auto;">
+                    <p style="font-size: 0.9rem; font-style: italic; color: var(--text-light);">"Real skincare starts with honesty. I'm here to find what actually works."</p>
+                </div>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Shop This Post</h3>
+                \${p.shopItems}
+            </div>
+        </aside>
+    </main>
+
+    <section class="newsletter-cta">
+        <h2>Join The Glow List</h2>
+        <p>Get exclusive clinical research and early access to drops.</p>
+        <form action="https://manage.kmail-lists.com/subscriptions/subscribe" method="POST" target="_blank" class="newsletter-form">
+            <input type="hidden" name="g" value="WpSSkZ">
+            <input type="email" name="email" placeholder="Your email address" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+
+    \${relatedHtml}
+    \${footer}
+
+    <script src="script.js"></script>
+    <script>
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            const bar = document.getElementById('reading-progress');
+            if(bar) bar.style.width = scrolled + "%";
+        });
+    </script>
+</body>
+</html>\`;
+
+    fs.writeFileSync(p.id, html);
+    console.log("REBUILT: " + p.id);
+});
