@@ -124,9 +124,22 @@
             .newsletter-form button { padding: 1.2rem; }
             .main-img { height: 350px; }
         }
-</style>
+
+        /* Reading Progress Bar */
+        #reading-progress { position: fixed; top: 0; left: 0; width: 0%; height: 4px; background: var(--primary); z-index: 2000; transition: width 0.1s ease; }
+
+        /* Related Posts Section */
+        .related-posts { max-width: 1300px; margin: 6rem auto; padding: 0 5%; border-top: 1px solid var(--border); padding-top: 4rem; }
+        .related-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; }
+        .related-header h3 { font-size: 2rem; color: var(--primary); margin: 0; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        @media (max-width: 900px) { .related-grid { grid-template-columns: 1fr; } }
+
+    </style>
 </head>
 <body>
+    <div id="reading-progress"></div>
+
 
 <header>
     <nav class="nav-container">
@@ -207,7 +220,51 @@
         </form>
     </section>
 
-<footer>
+
+    <section class="related-posts scroll-reveal">
+        <div class="related-header">
+            <h3>You Might Also Like</h3>
+            <a href="blog.html" class="shop-btn" style="background: transparent; color: var(--primary); padding: 0; border-bottom: 2px solid var(--highlight);">View All Stories</a>
+        </div>
+        <div class="related-grid">
+    
+            <article class="post-card" style="display: flex; flex-direction: column;">
+                <a href="post1.html" style="display: block; overflow: hidden; border-radius: 8px; margin-bottom: 1.5rem;">
+                    <img src="images/content-pixie-Q0y-1aorvJo-unsplash.webp" alt="My Evening Wind-Down Routine" style="width: 100%; height: 200px; object-fit: cover;">
+                </a>
+                <div class="post-content">
+                    <span class="shop-btn" style="font-size: 0.6rem; padding: 2px 8px; border: 1px solid var(--border); display: inline-block; margin-bottom: 0.5rem; border-radius: 20px;">RITUALS</span>
+                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.2rem; margin: 0.5rem 0 1rem; color: var(--primary);">My Evening Wind-Down Routine</h4>
+                    <a href="post1.html" class="shop-btn" style="background: transparent; color: var(--secondary); padding: 0; border-bottom: 1px solid var(--secondary);">Read Article</a>
+                </div>
+            </article>
+        
+            <article class="post-card" style="display: flex; flex-direction: column;">
+                <a href="post2.html" style="display: block; overflow: hidden; border-radius: 8px; margin-bottom: 1.5rem;">
+                    <img src="images/skin-improvement.webp" alt="My Honest Morning Routine" style="width: 100%; height: 200px; object-fit: cover;">
+                </a>
+                <div class="post-content">
+                    <span class="shop-btn" style="font-size: 0.6rem; padding: 2px 8px; border: 1px solid var(--border); display: inline-block; margin-bottom: 0.5rem; border-radius: 20px;">RITUALS</span>
+                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.2rem; margin: 0.5rem 0 1rem; color: var(--primary);">My Honest Morning Routine</h4>
+                    <a href="post2.html" class="shop-btn" style="background: transparent; color: var(--secondary); padding: 0; border-bottom: 1px solid var(--secondary);">Read Article</a>
+                </div>
+            </article>
+        
+            <article class="post-card" style="display: flex; flex-direction: column;">
+                <a href="post5.html" style="display: block; overflow: hidden; border-radius: 8px; margin-bottom: 1.5rem;">
+                    <img src="images/ibnu-ihza-QbHwPe1HE84-unsplash.webp" alt="Nightly Rituals" style="width: 100%; height: 200px; object-fit: cover;">
+                </a>
+                <div class="post-content">
+                    <span class="shop-btn" style="font-size: 0.6rem; padding: 2px 8px; border: 1px solid var(--border); display: inline-block; margin-bottom: 0.5rem; border-radius: 20px;">RITUALS</span>
+                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.2rem; margin: 0.5rem 0 1rem; color: var(--primary);">Nightly Rituals</h4>
+                    <a href="post5.html" class="shop-btn" style="background: transparent; color: var(--secondary); padding: 0; border-bottom: 1px solid var(--secondary);">Read Article</a>
+                </div>
+            </article>
+        
+        </div>
+    </section>
+    
+    <footer>
     <a href="index.html" class="f-logo">SkinHonestly</a>
     <div class="f-container">
         <div class="f-col">
@@ -240,5 +297,17 @@
 </footer>
 
     <script src="script.js"></script>
+
+    <script>
+        // Reading Progress Bar Logic
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            const bar = document.getElementById('reading-progress');
+            if(bar) bar.style.width = scrolled + "%";
+        });
+    </script>
+
 </body>
 </html>
