@@ -125,21 +125,45 @@
             .main-img { height: 350px; }
         }
 
-        /* Reading Progress Bar */
-        #reading-progress { position: fixed; top: 0; left: 0; width: 0%; height: 4px; background: var(--primary); z-index: 2000; transition: width 0.1s ease; }
-
-        /* Related Posts Section */
-        .related-posts { max-width: 1300px; margin: 6rem auto; padding: 0 5%; border-top: 1px solid var(--border); padding-top: 4rem; }
-        .related-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; }
+        
+                .related-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; }
         .related-header h3 { font-size: 2rem; color: var(--primary); margin: 0; }
         .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        @media (max-width: 900px) { .related-grid { grid-template-columns: 1fr; } }
+
+    
+        
+
+        
+
+    
+        /* Interactive Enhancements */
+        #reading-progress { position: fixed; top: 80px; left: 0; width: 0%; height: 4px; background: var(--primary); z-index: 2001; transition: width 0.1s ease; }
+        
+        .related-posts { max-width: 1300px; margin: 6rem auto; padding: 4rem 5% 0; border-top: 1px solid var(--border); }
+        .related-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; }
+        .related-header h3 { font-size: 2.2rem; color: var(--primary); margin: 0; font-family: 'Playfair Display', serif; }
+        
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; }
+        .post-card { display: flex; flex-direction: column; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .post-card:hover { transform: translateY(-5px); }
+        .post-card img { width: 100%; height: 250px; object-fit: cover; border-radius: 8px; margin-bottom: 1.5rem; transition: opacity 0.3s ease; }
+        .post-card:hover img { opacity: 0.9; }
+        .post-meta { font-size: 0.7rem; text-transform: uppercase; font-weight: 700; color: var(--secondary); margin-bottom: 0.5rem; letter-spacing: 1px; }
+        .post-title { font-size: 1.4rem; color: var(--primary); margin-bottom: 1rem; line-height: 1.3; font-family: 'Playfair Display', serif; }
+        .post-excerpt { font-size: 0.9rem; color: var(--text-light); margin-bottom: 1.5rem; line-height: 1.5; }
+        .btn-read { font-weight: bold; text-transform: uppercase; font-size: 0.75rem; border-bottom: 2px solid var(--highlight); padding-bottom: 3px; color: var(--text); text-decoration: none; transition: all 0.3s ease; }
+        .btn-read:hover { color: var(--primary); border-color: var(--primary); }
+        
         @media (max-width: 900px) { .related-grid { grid-template-columns: 1fr; } }
 
     </style>
 </head>
 <body>
     <div id="reading-progress"></div>
+    
 
+    
 
 <header>
     <nav class="nav-container">
@@ -221,27 +245,51 @@
     </section>
 
 
-    <section class="related-posts scroll-reveal">
+    
+    
+
+    
+    <section class="related-posts">
         <div class="related-header">
             <h3>You Might Also Like</h3>
-            <a href="blog.html" class="shop-btn" style="background: transparent; color: var(--primary); padding: 0; border-bottom: 2px solid var(--highlight);">View All Stories</a>
+            <a href="blog.html" class="btn-read">View All Stories</a>
         </div>
         <div class="related-grid">
-    
-            <article class="post-card" style="display: flex; flex-direction: column;">
-                <a href="post4.html" style="display: block; overflow: hidden; border-radius: 8px; margin-bottom: 1.5rem;">
-                    <img src="images/kalos-skincare-kzjH8CCWAD0-unsplash.webp" alt="Peptides Explained" style="width: 100%; height: 200px; object-fit: cover;">
+            <article class="post-card">
+                <a href="post1.html" style="display: block; overflow: hidden; border-radius: 8px; margin-bottom: 1.5rem;">
+                    <img src="images/content-pixie-Q0y-1aorvJo-unsplash.webp" alt="My Evening Wind-Down Routine">
                 </a>
                 <div class="post-content">
-                    <span class="shop-btn" style="font-size: 0.6rem; padding: 2px 8px; border: 1px solid var(--border); display: inline-block; margin-bottom: 0.5rem; border-radius: 20px;">SCIENCE</span>
-                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.2rem; margin: 0.5rem 0 1rem; color: var(--primary);">Peptides Explained</h4>
-                    <a href="post4.html" class="shop-btn" style="background: transparent; color: var(--secondary); padding: 0; border-bottom: 1px solid var(--secondary);">Read Article</a>
+                    <span class="post-meta">BARRIER • July 01</span>
+                    <h4 class="post-title">My Evening Wind-Down Routine</h4>
+                    <p class="post-excerpt">How I take the day off and prep my skin for overnight recovery to wake up with a balanced glow.</p>
+                    <a href="post1.html" class="btn-read">Read Article</a>
                 </div>
             </article>
-        
+            <article class="post-card">
+                <a href="post8.html" style="display: block; overflow: hidden; border-radius: 8px; margin-bottom: 1.5rem;">
+                    <img src="images/content-pixie-Q0y-1aorvJo-unsplash.webp" alt="Evening Wind-Down Routine">
+                </a>
+                <div class="post-content">
+                    <span class="post-meta">BARRIER • July 01</span>
+                    <h4 class="post-title">Evening Wind-Down Routine</h4>
+                    <p class="post-excerpt">Prep my skin for overnight recovery with a simple 5-step routine that actually works.</p>
+                    <a href="post8.html" class="btn-read">Read Article</a>
+                </div>
+            </article>
+            <article class="post-card">
+                <a href="post2.html" style="display: block; overflow: hidden; border-radius: 8px; margin-bottom: 1.5rem;">
+                    <img src="images/poko-skincare-oXI2_S1ILQI-unsplash.webp" alt="My Honest Morning Routine">
+                </a>
+                <div class="post-content">
+                    <span class="post-meta">RITUALS • June 23</span>
+                    <h4 class="post-title">My Honest Morning Routine</h4>
+                    <p class="post-excerpt">I’ve finally nailed down a routine that keeps my skin hydrated and glowing without feeling heavy.</p>
+                    <a href="post2.html" class="btn-read">Read Article</a>
+                </div>
+            </article>
         </div>
     </section>
-    
     <footer>
     <a href="index.html" class="f-logo">SkinHonestly</a>
     <div class="f-container">
@@ -276,8 +324,12 @@
 
     <script src="script.js"></script>
 
+    
+    
+
+
     <script>
-        // Reading Progress Bar Logic
+        // Progress Bar Logic
         window.addEventListener('scroll', () => {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -286,6 +338,5 @@
             if(bar) bar.style.width = scrolled + "%";
         });
     </script>
-
 </body>
 </html>
