@@ -16,108 +16,15 @@
       gtag('config', 'G-33SX49MXHN');
     </script>
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;600;700&display=swap');
-
-        :root {
-            --bg: #FAF7F2;
-            --primary: #5E795B; 
-            --secondary: #D4886B;
-            --text: #2B2B2B;
-            --text-light: #666;
-            --white: #FFFFFF;
-            --border: #EAE6DF;
-            --highlight: #C9A876;
-        }
-
-        /* Global Reset & Phone Stability */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html, body { overflow-x: hidden; width: 100%; position: relative; }
-        body { background-color: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.8; }
-        a { text-decoration: none; color: inherit; transition: 0.3s ease; }
-        img { max-width: 100%; height: auto; display: block; }
-        h1, h2, h3, h4, h5 { font-family: 'Playfair Display', serif; }
-
-        /* MASTER HEADER */
-        header { background-color: var(--white); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 0 5%; max-width: 1400px; margin: 0 auto; height: 80px; }
-        .logo { font-size: 1.8rem; font-weight: 600; color: var(--primary); letter-spacing: -1px; }
-        .nav-links { display: flex; gap: 3rem; align-items: center; }
-        .nav-links a { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: var(--text-light); }
-        .nav-links a:hover { color: var(--primary); }
-        .menu-toggle { display: none; font-size: 1.8rem; cursor: pointer; color: var(--primary); padding: 10px; }
-
-        @media (max-width: 768px) {
-            .menu-toggle { display: block; }
-            .nav-links { 
-                display: none; flex-direction: column; position: absolute; top: 80px; left: 0; width: 100%; 
-                background-color: var(--white); padding: 2rem; border-bottom: 1px solid var(--border); 
-                box-shadow: 0 10px 15px rgba(0,0,0,0.05); gap: 1.5rem; z-index: 1001;
-            }
-            .nav-links.active { display: flex; }
-        }
-
-        /* Editorial Article Layout */
-        .article-layout { max-width: 1300px; margin: 4rem auto; padding: 0 5%; display: grid; grid-template-columns: 1fr 350px; gap: 6rem; }
-        .cat-tag { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: var(--secondary); font-weight: 700; margin-bottom: 1rem; display: block; }
-        .article-header h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); margin-bottom: 1.5rem; line-height: 1.1; color: var(--primary); }
-        .article-meta { display: flex; gap: 20px; font-size: 0.85rem; color: #999; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; margin-bottom: 3rem; }
-
-        .main-img { width: 100%; height: 550px; object-fit: cover; margin-bottom: 4rem; border-radius: 8px; box-shadow: 0 15px 40px rgba(0,0,0,0.04); }
-
-        /* Content Styling */
-        .article-content p { font-size: 1.15rem; color: #444; margin-bottom: 2rem; }
-        .article-content p:first-of-type::first-letter { font-family: 'Playfair Display'; font-size: 4.5rem; float: left; margin-top: 0.5rem; margin-right: 0.8rem; line-height: 1; color: var(--primary); font-weight: 600; }
-        .article-content h2 { font-size: 2.2rem; margin: 4.5rem 0 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; color: var(--primary); }
-        .article-content a { color: var(--primary); text-decoration: underline; font-weight: 600; }
-
-        /* Sidebar Widgets */
-        .sidebar { display: flex; flex-direction: column; gap: 5rem; border-left: 1px solid var(--border); padding-left: 3rem; }
-        .widget-title { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--primary); border-bottom: 1px solid var(--border); padding-bottom: 1rem; margin-bottom: 2rem; }
-        .shop-widget-item { display: grid; grid-template-columns: 80px 1fr; gap: 1.5rem; align-items: center; margin-bottom: 2rem; }
-        .shop-widget-item img { height: 80px; width: 80px; object-fit: cover; border-radius: 4px; }
-        .shop-btn { font-size: 0.7rem; color: var(--secondary); font-weight: 700; text-transform: uppercase; border-bottom: 1px solid var(--secondary); }
-
-        /* Newsletter Banner */
-        .newsletter-cta { background: var(--primary); color: white; padding: 6rem 5%; text-align: center; margin-top: 6rem; border-radius: 4px; }
-        .newsletter-cta h2 { color: white; font-size: 2.8rem; margin-bottom: 1rem; }
-        .newsletter-form { display: flex; justify-content: center; gap: 10px; max-width: 600px; margin: 2rem auto 0; }
-        .newsletter-form input { flex: 1; padding: 1.2rem; border-radius: 4px; border: none; font-size: 1rem; outline: none; }
-        .newsletter-form button { background: var(--secondary); color: white; border: none; padding: 0 3rem; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; border-radius: 4px; cursor: pointer; }
-
-        /* FIXED MASTER FOOTER */
-        footer { padding: 8rem 5% 4rem; background: var(--white); border-top: 1px solid var(--border); margin-top: 5rem; }
-        .f-logo { font-size: 2.5rem; font-family: 'Playfair Display', serif; color: var(--primary); margin-bottom: 3rem; display: block; text-align: center; text-decoration: none; }
-        .f-container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 4rem; border-bottom: 1px solid var(--border); padding-bottom: 6rem; text-align: left; }
-        
-        /* Green Column Titles Fix */
-        .f-col h5 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 2.5rem; color: var(--primary); font-weight: 700; }
-        
-        .f-col a { display: block; margin-bottom: 1.2rem; font-size: 0.9rem; color: var(--text-light); transition: 0.3s; }
-        .f-col a:hover { color: var(--primary); }
-        .f-bottom { padding-top: 4rem; text-align: center; font-size: 0.75rem; color: #999; letter-spacing: 2px; text-transform: uppercase; }
-
-        @media (max-width: 1100px) {
-            .article-layout { grid-template-columns: 1fr; }
-            .sidebar { border-left: none; padding-left: 0; flex-direction: row; flex-wrap: wrap; margin-top: 4rem; }
-            .sidebar-widget { flex: 1; min-width: 300px; }
-            .f-container { grid-template-columns: 1fr 1fr; }
-        }
-        @media (max-width: 768px) {
-            .newsletter-form { flex-direction: column; }
-            .newsletter-form button { padding: 1.2rem; }
-            .main-img { height: 350px; }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- MASTER HEADER -->
-    <div id="header-placeholder"></div>
+    <header id="header-placeholder"></header>
 
     <main class="article-layout">
         <div class="article-body">
-            <header class="article-header">
+            <header class="article-header scroll-reveal">
                 <span class="cat-tag">The Lab • Ingredient Science</span>
                 <h1>Peptides Explained: The Foundation of Remodeling.</h1>
                 <div class="article-meta">
@@ -126,9 +33,9 @@
                 </div>
             </header>
 
-            <img src="images/kalos-skincare-kzjH8CCWAD0-unsplash.webp" alt="Peptides" class="main-img">
+            <img src="images/kalos-skincare-kzjH8CCWAD0-unsplash.webp" alt="Peptides" class="main-img scroll-reveal">
 
-            <article class="article-content">
+            <article class="article-content scroll-reveal">
                 <p>If you've wandered down a skincare aisle recently, you’ve probably seen the word "Peptides" plastered across every other jar. They are undoubtedly the buzziest ingredient right now. But what actually are they, and more importantly, do they live up to the hype?</p>
                 
                 <p>Think of your skin as a brick wall. Collagen and elastin are the mortar holding everything together. As we age, that mortar starts to break down. Peptides are tiny fragments of proteins that send signals to your cells, "tricking" them into producing more collagen to fix the damage.</p>
@@ -143,11 +50,11 @@
             </article>
         </div>
 
-        <aside class="sidebar">
+        <aside class="sidebar scroll-reveal">
             <div class="sidebar-widget">
                 <h3 class="widget-title">The Editor</h3>
                 <div style="text-align: center;">
-                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=400" alt="Sarah" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 1.5rem; border: 1px solid var(--border);">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=400" alt="Sarah" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 1.5rem; border: 1px solid var(--border); display: block; margin-left: auto; margin-right: auto;">
                     <p style="font-size: 0.9rem; font-style: italic; color: var(--text-light);">"Real skincare starts with honesty. I'm here to translate the science into routines that work."</p>
                 </div>
             </div>
@@ -166,7 +73,7 @@
     </main>
 
     <!-- NEWSLETTER SECTION -->
-    <section class="newsletter-cta">
+    <section class="newsletter-cta scroll-reveal">
         <h2>Join The Glow List</h2>
         <p>Get exclusive clinical research and early access to drops.</p>
         <form action="https://manage.kmail-lists.com/subscriptions/subscribe" method="POST" target="_blank" class="newsletter-form">
@@ -177,15 +84,10 @@
     </section>
 
     <!-- MASTER FOOTER -->
-   <div id="footer-placeholder"></div>
+    <footer id="footer-placeholder"></footer>
+
+    <script src="script.js"></script>
     <script>
-        const mobileToggle = document.getElementById('mobile-toggle');
-        const navMenu = document.getElementById('nav-menu');
-        mobileToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-    </script>
-<script>
     function loadComponent(id, file) {
         fetch(file)
             .then(response => response.text())
@@ -199,16 +101,21 @@
                     if(mobileToggle) {
                         mobileToggle.addEventListener('click', () => {
                             navMenu.classList.toggle('active');
+                            if (navMenu.classList.contains('active')) {
+                                mobileToggle.textContent = '✕';
+                                mobileToggle.style.transform = 'rotate(90deg)';
+                            } else {
+                                mobileToggle.textContent = '☰';
+                                mobileToggle.style.transform = 'rotate(0deg)';
+                            }
                         });
                     }
                 }
             });
     }
 
-    // This command runs the engine
     loadComponent('header-placeholder', 'header.html');
     loadComponent('footer-placeholder', 'footer.html');
-</script>
-    
+    </script>
 </body>
 </html>
