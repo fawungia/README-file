@@ -81,11 +81,45 @@
             .legal-box { padding: 3rem 2rem; }
         }
     </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <!-- MASTER HEADER -->
-    <div id="header-placeholder"></div>
+    <header>
+        <nav class="nav-container">
+            <a href="index.html" class="logo">SkinHonestly</a>
+            <div class="menu-toggle" id="mobile-toggle">☰</div> 
+            <div class="nav-links" id="nav-menu">
+                <a href="index.html" class="active">Front Page</a>
+                
+                <div class="nav-dropdown">
+                    <a href="shop.html">The Curation ▾</a>
+                    <div class="dropdown-content">
+                        <a href="shop.html">All Products</a>
+                        <a href="shop.html?cat=cleansers">Cleansers</a>
+                        <a href="shop.html?cat=serums">Serums</a>
+                        <a href="shop.html?cat=moisturizers">Moisturizers</a>
+                        <a href="shop.html?cat=spf">SPF</a>
+                        <a href="shop.html?cat=treatments">Treatments</a>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <a href="blog.html">The Journal ▾</a>
+                    <div class="dropdown-content">
+                        <a href="blog.html?cat=all">Latest Stories</a>
+                        <a href="blog.html?cat=rituals">Morning Rituals</a>
+                        <a href="blog.html?cat=science">Ingredient Science</a>
+                        <a href="blog.html?cat=reviews">Derm Reviews</a>
+                        <a href="blog.html?cat=barrier">Barrier Health</a>
+                    </div>
+                </div>
+                
+                <a href="about.html">About</a>
+            </div>
+        </nav>
+    </header>
 
     <main class="legal-container">
         <h1>Privacy & Disclosures</h1>
@@ -119,39 +153,38 @@
 
     <!-- MASTER FOOTER -->
     
-<div id="footer-placeholder"></div>
+<footer>
+        <div class="f-container">
+            <div class="f-col">
+                <h5>Editorial</h5>
+                <a href="index.html">Front Page</a>
+                <a href="blog.html">The Journal</a>
+                <a href="about.html">About Us</a>
+            </div>
+            <div class="f-col">
+                <h5>Curation</h5>
+                <a href="shop.html">Shop All</a>
+                <a href="shop.html">SkinHonestly Exclusive</a>
+            </div>
+            <div class="f-col">
+                <h5>Connect</h5>
+                <a href="#">Instagram</a>
+                <a href="#">Pinterest</a>
+                <a href="#">YouTube</a>
+            </div>
+            <div class="f-col">
+                <h5>Trust</h5>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="privacy.html">Disclosures</a>
+            </div>
+        </div>
+        <div class="f-bottom">
+            <p>&copy; 2024 SKINHONESTLY. CLINICAL RESEARCH. REAL RESULTS. HONESTLY.</p>
+        </div>
+    </footer>
 
-    <script>
-        // MASTER MOBILE TOGGLE SCRIPT
-        const mobileToggle = document.getElementById('mobile-toggle');
-        const navMenu = document.getElementById('nav-menu');
-        mobileToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-    </script>
-    <script>
-    function loadComponent(id, file) {
-        fetch(file)
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById(id).innerHTML = data;
-                
-                // Re-initialize mobile toggle only after header is loaded
-                if(id === 'header-placeholder') {
-                    const mobileToggle = document.getElementById('mobile-toggle');
-                    const navMenu = document.getElementById('nav-menu');
-                    if(mobileToggle) {
-                        mobileToggle.addEventListener('click', () => {
-                            navMenu.classList.toggle('active');
-                        });
-                    }
-                }
-            });
-    }
-
-    // This command runs the engine
-    loadComponent('header-placeholder', 'header.html');
-    loadComponent('footer-placeholder', 'footer.html');
-</script>
+    
+    
+    <script src="script.js"></script>
 </body>
 </html>
