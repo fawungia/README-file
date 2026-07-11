@@ -40,9 +40,29 @@
         .layout-grid { max-width: 1400px; margin: 4rem auto; padding: 0 5%; display: grid; grid-template-columns: 1fr 350px; gap: 4rem; }
 
         /* Featured Article */
-        .featured-article { grid-column: 1 / -1; margin-bottom: 3rem; position: relative; border-radius: 12px; overflow: hidden; height: 600px; display: flex; align-items: center; background-color: #000; }
+        .featured-article { 
+            grid-column: 1 / -1; 
+            margin-bottom: 3rem; 
+            position: relative; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            height: 600px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: flex-start;
+            background-color: #000; 
+        }
         .featured-article img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; opacity: 0.85; }
-        .featured-overlay { position: relative; z-index: 2; width: 45%; background: rgba(255,255,255,0.95); margin-left: 5%; padding: 4rem; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .featured-overlay { 
+            position: relative; 
+            z-index: 2; 
+            width: 45%; 
+            background: rgba(255,255,255,0.95); 
+            margin-left: 5%; 
+            padding: 4rem; 
+            border-radius: 16px; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15); 
+        }
         .badge { background: var(--secondary); color: white; padding: 4px 12px; font-size: 0.7rem; border-radius: 20px; display: inline-block; margin-bottom: 1.5rem; font-weight: bold; text-transform: uppercase; }
         .featured-overlay h2 { font-size: 3rem; margin-bottom: 1.5rem; color: var(--primary); }
         .featured-overlay p { font-size: 1.1rem; color: var(--text-light); margin-bottom: 2rem; }
@@ -129,6 +149,11 @@
             transform: translateY(15px) !important;
         }
 
+        @media (prefers-reduced-motion: reduce) {
+            .fade-transition { transition: none !important; }
+            .fade-out { transform: none !important; opacity: 1 !important; }
+        }
+
         /* Responsive Breakpoints */
         @media (max-width: 1200px) {
             .featured-overlay { width: 60%; }
@@ -145,6 +170,28 @@
             .article-feed { grid-template-columns: 1fr; }
             .newsletter-form { flex-direction: column; }
             .filter-nav { gap: 1.5rem; }
+
+            .featured-article {
+                height: auto !important; 
+                min-height: 450px !important;
+                display: flex !important;
+                justify-content: center !important;
+                padding: 3rem 0 !important;
+            }
+            .featured-overlay {
+                width: 90% !important;
+                margin: 0 auto !important;
+                padding: 1.5rem !important;
+            }
+            #hero-title {
+                font-size: 1.8rem !important; 
+                margin-bottom: 1rem !important;
+                line-height: 1.2 !important;
+            }
+            #hero-text {
+                font-size: 0.95rem !important;
+                margin-bottom: 1.5rem !important;
+            }
         }
     </style>
 </head>
@@ -184,11 +231,21 @@
     </nav>
 </header>
 
+    <div class="filter-nav-wrapper">
+        <nav class="filter-nav">
+            <a href="javascript:void(0)" class="filter-link active" onclick="filterPosts('all', this)">Latest Stories</a>
+            <a href="javascript:void(0)" class="filter-link" onclick="filterPosts('rituals', this)">Morning Rituals</a>
+            <a href="javascript:void(0)" class="filter-link" onclick="filterPosts('science', this)">Ingredient Science</a>
+            <a href="javascript:void(0)" class="filter-link" onclick="filterPosts('reviews', this)">Derm Reviews</a>
+            <a href="javascript:void(0)" class="filter-link" onclick="filterPosts('barrier', this)">Barrier Health</a>
+        </nav>
+    </div>
+
     <main class="layout-grid">
         <!-- FEATURED HERO STORY - Dynamic -->
-        <article id="hero-article" class="featured-article fade-transition scroll-reveal" style="height: 600px; display: flex; align-items: center; justify-content: flex-start; position: relative; border-radius: 12px; overflow: hidden;">
-            <img id="hero-img" src="https://images.unsplash.com/photo-1617897903246-719242758050?q=80&w=1600&auto=format&fit=crop" alt="Featured Routine" style="position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
-            <div class="featured-overlay" style="position: relative; z-index: 2; width: 45%; background: rgba(255, 255, 255, 0.95); margin-left: 5%; padding: 4rem; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
+        <article id="hero-article" class="featured-article fade-transition scroll-reveal">
+            <img id="hero-img" src="https://images.unsplash.com/photo-1617897903246-719242758050?q=80&w=1600&auto=format&fit=crop" alt="Featured Routine">
+            <div class="featured-overlay">
                 <span id="hero-badge" class="badge">Editor's Highlight</span>
                 <h2 id="hero-title">My Evening Wind-Down Routine</h2>
                 <p id="hero-text">How I take the day off and prep my skin for overnight recovery to wake up with a balanced, healthy glow.</p>
@@ -255,6 +312,30 @@
                     <h3 class="post-title">Skin Barrier 101: The One Thing Routines Get Wrong</h3>
                     <p class="post-excerpt">Understand why the skin barrier is the most important factor in your routine and how to fix a compromised one.</p>
                     <a href="post6.html" class="btn-read">Read Article</a>
+                </div>
+            </article>
+
+            <article class="post-card card-lift scroll-reveal" data-category="science">
+                <a href="post9.html" style="display: block; overflow: hidden; border-radius: 8px; margin-bottom: 1.5rem;">
+                    <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=1200" alt="Hyaluronic Acid">
+                </a>
+                <div class="post-content">
+                    <span class="post-meta">Ingredients • July 05</span>
+                    <h3 class="post-title">The Science of Hyaluronic Acid: Beyond the Hype</h3>
+                    <p class="post-excerpt">Is HA really the hydration hero it's claimed to be? Let's look at the molecular science behind this ingredient.</p>
+                    <a href="post9.html" class="btn-read">Read Article</a>
+                </div>
+            </article>
+
+            <article class="post-card card-lift scroll-reveal" data-category="reviews">
+                <a href="post10.html" style="display: block; overflow: hidden; border-radius: 8px; margin-bottom: 1.5rem;">
+                    <img src="https://images.unsplash.com/photo-1617897903246-719242758050?q=80&w=1200" alt="Retinol Review">
+                </a>
+                <div class="post-content">
+                    <span class="post-meta">Reviews • July 10</span>
+                    <h3 class="post-title">Retinol for Beginners: A Dermatologist Review</h3>
+                    <p class="post-excerpt">The clinical guide to introducing retinoids without destroying your barrier. Start your retinol journey safely.</p>
+                    <a href="post10.html" class="btn-read">Read Article</a>
                 </div>
             </article>
 
@@ -396,17 +477,17 @@
             },
             'science': {
                 badge: "Ingredient Science",
-                title: "The Truth About Vitamin C",
-                text: "Breaking down the stability, efficacy, and percentages of the most popular brightening ingredient on the market.",
-                img: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=1600&auto=format&fit=crop",
-                link: "post4.html"
+                title: "The Science of Hyaluronic Acid",
+                text: "Is HA really the hydration hero it's claimed to be? Let's look at the molecular science behind this ingredient.",
+                img: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=1200",
+                link: "post9.html"
             },
             'reviews': {
                 badge: "Derm Reviews",
-                title: "Drugstore vs. Luxury Serums",
-                text: "We tested the most expensive serums against affordable alternatives to see if the price tag is really worth it.",
-                img: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=1600&auto=format&fit=crop",
-                link: "post3.html"
+                title: "Retinol for Beginners: A Review",
+                text: "The clinical guide to introducing retinoids without destroying your barrier. Start your retinol journey safely.",
+                img: "https://images.unsplash.com/photo-1617897903246-719242758050?q=80&w=1200",
+                link: "post10.html"
             },
             'barrier': {
                 badge: "Barrier Health",
@@ -423,11 +504,14 @@
 
             const posts = document.querySelectorAll('.post-card');
             const hero = document.getElementById('hero-article');
+            const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-            posts.forEach(post => post.classList.add('fade-out'));
-            if(hero) hero.classList.add('fade-out');
+            if (!isReducedMotion) {
+                posts.forEach(post => post.classList.add('fade-out'));
+                if(hero) hero.classList.add('fade-out');
+            }
 
-            setTimeout(() => {
+            const updateContent = () => {
                 const data = heroData[category] || heroData['all'];
                 if(document.getElementById('hero-img')) document.getElementById('hero-img').src = data.img;
                 if(document.getElementById('hero-badge')) document.getElementById('hero-badge').innerText = data.badge;
@@ -443,14 +527,22 @@
                     }
                 });
 
-                if(hero) hero.classList.remove('fade-out');
-                posts.forEach(post => {
-                    if (post.style.display !== 'none') {
-                        void post.offsetWidth; 
-                        post.classList.remove('fade-out');
-                    }
-                });
-            }, 400);
+                if (!isReducedMotion) {
+                    if(hero) hero.classList.remove('fade-out');
+                    posts.forEach(post => {
+                        if (post.style.display !== 'none') {
+                            void post.offsetWidth; 
+                            post.classList.remove('fade-out');
+                        }
+                    });
+                }
+            };
+
+            if (isReducedMotion) {
+                updateContent();
+            } else {
+                setTimeout(updateContent, 400);
+            }
         }
     </script>
 </body>
