@@ -217,29 +217,19 @@
 
             <div class="nav-dropdown">
                 <a href="blog.html">The Journal ▾</a>
-                <div class="dropdown-content">
-                    <a href="blog.html?cat=all">Latest Stories</a>
-                    <a href="blog.html?cat=rituals">Morning Rituals</a>
-                    <a href="blog.html?cat=science">Ingredient Science</a>
-                    <a href="blog.html?cat=reviews">Derm Reviews</a>
-                    <a href="blog.html?cat=barrier">Barrier Health</a>
+                <div class="dropdown-content" id="journal-dropdown">
+                    <a href="javascript:void(0)" onclick="filterPosts('all', this)">Latest Stories</a>
+                    <a href="javascript:void(0)" onclick="filterPosts('rituals', this)">Morning Rituals</a>
+                    <a href="javascript:void(0)" onclick="filterPosts('science', this)">Ingredient Science</a>
+                    <a href="javascript:void(0)" onclick="filterPosts('reviews', this)">Derm Reviews</a>
+                    <a href="javascript:void(0)" onclick="filterPosts('barrier', this)">Barrier Health</a>
                 </div>
             </div>
 
             <a href="about.html">About</a>
         </div>
     </nav>
-</header>
-
-    <div class="filter-nav-wrapper">
-        <nav class="filter-nav">
-            <a href="javascript:void(0)" class="filter-link active" onclick="filterPosts('all', this)">Latest Stories</a>
-            <a href="javascript:void(0)" class="filter-link" onclick="filterPosts('rituals', this)">Morning Rituals</a>
-            <a href="javascript:void(0)" class="filter-link" onclick="filterPosts('science', this)">Ingredient Science</a>
-            <a href="javascript:void(0)" class="filter-link" onclick="filterPosts('reviews', this)">Derm Reviews</a>
-            <a href="javascript:void(0)" class="filter-link" onclick="filterPosts('barrier', this)">Barrier Health</a>
-        </nav>
-    </div>
+    </header>
 
     <main class="layout-grid">
         <!-- FEATURED HERO STORY - Dynamic -->
@@ -499,8 +489,15 @@
         };
 
         function filterPosts(category, element) {
-            document.querySelectorAll('.filter-link').forEach(link => link.classList.remove('active'));
-            if(element) element.classList.add('active');
+            // Update active state in dropdown
+            document.querySelectorAll('#journal-dropdown a').forEach(link => {
+                link.style.textDecoration = 'none';
+                link.style.fontWeight = '700';
+            });
+            if(element) {
+                element.style.textDecoration = 'underline';
+                element.style.color = 'var(--primary)';
+            }
 
             const posts = document.querySelectorAll('.post-card');
             const hero = document.getElementById('hero-article');
