@@ -17,10 +17,105 @@
     </script>
 
     <link rel="stylesheet" href="styles.css">
-    
+    <style>
+        /* Styles unique to this page or local overrides */
+        .hero-cover { background: var(--white); border-bottom: 1px solid var(--border); }
+        .hero-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; align-items: center; }
+        .hero-image { height: 650px; object-fit: cover; width: 100%; }
+        .hero-text { padding: 5rem; }
+        .hero-text span { text-transform: uppercase; font-size: 0.7rem; letter-spacing: 3px; color: var(--secondary); font-weight: 700; display: block; margin-bottom: 1.5rem; }
+        .hero-text h1 { font-size: 4rem; margin-bottom: 2rem; color: var(--primary); }
+        .hero-text p { font-size: 1.1rem; color: var(--text-light); margin-bottom: 3rem; max-width: 450px; }
+        .btn-editorial { border: 1px solid var(--primary); padding: 1rem 2rem; display: inline-block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; color: var(--primary); transition: all 0.3s ease; }
+        .btn-editorial:hover { background: var(--primary); color: white; transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+
+        /* Article Feed */
+        .section-title { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; color: var(--text-light); margin-bottom: 3rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem; }
+        .article-card { margin-bottom: 4rem; display: grid; grid-template-columns: 300px 1fr; gap: 2rem; align-items: start; }
+        .article-card img { border-radius: 4px; height: 200px; width: 100%; object-fit: cover; }
+        .article-content h3 { font-size: 2rem; margin-bottom: 1rem; color: var(--primary); }
+        .article-content p { color: var(--text-light); font-size: 0.95rem; margin-bottom: 1.5rem; }
+        .link-more { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; border-bottom: 1px solid var(--secondary); padding-bottom: 4px; transition: color 0.3s ease, border-color 0.3s ease; }
+        .link-more:hover { color: var(--primary); border-color: var(--primary); }
+
+        /* Sidebar */
+        .sidebar { border-left: 1px solid var(--border); padding-left: 3rem; }
+        .sidebar-widget { margin-bottom: 4rem; }
+        .widget-h { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 2rem; color: var(--primary); }
+        .trending-row { display: block; margin-bottom: 2rem; transition: transform 0.3s ease; }
+        .trending-row:hover { transform: translateX(5px); }
+        .trending-row span { font-size: 0.65rem; color: var(--secondary); font-weight: 700; display: block; margin-bottom: 0.5rem; }
+        .trending-row h4 { font-size: 1.1rem; line-height: 1.3; transition: color 0.3s ease; }
+        .trending-row:hover h4 { color: var(--primary); }
+
+        /* The Minimal Brand Row */
+        .brand-philosophy { background: var(--white); padding: 6rem 5%; text-align: center; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .philosophy-inner { max-width: 800px; margin: 0 auto; }
+        .philosophy-inner h2 { font-size: 2.5rem; margin-bottom: 2rem; color: var(--primary); }
+        .philosophy-inner p { font-size: 1.2rem; color: var(--text-light); font-style: italic; }
+
+        /* Shop Curation Row */
+        .shop-row { max-width: 1400px; margin: 6rem auto; padding: 0 5%; }
+        .shop-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+        .shop-item { text-align: center; }
+        .shop-item img { height: 280px; object-fit: cover; margin-bottom: 1.5rem; border-radius: 2px; }
+        .shop-item h4 { font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .shop-item p { font-size: 0.8rem; color: var(--text-light); }
+
+        /* Newsletter Footer */
+        .newsletter-classic { background: var(--primary); color: white; padding: 6rem 5%; text-align: center; }
+        .newsletter-classic h3 { font-size: 2.5rem; margin-bottom: 1rem; color: white; }
+        .newsletter-classic p { opacity: 0.8; margin-bottom: 3rem; }
+        .n-form { display: flex; justify-content: center; gap: 10px; max-width: 500px; margin: 0 auto; }
+        .n-form input { background: transparent; border: 1px solid rgba(255,255,255,0.3); padding: 1rem; color: white; flex: 1; outline: none; transition: border-color 0.3s ease; }
+        .n-form input:focus { border-color: rgba(255,255,255,0.8); }
+        .n-form input::placeholder { color: rgba(255,255,255,0.6); }
+        .n-form button { background: white; color: var(--primary); border: none; padding: 0 2rem; font-weight: 700; text-transform: uppercase; font-size: 0.7rem; cursor: pointer; transition: all 0.3s ease; }
+        .n-form button:hover { background: var(--bg); color: var(--primary); }
+
+        /* Dropdown Styles */
+        .nav-dropdown { position: relative; display: inline-block; }
+        .dropdown-content { 
+            display: block; position: absolute; background-color: var(--white); min-width: 200px; 
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1); z-index: 1002; border: 1px solid var(--border);
+            top: 100%; left: 0;
+            max-height: 0; opacity: 0; overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+        }
+        .dropdown-content a { 
+            color: var(--text-light); padding: 12px 16px; text-decoration: none; display: block; 
+            font-size: 0.75rem; text-transform: uppercase; border-bottom: 1px solid var(--border);
+            letter-spacing: 1px; font-weight: 700;
+        }
+        .dropdown-content a:last-child { border-bottom: none; }
+        .dropdown-content a:hover { background-color: var(--bg); color: var(--primary); }
+        .nav-dropdown:hover .dropdown-content { max-height: 400px; opacity: 1; }
+
+        @media (max-width: 768px) {
+            .nav-dropdown { width: 100%; }
+            .dropdown-content { position: static; box-shadow: none; border: none; padding-left: 1rem; display: block; width: 100%; max-height: 0; opacity: 0; overflow: hidden; transition: max-height 0.4s ease, opacity 0.4s ease; }
+            .nav-dropdown.active .dropdown-content { max-height: 400px; opacity: 1; }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-inner { grid-template-columns: 1fr; }
+            .hero-image { height: 400px; }
+            .layout-grid { grid-template-columns: 1fr; }
+            .sidebar { border-left: none; padding-left: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+            .shop-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .article-card { grid-template-columns: 1fr; }
+            .hero-text { padding: 3rem 1.5rem; }
+            .hero-text h1 { font-size: 2.8rem; }
+            .sidebar { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
-  <header>
+
+      <header>
     <div class="header-top">DERMATOLOGIST-LED SKINCARE • FREE SHIPPING ON ORDERS $50+</div>
     <div class="header-main">
         <div class="header-search"><!-- Search placeholder --></div>
@@ -63,7 +158,7 @@
   </header>
 
     <!-- THE COVER STORY -->
-    <section class="hero-cover scroll-reveal">
+    <section class="hero-cover">
         <div class="hero-inner">
             <div class="hero-text">
                 <span class="stagger-item">Volume 01 • Exclusive Feature</span>
@@ -78,7 +173,7 @@
     <!-- MAIN EDITORIAL FEED -->
     <main class="layout-grid">
         
-        <section class="feed scroll-reveal">
+        <section class="feed">
             <h2 class="section-title scroll-reveal">Latest From The Lab</h2>
             
             <article class="article-card card-lift scroll-reveal">
@@ -146,7 +241,7 @@
     </section>
 
     <!-- CURATED SHOP ROW -->
-    <section class="shop-row scroll-reveal">
+    <section class="shop-row">
         <h2 class="section-title scroll-reveal">The Editor's Essentials</h2>
         <div class="shop-grid">
             <article class="shop-item card-lift scroll-reveal">
@@ -186,7 +281,7 @@
   <div class="back-to-top" onclick="window.scrollTo({top:0, behavior:'smooth'})">Back to the top</div>
 
 
-        <footer>
+      <footer>
     <div class="footer-newsletter">
         <h3>Subscribe to The Journal</h3>
         <p>Clinical skincare advice and exclusive editorial drops delivered to your inbox.</p>
