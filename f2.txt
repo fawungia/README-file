@@ -1,0 +1,37 @@
+  <footer>
+    <div class="footer-newsletter">
+        <h3>Subscribe to The Journal</h3>
+        <p>Clinical skincare advice and exclusive editorial drops delivered to your inbox.</p>
+        <form action="#" class="n-form">
+            <input type="email" placeholder="Your email address" required>
+            <button type="submit">Join</button>
+        </form>
+    </div>
+    <div class="f-container">
+        <div class="f-col">
+            <h5>Editorial</h5>
+            <a href="index.html">Front Page</a>
+            <a href="blog.html">The Journal</a>
+            <a href="about.html">About Us</a>
+        </div>
+        <div class="f-col">
+            <h5>Curation</h5>
+            <a href="shop.html">Shop All</a>
+            <a href="shop.html">SkinHonestly Exclusive</a>
+        </div>
+        <div class="f-col">
+            <h5>Connect</h5>
+            <a href="#">Instagram</a>
+            <a href="#">Pinterest</a>
+            <a href="#">YouTube</a>
+        </div>
+        <div class="f-col">
+            <h5>Trust</h5>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="privacy.html">Disclosures</a>
+        </div>
+    </div>
+    <div class="f-bottom">
+        <p>&copy; 2024 SKINHONESTLY. CLINICAL RESEARCH. REAL RESULTS. HONESTLY.</p>
+    </div>
+  </footer>
