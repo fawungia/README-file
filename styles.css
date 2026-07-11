@@ -287,6 +287,45 @@ footer {
 .article-content {
   max-width: 750px;
   margin: 0 auto;
+  line-height: 1.8;
+}
+
+.article-content p {
+  margin-bottom: 2rem;
+}
+
+.article-content p:first-of-type::first-letter {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  float: left;
+  line-height: 0.85;
+  margin-right: 0.6rem;
+  margin-top: 0.15rem;
+  font-weight: 500;
+  color: var(--primary);
+}
+
+.article-header h1 {
+  font-size: 4rem;
+  color: var(--primary);
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .article-header h1 {
+    font-size: 2.5rem;
+  }
+}
+
+.article-meta {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #888;
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .sidebar {
@@ -302,19 +341,35 @@ footer {
 }
 
 .shop-callout {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  background: var(--white);
+  background: #F9F7F2;
   border: 1px solid var(--border);
-  padding: 1.5rem;
-  margin: 2rem 0;
+  padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+  margin: 3rem 0;
   border-radius: 4px;
 }
 
+.shop-callout::before {
+  content: "EDITOR’S CHOICE";
+  position: absolute;
+  top: 0;
+  left: 1.5rem;
+  transform: translateY(-50%);
+  background: var(--secondary);
+  color: var(--white);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 0.25rem 0.75rem;
+  border-radius: 2px;
+}
+
 .shop-callout img {
-  width: 80px;
-  height: 80px;
+  width: 80px !important;
+  height: 80px !important;
   object-fit: cover;
   border-radius: 4px;
 }
