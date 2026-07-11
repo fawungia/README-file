@@ -418,3 +418,18 @@ footer {
     padding-left: 0;
   }
 }
+
+
+/* Premium Quiet Luxury Styles Overrides */
+/* Variables */
+:root { --bg: #FAF7F2; --primary: #5E795B; --secondary: #D4886B; --text: #2B2B2B; --border: #EAE6DF; --white: #FFFFFF; }
+/* Typography */
+h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+.article-header h1 { font-size: 4.5rem; line-height: 1; text-align: center; }
+.article-meta { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 3px; color: var(--secondary); text-align: center; margin-bottom: 2rem; }
+.article-content { font-size: 1.15rem; line-height: 1.9; max-width: 800px; margin: 0 auto; }
+.article-content p:first-of-type::first-letter { float: left; font-family: 'Playfair Display', serif; font-size: 5rem; line-height: 1; padding-right: 15px; color: var(--primary); }
+/* Layout */
+.article-layout { display: grid; grid-template-columns: 1fr 380px; gap: 6rem; max-width: 1400px; margin: 6rem auto; }
+.shop-callout { background: var(--white); border: 1px solid var(--border); padding: 2.5rem; margin: 4rem 0; display: flex; align-items: center; gap: 2.5rem; position: relative; }
+.shop-callout::before { content: 'EDITOR’S CHOICE'; position: absolute; top: -12px; left: 2.5rem; background: var(--secondary); color: white; font-size: 0.6rem; padding: 4px 12px; }
