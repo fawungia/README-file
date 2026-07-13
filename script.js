@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (mobileToggle && navMenu) {
         mobileToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
             
             // Hamburger-to-X transition / toggle icon text & rotation
             if (navMenu.classList.contains('active')) {
@@ -27,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
+                document.body.classList.remove('menu-open');
                 mobileToggle.textContent = '☰';
                 mobileToggle.style.transform = 'rotate(0deg)';
             });
