@@ -3,8 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>My Evening Wind-Down Routine</title>
-    <meta name="description" content="How I take the day off and prep my skin for overnight recovery.">
+    <title>My Evening Wind-Down Routine | SkinHonestly Journal</title>
+    <meta name="description" content="How I take the day off and prep my skin for overnight recovery to wake up with a balanced, healthy glow.">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-33SX49MXHN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-33SX49MXHN');
+    </script>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;600;700&display=swap');
 
@@ -78,16 +88,6 @@
         .article-content h2 { font-size: 2.2rem; margin: 4rem 0 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; color: var(--primary); }
         .article-content ul { padding-left: 1.5rem; margin-bottom: 2rem; }
         .article-content li { margin-bottom: 1rem; font-size: 1.1rem; color: #444; }
-        .article-content a { color: var(--primary); border-bottom: 1px solid var(--highlight); font-weight: 600; }
-
-        /* Affiliate/Shop Callout */
-        .shop-callout { background: var(--white); border: 1px solid var(--border); padding: 2.5rem; margin: 4rem 0; position: relative; display: flex; align-items: center; gap: 2.5rem; transition: transform 0.3s ease; border-radius: 4px; }
-        .shop-callout:hover { transform: translateY(-5px); }
-        .shop-callout::before { content: 'EDITOR’S CHOICE'; position: absolute; top: -12px; left: 2.5rem; background: var(--secondary); color: white; font-size: 0.6rem; font-weight: 700; padding: 4px 12px; letter-spacing: 2px; }
-        .shop-callout img { width: 120px; height: 120px; object-fit: cover; border-radius: 2px; }
-        .shop-callout-content h4 { font-size: 1.4rem; margin-bottom: 0.8rem; color: var(--text); }
-        .shop-callout-content p { font-size: 0.95rem; margin-bottom: 1.5rem; color: var(--text-light); line-height: 1.5; border: none; font-weight: 400; }
-        .shop-callout-btn { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--primary); border-bottom: 2px solid var(--primary); padding-bottom: 4px; text-decoration: none; }
 
         /* Sidebar Widgets */
         .sidebar { display: flex; flex-direction: column; gap: 5rem; border-left: 1px solid var(--border); padding-left: 3rem; }
@@ -112,6 +112,21 @@
         .f-col a:hover { color: var(--primary); }
         .f-bottom { padding-top: 4rem; text-align: center; font-size: 0.75rem; color: #999; letter-spacing: 2px; text-transform: uppercase; }
 
+        /* Responsive Breakpoints - Force Stacking */
+        @media (max-width: 1100px) {
+            .article-layout { grid-template-columns: 1fr !important; }
+            .sidebar { border-left: none !important; padding-left: 0 !important; flex-direction: row !important; flex-wrap: wrap !important; margin-top: 4rem !important; }
+            .sidebar-widget { flex: 1 !important; min-width: 300px !important; }
+            .f-container { grid-template-columns: 1fr 1fr; gap: 3rem; }
+        }
+        @media (max-width: 768px) {
+            .newsletter-form { flex-direction: column; }
+            .newsletter-form button { padding: 1.2rem; }
+            .main-img { height: 350px; }
+            .shop-callout { flex-direction: column; text-align: center; }
+            .shop-callout img { width: 100%; max-width: 220px; height: 220px; margin: 0 auto; }
+        }
+
         body.menu-open { position: fixed; width: 100%; overflow: hidden; }
 
         /* Interactive Enhancements */
@@ -123,57 +138,71 @@
         .related-card { display: flex; flex-direction: column; transition: transform 0.3s ease; text-decoration: none; color: inherit; }
         .related-card:hover { transform: translateY(-5px); }
         .related-card img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 1.5rem; }
-</style>
+    </style>
 </head>
 <body>
     <div id="reading-progress"></div>
-<header>
-    <nav class="nav-container">
-        <a href="index.html" class="logo">SkinHonestly</a>
-        <div class="menu-toggle" id="mobile-toggle">☰</div>
-        <div class="nav-links" id="nav-menu">
-            <a href="index.html">Front Page</a>
-            <div class="nav-dropdown">
-                <a href="shop.html">The Curation ▾</a>
-                <div class="dropdown-content">
-                    <a href="shop.html">All Products</a>
-                    <a href="shop.html?cat=cleansers">Cleansers</a>
-                    <a href="shop.html?cat=serums">Serums</a>
-                    <a href="shop.html?cat=moisturizers">Moisturizers</a>
-                    <a href="shop.html?cat=spf">SPF</a>
-                    <a href="shop.html?cat=treatments">Treatments</a>
+
+    <header>
+        <nav class="nav-container">
+            <a href="index.html" class="logo">SkinHonestly</a>
+            <div class="menu-toggle" id="mobile-toggle">☰</div>
+            <div class="nav-links" id="nav-menu">
+                <a href="index.html">Front Page</a>
+                <div class="nav-dropdown">
+                    <a href="shop.html">The Curation ▾</a>
+                    <div class="dropdown-content">
+                        <a href="shop.html">All Products</a>
+                        <a href="shop.html?cat=cleansers">Cleansers</a>
+                        <a href="shop.html?cat=serums">Serums</a>
+                        <a href="shop.html?cat=moisturizers">Moisturizers</a>
+                        <a href="shop.html?cat=spf">SPF</a>
+                        <a href="shop.html?cat=treatments">Treatments</a>
+                    </div>
                 </div>
-            </div>
-            <div class="nav-dropdown">
-                <a href="blog.html">The Journal ▾</a>
-                <div class="dropdown-content">
-                    <a href="blog.html?cat=all">Latest Stories</a>
-                    <a href="blog.html?cat=rituals">Morning Rituals</a>
-                    <a href="blog.html?cat=science">Ingredient Science</a>
-                    <a href="blog.html?cat=reviews">Derm Reviews</a>
-                    <a href="blog.html?cat=barrier">Barrier Health</a>
+                <div class="nav-dropdown">
+                    <a href="blog.html">The Journal ▾</a>
+                    <div class="dropdown-content">
+                        <a href="blog.html?cat=all">Latest Stories</a>
+                        <a href="blog.html?cat=rituals">Morning Rituals</a>
+                        <a href="blog.html?cat=science">Ingredient Science</a>
+                        <a href="blog.html?cat=reviews">Derm Reviews</a>
+                        <a href="blog.html?cat=barrier">Barrier Health</a>
+                    </div>
                 </div>
+                <a href="about.html">About</a>
             </div>
-            <a href="about.html">About</a>
-        </div>
-    </nav>
-</header>
+        </nav>
+    </header>
 
     <main class="article-layout">
         <div class="article-body">
             <header class="article-header">
-                <span class="cat-tag">BARRIER • SKINHONESTLY</span>
-                <h1>My Evening Wind-Down Routine</h1>
+                <span class="cat-tag">Rituals • Evening Recovery</span>
+                <h1>My Evening Wind-Down Routine for Recovery.</h1>
                 <div class="article-meta">
-                    <span>By Editor • July 01</span>
+                    <span>By Editor • July 01, 2026</span>
                     <span>5 Min Read</span>
                 </div>
             </header>
 
-            <img src="images/content-pixie-Q0y-1aorvJo-unsplash.webp" alt="My Evening Wind-Down Routine" class="main-img">
+            <img src="images/content-pixie-Q0y-1aorvJo-unsplash.webp" alt="Evening Routine" class="main-img">
 
             <article class="article-content">
-                <p>By the time 8 PM rolls around, my brain is usually fried from staring at screens all day, and my skin feels completely suffocated. Between the commute, the office AC, and the stress of balancing a busy schedule, my evening skincare routine has become less about "fixing" my face and more about preserving my sanity.</p><p>I don't do a 10-step routine. I don't have the energy for it, and honestly, neither does my skin barrier. My goal at night is simple: take the day off, release the physical tension in my face, and flood my skin with hydration so it can repair itself while I sleep.</p><h2>Step 1: The "Melt"</h2><p>I start with a soothing cleansing balm to break down stubborn mascara without scrubbing.</p><h2>Step 2: The Clean Slate</h2><p>Next, I go in with a gentle, non-foaming hydrating cleanser.</p><p>Finally, I seal everything in with a rich, ceramide-heavy night cream. Wake up with skin that feels rested.</p>
+                <p>By the time 8 PM rolls around, my brain is usually fried from staring at screens all day, and my skin feels completely suffocated. Between the commute, the office AC, and the stress of balancing a busy schedule, my evening skincare routine has become less about "fixing" my face and more about preserving my sanity.</p>
+                
+                <p>I don't do a 10-step routine. I don't have the energy for it, and honestly, neither does my skin barrier. My goal at night is simple: take the day off, release the physical tension in my face, and flood my skin with hydration so it can repair itself while I sleep.</p>
+
+                <h2>Step 1: The "Melt" (Double Cleanse Part 1)</h2>
+                <p>If you wear SPF or makeup, a water-based cleanser alone isn't going to cut it. I start with a soothing cleansing balm. I massage it into my dry skin for a full minute to break down stubborn mascara without scrubbing.</p>
+
+                <h2>Step 2: The Clean Slate (Double Cleanse Part 2)</h2>
+                <p>Next, I go in with a gentle, non-foaming hydrating cleanser. Your skin should never feel "squeaky clean" or tight after this step. If your cleanser makes your face feel like a desert, it's too harsh!</p>
+
+                <h2>Step 3: The Prep & Treat</h2>
+                <p>While my skin is still slightly damp, I pat in a hydrating serum. Applying it to damp skin pulls that moisture deep into the epidermis, ensuring you wake up with plump, rested skin.</p>
+
+                <p>Finally, I seal everything in with a rich, ceramide-heavy night cream. Wake up with skin that feels rested, even if your brain doesn't.</p>
             </article>
         </div>
 
@@ -188,11 +217,18 @@
 
             <div class="sidebar-widget">
                 <h3 class="widget-title">Shop This Post</h3>
-                <div class="shop-widget-item"><img src="https://images.unsplash.com/photo-1617897903246-719242758050?q=80&w=200" alt="Oil"><div><h5>Bakuchiol Night Oil</h5><a href="shop.html" class="shop-btn">View in Shop</a></div></div>
+                <div class="shop-widget-item">
+                    <img src="https://images.unsplash.com/photo-1617897903246-719242758050?q=80&w=200" alt="Night Oil">
+                    <div>
+                        <h5 style="font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600;">Bakuchiol Night Oil</h5>
+                        <a href="shop.html" class="shop-btn">View in Shop</a>
+                    </div>
+                </div>
             </div>
         </aside>
     </main>
 
+    <!-- NEWSLETTER SECTION -->
     <section class="newsletter-cta">
         <h2>Join The Glow List</h2>
         <p>Get exclusive clinical research and early access to drops.</p>
@@ -203,110 +239,114 @@
         </form>
     </section>
 
-
+    <!-- YOU MIGHT ALSO LIKE -->
     <section class="related-posts">
         <div class="related-header">
             <h3>You Might Also Like</h3>
-            <a href="blog.html" class="btn-read">View All Stories</a>
+            <a href="blog.html" class="shop-btn">View All Stories</a>
         </div>
         <div class="related-grid">
+            <a href="post2.html" class="related-card">
+                <img src="images/poko-skincare-oXI2_S1ILQI-unsplash.webp" alt="Morning Routine">
+                <h4 style="font-size: 1.2rem; color: var(--primary);">My Honest Morning Routine</h4>
+            </a>
             <a href="post6.html" class="related-card">
-                <img src="images/christian-agbede-TqmyIxQpo5s-unsplash.webp" alt="Skin Barrier 101">
+                <img src="images/christian-agbede-TqmyIxQpo5s-unsplash.webp" alt="Skin Barrier">
                 <h4 style="font-size: 1.2rem; color: var(--primary);">Skin Barrier 101</h4>
             </a>
-            <a href="post8.html" class="related-card">
-                <img src="images/content-pixie-Q0y-1aorvJo-unsplash.webp" alt="Evening Wind-Down Routine">
-                <h4 style="font-size: 1.2rem; color: var(--primary);">Evening Wind-Down Routine</h4>
-            </a>
-            <a href="post2.html" class="related-card">
-                <img src="images/poko-skincare-oXI2_S1ILQI-unsplash.webp" alt="My Honest Morning Routine">
-                <h4 style="font-size: 1.2rem; color: var(--primary);">My Honest Morning Routine</h4>
+            <a href="post4.html" class="related-card">
+                <img src="images/plantadea-zSD0OWrbtlw-unsplash.webp" alt="Peptides Explained">
+                <h4 style="font-size: 1.2rem; color: var(--primary);">Peptides Explained</h4>
             </a>
         </div>
     </section>
-<footer>
-    <a href="index.html" class="f-logo">SkinHonestly</a>
-    <div class="f-container">
-        <div class="f-col">
-            <h5>Editorial</h5>
-            <a href="index.html">Front Page</a>
-            <a href="blog.html">The Journal</a>
-            <a href="about.html">The Philosophy</a>
+
+    <footer>
+        <a href="index.html" class="f-logo">SkinHonestly</a>
+        <div class="f-container">
+            <div class="f-col">
+                <h5>Editorial</h5>
+                <a href="index.html">Front Page</a>
+                <a href="blog.html">The Journal</a>
+                <a href="about.html">The Philosophy</a>
+            </div>
+            <div class="f-col">
+                <h5>Shop Curation</h5>
+                <a href="shop.html">The Exclusive Line</a>
+                <a href="shop.html">Derm-Trusted Picks</a>
+            </div>
+            <div class="f-col">
+                <h5>Connect</h5>
+                <a href="#">Instagram</a>
+                <a href="#">YouTube</a>
+                <a href="#">Pinterest</a>
+            </div>
+            <div class="f-col">
+                <h5>Trust & Support</h5>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="privacy.html">Disclosures</a>
+                <a href="about.html">Contact Us</a>
+            </div>
         </div>
-        <div class="f-col">
-            <h5>Shop Curation</h5>
-            <a href="shop.html">The Exclusive Line</a>
-            <a href="shop.html">Derm-Trusted Picks</a>
+        <div class="f-bottom">
+            <p>&copy; 2024 SKINHONESTLY. REAL SKINCARE. HONESTLY.</p>
         </div>
-        <div class="f-col">
-            <h5>Connect</h5>
-            <a href="#">Instagram</a>
-            <a href="#">YouTube</a>
-            <a href="#">Pinterest</a>
-        </div>
-        <div class="f-col">
-            <h5>Trust & Support</h5>
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="privacy.html">Disclosures</a>
-            <a href="about.html">Contact Us</a>
-        </div>
-    </div>
-    <div class="f-bottom">
-        <p>&copy; 2024 SKINHONESTLY. REAL SKINCARE. HONESTLY.</p>
-    </div>
-</footer>
+    </footer>
 
-    <script src="script.js"></script>
-<script>
-    window.addEventListener('scroll', () => {
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        const bar = document.getElementById('reading-progress');
-        if (bar) bar.style.width = scrolled + "%";
-    });
-
-    const mobileToggle = document.getElementById('mobile-toggle');
-    const navMenu = document.getElementById('nav-menu');
-
-    if (navMenu && window.innerWidth <= 768) {
-        document.body.appendChild(navMenu);
-    }
-
-    let scrollY = 0;
-
-    function openMenu() {
-        scrollY = window.scrollY;
-        document.body.style.top = '-' + scrollY + 'px';
-        document.body.classList.add('menu-open');
-        navMenu.classList.add('active');
-    }
-
-    function closeMenu() {
-        document.body.classList.remove('menu-open');
-        document.body.style.top = '';
-        window.scrollTo(0, scrollY);
-        navMenu.classList.remove('active');
-    }
-
-    if (mobileToggle && navMenu) {
-        mobileToggle.addEventListener('click', () => {
-            if (navMenu.classList.contains('active')) {
-                closeMenu();
-            } else {
-                openMenu();
-            }
+    <script>
+        // 1. Reading Progress Logic
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            const bar = document.getElementById('reading-progress');
+            if (bar) bar.style.width = scrolled + "%";
         });
-    }
 
-    if (window.innerWidth <= 768) {
-        document.querySelectorAll('.nav-dropdown > a').forEach(link => {
-            link.addEventListener('click', function (e) {
-                e.preventDefault();
-                this.parentElement.classList.toggle('active');
+        // 2. Mobile Menu Toggle Logic
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        // iOS Safari Fix: Move menu to body child
+        if (navMenu && window.innerWidth <= 768) {
+            document.body.appendChild(navMenu);
+        }
+
+        let scrollPosition = 0;
+
+        function openMenu() {
+            scrollPosition = window.pageYOffset;
+            document.body.style.top = `-${scrollPosition}px`;
+            document.body.classList.add('menu-open');
+            navMenu.classList.add('active');
+        }
+
+        function closeMenu() {
+            document.body.classList.remove('menu-open');
+            document.body.style.top = '';
+            window.scrollTo(0, scrollPosition);
+            navMenu.classList.remove('active');
+        }
+
+        if (mobileToggle && navMenu) {
+            mobileToggle.onclick = function() {
+                if (navMenu.classList.contains('active')) {
+                    closeMenu();
+                } else {
+                    openMenu();
+                }
+            };
+        }
+
+        // 3. Mobile Dropdown Tap Logic
+        if (window.innerWidth <= 768) {
+            document.querySelectorAll('.nav-dropdown > a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    this.parentElement.classList.toggle('active');
+                });
             });
-        });
-    }
-</script>
+        }
+    </script>
 </body>
 </html>
