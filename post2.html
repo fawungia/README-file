@@ -365,6 +365,15 @@
 
         const mobileToggle = document.getElementById('mobile-toggle');
         const navMenu = document.getElementById('nav-menu');
+
+        // iOS Safari has a known bug where a position:fixed element nested
+        // inside a position:sticky ancestor can fail to stack correctly.
+        // Fix: physically move the mobile menu to be a direct child of
+        // <body> (sibling of <header>) so it's outside that stacking context.
+        if (navMenu && window.innerWidth <= 768) {
+            document.body.appendChild(navMenu);
+        }
+
         let scrollY = 0;
 
         function openMenu() {
