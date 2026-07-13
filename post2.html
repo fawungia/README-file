@@ -138,6 +138,8 @@
             .shop-callout img { width: 100%; max-width: 220px; height: 220px; margin: 0 auto; }
         }
 
+        body.menu-open { overflow: hidden; }
+
         /* Interactive Enhancements */
         #reading-progress { position: fixed; top: 80px; left: 0; width: 0%; height: 4px; background: var(--primary); z-index: 2001; transition: width 0.1s ease; }
         .related-posts { max-width: 1300px; margin: 6rem auto; padding: 4rem 5% 0; border-top: 1px solid var(--border); }
@@ -362,6 +364,7 @@
         if (mobileToggle && navMenu) {
             mobileToggle.addEventListener('click', () => {
                 navMenu.classList.toggle('active');
+                document.body.classList.toggle('menu-open');
             });
         }
 
