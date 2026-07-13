@@ -63,9 +63,10 @@
         @media (max-width: 768px) {
             .menu-toggle { display: block; }
             .nav-links {
-                display: none; flex-direction: column; position: absolute; top: 80px; left: 0; width: 100%;
+                display: none; flex-direction: column; position: fixed; top: 80px; left: 0; width: 100%;
+                height: calc(100vh - 80px); overflow-y: auto;
                 background-color: var(--white); padding: 2rem; border-bottom: 1px solid var(--border);
-                box-shadow: 0 10px 15px rgba(0,0,0,0.05); gap: 1.5rem; z-index: 1001;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.05); gap: 1.5rem; z-index: 9999;
             }
             .nav-links.active { display: flex; }
             .nav-dropdown { width: 100%; }
@@ -364,15 +365,16 @@
             });
         }
 
-        // Mobile dropdown tap-to-open (Curation / Journal)
-if (window.innerWidth <= 768) {
-    document.querySelectorAll('.nav-dropdown > a').forEach(link => {
-        link.addEventListener('click', function (e) {
-            e.preventDefault();
-            this.parentElement.classList.toggle('active');
-        });
-    });
-}
+        // Mobile dropdown tap-to-open (Curation / Journal) — required for
+        // dropdowns to work on touch devices where there's no hover.
+        if (window.innerWidth <= 768) {
+            document.querySelectorAll('.nav-dropdown > a').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    this.parentElement.classList.toggle('active');
+                });
+            });
+        }
     </script>
 </body>
 </html>
