@@ -138,7 +138,11 @@
             .shop-callout img { width: 100%; max-width: 220px; height: 220px; margin: 0 auto; }
         }
 
-        body.menu-open { overflow: hidden; }
+        body.menu-open {
+            position: fixed;
+            width: 100%;
+            overflow: hidden;
+        }
 
         /* Interactive Enhancements */
         #reading-progress { position: fixed; top: 80px; left: 0; width: 0%; height: 4px; background: var(--primary); z-index: 2001; transition: width 0.1s ease; }
@@ -361,10 +365,29 @@
 
         const mobileToggle = document.getElementById('mobile-toggle');
         const navMenu = document.getElementById('nav-menu');
+        let scrollY = 0;
+
+        function openMenu() {
+            scrollY = window.scrollY;
+            document.body.style.top = `-${scrollY}px`;
+            document.body.classList.add('menu-open');
+            navMenu.classList.add('active');
+        }
+
+        function closeMenu() {
+            document.body.classList.remove('menu-open');
+            document.body.style.top = '';
+            window.scrollTo(0, scrollY);
+            navMenu.classList.remove('active');
+        }
+
         if (mobileToggle && navMenu) {
             mobileToggle.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-                document.body.classList.toggle('menu-open');
+                if (navMenu.classList.contains('active')) {
+                    closeMenu();
+                } else {
+                    openMenu();
+                }
             });
         }
 
