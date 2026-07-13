@@ -3,24 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>My Honest Morning Routine | SkinHonestly Journal</title>
-    <meta name="description" content="Ditch the 12-step system. Learn the three clinically potent actives you actually need in your morning skincare routine for a lasting morning glow.">
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-33SX49MXHN"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-33SX49MXHN');
-    </script>
-
+    <title>My Honest Morning Routine</title>
+    <meta name="description" content="I’ve finally nailed down a routine that keeps my skin hydrated and glowing without feeling heavy.">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;600;700&display=swap');
 
         :root {
             --bg: #FAF7F2;
-            --primary: #5E795B;
+            --primary: #5E795B; 
             --secondary: #D4886B;
             --text: #2B2B2B;
             --text-light: #666;
@@ -48,8 +38,8 @@
 
         /* Dropdown Styles */
         .nav-dropdown { position: relative; display: inline-block; }
-        .dropdown-content {
-            display: block; position: absolute; background-color: var(--white); min-width: 220px;
+        .dropdown-content { 
+            display: block; position: absolute; background-color: var(--white); min-width: 220px; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.05); z-index: 1002; border: 1px solid var(--border);
             top: 100%; left: 50%; transform: translateX(-50%);
             max-height: 0; opacity: 0; overflow: hidden;
@@ -62,10 +52,10 @@
 
         @media (max-width: 768px) {
             .menu-toggle { display: block; }
-            .nav-links {
-                display: none; flex-direction: column; position: fixed; top: 80px; left: 0; width: 100%;
+            .nav-links { 
+                display: none; flex-direction: column; position: fixed; top: 80px; left: 0; width: 100%; 
                 max-height: calc(100vh - 80px); overflow-y: auto;
-                background-color: var(--white); padding: 2rem; border-bottom: 1px solid var(--border);
+                background-color: var(--white); padding: 2rem; border-bottom: 1px solid var(--border); 
                 box-shadow: 0 10px 15px rgba(0,0,0,0.05); gap: 1.5rem; z-index: 9999;
             }
             .nav-links.active { display: flex; }
@@ -122,27 +112,7 @@
         .f-col a:hover { color: var(--primary); }
         .f-bottom { padding-top: 4rem; text-align: center; font-size: 0.75rem; color: #999; letter-spacing: 2px; text-transform: uppercase; }
 
-        /* Responsive Breakpoints */
-        @media (max-width: 1100px) {
-            .article-layout { grid-template-columns: 1fr !important; }
-            .sidebar { border-left: none !important; padding-left: 0 !important; flex-direction: row !important; flex-wrap: wrap !important; margin-top: 4rem !important; }
-            .sidebar-widget { flex: 1 !important; min-width: 300px !important; }
-            .f-container { grid-template-columns: 1fr 1fr; gap: 3rem; }
-        }
-        @media (max-width: 768px) {
-            .newsletter-form { flex-direction: column; }
-            .newsletter-form button { padding: 1.2rem; }
-            .main-img { height: 350px; }
-            .related-grid { grid-template-columns: 1fr !important; }
-            .shop-callout { flex-direction: column; text-align: center; }
-            .shop-callout img { width: 100%; max-width: 220px; height: 220px; margin: 0 auto; }
-        }
-
-        body.menu-open {
-            position: fixed;
-            width: 100%;
-            overflow: hidden;
-        }
+        body.menu-open { position: fixed; width: 100%; overflow: hidden; }
 
         /* Interactive Enhancements */
         #reading-progress { position: fixed; top: 80px; left: 0; width: 0%; height: 4px; background: var(--primary); z-index: 2001; transition: width 0.1s ease; }
@@ -153,133 +123,57 @@
         .related-card { display: flex; flex-direction: column; transition: transform 0.3s ease; text-decoration: none; color: inherit; }
         .related-card:hover { transform: translateY(-5px); }
         .related-card img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 1.5rem; }
-    </style>
+</style>
 </head>
 <body>
     <div id="reading-progress"></div>
-
-    <!-- MASTER HEADER -->
-    <header>
-        <nav class="nav-container">
-            <a href="index.html" class="logo">SkinHonestly</a>
-            <div class="menu-toggle" id="mobile-toggle">☰</div>
-            <div class="nav-links" id="nav-menu">
-                <a href="index.html">Front Page</a>
-
-                <div class="nav-dropdown">
-                    <a href="shop.html">The Curation ▾</a>
-                    <div class="dropdown-content">
-                        <a href="shop.html">All Products</a>
-                        <a href="shop.html?cat=cleansers">Cleansers</a>
-                        <a href="shop.html?cat=serums">Serums</a>
-                        <a href="shop.html?cat=moisturizers">Moisturizers</a>
-                        <a href="shop.html?cat=spf">SPF</a>
-                        <a href="shop.html?cat=treatments">Treatments</a>
-                    </div>
+<header>
+    <nav class="nav-container">
+        <a href="index.html" class="logo">SkinHonestly</a>
+        <div class="menu-toggle" id="mobile-toggle">☰</div>
+        <div class="nav-links" id="nav-menu">
+            <a href="index.html">Front Page</a>
+            <div class="nav-dropdown">
+                <a href="shop.html">The Curation ▾</a>
+                <div class="dropdown-content">
+                    <a href="shop.html">All Products</a>
+                    <a href="shop.html?cat=cleansers">Cleansers</a>
+                    <a href="shop.html?cat=serums">Serums</a>
+                    <a href="shop.html?cat=moisturizers">Moisturizers</a>
+                    <a href="shop.html?cat=spf">SPF</a>
+                    <a href="shop.html?cat=treatments">Treatments</a>
                 </div>
-
-                <div class="nav-dropdown">
-                    <a href="blog.html">The Journal ▾</a>
-                    <div class="dropdown-content">
-                        <a href="blog.html?cat=all">Latest Stories</a>
-                        <a href="blog.html?cat=rituals">Morning Rituals</a>
-                        <a href="blog.html?cat=science">Ingredient Science</a>
-                        <a href="blog.html?cat=reviews">Derm Reviews</a>
-                        <a href="blog.html?cat=barrier">Barrier Health</a>
-                    </div>
-                </div>
-
-                <a href="about.html">About</a>
             </div>
-        </nav>
-    </header>
+            <div class="nav-dropdown">
+                <a href="blog.html">The Journal ▾</a>
+                <div class="dropdown-content">
+                    <a href="blog.html?cat=all">Latest Stories</a>
+                    <a href="blog.html?cat=rituals">Morning Rituals</a>
+                    <a href="blog.html?cat=science">Ingredient Science</a>
+                    <a href="blog.html?cat=reviews">Derm Reviews</a>
+                    <a href="blog.html?cat=barrier">Barrier Health</a>
+                </div>
+            </div>
+            <a href="about.html">About</a>
+        </div>
+    </nav>
+</header>
 
     <main class="article-layout">
         <div class="article-body">
             <header class="article-header">
-                <span class="cat-tag">Rituals • Morning Glow</span>
-                <h1>My Honest Morning Routine: The Ritual of Less.</h1>
+                <span class="cat-tag">RITUALS • SKINHONESTLY</span>
+                <h1>My Honest Morning Routine</h1>
                 <div class="article-meta">
-                    <span>By Editor • June 23, 2026</span>
-                    <span>6 Min Read</span>
+                    <span>By Editor • June 23</span>
+                    <span>5 Min Read</span>
                 </div>
             </header>
 
-            <img src="https://images.unsplash.com/photo-1590439471364-192aa70c0b53?q=80&w=1200" alt="Morning Skincare Routine" class="main-img">
+            <img src="images/poko-skincare-oXI2_S1ILQI-unsplash.webp" alt="My Honest Morning Routine" class="main-img">
 
             <article class="article-content">
-                <p>If you're anything like me, your bathroom cabinet was once a graveyard of half-used bottles and viral "must-haves." We have been conditioned to believe that a glowing complexion requires a 12-step commitment and at least forty-five minutes of our morning. But after years of testing every clinical formula under the sun, I’ve found that my skin is at its healthiest when I do less, but with higher intention.</p>
-
-                <p>The fatigue of over-complicated skincare is real. In our quest for perfection, we often overwhelm our stratrum corneum, leading to redness and irritation. Today, I'm sharing the minimalist approach that changed everything: three clinically potent actives that protect your skin all day. This isn't aspirational fluff; it's a science-backed <strong>morning skincare routine</strong> designed for the modern world.</p>
-
-                <div class="shop-callout">
-                    <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=200" alt="Hydrating Cleanser">
-                    <div class="shop-callout-content">
-                        <h4>Gentle Milky Cleanser</h4>
-                        <p>The essential first step to refresh without stripping your natural protective lipids.</p>
-                        <a href="shop.html" class="shop-callout-btn">Shop the Cleanse</a>
-                    </div>
-                </div>
-
-                <h2>Step 1: The Cleanse — Why Less Is More</h2>
-                <p>In the morning, your skin isn't "dirty" in the traditional sense. You've simply accumulated some overnight oils and perhaps some dust from your pillowcase. Forcefully stripping your skin at 7:00 AM is the fastest way to compromise your barrier. If you have dry skin, lukewarm water might be all you need.</p>
-
-                <p>For those who prefer a traditional step, choose a non-foaming, pH-balanced cleanser. Avoiding harsh surfactants ensures that your moisture foundation remains intact, much like <a href="post6.html">how ceramides repair your skin barrier</a> by keeping the "bricks and mortar" of your cells connected. A clean slate shouldn't feel tight; it should feel supple.</p>
-
-                <div class="shop-callout">
-                    <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=200" alt="Vitamin C Serum">
-                    <div class="shop-callout-content">
-                        <h4>Vitamin C Brightening Complex</h4>
-                        <p>A high-stability 15% L-Ascorbic acid serum to neutralize environmental stressors.</p>
-                        <a href="shop.html" class="shop-callout-btn">Shop the Active</a>
-                    </div>
-                </div>
-
-                <h2>Step 2: The Active — Vitamin C or Antioxidant Serum</h2>
-                <p>If you only use one treatment active in your <strong>morning skincare routine</strong>, let it be Vitamin C. While we often obsess over evening treatments, the morning is when your skin faces its greatest enemies: UV radiation and urban pollution. Antioxidants act as a molecular shield, neutralizing free radicals before they can cause DNA damage.</p>
-
-                <p>I find that many people struggle with irritation here, which often leads to the same confusion found in <a href="post7.html">the truth about eye creams</a>—we assume we need specialized formulas for every concern. In reality, a high-quality, stabilized antioxidant serum can be used right up to the orbital bone, providing protection and a visible <strong>morning glow</strong> without the need for unnecessary secondary steps.</p>
-
-                <div class="shop-callout">
-                    <img src="https://images.unsplash.com/photo-1617897903246-719242758050?q=80&w=200" alt="Daily Reset Serum">
-                    <div class="shop-callout-content">
-                        <h4>Daily Reset Serum</h4>
-                        <p>Our signature molecular recovery formula designed to lock in hydration and soothe the skin.</p>
-                        <a href="shop.html" class="shop-callout-btn">Shop the Reset</a>
-                    </div>
-                </div>
-
-                <h2>Step 3: The Barrier — Moisturizer and Why Ceramides Matter</h2>
-                <p>Moisturizer isn't just about "feeling soft." It’s about sealing in your actives and providing a secondary physical barrier. I look for formulas rich in ceramides and fatty acids. These skin-identical ingredients fill the gaps between your skin cells, preventing Transepidermal Water Loss (TEWL) throughout the day.</p>
-
-                <p>Think of this step as the insurance policy for your serum. This <strong>minimalist skincare</strong> philosophy works because the moisturizer supports the serum's efficacy. If you’re looking for deeper remodeling, you might eventually consider how <a href="post4.html">copper peptides and skin firmness</a> play into a routine, but for a standard morning, a solid ceramide layer is the ultimate goal.</p>
-
-                <div class="shop-callout">
-                    <img src="https://images.unsplash.com/photo-1599305090598-fe179d501227?q=80&w=200" alt="Mineral SPF 50">
-                    <div class="shop-callout-content">
-                        <h4>Mineral SPF 50 Shield</h4>
-                        <p>A lightweight, non-greasy physical block with zinc oxide for maximum daily defense.</p>
-                        <a href="shop.html" class="shop-callout-btn">Shop the Shield</a>
-                    </div>
-                </div>
-
-                <h2>Step 4: The Shield — SPF as Non-Negotiable</h2>
-                <p>I will say this as clearly as possible: if you don't use SPF, the rest of your <strong>clinical skincare routine</strong> is effectively useless. Sunscreen is the most potent anti-aging ingredient in existence. It prevents the collagen breakdown and hyperpigmentation that we spend so much money trying to fix later.</p>
-
-                <p>A mineral SPF 50 is my personal choice because it sits on top of the skin, reflecting UV rays like a mirror. It doesn't require a 20-minute wait time to become effective, which fits perfectly into a fast-paced morning. Remember, you'll need to focus on <a href="post1.html">double cleansing at night</a> to properly remove these physical blocks, but for the AM, they are your best friend.</p>
-
-                <div class="shop-callout">
-                    <img src="https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?q=80&w=200" alt="Barrier Balm">
-                    <div class="shop-callout-content">
-                        <h4>Centella Soothing Barrier Balm</h4>
-                        <p>A concentrated rescue treatment for areas prone to seasonal dryness or irritation.</p>
-                        <a href="shop.html" class="shop-callout-btn">Shop the Rescue</a>
-                    </div>
-                </div>
-
-                <p>The transition from a maximalist routine to a minimalist one can feel scary, like you're "missing out" on potential results. But consistency with three potent steps always outperforms an inconsistent relationship with twelve. Focus on protection, support your barrier, and let the science do the heavy lifting.</p>
-
-                <p>But is minimalism always the answer for every skin type and goal? Next week, we’re testing the other extreme—a full 10-step routine, documented honestly, with all the glow-ups and breakouts included. Because in skincare, what works isn’t about the number of steps—it’s about which ones actually matter for your unique skin foundation.</p>
+                <p>I’ll be the first to admit it: my skincare routine used to be exhausting. I thought I needed a ten-step process to achieve that elusive "glass skin," but in reality, all I got was an empty wallet and skin that felt overwhelmed and congested.</p><p>Over the last year, I’ve drastically simplified my mornings. I’ve realized that when it comes to the start of the day, protection and hydration are the only true goals. Here is the honest, paired-down routine I actually stick to:</p><h2>The Morning Philosophy</h2><p>Morning skincare is not about "fixing" the skin—that happens at night. In the AM, your job is to shield your barrier from UV rays, pollution, and dehydration.</p><ul><li><strong>Gentle Cleanse:</strong> I often skip cleanser in the morning and just use lukewarm water. This preserves the natural lipids produced overnight.</li><li><strong>Antioxidant Protection:</strong> A Vitamin C serum is my non-negotiable. It fights free radicals and boosts the efficacy of my SPF.</li><li><strong>Hydration Layer:</strong> I use our <strong>Daily Reset Serum</strong>. It's lightweight but deeply hydrating.</li><li><strong>SPF, Always:</strong> I use a mineral SPF 50 every single day, rain or shine.</li></ul><p>Simplicity is the ultimate sophistication in skincare. Find what works, stick to it, and don't let the marketing myths convince you that more is better.</p>
             </article>
         </div>
 
@@ -294,58 +188,11 @@
 
             <div class="sidebar-widget">
                 <h3 class="widget-title">Shop This Post</h3>
-                <div class="shop-widget-item">
-                    <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=200" alt="Serum">
-                    <div>
-                        <h5>Daily Reset Serum</h5>
-                        <a href="shop.html" class="shop-btn">View in Shop</a>
-                    </div>
-                </div>
-                <div class="shop-widget-item">
-                    <img src="https://images.unsplash.com/photo-1599305090598-fe179d501227?q=80&w=200" alt="SPF">
-                    <div>
-                        <h5>Mineral SPF 50 Shield</h5>
-                        <a href="shop.html" class="shop-btn">View in Shop</a>
-                    </div>
-                </div>
+                <div class="shop-widget-item"><img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=200" alt="Serum"><div><h5>Daily Reset Serum</h5><a href="shop.html" class="shop-btn">Shop Now — $42</a></div></div>
             </div>
         </aside>
     </main>
 
-     <section class="related-posts">
-        <div class="related-header">
-            <h3>You Might Also Like</h3>
-            <a href="blog.html" class="btn-read">View All Stories</a>
-        </div>
-        <div class="related-grid">
-            <a href="post9.html" class="post-card" style="text-decoration: none; color: inherit;">
-                <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=1200" alt="The Science of Hyaluronic Acid" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; margin-bottom: 1.5rem;">
-                <div class="post-content">
-                    <span class="post-meta" style="font-size: 0.7rem; text-transform: uppercase; font-weight: 700; color: var(--secondary); margin-bottom: 0.5rem; letter-spacing: 1px; display: block;">SCIENCE • July 05</span>
-                    <h4 class="post-title" style="font-size: 1.4rem; color: var(--primary); margin-bottom: 1rem; line-height: 1.3; font-family: 'Playfair Display', serif;">The Science of Hyaluronic Acid</h4>
-                    <span class="btn-read" style="font-weight: bold; text-transform: uppercase; font-size: 0.75rem; border-bottom: 2px solid var(--highlight); padding-bottom: 3px;">Read Article</span>
-                </div>
-            </a>
-            <a href="post1.html" class="post-card" style="text-decoration: none; color: inherit;">
-                <img src="images/content-pixie-Q0y-1aorvJo-unsplash.webp" alt="My Evening Wind-Down Routine" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; margin-bottom: 1.5rem;">
-                <div class="post-content">
-                    <span class="post-meta" style="font-size: 0.7rem; text-transform: uppercase; font-weight: 700; color: var(--secondary); margin-bottom: 0.5rem; letter-spacing: 1px; display: block;">BARRIER • July 01</span>
-                    <h4 class="post-title" style="font-size: 1.4rem; color: var(--primary); margin-bottom: 1rem; line-height: 1.3; font-family: 'Playfair Display', serif;">My Evening Wind-Down Routine</h4>
-                    <span class="btn-read" style="font-weight: bold; text-transform: uppercase; font-size: 0.75rem; border-bottom: 2px solid var(--highlight); padding-bottom: 3px;">Read Article</span>
-                </div>
-            </a>
-            <a href="post2.html" class="post-card" style="text-decoration: none; color: inherit;">
-                <img src="images/poko-skincare-oXI2_S1ILQI-unsplash.webp" alt="My Honest Morning Routine" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; margin-bottom: 1.5rem;">
-                <div class="post-content">
-                    <span class="post-meta" style="font-size: 0.7rem; text-transform: uppercase; font-weight: 700; color: var(--secondary); margin-bottom: 0.5rem; letter-spacing: 1px; display: block;">RITUALS • June 23</span>
-                    <h4 class="post-title" style="font-size: 1.4rem; color: var(--primary); margin-bottom: 1rem; line-height: 1.3; font-family: 'Playfair Display', serif;">My Honest Morning Routine</h4>
-                    <span class="btn-read" style="font-weight: bold; text-transform: uppercase; font-size: 0.75rem; border-bottom: 2px solid var(--highlight); padding-bottom: 3px;">Read Article</span>
-                </div>
-            </a>
-        </div>
-    </section>
-
-    <!-- NEWSLETTER SECTION -->
     <section class="newsletter-cta">
         <h2>Join The Glow List</h2>
         <p>Get exclusive clinical research and early access to drops.</p>
@@ -356,93 +203,110 @@
         </form>
     </section>
 
-    <!-- MASTER FOOTER -->
-    <footer>
-        <a href="index.html" class="f-logo">SkinHonestly</a>
-        <div class="f-container">
-            <div class="f-col">
-                <h5>Editorial</h5>
-                <a href="index.html">Front Page</a>
-                <a href="blog.html">The Journal</a>
-                <a href="about.html">Philosophy</a>
-            </div>
-            <div class="f-col">
-                <h5>Shop</h5>
-                <a href="shop.html">The Curation</a>
-                <a href="shop.html">Exclusives</a>
-            </div>
-            <div class="f-col">
-                <h5>Connect</h5>
-                <a href="#">Instagram</a>
-                <a href="#">YouTube</a>
-            </div>
-            <div class="f-col">
-                <h5>Trust</h5>
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="privacy.html">Disclosures</a>
-            </div>
-        </div>
-        <div class="f-bottom">
-            <p>&copy; 2024 SKINHONESTLY. REAL SKINCARE. HONESTLY.</p>
-        </div>
-    </footer>
 
-    <script>
-        window.addEventListener('scroll', () => {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            const bar = document.getElementById('reading-progress');
-            if (bar) bar.style.width = scrolled + "%";
+    <section class="related-posts">
+        <div class="related-header">
+            <h3>You Might Also Like</h3>
+            <a href="blog.html" class="btn-read">View All Stories</a>
+        </div>
+        <div class="related-grid">
+            <a href="post5.html" class="related-card">
+                <img src="images/young-lady-pointing-phone-sign-white-bathrobe-towel-looking-pleased-front-view.webp" alt="Gentle Exfoliation">
+                <h4 style="font-size: 1.2rem; color: var(--primary);">Gentle Exfoliation</h4>
+            </a>
+            <a href="post1.html" class="related-card">
+                <img src="images/content-pixie-Q0y-1aorvJo-unsplash.webp" alt="My Evening Wind-Down Routine">
+                <h4 style="font-size: 1.2rem; color: var(--primary);">My Evening Wind-Down Routine</h4>
+            </a>
+            <a href="post3.html" class="related-card">
+                <img src="images/ibnu-ihza-QbHwPe1HE84-unsplash.webp" alt="5 Affordable Skincare Products">
+                <h4 style="font-size: 1.2rem; color: var(--primary);">5 Affordable Skincare Products</h4>
+            </a>
+        </div>
+    </section>
+<footer>
+    <a href="index.html" class="f-logo">SkinHonestly</a>
+    <div class="f-container">
+        <div class="f-col">
+            <h5>Editorial</h5>
+            <a href="index.html">Front Page</a>
+            <a href="blog.html">The Journal</a>
+            <a href="about.html">The Philosophy</a>
+        </div>
+        <div class="f-col">
+            <h5>Shop Curation</h5>
+            <a href="shop.html">The Exclusive Line</a>
+            <a href="shop.html">Derm-Trusted Picks</a>
+        </div>
+        <div class="f-col">
+            <h5>Connect</h5>
+            <a href="#">Instagram</a>
+            <a href="#">YouTube</a>
+            <a href="#">Pinterest</a>
+        </div>
+        <div class="f-col">
+            <h5>Trust & Support</h5>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="privacy.html">Disclosures</a>
+            <a href="about.html">Contact Us</a>
+        </div>
+    </div>
+    <div class="f-bottom">
+        <p>&copy; 2024 SKINHONESTLY. REAL SKINCARE. HONESTLY.</p>
+    </div>
+</footer>
+
+    <script src="script.js"></script>
+<script>
+    window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        const bar = document.getElementById('reading-progress');
+        if (bar) bar.style.width = scrolled + "%";
+    });
+
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (navMenu && window.innerWidth <= 768) {
+        document.body.appendChild(navMenu);
+    }
+
+    let scrollY = 0;
+
+    function openMenu() {
+        scrollY = window.scrollY;
+        document.body.style.top = '-' + scrollY + 'px';
+        document.body.classList.add('menu-open');
+        navMenu.classList.add('active');
+    }
+
+    function closeMenu() {
+        document.body.classList.remove('menu-open');
+        document.body.style.top = '';
+        window.scrollTo(0, scrollY);
+        navMenu.classList.remove('active');
+    }
+
+    if (mobileToggle && navMenu) {
+        mobileToggle.addEventListener('click', () => {
+            if (navMenu.classList.contains('active')) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
         });
+    }
 
-        const mobileToggle = document.getElementById('mobile-toggle');
-        const navMenu = document.getElementById('nav-menu');
-
-        // iOS Safari has a known bug where a position:fixed element nested
-        // inside a position:sticky ancestor can fail to stack correctly.
-        // Fix: physically move the mobile menu to be a direct child of
-        // <body> (sibling of <header>) so it's outside that stacking context.
-        if (navMenu && window.innerWidth <= 768) {
-            document.body.appendChild(navMenu);
-        }
-
-        let scrollY = 0;
-
-        function openMenu() {
-            scrollY = window.scrollY;
-            document.body.style.top = `-${scrollY}px`;
-            document.body.classList.add('menu-open');
-            navMenu.classList.add('active');
-        }
-
-        function closeMenu() {
-            document.body.classList.remove('menu-open');
-            document.body.style.top = '';
-            window.scrollTo(0, scrollY);
-            navMenu.classList.remove('active');
-        }
-
-        if (mobileToggle && navMenu) {
-            mobileToggle.addEventListener('click', () => {
-                if (navMenu.classList.contains('active')) {
-                    closeMenu();
-                } else {
-                    openMenu();
-                }
+    if (window.innerWidth <= 768) {
+        document.querySelectorAll('.nav-dropdown > a').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                this.parentElement.classList.toggle('active');
             });
-        }
-
-        // Mobile dropdown tap-to-open (Curation / Journal) — required for
-        // dropdowns to work on touch devices where there's no hover.
-        if (window.innerWidth <= 768) {
-            document.querySelectorAll('.nav-dropdown > a').forEach(link => {
-                link.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    this.parentElement.classList.toggle('active');
-                });
-            });
-        }
-    </script>
+        });
+    }
+</script>
 </body>
 </html>

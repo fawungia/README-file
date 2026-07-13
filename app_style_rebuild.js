@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Skin Barrier 101</title>
-    <meta name="description" content="Understand why the skin barrier is the most important factor.">
-    <style>
+const fs = require('fs');
+
+const postsData = JSON.parse(fs.readFileSync('posts_data.json', 'utf8'));
+
+const masterStyles = `
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;600;700&display=swap');
 
         :root {
@@ -123,11 +120,9 @@
         .related-card { display: flex; flex-direction: column; transition: transform 0.3s ease; text-decoration: none; color: inherit; }
         .related-card:hover { transform: translateY(-5px); }
         .related-card img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 1.5rem; }
-</style>
-</head>
-<body>
-    <div id="reading-progress"></div>
-<header>
+`;
+
+const header = `<header>
     <nav class="nav-container">
         <a href="index.html" class="logo">SkinHonestly</a>
         <div class="menu-toggle" id="mobile-toggle">☰</div>
@@ -157,74 +152,9 @@
             <a href="about.html">About</a>
         </div>
     </nav>
-</header>
+</header>`;
 
-    <main class="article-layout">
-        <div class="article-body">
-            <header class="article-header">
-                <span class="cat-tag">BARRIER • SKINHONESTLY</span>
-                <h1>Skin Barrier 101</h1>
-                <div class="article-meta">
-                    <span>By Editor • June 19</span>
-                    <span>5 Min Read</span>
-                </div>
-            </header>
-
-            <img src="images/christian-agbede-TqmyIxQpo5s-unsplash.webp" alt="Skin Barrier 101" class="main-img">
-
-            <article class="article-content">
-                <p>The STRATUM CORNEUM—the outermost layer of your skin—is your body's first line of defense. When it's healthy, your skin is plump, glowing. When it's broken, everything else goes wrong.</p><h2>Signs of a Broken Barrier</h2><p>If your skin feels tight after washing or stings when you apply moisturizer, your barrier is likely compromised. This allows moisture to leak out and irritants to get in.</p><h2>The 3-Step Repair Protocol</h2><ul><li><strong>Strip it back:</strong> Stop all acids and retinoids immediately.</li><li><strong>Replenish Lipids:</strong> Use products rich in Ceramides and Cholesterol.</li><li><strong>Seal it in:</strong> Use an occlusive layer at night to prevent moisture loss.</li></ul><p>Be patient. A barrier takes about 28 days to fully cycle and repair.</p>
-            </article>
-        </div>
-
-        <aside class="sidebar">
-            <div class="sidebar-widget">
-                <h3 class="widget-title">The Editor</h3>
-                <div style="text-align: center;">
-                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=400" alt="Sarah" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 1.5rem; border: 1px solid var(--border); display: block; margin-left: auto; margin-right: auto;">
-                    <p style="font-size: 0.9rem; font-style: italic; color: var(--text-light);">"Real skincare starts with honesty. I'm here to find what actually works."</p>
-                </div>
-            </div>
-
-            <div class="sidebar-widget">
-                <h3 class="widget-title">Shop This Post</h3>
-                <div class="shop-widget-item"><img src="https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?q=80&w=200" alt="Balm"><div><h5>Centella Barrier Balm</h5><a href="shop.html" class="shop-btn">View in Shop</a></div></div>
-            </div>
-        </aside>
-    </main>
-
-    <section class="newsletter-cta">
-        <h2>Join The Glow List</h2>
-        <p>Get exclusive clinical research and early access to drops.</p>
-        <form action="https://manage.kmail-lists.com/subscriptions/subscribe" method="POST" target="_blank" class="newsletter-form">
-            <input type="hidden" name="g" value="RiVwwC">
-            <input type="email" name="email" placeholder="Your email address" required>
-            <button type="submit">Subscribe</button>
-        </form>
-    </section>
-
-
-    <section class="related-posts">
-        <div class="related-header">
-            <h3>You Might Also Like</h3>
-            <a href="blog.html" class="btn-read">View All Stories</a>
-        </div>
-        <div class="related-grid">
-            <a href="post1.html" class="related-card">
-                <img src="images/content-pixie-Q0y-1aorvJo-unsplash.webp" alt="My Evening Wind-Down Routine">
-                <h4 style="font-size: 1.2rem; color: var(--primary);">My Evening Wind-Down Routine</h4>
-            </a>
-            <a href="post8.html" class="related-card">
-                <img src="images/content-pixie-Q0y-1aorvJo-unsplash.webp" alt="Evening Wind-Down Routine">
-                <h4 style="font-size: 1.2rem; color: var(--primary);">Evening Wind-Down Routine</h4>
-            </a>
-            <a href="post2.html" class="related-card">
-                <img src="images/poko-skincare-oXI2_S1ILQI-unsplash.webp" alt="My Honest Morning Routine">
-                <h4 style="font-size: 1.2rem; color: var(--primary);">My Honest Morning Routine</h4>
-            </a>
-        </div>
-    </section>
-<footer>
+const footer = `<footer>
     <a href="index.html" class="f-logo">SkinHonestly</a>
     <div class="f-container">
         <div class="f-col">
@@ -254,10 +184,9 @@
     <div class="f-bottom">
         <p>&copy; 2024 SKINHONESTLY. REAL SKINCARE. HONESTLY.</p>
     </div>
-</footer>
+</footer>`;
 
-    <script src="script.js"></script>
-<script>
+const script = `<script>
     window.addEventListener('scroll', () => {
         const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
         const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -307,6 +236,28 @@
             });
         });
     }
-</script>
-</body>
-</html>
+</script>`;
+
+postsData.forEach(p => {
+    const fileName = p.id;
+    if (!fs.existsSync(fileName)) return;
+
+    let related = postsData.filter(rp => rp.category === p.category && rp.id !== p.id);
+    if (related.length < 3) {
+        const others = postsData.filter(rp => rp.category !== p.category && rp.id !== p.id);
+        related = [...related, ...others].slice(0, 3);
+    } else {
+        related = related.slice(0, 3);
+    }
+
+    let relatedHtml = '\n    <section class="related-posts">\n        <div class="related-header">\n            <h3>You Might Also Like</h3>\n            <a href="blog.html" class="btn-read">View All Stories</a>\n        </div>\n        <div class="related-grid">\n';
+    related.forEach(rp => {
+        relatedHtml += '            <a href="' + rp.id + '" class="related-card">\n                <img src="' + rp.img + '" alt="' + rp.title + '">\n                <h4 style="font-size: 1.2rem; color: var(--primary);">' + rp.title + '</h4>\n            </a>\n';
+    });
+    relatedHtml += '        </div>\n    </section>\n';
+
+    const html = '<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">\n    <title>' + p.title + '</title>\n    <meta name="description" content="' + p.excerpt + '">\n    <style>' + masterStyles + '</style>\n</head>\n<body>\n    <div id="reading-progress"></div>\n' + header + '\n\n    <main class="article-layout">\n        <div class="article-body">\n            <header class="article-header">\n                <span class="cat-tag">' + p.category + ' • SKINHONESTLY</span>\n                <h1>' + p.title + '</h1>\n                <div class="article-meta">\n                    <span>By Editor • ' + p.date + '</span>\n                    <span>5 Min Read</span>\n                </div>\n            </header>\n\n            <img src="' + p.img + '" alt="' + p.title + '" class="main-img">\n\n            <article class="article-content">\n                ' + p.content + '\n            </article>\n        </div>\n\n        <aside class="sidebar">\n            <div class="sidebar-widget">\n                <h3 class="widget-title">The Editor</h3>\n                <div style="text-align: center;">\n                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=400" alt="Sarah" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 1.5rem; border: 1px solid var(--border); display: block; margin-left: auto; margin-right: auto;">\n                    <p style="font-size: 0.9rem; font-style: italic; color: var(--text-light);">"Real skincare starts with honesty. I\'m here to find what actually works."</p>\n                </div>\n            </div>\n\n            <div class=\"sidebar-widget\">\n                <h3 class=\"widget-title\">Shop This Post</h3>\n                ' + p.shopItems + '\n            </div>\n        </aside>\n    </main>\n\n    <section class="newsletter-cta">\n        <h2>Join The Glow List</h2>\n        <p>Get exclusive clinical research and early access to drops.</p>\n        <form action="https://manage.kmail-lists.com/subscriptions/subscribe" method="POST" target="_blank" class="newsletter-form">\n            <input type="hidden" name="g" value="RiVwwC">\n            <input type="email" name="email" placeholder="Your email address" required>\n            <button type="submit">Subscribe</button>\n        </form>\n    </section>\n\n' + relatedHtml + footer + '\n\n    <script src="script.js"></script>\n' + script + '\n</body>\n</html>';
+
+    fs.writeFileSync(p.id, html);
+    console.log("REBUILT: " + p.id);
+});
