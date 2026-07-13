@@ -364,16 +364,15 @@
             });
         }
 
-        // Mobile dropdown tap-to-open (Curation / Journal) — required for
-        // dropdowns to work on touch devices where there's no hover.
-        if (window.innerWidth <= 768) {
-            document.querySelectorAll('.nav-dropdown > a').forEach(link => {
-                link.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    this.parentElement.classList.toggle('active');
-                });
-            });
-        }
+        // Mobile dropdown tap-to-open (Curation / Journal)
+if (window.innerWidth <= 768) {
+    document.querySelectorAll('.nav-dropdown > a').forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            this.parentElement.classList.toggle('active');
+        });
+    });
+}
     </script>
 </body>
 </html>
