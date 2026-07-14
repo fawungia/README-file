@@ -336,91 +336,93 @@
         </form>
     </section>
 
-<footer>
-    <a href="index.html" class="f-logo">SkinHonestly</a>
-    <div class="f-container">
-        <div class="f-col">
-            <h5>Editorial</h5>
-            <a href="index.html">Front Page</a>
-            <a href="blog.html">The Journal</a>
-            <a href="about.html">The Philosophy</a>
+<!-- MASTER FOOTER -->
+    <footer>
+        <a href="index.html" class="f-logo">SkinHonestly</a>
+        <div class="f-container">
+            <div class="f-col">
+                <h5>Editorial</h5>
+                <a href="index.html">Front Page</a>
+                <a href="blog.html">The Journal</a>
+                <a href="about.html">Philosophy</a>
+            </div>
+            <div class="f-col">
+                <h5>Shop</h5>
+                <a href="shop.html">The Curation</a>
+                <a href="shop.html">Exclusives</a>
+            </div>
+            <div class="f-col">
+                <h5>Connect</h5>
+                <a href="#">Instagram</a>
+                <a href="#">YouTube</a>
+            </div>
+            <div class="f-col">
+                <h5>Trust</h5>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="privacy.html">Disclosures</a>
+            </div>
         </div>
-        <div class="f-col">
-            <h5>Shop Curation</h5>
-            <a href="shop.html">The Exclusive Line</a>
-            <a href="shop.html">Derm-Trusted Picks</a>
+        <div class="f-bottom">
+            <p>&copy; 2026 SKINHONESTLY. REAL SKINCARE. HONESTLY.</p>
         </div>
-        <div class="f-col">
-            <h5>Connect</h5>
-            <a href="#">Instagram</a>
-            <a href="#">YouTube</a>
-            <a href="#">Pinterest</a>
-        </div>
-        <div class="f-col">
-            <h5>Trust & Support</h5>
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="privacy.html">Disclosures</a>
-            <a href="about.html">Contact Us</a>
-        </div>
-    </div>
-    <div class="f-bottom">
-        <p>&copy; 2026 SKINHONESTLY. REAL SKINCARE. HONESTLY.</p>
-    </div>
-</footer>
+    </footer>
 
-<script>
-    // Reading Progress Bar
-    window.addEventListener('scroll', () => {
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        const bar = document.getElementById('reading-progress');
-        if (bar) bar.style.width = scrolled + "%";
-    });
-
-    // Mobile Menu Logic
-    const mobileToggle = document.getElementById('mobile-toggle');
-    const navMenu = document.getElementById('nav-menu');
-
-    if (navMenu && window.innerWidth <= 768) {
-        document.body.appendChild(navMenu);
-    }
-
-    let scrollY = 0;
-
-    function openMenu() {
-        scrollY = window.scrollY;
-        document.body.style.top = '-' + scrollY + 'px';
-        document.body.classList.add('menu-open');
-        navMenu.classList.add('active');
-    }
-
-    function closeMenu() {
-        document.body.classList.remove('menu-open');
-        document.body.style.top = '';
-        window.scrollTo(0, scrollY);
-        navMenu.classList.remove('active');
-    }
-
-    if (mobileToggle && navMenu) {
-        mobileToggle.addEventListener('click', () => {
-            if (navMenu.classList.contains('active')) {
-                closeMenu();
-            } else {
-                openMenu();
-            }
+    <script>
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            const bar = document.getElementById('reading-progress');
+            if (bar) bar.style.width = scrolled + "%";
         });
-    }
 
-    // Mobile Dropdown Handling
-    if (window.innerWidth <= 768) {
-        document.querySelectorAll('.nav-dropdown > a').forEach(link => {
-            link.addEventListener('click', function (e) {
-                e.preventDefault();
-                this.parentElement.classList.toggle('active');
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        // iOS Safari has a known bug where a position:fixed element nested
+        // inside a position:sticky ancestor can fail to stack correctly.
+        // Fix: physically move the mobile menu to be a direct child of
+        // <body> (sibling of <header>) so it's outside that stacking context.
+        if (navMenu && window.innerWidth <= 768) {
+            document.body.appendChild(navMenu);
+        }
+
+        let scrollY = 0;
+
+        function openMenu() {
+            scrollY = window.scrollY;
+            document.body.style.top = `-${scrollY}px`;
+            document.body.classList.add('menu-open');
+            navMenu.classList.add('active');
+        }
+
+        function closeMenu() {
+            document.body.classList.remove('menu-open');
+            document.body.style.top = '';
+            window.scrollTo(0, scrollY);
+            navMenu.classList.remove('active');
+        }
+
+        if (mobileToggle && navMenu) {
+            mobileToggle.addEventListener('click', () => {
+                if (navMenu.classList.contains('active')) {
+                    closeMenu();
+                } else {
+                    openMenu();
+                }
             });
-        });
-    }
-</script>
+        }
+
+        // Mobile dropdown tap-to-open (Curation / Journal) — required for
+        // dropdowns to work on touch devices where there's no hover.
+        if (window.innerWidth <= 768) {
+            document.querySelectorAll('.nav-dropdown > a').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    this.parentElement.classList.toggle('active');
+                });
+            });
+        }
+    </script>
 </body>
 </html>
