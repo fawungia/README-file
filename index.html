@@ -357,5 +357,17 @@
 </footer>
 
     <script src="script.js"></script>
+    !-- ADD THE SCRIPT RIGHT HERE -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        });
+
+        document.querySelectorAll('.scroll-reveal').forEach((el) => observer.observe(el));
+    </script>
 </body>
 </html>
