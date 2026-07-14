@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Skin Barrier 101: The One Thing Routines Get Wrong | SkinHonestly</title>
     <meta name="description" content="Treating a compromised skin barrier is a priority, not an afterthought. Learn how to preserve your skin's natural defenses.">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-33SX49MXHN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-33SX49MXHN');
+    </script>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;600;700&display=swap');
 
@@ -80,6 +90,15 @@
         .article-content li { margin-bottom: 1rem; font-size: 1.1rem; color: #444; }
         .article-content a { color: var(--primary); border-bottom: 1px solid var(--highlight); font-weight: 600; }
 
+        /* Affiliate/Shop Callout */
+        .shop-callout { background: var(--white); border: 1px solid var(--border); padding: 2.5rem; margin: 4rem 0; position: relative; display: flex; align-items: center; gap: 2.5rem; transition: transform 0.3s ease; border-radius: 4px; }
+        .shop-callout:hover { transform: translateY(-5px); }
+        .shop-callout::before { content: 'EDITOR’S CHOICE'; position: absolute; top: -12px; left: 2.5rem; background: var(--secondary); color: white; font-size: 0.6rem; font-weight: 700; padding: 4px 12px; letter-spacing: 2px; }
+        .shop-callout img { width: 120px; height: 120px; object-fit: cover; border-radius: 2px; }
+        .shop-callout-content h4 { font-size: 1.4rem; margin-bottom: 0.8rem; color: var(--text); }
+        .shop-callout-content p { font-size: 0.95rem; margin-bottom: 1.5rem; color: var(--text-light); line-height: 1.5; border: none; font-weight: 400; }
+        .shop-callout-btn { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--primary); border-bottom: 2px solid var(--primary); padding-bottom: 4px; text-decoration: none; }
+
         /* Sidebar Widgets */
         .sidebar { display: flex; flex-direction: column; gap: 5rem; border-left: 1px solid var(--border); padding-left: 3rem; }
         .widget-title { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--primary); border-bottom: 1px solid var(--border); padding-bottom: 1rem; margin-bottom: 2rem; }
@@ -125,6 +144,8 @@
             .newsletter-form { flex-direction: column; }
             .newsletter-form button { padding: 1.2rem; }
             .main-img { height: 350px; }
+            .shop-callout { flex-direction: column; text-align: center; }
+            .shop-callout img { width: 100%; max-width: 220px; height: 220px; margin: 0 auto; }
         }
     </style>
 </head>
@@ -287,7 +308,7 @@
  <section class="related-posts">
         <div class="related-header">
             <h3>You Might Also Like</h3>
-            <a href="blog.html" class="btn-read">View All Stories</a>
+            <a href="blog.html" style="font-weight: bold; text-transform: uppercase; font-size: 0.75rem; border-bottom: 2px solid var(--highlight); padding-bottom: 3px;">View All Stories</a>
         </div>
         <div class="related-grid">
             <a href="post1.html" class="related-card">
@@ -347,7 +368,6 @@
     </div>
 </footer>
 
-    <script src="script.js"></script>
 <script>
     // Reading Progress Bar
     window.addEventListener('scroll', () => {
