@@ -9,7 +9,10 @@
 
 /* 1. FONTS & VARIABLES
    ========================================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;600;700&display=swap');
+/* Font loading moved to <link rel="preconnect"> + <link rel="stylesheet"> tags
+   in each page's <head> — an @import here would hide the Google Fonts request
+   from the browser's initial HTML scan, forcing it to wait until this file is
+   fully downloaded and parsed before even starting the font request. */
 
 :root {
   --bg: #FAF7F2;
