@@ -1,13 +1,12 @@
 /* ==========================================================================
-   SkinHonestly build.js
-   Regenerates every post*.html page from posts_data.json using the
-   canonical partials in /partials. This is the ONLY script that should
-   ever touch post pages going forward — do not write a new one-off
-   "fix" script. Add a new post by adding an entry to posts_data.json,
-   then run: node build.js
+   SkinHonestly build_blog.js
+   Regenerates the dynamic parts of blog.html (post grid, hero rotator data,
+   trending sidebar) from posts_data.json — the same source of truth used
+   by build.js for the post pages themselves. Run this any time
+   posts_data.json changes, right alongside `node build.js`.
 
-   Requires: posts_data.json, partials/header.html, partials/footer.html,
-   styles.css, script.js all present in the same directory.
+   This does NOT touch blog.html's header, footer, or hero/filter markup
+   structure — only the sections that must stay in sync with the posts.
    ========================================================================== */
 
 const fs = require('fs');
@@ -15,149 +14,103 @@ const path = require('path');
 
 const ROOT = __dirname;
 const posts = JSON.parse(fs.readFileSync(path.join(ROOT, 'posts_data.json'), 'utf8'));
-const header = fs.readFileSync(path.join(ROOT, 'partials', 'header.html'), 'utf8').trim();
-const footer = fs.readFileSync(path.join(ROOT, 'partials', 'footer.html'), 'utf8').trim();
 
-const DOMAIN_VERIFY = '614a5afefa741fa072c6f9319d2f14d0';
-const GA_ID = 'G-33SX49MXHN';
-const KLAVIYO_LIST_ID = 'RiVwwC';
-const SITE_URL = 'https://skinhonestlyco.com';
-
-function buildRelated(post) {
-    let related = posts.filter(p => p.category === post.category && p.id !== post.id);
-    if (related.length < 3) {
-        const others = posts.filter(p => p.category !== post.category && p.id !== post.id);
-        related = [...related, ...others].slice(0, 3);
-    } else {
-        related = related.slice(0, 3);
-    }
-
-    const cards = related.map(p => `
-            <a href="${p.id}" class="post-card">
-                <img src="${p.img}" alt="${p.title}">
-                <div class="post-content">
-                    <span class="post-meta">${p.category} • ${p.date}</span>
-                    <h4 class="post-title">${p.title}</h4>
-                    <span class="btn-read">Read Article</span>
-                </div>
-            </a>`).join('');
-
-    return `
-    <section class="related-posts">
-        <div class="related-header">
-            <h3>You Might Also Like</h3>
-            <a href="blog.html" class="btn-read">View All Stories</a>
-        </div>
-        <div class="related-grid">${cards}
-        </div>
-    </section>`;
+// --- Parse "July 14" style dates (assumes current content year) for sorting ---
+const MONTHS = { January:0, February:1, March:2, April:3, May:4, June:5, July:6, August:7, September:8, October:9, November:10, December:11 };
+function parseDate(str) {
+    const m = str.match(/([A-Za-z]+)\s+(\d+)/);
+    if (!m) return new Date(0);
+    const month = MONTHS[m[1]];
+    return new Date(2026, month, parseInt(m[2], 10));
 }
 
-function buildPage(post) {
+const sortedByDate = [...posts].sort((a, b) => parseDate(b.date) - parseDate(a.date));
+
+function titleCase(cat) {
+    return cat.charAt(0) + cat.slice(1).toLowerCase();
+}
+
+// --- 1. Build the post-card grid (all posts, most recent first) ---
+function buildPostCard(post) {
     const catSlug = post.category.toLowerCase();
-    const pageUrl = `${SITE_URL}/${post.id}`;
-
-    const jsonLd = {
-        '@context': 'https://schema.org',
-        '@type': 'Article',
-        headline: post.title,
-        description: post.excerpt,
-        author: { '@type': 'Organization', name: 'SkinHonestly' },
-        publisher: { '@type': 'Organization', name: 'SkinHonestly' },
-        image: post.img.startsWith('http') ? post.img : `${SITE_URL}/${post.img}`,
-        mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl }
-    };
-
-    return `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>${post.title} | SkinHonestly Journal</title>
-    <meta name="description" content="${post.excerpt}">
-    <meta name="p:domain_verify" content="${DOMAIN_VERIFY}"/>
-    <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', '${GA_ID}');
-    </script>
-
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div id="reading-progress"></div>
-    ${header}
-
-    <nav class="breadcrumbs" aria-label="Breadcrumb">
-        <a href="index.html">Home</a>
-        <span class="sep">/</span>
-        <a href="blog.html?cat=${catSlug}">The Journal</a>
-        <span class="sep">/</span>
-        <span class="current">${post.title}</span>
-    </nav>
-
-    <main class="article-layout">
-        <div class="article-body">
-            <header class="article-header">
-                <span class="cat-tag">${post.catSubtitle ? post.catSubtitle : post.category + ' • SKINHONESTLY'}</span>
-                <h1>${post.headline || post.title}</h1>
-                <div class="article-meta">
-                    <span>By Editor • ${post.date}</span>
-                    <span>5 Min Read</span>
+    return `
+            <article class="post-card card-lift scroll-reveal" data-category="${catSlug}">
+                <a href="${post.id}" style="display: block; overflow: hidden; border-radius: 8px; margin-bottom: 1.5rem;">
+                    <img src="${post.img}" alt="${post.title}">
+                </a>
+                <div class="post-content">
+                    <span class="post-meta">${titleCase(post.category)} • ${post.date}</span>
+                    <h3 class="post-title">${post.title}</h3>
+                    <p class="post-excerpt">${post.excerpt}</p>
+                    <a href="${post.id}" class="btn-read">Read Article</a>
                 </div>
-            </header>
-
-            <img src="${post.img}" alt="${post.title}" class="main-img">
-
-            <article class="article-content">
-                ${post.content}
-            </article>
-        </div>
-
-        <aside class="sidebar">
-            <div class="sidebar-widget">
-                <h3 class="widget-title">The Editor</h3>
-                <div style="text-align: center;">
-                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=400" alt="Sarah" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 1.5rem; border: 1px solid var(--border); display: block; margin-left: auto; margin-right: auto;">
-                    <p style="font-size: 0.9rem; font-style: italic; color: var(--text-light);">"Real skincare starts with honesty. I'm here to find what actually works."</p>
-                </div>
-            </div>
-
-            <div class="sidebar-widget">
-                <h3 class="widget-title">Shop This Post</h3>
-                ${post.shopItems}
-            </div>
-        </aside>
-    </main>
-
-    <section class="newsletter-cta">
-        <h2>Join The Glow List</h2>
-        <p>Get exclusive clinical research and early access to drops.</p>
-        <form action="https://manage.kmail-lists.com/subscriptions/subscribe" method="POST" target="_blank" class="newsletter-form">
-            <input type="hidden" name="g" value="${KLAVIYO_LIST_ID}">
-            <input type="email" name="email" placeholder="Your email address" required>
-            <button type="submit">Subscribe</button>
-        </form>
-    </section>
-    ${buildRelated(post)}
-
-    ${footer}
-
-    <script src="script.js"></script>
-</body>
-</html>
-`;
+            </article>`;
 }
 
-posts.forEach(post => {
-    const outPath = path.join(ROOT, post.id);
-    fs.writeFileSync(outPath, buildPage(post));
-    console.log('BUILT: ' + post.id);
-});
+const gridHtml = sortedByDate.map(buildPostCard).join('\n');
 
-console.log(`\nDone. ${posts.length} post pages regenerated from posts_data.json.`);
-console.log('To add a new post: add an entry to posts_data.json, then run `node build.js` again.');
+// --- 2. Build heroData: "all" = most recent post overall, one per category = most recent in that category ---
+function heroEntry(post, badge) {
+    return `{
+                badge: "${badge}",
+                title: "${post.title.replace(/"/g, '\\"')}",
+                text: "${post.excerpt.replace(/"/g, '\\"')}",
+                img: "${post.img}",
+                link: "${post.id}"
+            }`;
+}
+
+const categoryBadges = { BARRIER: 'Barrier Health', RITUALS: 'Morning Rituals', SCIENCE: 'Ingredient Science', REVIEWS: 'Derm Reviews' };
+const categories = ['BARRIER', 'RITUALS', 'SCIENCE', 'REVIEWS'];
+
+const heroParts = [`'all': ${heroEntry(sortedByDate[0], "Editor's Highlight")}`];
+categories.forEach(cat => {
+    const best = sortedByDate.find(p => p.category === cat);
+    if (best) heroParts.push(`'${cat.toLowerCase()}': ${heroEntry(best, categoryBadges[cat])}`);
+});
+const heroDataJs = `        const heroData = {\n            ${heroParts.join(',\n            ')}\n        };`;
+
+// --- 3. Build trending sidebar (3 most recent posts, excluding whichever is the "all" hero) ---
+const trending = sortedByDate.filter(p => p.id !== sortedByDate[0].id).slice(0, 3);
+const trendingHtml = trending.map(p => `
+                <a href="${p.id}" class="trending-row">
+                    <img src="${p.img}" alt="${p.title}">
+                    <h5>${p.title}</h5>
+                </a>`).join('');
+
+// --- Apply all three replacements to blog.html ---
+let content = fs.readFileSync(path.join(ROOT, 'blog.html'), 'utf8');
+
+// Replace the post grid: everything between <section class="article-feed"> and the pagination div
+content = content.replace(
+    /(<section class="article-feed">)([\s\S]*?)(\s*<div class="pagination)/,
+    `$1\n${gridHtml}\n$3`
+);
+
+// Replace the initial (non-JS, first-paint) hero content to match heroData.all
+const allHero = sortedByDate[0];
+content = content.replace(/<img id="hero-img" src=".*?" alt=".*?">/, `<img id="hero-img" src="${allHero.img}" alt="${allHero.title}">`);
+content = content.replace(/<span id="hero-badge" class="badge">.*?<\/span>/, `<span id="hero-badge" class="badge">Editor's Highlight</span>`);
+content = content.replace(/<h2 id="hero-title">.*?<\/h2>/, `<h2 id="hero-title">${allHero.title}</h2>`);
+content = content.replace(/<p id="hero-text">.*?<\/p>/, `<p id="hero-text">${allHero.excerpt}</p>`);
+content = content.replace(/<a id="hero-link" href=".*?" class="btn-read">/, `<a id="hero-link" href="${allHero.id}" class="btn-read">`);
+
+// Replace heroData JS object
+content = content.replace(/const heroData = \{[\s\S]*?\n\s*\};/, heroDataJs);
+
+// Replace trending sidebar: everything between "Most Popular Now" heading and the closing </div> of that widget
+content = content.replace(
+    /(<h3 class="widget-title">Most Popular Now<\/h3>)([\s\S]*?)(\n\s*<\/div>\s*\n\s*<div class="widget scroll-reveal" style="background: var\(--primary\))/,
+    `$1${trendingHtml}\n            $3`
+);
+
+// Wire up the ?cat= URL param so the header dropdown links actually filter on load (previously dead)
+if (!content.includes('URLSearchParams')) {
+    content = content.replace(
+        '</script>\n</body>',
+        `\n        // Apply the ?cat= filter on page load so links from the header dropdown\n        // (e.g. blog.html?cat=rituals) actually filter, instead of doing nothing.\n        document.addEventListener('DOMContentLoaded', () => {\n            const params = new URLSearchParams(window.location.search);\n            const cat = params.get('cat');\n            if (cat && cat !== 'all') filterPosts(cat, null);\n        });\n    </script>\n</body>`
+    );
+}
+
+fs.writeFileSync(path.join(ROOT, 'blog.html'), content);
+console.log(`blog.html rebuilt: ${posts.length} post cards, hero + trending synced from posts_data.json, ?cat= filter wired up.`);
