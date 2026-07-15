@@ -103,8 +103,8 @@ function buildPage(post) {
     <main class="article-layout">
         <div class="article-body">
             <header class="article-header">
-                <span class="cat-tag">${post.category} • SKINHONESTLY</span>
-                <h1>${post.title}</h1>
+                <span class="cat-tag">${post.catSubtitle ? post.catSubtitle : post.category + ' • SKINHONESTLY'}</span>
+                <h1>${post.headline || post.title}</h1>
                 <div class="article-meta">
                     <span>By Editor • ${post.date}</span>
                     <span>5 Min Read</span>
