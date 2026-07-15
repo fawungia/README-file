@@ -90,30 +90,6 @@
         .newsletter-form button { background: var(--secondary); color: white; padding: 1.2rem 2.5rem; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; transition: background-color 0.3s ease; }
         .newsletter-form button:hover { background: #b46b52; }
 
-        /* Dropdown Styles */
-        .nav-dropdown { position: relative; display: inline-block; }
-        .dropdown-content { 
-            display: block; position: absolute; background-color: var(--white); min-width: 200px; 
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1); z-index: 1002; border: 1px solid var(--border);
-            top: 100%; left: 0;
-            max-height: 0; opacity: 0; overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
-        }
-        .dropdown-content a { 
-            color: var(--text-light); padding: 12px 16px; text-decoration: none; display: block; 
-            font-size: 0.75rem; text-transform: uppercase; border-bottom: 1px solid var(--border);
-            letter-spacing: 1px; font-weight: 700;
-        }
-        .dropdown-content a:last-child { border-bottom: none; }
-        .dropdown-content a:hover { background-color: var(--bg); color: var(--primary); }
-        .nav-dropdown:hover .dropdown-content { max-height: 400px; opacity: 1; }
-
-        @media (max-width: 768px) {
-            .nav-dropdown { width: 100%; }
-            .dropdown-content { position: static; box-shadow: none; border: none; padding-left: 1rem; display: block; width: 100%; max-height: 0; opacity: 0; overflow: hidden; transition: max-height 0.4s ease, opacity 0.4s ease; }
-            .nav-dropdown.active .dropdown-content { max-height: 400px; opacity: 1; }
-        }
-
         /* Featured Article / Ad Banner */
         .featured-article { 
             grid-column: 1 / -1; 
@@ -183,27 +159,23 @@
     </style>
 </head>
 <body>
-      <header>
+<header>
     <nav class="nav-container">
         <a href="index.html" class="logo">SkinHonestly</a>
-        <div class="menu-toggle" id="mobile-toggle">☰</div>
+        <button class="menu-toggle" id="mobile-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">☰</button>
         <div class="nav-links" id="nav-menu">
             <a href="index.html">Front Page</a>
-
-            
             <div class="nav-dropdown">
                 <a href="shop.html">The Curation ▾</a>
-                <div class="dropdown-content" id="curation-dropdown">
-                    <a href="javascript:void(0)" onclick="filterProducts('all', this)">All Products</a>
-                    <a href="javascript:void(0)" onclick="filterProducts('cleansers', this)">Cleansers</a>
-                    <a href="javascript:void(0)" onclick="filterProducts('serums', this)">Serums</a>
-                    <a href="javascript:void(0)" onclick="filterProducts('moisturizers', this)">Moisturizers</a>
-                    <a href="javascript:void(0)" onclick="filterProducts('spf', this)">SPF</a>
-                    <a href="javascript:void(0)" onclick="filterProducts('treatments', this)">Treatments</a>
+                <div class="dropdown-content">
+                    <a href="shop.html">All Products</a>
+                    <a href="shop.html?cat=cleansers">Cleansers</a>
+                    <a href="shop.html?cat=serums">Serums</a>
+                    <a href="shop.html?cat=moisturizers">Moisturizers</a>
+                    <a href="shop.html?cat=spf">SPF</a>
+                    <a href="shop.html?cat=treatments">Treatments</a>
                 </div>
             </div>
-
-
             <div class="nav-dropdown">
                 <a href="blog.html">The Journal ▾</a>
                 <div class="dropdown-content">
@@ -214,7 +186,6 @@
                     <a href="blog.html?cat=barrier">Barrier Health</a>
                 </div>
             </div>
-
             <a href="about.html">About</a>
         </div>
     </nav>
@@ -338,7 +309,7 @@
   
 
 
-      <footer>
+<footer>
     <a href="index.html" class="f-logo">SkinHonestly</a>
     <div class="f-container">
         <div class="f-col">
@@ -348,20 +319,29 @@
             <a href="about.html">The Philosophy</a>
         </div>
         <div class="f-col">
-            <h5>Shop Curation</h5>
-            <a href="shop.html">The Exclusive Line</a>
-            <a href="shop.html">Derm-Trusted Picks</a>
+            <h5>Shop</h5>
+            <a href="shop.html">The Curation</a>
+            <a href="shop.html">Exclusives</a>
         </div>
         <div class="f-col">
             <h5>Connect</h5>
-            <a href="#">Instagram</a>
-            <a href="#">YouTube</a>
-            <a href="#">Pinterest</a>
+            <a href="#" class="f-social-link" aria-label="SkinHonestly on Instagram">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+                Instagram
+            </a>
+            <a href="#" class="f-social-link" aria-label="SkinHonestly on YouTube">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/></svg>
+                YouTube
+            </a>
+            <a href="#" class="f-social-link" aria-label="SkinHonestly on Pinterest">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 17c1-3 2-6 2-8a2 2 0 1 1 4 0c0 1.5-1 3-1 4.5a1.5 1.5 0 0 0 3 0"/></svg>
+                Pinterest
+            </a>
         </div>
         <div class="f-col">
-            <h5>Trust & Support</h5>
+            <h5>Trust</h5>
             <a href="privacy.html">Privacy Policy</a>
-            <a href="privacy.html">Disclosures</a>
+            <a href="privacy.html#affiliate-disclosure">Affiliate Disclosure</a>
             <a href="about.html">Contact Us</a>
         </div>
     </div>
