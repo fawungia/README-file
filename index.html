@@ -1,3 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkinHonestly | Clinical Skincare Research & Editorial</title>
+    <meta name="description" content="Your daily source for transparent ingredients, proven routines, and expert-led skincare research.">
+    <meta name="p:domain_verify" content="614a5afefa741fa072c6f9319d2f14d0"/>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-33SX49MXHN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-33SX49MXHN');
+    </script>
+
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Styles unique to this page or local overrides */
+        .hero-cover { background: var(--white); border-bottom: 1px solid var(--border); }
+        .hero-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; align-items: center; }
+        .hero-image { height: 650px; object-fit: cover; width: 100%; }
+        .hero-text { padding: 5rem; }
+        .hero-text span { text-transform: uppercase; font-size: 0.7rem; letter-spacing: 3px; color: var(--secondary); font-weight: 700; display: block; margin-bottom: 1.5rem; }
+        .hero-text h1 { font-size: 4rem; margin-bottom: 2rem; color: var(--primary); }
+        .hero-text p { font-size: 1.1rem; color: var(--text-light); margin-bottom: 3rem; max-width: 450px; }
+        .btn-editorial { border: 1px solid var(--primary); padding: 1rem 2rem; display: inline-block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; color: var(--primary); transition: all 0.3s ease; }
+        .btn-editorial:hover { background: var(--primary); color: white; transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+
+        /* Article Feed */
+        .section-title { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; color: var(--text-light); margin-bottom: 3rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem; }
+        .article-card { margin-bottom: 4rem; display: grid; grid-template-columns: 300px 1fr; gap: 2rem; align-items: start; }
+        .article-card img { border-radius: 4px; height: 200px; width: 100%; object-fit: cover; }
+        .article-content h3 { font-size: 2rem; margin-bottom: 1rem; color: var(--primary); }
+        .article-content p { color: var(--text-light); font-size: 0.95rem; margin-bottom: 1.5rem; }
+        .link-more { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; border-bottom: 1px solid var(--secondary); padding-bottom: 4px; transition: color 0.3s ease, border-color 0.3s ease; }
+        .link-more:hover { color: var(--primary); border-color: var(--primary); }
+
+        /* Sidebar */
+        .sidebar { border-left: 1px solid var(--border); padding-left: 3rem; }
+        .sidebar-widget { margin-bottom: 4rem; }
+        .widget-h { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 2rem; color: var(--primary); }
+        .trending-row { display: block; margin-bottom: 2rem; transition: transform 0.3s ease; }
+        .trending-row:hover { transform: translateX(5px); }
+        .trending-row span { font-size: 0.65rem; color: var(--secondary); font-weight: 700; display: block; margin-bottom: 0.5rem; }
+        .trending-row h4 { font-size: 1.1rem; line-height: 1.3; transition: color 0.3s ease; }
+        .trending-row:hover h4 { color: var(--primary); }
+
+        /* The Minimal Brand Row */
+        .brand-philosophy { background: var(--white); padding: 6rem 5%; text-align: center; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .philosophy-inner { max-width: 800px; margin: 0 auto; }
+        .philosophy-inner h2 { font-size: 2.5rem; margin-bottom: 2rem; color: var(--primary); }
+        .philosophy-inner p { font-size: 1.2rem; color: var(--text-light); font-style: italic; }
+
+        /* Shop Curation Row */
+        .shop-row { max-width: 1400px; margin: 6rem auto; padding: 0 5%; }
+        .shop-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+        .shop-item { text-align: center; }
+        .shop-item img { height: 280px; object-fit: cover; margin-bottom: 1.5rem; border-radius: 2px; }
+        .shop-item h4 { font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .shop-item p { font-size: 0.8rem; color: var(--text-light); }
+
+        /* Newsletter Footer */
+        .newsletter-classic { background: var(--primary); color: white; padding: 6rem 5%; text-align: center; }
+        .newsletter-classic h3 { font-size: 2.5rem; margin-bottom: 1rem; color: white; }
+        .newsletter-classic p { opacity: 0.8; margin-bottom: 3rem; }
+        .n-form { display: flex; justify-content: center; gap: 10px; max-width: 500px; margin: 0 auto; }
+        .n-form input { background: transparent; border: 1px solid rgba(255,255,255,0.3); padding: 1rem; color: white; flex: 1; outline: none; transition: border-color 0.3s ease; }
+        .n-form input:focus { border-color: rgba(255,255,255,0.8); }
+        .n-form input::placeholder { color: rgba(255,255,255,0.6); }
+        .n-form button { background: white; color: var(--primary); border: none; padding: 0 2rem; font-weight: 700; text-transform: uppercase; font-size: 0.7rem; cursor: pointer; transition: all 0.3s ease; }
+        .n-form button:hover { background: var(--bg); color: var(--primary); }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-inner { grid-template-columns: 1fr; }
+            .hero-image { height: 400px; }
+            .layout-grid { grid-template-columns: 1fr; }
+            .sidebar { border-left: none; padding-left: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+            .shop-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .article-card { grid-template-columns: 1fr; }
+            .hero-text { padding: 3rem 1.5rem; }
+            .hero-text h1 { font-size: 2.8rem; }
+            .sidebar { grid-template-columns: 1fr; }
+        }
+        
+    </style>
+</head>
+<body>
+
+<header>
+    <nav class="nav-container">
+        <a href="index.html" class="logo">SkinHonestly</a>
+        <button class="menu-toggle" id="mobile-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">☰</button>
+        <div class="nav-links" id="nav-menu">
+            <a href="index.html">Front Page</a>
+            <div class="nav-dropdown">
+                <a href="shop.html">The Curation ▾</a>
+                <div class="dropdown-content">
+                    <a href="shop.html">All Products</a>
+                    <a href="shop.html?cat=cleansers">Cleansers</a>
+                    <a href="shop.html?cat=serums">Serums</a>
+                    <a href="shop.html?cat=moisturizers">Moisturizers</a>
+                    <a href="shop.html?cat=spf">SPF</a>
+                    <a href="shop.html?cat=treatments">Treatments</a>
+                </div>
+            </div>
+            <div class="nav-dropdown">
+                <a href="blog.html">The Journal ▾</a>
+                <div class="dropdown-content">
+                    <a href="blog.html?cat=all">Latest Stories</a>
+                    <a href="blog.html?cat=rituals">Morning Rituals</a>
+                    <a href="blog.html?cat=science">Ingredient Science</a>
+                    <a href="blog.html?cat=reviews">Derm Reviews</a>
+                    <a href="blog.html?cat=barrier">Barrier Health</a>
+                </div>
+            </div>
+            <a href="about.html">About</a>
+        </div>
+    </nav>
+</header>
+
+    <!-- THE COVER STORY -->
+    <section class="hero-cover">
+        <div class="hero-inner">
+            <div class="hero-text">
+                <span class="stagger-item">Volume 01 • Exclusive Feature</span>
+                <h1 class="stagger-item">The Future of Clinical Barrier Health.</h1>
+                <p class="stagger-item">An in-depth analysis of ceramides, lipid recovery, and why dermatologist-backed routines are the new standard.</p>
+                <a href="post1.html" class="btn-editorial stagger-item">Read Feature Story</a>
+            </div>
+            <img src="images/pexels-deepa-nishad-1620501673-27544672.webp" alt="Cover Story" class="hero-image">
+        </div>
+    </section>
+
+    <!-- MAIN EDITORIAL FEED -->
+    <main class="layout-grid">
+        
+        <section class="feed">
+            <h2 class="section-title scroll-reveal">Latest From The Lab</h2>
+
+           <article class="article-card card-lift scroll-reveal">
+    <img src="images/pexels-mearlywan-307951439-16378490.webp" alt="Sunscreen Stability">
+    <div class="article-content">
+        <h3>Sunscreen Stability: Why Your SPF Might Be Failing You</h3>
+        <p>Is your sunscreen actually protecting you? We break down the clinical reality of SPF stability and application density.</p>
+        <a href="post1.html" class="link-more">Read Story</a>
+    </div>
+</article>
+            
+            <article class="article-card card-lift scroll-reveal">
+                <img src="images/poko-skincare-oXI2_S1ILQI-unsplash.webp" alt="Ritual">
+                <div class="article-content">
+                    <h3>The Ritual: A Minimalist Approach to Morning Glow</h3>
+                    <p>Why we stripped away the 12-step system in favor of three clinically potent actives that protect all day.</p>
+                    <a href="post13.html" class="link-more">Read Story</a>
+                </div>
+            </article>
+
+            <article class="article-card card-lift scroll-reveal">
+                <img src="images/ibnu-ihza-QbHwPe1HE84-unsplash.webp" alt="Budget">
+                <div class="article-content">
+                    <h3>5 Clinical Results for Under $30</h3>
+                    <p>Our editors spent 60 days testing affordable formulations. These 5 produced professional-grade results.</p>
+                    <a href="post3.html" class="link-more">Read Story</a>
+                </div>
+            </article>
+
+            <article class="article-card card-lift scroll-reveal">
+                <img src="images/plantadea-zSD0OWrbtlw-unsplash.webp" alt="Peptides">
+                <div class="article-content">
+                    <h3>Decoding Peptides: The Molecular Secret</h3>
+                    <p>A deep dive into signal peptides and why they are the foundation of skin remodeling and firming.</p>
+                    <a href="post4.html" class="link-more">Read Story</a>
+                </div>
+            </article>
+        </section>
+
+        <!-- EDITORIAL SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar-widget scroll-reveal">
+                <h3 class="widget-h">Trending Stories</h3>
+                <a href="post1.html" class="trending-row">
+                    <span>01 • Science</span>
+                    <h4>Retinol vs Bakuchiol: The Barrier Comparison</h4>
+                </a>
+                <a href="post2.html" class="trending-row">
+                    <span>02 • Routine</span>
+                    <h4>The Truth About Double Cleansing</h4>
+                </a>
+                <a href="post3.html" class="trending-row">
+                    <span>03 • Review</span>
+                    <h4>Copper Peptides: A 30-Day Analysis</h4>
+                </a>
+            </div>
+
+            <div class="sidebar-widget scroll-reveal" style="padding: 2.5rem; background: var(--white); border: 1px solid var(--border); text-align: center;">
+                <h3 class="widget-h" style="margin-bottom: 1rem;">The Newsletter</h3>
+                <p style="font-size: 0.85rem; color: var(--text-light); margin-bottom: 1.5rem;">Join 15k+ readers for clinical research and exclusive drops.</p>
+                <form action="https://manage.kmail-lists.com/subscriptions/subscribe" method="POST" target="_blank" class="newsletter-form">
+                    <input type="hidden" name="g" value="RiVwwC">
+                    <input type="email" name="email" placeholder="Your email address" required style="width: 100%; padding: 0.8rem; margin-bottom: 1rem; border: 1px solid var(--border); border-radius: 4px;">
+                    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.8rem;">Join The List</button>
+                </form>
+            </div>
+        </aside>
+
+    </main>
+
+    <!-- BRAND STORY ROW -->
+    <section class="brand-philosophy scroll-reveal">
+        <div class="philosophy-inner">
+            <span>Our Foundation</span>
+            <h2>Evidence-Based Skincare.</h2>
+            <p>"We believe in transparency. By focusing on molecular health and stripping away artificial fillers, we help you achieve the glow you were born with, honestly."</p>
+        </div>
+    </section>
+
+    <!-- CURATED SHOP ROW -->
+    <section class="shop-row">
+        <h2 class="section-title scroll-reveal">The Editor's Essentials</h2>
+        <div class="shop-grid">
+            <article class="shop-item card-lift scroll-reveal">
+                <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=400" alt="Serum">
+                <h4>Daily Reset Serum</h4>
+                <p>$42.00 • The Signature Formula</p>
+            </article>
+            <article class="shop-item card-lift scroll-reveal">
+                <img src="https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Tool">
+                <h4>Stainless Face Roller</h4>
+                <p>$28.00 • The Recovery Tool</p>
+            </article>
+            <article class="shop-item card-lift scroll-reveal">
+                <img src="https://images.unsplash.com/photo-1599305090598-fe179d501227?q=80&w=400" alt="SPF">
+                <h4>Mineral SPF 50</h4>
+                <p>$34.00 • The Shield</p>
+            </article>
+            <article class="shop-item card-lift scroll-reveal">
+                <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=400" alt="Cleanser">
+                <h4>Hydrating Cleanser</h4>
+                <p>$24.00 • The Base</p>
+            </article>
+        </div>
+    </section>
+
+     <!-- NEWSLETTER FOOTER -->
+     <section class="newsletter-cta scroll-reveal" style="background: var(--primary); color: white; padding: 5rem 8%; text-align: center; margin: 6rem 5% 0; border-radius: 12px;">
+         <h2 style="color: white; font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">The Glow List</h2>
+         <p style="color: white; opacity: 1; margin-bottom: 2.5rem; font-size: 1.1rem; max-width: 500px; margin-left: auto; margin-right: auto;">Join our community for exclusive clinical advice and early access to drops.</p>
+         <form action="https://manage.kmail-lists.com/subscriptions/subscribe" method="POST" target="_blank" class="newsletter-form" style="display: flex; flex-direction: column; gap: 15px; max-width: 450px; margin: 0 auto;">
+             <input type="hidden" name="g" value="RiVwwC">
+             <input type="email" name="email" placeholder="Your best email address" required style="width: 100%; padding: 1.2rem; border-radius: 6px; border: none; font-size: 1rem; outline: none; color: var(--text); background: white;">
+             <button type="submit" style="width: 100%; background: var(--secondary); color: white; border: none; padding: 1.2rem; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; border-radius: 6px; cursor: pointer; letter-spacing: 1px;">Subscribe</button>
+         </form>
+     </section>
+  
+
+
 <footer>
     <a href="index.html" class="f-logo">SkinHonestly</a>
     <div class="f-container">
@@ -38,3 +300,8 @@
         <p>&copy; 2026 SKINHONESTLY. REAL SKINCARE. HONESTLY.</p>
     </div>
 </footer>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
