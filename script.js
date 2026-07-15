@@ -151,7 +151,14 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => item.classList.add('revealed'), index * 200 + 100);
     });
 
-    // 9. EXIT/TIMED NEWSLETTER POPUP
+    // 9. EXIT-INTENT NEWSLETTER POPUP
+    // Primary trigger is exit intent — on desktop that's the cursor leaving
+    // toward the browser chrome; on mobile there's no cursor, so we use two
+    // mobile-specific signals instead: a fast upward scroll near the top of
+    // the page (the "I'm about to hit the back button" gesture), and an
+    // actual back-button press caught via the History API. A timed fallback
+    // still exists for engaged readers who close the tab without doing
+    // either — but it now fires later, since exit intent is the real trigger.
     const initNewsletterPopup = () => {
         if (sessionStorage.getItem('skinhonestly_popup_shown')) return;
 
@@ -176,27 +183,79 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const modal = document.getElementById('newsletter-modal');
         const closeBtn = document.getElementById('modal-close-btn');
+        let shown = false;
 
         const showModal = () => {
-            if (sessionStorage.getItem('skinhonestly_popup_shown')) return;
+            if (shown || sessionStorage.getItem('skinhonestly_popup_shown')) return;
+            shown = true;
             modal.style.display = 'flex';
             setTimeout(() => modal.classList.add('active'), 10);
             sessionStorage.setItem('skinhonestly_popup_shown', 'true');
         };
 
-        closeBtn.addEventListener('click', () => {
+        const hideModal = () => {
             modal.classList.remove('active');
             setTimeout(() => modal.style.display = 'none', 400);
+        };
+
+        closeBtn.addEventListener('click', hideModal);
+
+        // Click outside the modal content to dismiss
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) hideModal();
         });
 
-        const delay = mobileQuery.matches ? 25000 : 15000;
-        setTimeout(showModal, delay);
+        // ESC key to dismiss
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) hideModal();
+        });
 
+        // --- Desktop exit intent: cursor leaves toward the browser chrome ---
         if (!mobileQuery.matches) {
             document.addEventListener('mouseleave', (e) => {
                 if (e.clientY < 0) showModal();
             }, { once: true });
         }
+
+        // --- Mobile exit intent, signal 1: fast upward scroll near the top ---
+        // A quick upward flick after the reader has scrolled down and back up
+        // close to the top strongly correlates with reaching for the back
+        // button or the browser's address bar.
+        if (mobileQuery.matches) {
+            let lastScrollY = window.scrollY;
+            let lastScrollTime = Date.now();
+            let hasScrolledDown = false;
+
+            window.addEventListener('scroll', () => {
+                const currentY = window.scrollY;
+                const now = Date.now();
+                const deltaY = lastScrollY - currentY; // positive = scrolling up
+                const deltaTime = now - lastScrollTime;
+
+                if (currentY > 400) hasScrolledDown = true;
+
+                if (hasScrolledDown && currentY < 150 && deltaY > 60 && deltaTime < 150) {
+                    showModal();
+                }
+
+                lastScrollY = currentY;
+                lastScrollTime = now;
+            }, { passive: true });
+
+            // --- Mobile exit intent, signal 2: back-button press ---
+            // Push one extra history entry on load. The first back-button
+            // press then fires 'popstate' instead of leaving the page,
+            // giving us one chance to show the offer before a second press
+            // actually navigates away.
+            history.pushState({ skinhonestlyExitTrap: true }, '', window.location.href);
+            window.addEventListener('popstate', () => {
+                showModal();
+            }, { once: true });
+        }
+
+        // --- Fallback: engaged readers who never trigger exit intent ---
+        const fallbackDelay = mobileQuery.matches ? 45000 : 30000;
+        setTimeout(showModal, fallbackDelay);
     };
 
     initNewsletterPopup();
