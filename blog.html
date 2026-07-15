@@ -14,7 +14,9 @@
       gtag('js', new Date());
       gtag('config', 'G-33SX49MXHN');
     </script>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;600;700&display=swap">
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Utility Header (Breadcrumbs + Search) */
@@ -115,6 +117,30 @@
         .pagination { grid-column: 1 / 2; display: flex; justify-content: center; margin-top: 4rem; }
         .btn-more { padding: 1rem 3rem; border: 2px solid var(--primary); color: var(--primary); font-weight: bold; border-radius: 4px; transition: all 0.3s ease; }
         .btn-more:hover { background: var(--primary); color: white; }
+
+        /* Dropdown Styles */
+        .nav-dropdown { position: relative; display: inline-block; }
+        .dropdown-content { 
+            display: block; position: absolute; background-color: var(--white); min-width: 200px; 
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1); z-index: 1002; border: 1px solid var(--border);
+            top: 100%; left: 0;
+            max-height: 0; opacity: 0; overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+        }
+        .dropdown-content a { 
+            color: var(--text-light); padding: 12px 16px; text-decoration: none; display: block; 
+            font-size: 0.75rem; text-transform: uppercase; border-bottom: 1px solid var(--border);
+            letter-spacing: 1px; font-weight: 700;
+        }
+        .dropdown-content a:last-child { border-bottom: none; }
+        .dropdown-content a:hover { background-color: var(--bg); color: var(--primary); }
+        .nav-dropdown:hover .dropdown-content { max-height: 400px; opacity: 1; }
+
+        @media (max-width: 768px) {
+            .nav-dropdown { width: 100%; }
+            .dropdown-content { position: static; box-shadow: none; border: none; padding-left: 1rem; display: block; width: 100%; max-height: 0; opacity: 0; overflow: hidden; transition: max-height 0.4s ease, opacity 0.4s ease; }
+            .nav-dropdown.active .dropdown-content { max-height: 400px; opacity: 1; }
+        }
 
         /* Filter Transitions */
         .fade-transition {
@@ -233,7 +259,7 @@
 
             <article class="post-card card-lift scroll-reveal" data-category="reviews">
                 <a href="post3.html" style="display: block; overflow: hidden; border-radius: 8px; margin-bottom: 1.5rem;">
-                    <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?q=80&w=1200" alt="5 Affordable Skincare Products That Actually Deliver">
+                    <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?q=75&w=800&fm=webp&auto=format&fit=crop" alt="5 Affordable Skincare Products That Actually Deliver">
                 </a>
                 <div class="post-content">
                     <span class="post-meta">Reviews • July 13</span>
@@ -245,7 +271,7 @@
 
             <article class="post-card card-lift scroll-reveal" data-category="reviews">
                 <a href="post10.html" style="display: block; overflow: hidden; border-radius: 8px; margin-bottom: 1.5rem;">
-                    <img src="https://images.unsplash.com/photo-1617897903246-719242758050?q=80&w=1200" alt="Retinol for Beginners: A Dermatologist Review">
+                    <img src="https://images.unsplash.com/photo-1617897903246-719242758050?q=75&w=800&fm=webp&auto=format&fit=crop" alt="Retinol for Beginners: A Dermatologist Review">
                 </a>
                 <div class="post-content">
                     <span class="post-meta">Reviews • July 13</span>
@@ -257,7 +283,7 @@
 
             <article class="post-card card-lift scroll-reveal" data-category="barrier">
                 <a href="post12.html" style="display: block; overflow: hidden; border-radius: 8px; margin-bottom: 1.5rem;">
-                    <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?q=80&w=1600" alt="The Science of Your Morning Skincare Routine: Protect, Hydrate, Shield">
+                    <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?q=75&w=900&fm=webp&auto=format&fit=crop" alt="The Science of Your Morning Skincare Routine: Protect, Hydrate, Shield">
                 </a>
                 <div class="post-content">
                     <span class="post-meta">Barrier • July 13</span>
@@ -293,7 +319,7 @@
 
             <article class="post-card card-lift scroll-reveal" data-category="rituals">
                 <a href="post2.html" style="display: block; overflow: hidden; border-radius: 8px; margin-bottom: 1.5rem;">
-                    <img src="https://images.unsplash.com/photo-1590439471364-192aa70c0b53?q=80&w=1200" alt="My Honest Morning Routine: The Ritual of Less">
+                    <img src="https://images.unsplash.com/photo-1590439471364-192aa70c0b53?q=75&w=800&fm=webp&auto=format&fit=crop" alt="My Honest Morning Routine: The Ritual of Less">
                 </a>
                 <div class="post-content">
                     <span class="post-meta">Rituals • June 23</span>
@@ -305,7 +331,7 @@
 
             <article class="post-card card-lift scroll-reveal" data-category="science">
                 <a href="post4.html" style="display: block; overflow: hidden; border-radius: 8px; margin-bottom: 1.5rem;">
-                    <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=1200" alt="Peptides Explained: Do They Actually Work?">
+                    <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=75&w=800&fm=webp&auto=format&fit=crop" alt="Peptides Explained: Do They Actually Work?">
                 </a>
                 <div class="post-content">
                     <span class="post-meta">Science • June 21</span>
@@ -341,7 +367,7 @@
 
             <article class="post-card card-lift scroll-reveal" data-category="reviews">
                 <a href="post7.html" style="display: block; overflow: hidden; border-radius: 8px; margin-bottom: 1.5rem;">
-                    <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=1200" alt="The Truth About Eye Creams">
+                    <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=75&w=800&fm=webp&auto=format&fit=crop" alt="The Truth About Eye Creams">
                 </a>
                 <div class="post-content">
                     <span class="post-meta">Reviews • June 17</span>
@@ -350,8 +376,6 @@
                     <a href="post7.html" class="btn-read">Read Article</a>
                 </div>
             </article>
-
-
 
 
 
@@ -378,19 +402,17 @@
             <div class="widget scroll-reveal">
                 <h3 class="widget-title">Most Popular Now</h3>
                 <a href="post3.html" class="trending-row">
-                    <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?q=80&w=1200" alt="5 Affordable Skincare Products That Actually Deliver">
+                    <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?q=75&w=800&fm=webp&auto=format&fit=crop" alt="5 Affordable Skincare Products That Actually Deliver">
                     <h5>5 Affordable Skincare Products That Actually Deliver</h5>
                 </a>
                 <a href="post10.html" class="trending-row">
-                    <img src="https://images.unsplash.com/photo-1617897903246-719242758050?q=80&w=1200" alt="Retinol for Beginners: A Dermatologist Review">
+                    <img src="https://images.unsplash.com/photo-1617897903246-719242758050?q=75&w=800&fm=webp&auto=format&fit=crop" alt="Retinol for Beginners: A Dermatologist Review">
                     <h5>Retinol for Beginners: A Dermatologist Review</h5>
                 </a>
                 <a href="post12.html" class="trending-row">
-                    <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?q=80&w=1600" alt="The Science of Your Morning Skincare Routine: Protect, Hydrate, Shield">
+                    <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?q=75&w=900&fm=webp&auto=format&fit=crop" alt="The Science of Your Morning Skincare Routine: Protect, Hydrate, Shield">
                     <h5>The Science of Your Morning Skincare Routine: Protect, Hydrate, Shield</h5>
                 </a>
-            
-            
             
             
             
@@ -491,7 +513,7 @@
     <script src="script.js"></script>
     <script>
         // Local database override or logic if desired, otherwise script.js handles everything.
-                                                const heroData = {
+                                const heroData = {
             'all': {
                 badge: "Editor's Highlight",
                 title: "Sunscreen Stability: Why Your SPF Might Be Failing You",
@@ -503,14 +525,14 @@
                 badge: "Barrier Health",
                 title: "The Science of Your Morning Skincare Routine: Protect, Hydrate, Shield",
                 text: "When your skin barrier is compromised, your morning routine shifts from optimization to rehabilitation. Protect, hydrate, and shield.",
-                img: "https://images.unsplash.com/photo-1612817288484-6f916006741a?q=80&w=1600",
+                img: "https://images.unsplash.com/photo-1612817288484-6f916006741a?q=75&w=900&fm=webp&auto=format&fit=crop",
                 link: "post12.html"
             },
             'rituals': {
                 badge: "Morning Rituals",
                 title: "My Honest Morning Routine: The Ritual of Less",
                 text: "A minimalist morning routine built on three clinically potent actives — no 12-step system required.",
-                img: "https://images.unsplash.com/photo-1590439471364-192aa70c0b53?q=80&w=1200",
+                img: "https://images.unsplash.com/photo-1590439471364-192aa70c0b53?q=75&w=800&fm=webp&auto=format&fit=crop",
                 link: "post2.html"
             },
             'science': {
@@ -524,7 +546,7 @@
                 badge: "Derm Reviews",
                 title: "5 Affordable Skincare Products That Actually Deliver",
                 text: "You don't need to spend a fortune to get great skin. These budget-friendly finds have earned their spot through clinical performance, not price tags.",
-                img: "https://images.unsplash.com/photo-1612817288484-6f916006741a?q=80&w=1200",
+                img: "https://images.unsplash.com/photo-1612817288484-6f916006741a?q=75&w=800&fm=webp&auto=format&fit=crop",
                 link: "post3.html"
             }
         };
