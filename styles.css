@@ -136,8 +136,11 @@ footer { padding: 8rem 5% 4rem; background: var(--white); border-top: 1px solid 
 .f-social-link svg { flex-shrink: 0; }
 .f-bottom { padding-top: 4rem; text-align: center; font-size: 0.75rem; color: #999; letter-spacing: 2px; text-transform: uppercase; }
 
+@media (max-width: 992px) {
+  .f-container { grid-template-columns: repeat(2, 1fr); gap: 3rem; }
+}
 @media (max-width: 768px) {
-  .f-container { grid-template-columns: repeat(2, 1fr); gap: 3rem; text-align: center; }
+  .f-container { text-align: center; }
   .f-social-link { justify-content: center; }
 }
 @media (max-width: 480px) {
@@ -221,16 +224,21 @@ footer { padding: 8rem 5% 4rem; background: var(--white); border-top: 1px solid 
   .main-img { height: 350px; }
 }
 
-/* 8. EDITOR'S CHOICE / SHOP CALLOUT (used inline within some article bodies)
+/* 8. EDITOR'S CHOICE / SHOP CALLOUT (used inline within article bodies)
    ========================================================================== */
-.shop-callout { position: relative; display: flex; align-items: center; gap: 1.5rem; background: #F9F7F2; border: 1px solid var(--border); padding: 2.5rem 1.5rem 1.5rem 1.5rem; margin: 3rem 0; border-radius: 4px; }
-.shop-callout::before { content: "EDITOR'S CHOICE"; position: absolute; top: 0; left: 1.5rem; transform: translateY(-50%); background: var(--secondary); color: var(--white); font-size: 0.6rem; font-weight: 600; letter-spacing: 1px; padding: 0.25rem 0.75rem; border-radius: 2px; }
-.shop-callout img { width: 80px !important; height: 80px !important; object-fit: cover; border-radius: 4px; }
+.shop-callout { background: var(--white); border: 1px solid var(--border); padding: 2.5rem; margin: 4rem 0; position: relative; display: flex; align-items: center; gap: 2.5rem; transition: transform 0.3s ease; border-radius: 4px; }
+.shop-callout:hover { transform: translateY(-5px); }
+.shop-callout::before { content: "EDITOR'S CHOICE"; position: absolute; top: -12px; left: 2.5rem; background: var(--secondary); color: white; font-size: 0.6rem; font-weight: 700; padding: 4px 12px; letter-spacing: 2px; }
+.shop-callout img { width: 120px; height: 120px; object-fit: cover; border-radius: 2px; flex-shrink: 0; }
 .shop-callout-content { flex: 1; }
-.shop-callout-content h4 { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--primary); }
-.shop-callout-content p { font-size: 0.85rem; color: var(--text-light); margin-bottom: 0.8rem; }
-.shop-callout-btn { display: inline-block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; color: var(--primary); border-bottom: 1px solid var(--primary); padding-bottom: 2px; }
-.shop-callout-btn:hover { color: var(--secondary); border-bottom-color: var(--secondary); }
+.shop-callout-content h4 { font-size: 1.4rem; margin-bottom: 0.8rem; color: var(--text); }
+.shop-callout-content p { font-size: 0.95rem; margin-bottom: 1.5rem; color: var(--text-light); line-height: 1.5; border: none; font-weight: 400; }
+.shop-callout-btn { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--primary); border-bottom: 2px solid var(--primary); padding-bottom: 4px; text-decoration: none; }
+
+@media (max-width: 768px) {
+  .shop-callout { flex-direction: column; text-align: center; }
+  .shop-callout img { width: 100%; max-width: 220px; height: 220px; margin: 0 auto; }
+}
 
 /* 9. NEWSLETTER POPUP MODAL (triggered by script.js)
    ========================================================================== */
